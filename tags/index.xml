@@ -5,6 +5,16 @@
     <link>http://gekang.tech/tags/</link>
     <description>Recent content in Tags on likon</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="http://gekang.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 18 Apr 2022 13:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gem</title>
+      <link>http://gekang.tech/tags/gem/</link>
+      <pubDate>Mon, 18 Apr 2022 13:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/tags/gem/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

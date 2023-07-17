@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>搭建私有 RubyGem | likon</title>
+<meta name="keywords" content="gem">
+<meta name="description" content="写在前面 在 iOS 开发过程中，不可避免会接触到 CocoaPods。CocoaPods 是 Swift 和 Objective-C Cocoa 项目的依赖管理器，帮你优雅的管理扩展项目。想到自己搭建私有 spec repo，来托管私有 pod 的 podspec。
+Gem in a box gem 开发管理过程中，自然也少不了自建私有托管平台的需求。
+Google 查到有一个开源项目 Gem in a box，而且我们公司也是用的这个开源项目搭建的托管 gem 平台，当然需要研究学习一番。
+首先必须去逛逛 GitHub，找到开源源码，然后找文档、教程，实操一下。
+实操记录，托管平台自然要分为 server 和 client 两端。
+SERVER 文档 安装 geminabox
+gem install geminabox Home 目录下创建 config.ru 文件 最后，使用 passenger，thin，unicorn 等等，随你便。
+gem install rack gem install thin rackup config.ru 浏览器打开 http://127.0.0.1:9292/ CLIENT 文档 Gem，写一个吧，将自己写的 gem 上传上去。
+gem install geminabox gem inabox gleksayhi-0.">
+<meta name="author" content="">
+<link rel="canonical" href="http://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e7c49816de449f6ad0aa23a3856dd9781a6a193741fbf188d2d84487562ebc50.css" integrity="sha256-58SYFt5En2rQqiOjhW3ZeBpqGTdB&#43;/GI0thEh1YuvFA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://gekang.tech/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://gekang.tech/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://gekang.tech/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://gekang.tech/apple-touch-icon.png">
+<link rel="mask-icon" href="http://gekang.tech/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="搭建私有 RubyGem" />
+<meta property="og:description" content="写在前面 在 iOS 开发过程中，不可避免会接触到 CocoaPods。CocoaPods 是 Swift 和 Objective-C Cocoa 项目的依赖管理器，帮你优雅的管理扩展项目。想到自己搭建私有 spec repo，来托管私有 pod 的 podspec。
+Gem in a box gem 开发管理过程中，自然也少不了自建私有托管平台的需求。
+Google 查到有一个开源项目 Gem in a box，而且我们公司也是用的这个开源项目搭建的托管 gem 平台，当然需要研究学习一番。
+首先必须去逛逛 GitHub，找到开源源码，然后找文档、教程，实操一下。
+实操记录，托管平台自然要分为 server 和 client 两端。
+SERVER 文档 安装 geminabox
+gem install geminabox Home 目录下创建 config.ru 文件 最后，使用 passenger，thin，unicorn 等等，随你便。
+gem install rack gem install thin rackup config.ru 浏览器打开 http://127.0.0.1:9292/ CLIENT 文档 Gem，写一个吧，将自己写的 gem 上传上去。
+gem install geminabox gem inabox gleksayhi-0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-18T13:00:00+00:00" />
+<meta property="article:modified_time" content="2022-04-18T13:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="搭建私有 RubyGem"/>
+<meta name="twitter:description" content="写在前面 在 iOS 开发过程中，不可避免会接触到 CocoaPods。CocoaPods 是 Swift 和 Objective-C Cocoa 项目的依赖管理器，帮你优雅的管理扩展项目。想到自己搭建私有 spec repo，来托管私有 pod 的 podspec。
+Gem in a box gem 开发管理过程中，自然也少不了自建私有托管平台的需求。
+Google 查到有一个开源项目 Gem in a box，而且我们公司也是用的这个开源项目搭建的托管 gem 平台，当然需要研究学习一番。
+首先必须去逛逛 GitHub，找到开源源码，然后找文档、教程，实操一下。
+实操记录，托管平台自然要分为 server 和 client 两端。
+SERVER 文档 安装 geminabox
+gem install geminabox Home 目录下创建 config.ru 文件 最后，使用 passenger，thin，unicorn 等等，随你便。
+gem install rack gem install thin rackup config.ru 浏览器打开 http://127.0.0.1:9292/ CLIENT 文档 Gem，写一个吧，将自己写的 gem 上传上去。
+gem install geminabox gem inabox gleksayhi-0."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://gekang.tech/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "搭建私有 RubyGem",
+      "item": "http://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "搭建私有 RubyGem",
+  "name": "搭建私有 RubyGem",
+  "description": "写在前面 在 iOS 开发过程中，不可避免会接触到 CocoaPods。CocoaPods 是 Swift 和 Objective-C Cocoa 项目的依赖管理器，帮你优雅的管理扩展项目。想到自己搭建私有 spec repo，来托管私有 pod 的 podspec。\nGem in a box gem 开发管理过程中，自然也少不了自建私有托管平台的需求。\nGoogle 查到有一个开源项目 Gem in a box，而且我们公司也是用的这个开源项目搭建的托管 gem 平台，当然需要研究学习一番。\n首先必须去逛逛 GitHub，找到开源源码，然后找文档、教程，实操一下。\n实操记录，托管平台自然要分为 server 和 client 两端。\nSERVER 文档 安装 geminabox\ngem install geminabox Home 目录下创建 config.ru 文件 最后，使用 passenger，thin，unicorn 等等，随你便。\ngem install rack gem install thin rackup config.ru 浏览器打开 http://127.0.0.1:9292/ CLIENT 文档 Gem，写一个吧，将自己写的 gem 上传上去。\ngem install geminabox gem inabox gleksayhi-0.",
+  "keywords": [
+    "gem"
+  ],
+  "articleBody": "写在前面 在 iOS 开发过程中，不可避免会接触到 CocoaPods。CocoaPods 是 Swift 和 Objective-C Cocoa 项目的依赖管理器，帮你优雅的管理扩展项目。想到自己搭建私有 spec repo，来托管私有 pod 的 podspec。\nGem in a box gem 开发管理过程中，自然也少不了自建私有托管平台的需求。\nGoogle 查到有一个开源项目 Gem in a box，而且我们公司也是用的这个开源项目搭建的托管 gem 平台，当然需要研究学习一番。\n首先必须去逛逛 GitHub，找到开源源码，然后找文档、教程，实操一下。\n实操记录，托管平台自然要分为 server 和 client 两端。\nSERVER 文档 安装 geminabox\ngem install geminabox Home 目录下创建 config.ru 文件 最后，使用 passenger，thin，unicorn 等等，随你便。\ngem install rack gem install thin rackup config.ru 浏览器打开 http://127.0.0.1:9292/ CLIENT 文档 Gem，写一个吧，将自己写的 gem 上传上去。\ngem install geminabox gem inabox gleksayhi-0.0.1.gem # 需要输入 host，http://127.0.0.1:9292 可以参考 gem inabox 文档\ngem inabox --help 上传指定 gem 到指定 host\ngem inabox gleksayhi-0.0.1.gem -g http://127.0.0.1:9292 最终，再看一下浏览器展示 另外，也可以使用页面中 Upload Another Gem 进行可视化上传 gem。\n最后 挖两个坑\ngem 托管上传鉴权问题 rack、passenger、thin、unicorn 的学习分享 参考 GEM IN A BOX\ngeminabox Github\nRack\nRack Explained For Ruby Developers\nUpcase Rack\nwriting-a-small-web-service-with-ruby-rack-and-functional-programming\n",
+  "wordCount" : "120",
+  "inLanguage": "en",
+  "datePublished": "2022-04-18T13:00:00Z",
+  "dateModified": "2022-04-18T13:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "likon",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://gekang.tech/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://gekang.tech/" accesskey="h" title="likon (Alt + H)">likon</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://gekang.tech/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/likontech" title="Github">
+                    <span>Github</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      搭建私有 RubyGem
+    </h1>
+    <div class="post-meta"><span title='2022-04-18 13:00:00 +0000 UTC'>April 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;120 words
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="写在前面">写在前面<a hidden class="anchor" aria-hidden="true" href="#写在前面">#</a></h2>
+<p>在 iOS 开发过程中，不可避免会接触到 CocoaPods。CocoaPods 是 Swift 和 Objective-C Cocoa 项目的依赖管理器，帮你优雅的管理扩展项目。想到自己搭建私有 spec repo，来托管私有 pod 的 podspec。</p>
+<h2 id="gem-in-a-box">Gem in a box<a hidden class="anchor" aria-hidden="true" href="#gem-in-a-box">#</a></h2>
+<p>gem 开发管理过程中，自然也少不了自建私有托管平台的需求。</p>
+<p>Google 查到有一个开源项目 <a href="http://tomlea.co.uk/posts/gem-in-a-box/">Gem in a box</a>，而且我们公司也是用的这个开源项目搭建的托管 gem 平台，当然需要研究学习一番。</p>
+<p>首先必须去逛逛 GitHub，找到<a href="https://github.com/geminabox/geminabox">开源源码</a>，然后找文档、教程，实操一下。</p>
+<p>实操记录，托管平台自然要分为 server 和 client 两端。</p>
+<h3 id="server-文档">SERVER 文档<a hidden class="anchor" aria-hidden="true" href="#server-文档">#</a></h3>
+<p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/18/6988eb40f248290a.png" alt=""  />
+</p>
+<p>安装 geminabox</p>
+<pre tabindex="0"><code>gem install geminabox
+</code></pre><p>Home 目录下创建 config.ru 文件
+<img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/18/3ab0d33fd26d81d5.png" alt=""  />
+</p>
+<p>最后，使用 passenger，thin，unicorn 等等，随你便。</p>
+<pre tabindex="0"><code>gem install rack
+gem install thin
+rackup config.ru
+</code></pre><p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/18/817844a8bc5b2f7d.png" alt=""  />
+</p>
+<p>浏览器打开 http://127.0.0.1:9292/
+<img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/18/d4d5c1441b435d85.png" alt=""  />
+</p>
+<h3 id="client-文档">CLIENT 文档<a hidden class="anchor" aria-hidden="true" href="#client-文档">#</a></h3>
+<p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/18/25c0b451d085f530.png" alt=""  />
+
+<a href="https://grackanil.top/2022/04/16/%E5%86%99%E4%B8%80%E4%B8%AAGem/">Gem，写一个吧</a>，将自己写的 gem 上传上去。</p>
+<pre tabindex="0"><code>gem install geminabox
+gem inabox gleksayhi-0.0.1.gem # 需要输入 host，http://127.0.0.1:9292
+</code></pre><p>可以参考 gem inabox 文档</p>
+<pre tabindex="0"><code>gem inabox --help
+</code></pre><p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/18/0438361f75932507.png" alt=""  />
+</p>
+<p>上传指定 gem 到指定 host</p>
+<pre tabindex="0"><code>gem inabox gleksayhi-0.0.1.gem -g http://127.0.0.1:9292
+</code></pre><p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/18/e7005ee4e0fda5a5.png" alt=""  />
+</p>
+<p>最终，再看一下浏览器展示
+<img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/18/f10284ac5f6d9db3.png" alt=""  />
+</p>
+<p>另外，也可以使用页面中 Upload Another Gem 进行可视化上传 gem。</p>
+<h2 id="最后">最后<a hidden class="anchor" aria-hidden="true" href="#最后">#</a></h2>
+<p>挖两个坑</p>
+<ul>
+<li>gem 托管上传鉴权问题</li>
+<li>rack、passenger、thin、unicorn 的学习分享</li>
+</ul>
+<h2 id="参考">参考<a hidden class="anchor" aria-hidden="true" href="#参考">#</a></h2>
+<p><a href="http://tomlea.co.uk/posts/gem-in-a-box/">GEM IN A BOX</a></p>
+<p><a href="https://github.com/geminabox/geminabox">geminabox Github</a></p>
+<p><a href="https://github.com/rack/rack">Rack</a></p>
+<p><a href="https://www.rubyguides.com/2018/09/rack-middleware/">Rack Explained For Ruby Developers</a></p>
+<p><a href="https://thoughtbot.com/upcase/videos/rack">Upcase Rack</a></p>
+<p><a href="https://levelup.gitconnected.com/writing-a-small-web-service-with-ruby-rack-and-functional-programming-a16f802a19c0">writing-a-small-web-service-with-ruby-rack-and-functional-programming</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://gekang.tech/tags/gem/">gem</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://gekang.tech/">likon</a></span>
+    <span>
+        Powered by ❤️
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
