@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ios on likon</title>
+    <link>http://gekang.tech/tags/ios/</link>
+    <description>Recent content in ios on likon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 06 May 2022 23:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>重谈单例模式</title>
+      <link>http://gekang.tech/posts/%E9%87%8D%E8%B0%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Fri, 06 May 2022 23:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/posts/%E9%87%8D%E8%B0%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>前言 一提到 iOS 单例模式，一般都会想到如下常用方式。
++ (instancetype)sharedInstance { static TestClass *_sharedInstance = nil; static dispatch_once_t onceToken; dispatch_once(&amp;amp;onceToken, ^{ _sharedInstance = [[self alloc] init]; }); return _sharedInstance; } 大家按约定使用 sharedInstance 获取单例，似乎没有什么问题，大家也都是这么做的。
+其实，单例模式其实不只是仅仅一个 sharedInstance 方法就够了
+完整写法 避免使用方使用 alloc、new 和 copy、mutableCopy，有两种处理办法
+写法一 + (instancetype)sharedInstance { static TestClass *_sharedInstance = nil; static dispatch_once_t onceToken; dispatch_once(&amp;amp;onceToken, ^{ _sharedInstance = [[self alloc] init]; }); return _sharedInstance; } + (instancetype)allocWithZone:(struct _NSZone *)zone { return [self sharedInstance]; } - (id)copyWithZone:(struct _NSZone *)zone { return [TestClass sharedInstance]; } - (id)mutableCopyWithZone:(NSZone *)zone { return [TestClass sharedInstance]; } 写法二 + (instancetype)sharedInstance { static TestClass *_sharedInstance = nil; static dispatch_once_t onceToken; dispatch_once(&amp;amp;onceToken, ^{ _sharedInstance = [[self alloc] init]; }); return _sharedInstance; } # .</description>
+    </item>
+    
+    <item>
+      <title>iOS 真机中设置 Slow Animations</title>
+      <link>http://gekang.tech/posts/ios-slow-animation/</link>
+      <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/posts/ios-slow-animation/</guid>
+      <description>分享个 XCode LLDB 调试小技巧
+前言 在 iOS 开发中，动画也是一个很重要的组成部分。你会不会因为动画需要有灵性，苦于一点点调试参数，但又看不清楚细节？会不会遇到 App 中某些色块一闪而过？会不会突然闪屏不知道为什么？
+当然，不可避免。
+可能会用到的调试技巧 或许有些人，早已知道，模拟器中，苹果提供了 Slow Animations 选项。也或许有些人还不知道，或者未尝试使用过。
+模拟器开启 Slow Animations 打开模拟器，菜单栏 &amp;gt; Debug &amp;gt; Show Animations
+真机开启 Slow Animations 可以使用 LLDB 实现 Slow Animations 点击 Debug 区域的 Pause program execution 点击 Debug 区域的 LLDB 中输入命令 p [(CALayer *)[[[[UIApplication sharedApplication] windows] objectAtIndex:0] layer] setSpeed:.1f] 另外，Swift 使用 p UIApplication.sharedApplication().windows.first?.layer.speed = 0.1 即可。 点击 Debug 区域的 Continue program execution 可以代码形式实现 Slow Animations didFinishLaunchingWithOptions 中设置 self.</description>
+    </item>
+    
+  </channel>
+</rss>

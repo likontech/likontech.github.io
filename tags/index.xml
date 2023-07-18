@@ -6,13 +6,40 @@
     <description>Recent content in Tags on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 18 Apr 2022 13:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 May 2022 23:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ios</title>
+      <link>http://gekang.tech/tags/ios/</link>
+      <pubDate>Fri, 06 May 2022 23:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/tags/ios/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>gem</title>
       <link>http://gekang.tech/tags/gem/</link>
       <pubDate>Mon, 18 Apr 2022 13:00:00 +0000</pubDate>
       
       <guid>http://gekang.tech/tags/gem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rails</title>
+      <link>http://gekang.tech/tags/rails/</link>
+      <pubDate>Mon, 18 Apr 2022 13:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/tags/rails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>read</title>
+      <link>http://gekang.tech/tags/read/</link>
+      <pubDate>Sat, 16 Apr 2022 21:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/tags/read/</guid>
       <description></description>
     </item>
     

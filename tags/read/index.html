@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Posts | likon</title>
+<title>read | likon</title>
 <meta name="keywords" content="">
-<meta name="description" content="Posts - likon">
+<meta name="description" content="">
 <meta name="author" content="">
-<link rel="canonical" href="http://gekang.tech/posts/">
+<link rel="canonical" href="http://gekang.tech/tags/read/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e7c49816de449f6ad0aa23a3856dd9781a6a193741fbf188d2d84487562ebc50.css" integrity="sha256-58SYFt5En2rQqiOjhW3ZeBpqGTdB&#43;/GI0thEh1YuvFA=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://gekang.tech/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://gekang.tech/favicon-16x16.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="http://gekang.tech/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://gekang.tech/posts/index.xml">
+<link rel="alternate" type="application/rss+xml" href="http://gekang.tech/tags/read/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -55,30 +55,15 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Posts" />
+</noscript><meta property="og:title" content="read" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://gekang.tech/posts/" />
+<meta property="og:url" content="http://gekang.tech/tags/read/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:title" content="read"/>
 <meta name="twitter:description" content=""/>
 
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "http://gekang.tech/posts/"
-    }
-  ]
-}
-</script>
 </head>
 
 <body class="list" id="top">
@@ -143,63 +128,11 @@
 <main class="main"> 
 <header class="page-header">
   <h1>
-    Posts
+    read
   </h1>
 </header>
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>重谈单例模式
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 一提到 iOS 单例模式，一般都会想到如下常用方式。
-&#43; (instancetype)sharedInstance { static TestClass *_sharedInstance = nil; static dispatch_once_t onceToken; dispatch_once(&amp;onceToken, ^{ _sharedInstance = [[self alloc] init]; }); return _sharedInstance; } 大家按约定使用 sharedInstance 获取单例，似乎没有什么问题，大家也都是这么做的。
-其实，单例模式其实不只是仅仅一个 sharedInstance 方法就够了
-完整写法 避免使用方使用 alloc、new 和 copy、mutableCopy，有两种处理办法
-写法一 &#43; (instancetype)sharedInstance { static TestClass *_sharedInstance = nil; static dispatch_once_t onceToken; dispatch_once(&amp;onceToken, ^{ _sharedInstance = [[self alloc] init]; }); return _sharedInstance; } &#43; (instancetype)allocWithZone:(struct _NSZone *)zone { return [self sharedInstance]; } - (id)copyWithZone:(struct _NSZone *)zone { return [TestClass sharedInstance]; } - (id)mutableCopyWithZone:(NSZone *)zone { return [TestClass sharedInstance]; } 写法二 &#43; (instancetype)sharedInstance { static TestClass *_sharedInstance = nil; static dispatch_once_t onceToken; dispatch_once(&amp;onceToken, ^{ _sharedInstance = [[self alloc] init]; }); return _sharedInstance; } # ....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-05-06 23:00:00 +0000 UTC'>May 6, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;354 words</footer>
-  <a class="entry-link" aria-label="post link to 重谈单例模式" href="http://gekang.tech/posts/%E9%87%8D%E8%B0%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>搭建私有 RubyGem
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>写在前面 在 iOS 开发过程中，不可避免会接触到 CocoaPods。CocoaPods 是 Swift 和 Objective-C Cocoa 项目的依赖管理器，帮你优雅的管理扩展项目。想到自己搭建私有 spec repo，来托管私有 pod 的 podspec。
-Gem in a box gem 开发管理过程中，自然也少不了自建私有托管平台的需求。
-Google 查到有一个开源项目 Gem in a box，而且我们公司也是用的这个开源项目搭建的托管 gem 平台，当然需要研究学习一番。
-首先必须去逛逛 GitHub，找到开源源码，然后找文档、教程，实操一下。
-实操记录，托管平台自然要分为 server 和 client 两端。
-SERVER 文档 安装 geminabox
-gem install geminabox Home 目录下创建 config.ru 文件 最后，使用 passenger，thin，unicorn 等等，随你便。
-gem install rack gem install thin rackup config.ru 浏览器打开 http://127.0.0.1:9292/ CLIENT 文档 Gem，写一个吧，将自己写的 gem 上传上去。
-gem install geminabox gem inabox gleksayhi-0....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-18 13:00:00 +0000 UTC'>April 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;120 words</footer>
-  <a class="entry-link" aria-label="post link to 搭建私有 RubyGem" href="http://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>记一次 Ruby on Rails 部署记录
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>写在前面 学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。
-云服务器 采用的是腾讯云，系统Ubuntu Server 16.04.1 LTS 64位
-项目示例 采用 blog demo，来自 Rails 官网文档中 Getting Started with Rails。
-安装服器软件 采用 Ubuntu 内建的套件管理工具 apt-get
-更新软件列表 sudo apt-get update 安装 Ruby on Rails 需要的软件 sudo apt-get install -y build-essential git-core bison openssl libreadline6-dev curl zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 autoconf libc6-dev libpcre3-dev libcurl4-nss-dev libxml2-dev libxslt-dev imagemagick nodejs libffi-dev 安装 Ruby，使用 Brighbox 已经编译好的 Ruby sudo apt-get install software-properties-common sudo apt-add-repository ppa:brightbox/ruby-ng sudo apt-get update sudo apt-get install ruby2....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-18 13:00:00 +0000 UTC'>April 18, 2022</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1863 words</footer>
-  <a class="entry-link" aria-label="post link to 记一次 Ruby on Rails 部署记录" href="http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/"></a>
-</article>
-
-<article class="post-entry"> 
+<article class="post-entry tag-entry"> 
   <header class="entry-header">
     <h2>压力之下，择要事为之
     </h2>
@@ -220,69 +153,6 @@ gem install geminabox gem inabox gleksayhi-0....</p>
   </div>
   <footer class="entry-footer"><span title='2022-04-16 21:00:00 +0000 UTC'>April 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;61 words</footer>
   <a class="entry-link" aria-label="post link to 压力之下，择要事为之" href="http://gekang.tech/posts/%E5%8E%8B%E5%8A%9B%E4%B9%8B%E4%B8%8B%E6%8B%A9%E8%A6%81%E4%BA%8B%E4%B8%BA%E4%B9%8B/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Gem，写一个吧
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 最好的教程当然还是官方文档。
-手把手 以新建一个名为 gleksayhi 的 gem 🙋🌰
-新建 gleksayhi.rb 文件，功能仅为一行打印
-新建 gleksayhi.gemspec
-由 gemspec 新建一个 gem
-gem build gleksayhi.gemspec 安装本地 gem
-gem install ./gleksayhi-0.0.1.gem 查看是否安装上，并验证 gem 功能
-接下来先注册一个 https://rubygems.org/ 的账号，然后浏览器访问 https://rubygems.org/api/v1/api_key.yaml，输入账号密码，下载 api_key.yaml 文件，将文件改名为 credentials，放置 ~/.gem 目录下。修改文件权限
-chmod 0600 ~/.gem/credentials 现在你可以发布你的 gem 到 RubyGems.org，来分享你的 gem 了
-gem push gleksayhi-0.0.1.gem 最后，可以查询下远程你的 gem
-gem list -r gleksay 大功告成。
-One more thing 解决依赖 另外，随着功能的复杂性提高，多文件肯定是必不可少的，需要处理文件的依赖关系，也就是依赖方 require 被依赖方。此时，gemspec 里的 file 配置就需要做些改动，包含所有文件。
-当然，也有一些解决方案，解决众多文件配置 gemspec 问题。
-https://github.com/seattlerb/hoe https://github....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-16 20:40:00 +0000 UTC'>April 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;116 words</footer>
-  <a class="entry-link" aria-label="post link to Gem，写一个吧" href="http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>iOS 真机中设置 Slow Animations
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>分享个 XCode LLDB 调试小技巧
-前言 在 iOS 开发中，动画也是一个很重要的组成部分。你会不会因为动画需要有灵性，苦于一点点调试参数，但又看不清楚细节？会不会遇到 App 中某些色块一闪而过？会不会突然闪屏不知道为什么？
-当然，不可避免。
-可能会用到的调试技巧 或许有些人，早已知道，模拟器中，苹果提供了 Slow Animations 选项。也或许有些人还不知道，或者未尝试使用过。
-模拟器开启 Slow Animations 打开模拟器，菜单栏 &gt; Debug &gt; Show Animations
-真机开启 Slow Animations 可以使用 LLDB 实现 Slow Animations 点击 Debug 区域的 Pause program execution 点击 Debug 区域的 LLDB 中输入命令 p [(CALayer *)[[[[UIApplication sharedApplication] windows] objectAtIndex:0] layer] setSpeed:.1f] 另外，Swift 使用 p UIApplication.sharedApplication().windows.first?.layer.speed = 0.1 即可。 点击 Debug 区域的 Continue program execution 可以代码形式实现 Slow Animations didFinishLaunchingWithOptions 中设置 self....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-15 00:00:00 +0000 UTC'>April 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;73 words</footer>
-  <a class="entry-link" aria-label="post link to iOS 真机中设置 Slow Animations" href="http://gekang.tech/posts/ios-slow-animation/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>RubyGems三两事
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 RubyGems 是 Ruby 的一个包管理器。类似于 Ubuntu 的 apt-get，CentOS 的 yum，Python 的 pip，iOS 的 Cocoapods。方便 Rubyists 管理软件包（gem），分享可复用的功能，为应用、库的开发提供坚实的巨人肩膀。
-Gem Gem 一般都有 version、name 和 platform。
-gem help platform Gems 内部组成一般分为以下三部分：
-Code (including tests and supporting utilities) Documentation gemspec 示例 Gem cocoapods-search-1.0.0 代码组织结构
-lib 包含 gem 的源码。
-test 或者 spec 包含开发者测试的代码或者测试框架。
-Rakefile 通常为 rake 程序自动化测试、生成代码、执行任务。
-bin 包含可执行文件，在 gem 安装时加载到 PATH 中。
-文档通常包含 README 和代码内联说明，在 gem 安装时自动生成，一般 为 RDoc 文档和 YARD 文档。
-gemspec 包含 gem 的信息。...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-10 02:25:00 +0000 UTC'>April 10, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;285 words</footer>
-  <a class="entry-link" aria-label="post link to RubyGems三两事" href="http://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/"></a>
 </article>
     </main>
     

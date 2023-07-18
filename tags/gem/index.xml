@@ -24,5 +24,45 @@ gem install rack gem install thin rackup config.ru 浏览器打开 http://127.0.
 gem install geminabox gem inabox gleksayhi-0.</description>
     </item>
     
+    <item>
+      <title>Gem，写一个吧</title>
+      <link>http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/</link>
+      <pubDate>Sat, 16 Apr 2022 20:40:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/</guid>
+      <description>前言 最好的教程当然还是官方文档。
+手把手 以新建一个名为 gleksayhi 的 gem 🙋🌰
+新建 gleksayhi.rb 文件，功能仅为一行打印
+新建 gleksayhi.gemspec
+由 gemspec 新建一个 gem
+gem build gleksayhi.gemspec 安装本地 gem
+gem install ./gleksayhi-0.0.1.gem 查看是否安装上，并验证 gem 功能
+接下来先注册一个 https://rubygems.org/ 的账号，然后浏览器访问 https://rubygems.org/api/v1/api_key.yaml，输入账号密码，下载 api_key.yaml 文件，将文件改名为 credentials，放置 ~/.gem 目录下。修改文件权限
+chmod 0600 ~/.gem/credentials 现在你可以发布你的 gem 到 RubyGems.org，来分享你的 gem 了
+gem push gleksayhi-0.0.1.gem 最后，可以查询下远程你的 gem
+gem list -r gleksay 大功告成。
+One more thing 解决依赖 另外，随着功能的复杂性提高，多文件肯定是必不可少的，需要处理文件的依赖关系，也就是依赖方 require 被依赖方。此时，gemspec 里的 file 配置就需要做些改动，包含所有文件。
+当然，也有一些解决方案，解决众多文件配置 gemspec 问题。
+https://github.com/seattlerb/hoe https://github.</description>
+    </item>
+    
+    <item>
+      <title>RubyGems三两事</title>
+      <link>http://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</link>
+      <pubDate>Sun, 10 Apr 2022 02:25:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</guid>
+      <description>前言 RubyGems 是 Ruby 的一个包管理器。类似于 Ubuntu 的 apt-get，CentOS 的 yum，Python 的 pip，iOS 的 Cocoapods。方便 Rubyists 管理软件包（gem），分享可复用的功能，为应用、库的开发提供坚实的巨人肩膀。
+Gem Gem 一般都有 version、name 和 platform。
+gem help platform Gems 内部组成一般分为以下三部分：
+Code (including tests and supporting utilities) Documentation gemspec 示例 Gem cocoapods-search-1.0.0 代码组织结构
+lib 包含 gem 的源码。
+test 或者 spec 包含开发者测试的代码或者测试框架。
+Rakefile 通常为 rake 程序自动化测试、生成代码、执行任务。
+bin 包含可执行文件，在 gem 安装时加载到 PATH 中。
+文档通常包含 README 和代码内联说明，在 gem 安装时自动生成，一般 为 RDoc 文档和 YARD 文档。
+gemspec 包含 gem 的信息。</description>
+    </item>
+    
   </channel>
 </rss>

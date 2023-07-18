@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>rails on likon</title>
+    <link>http://gekang.tech/tags/rails/</link>
+    <description>Recent content in rails on likon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 18 Apr 2022 13:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>记一次 Ruby on Rails 部署记录</title>
+      <link>http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Mon, 18 Apr 2022 13:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</guid>
+      <description>写在前面 学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。
+云服务器 采用的是腾讯云，系统Ubuntu Server 16.04.1 LTS 64位
+项目示例 采用 blog demo，来自 Rails 官网文档中 Getting Started with Rails。
+安装服器软件 采用 Ubuntu 内建的套件管理工具 apt-get
+更新软件列表 sudo apt-get update 安装 Ruby on Rails 需要的软件 sudo apt-get install -y build-essential git-core bison openssl libreadline6-dev curl zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 autoconf libc6-dev libpcre3-dev libcurl4-nss-dev libxml2-dev libxslt-dev imagemagick nodejs libffi-dev 安装 Ruby，使用 Brighbox 已经编译好的 Ruby sudo apt-get install software-properties-common sudo apt-add-repository ppa:brightbox/ruby-ng sudo apt-get update sudo apt-get install ruby2.</description>
+    </item>
+    
+  </channel>
+</rss>

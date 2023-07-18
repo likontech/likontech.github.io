@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Gem，写一个吧 | likon</title>
+<meta name="keywords" content="gem">
+<meta name="description" content="前言 最好的教程当然还是官方文档。
+手把手 以新建一个名为 gleksayhi 的 gem 🙋🌰
+新建 gleksayhi.rb 文件，功能仅为一行打印
+新建 gleksayhi.gemspec
+由 gemspec 新建一个 gem
+gem build gleksayhi.gemspec 安装本地 gem
+gem install ./gleksayhi-0.0.1.gem 查看是否安装上，并验证 gem 功能
+接下来先注册一个 https://rubygems.org/ 的账号，然后浏览器访问 https://rubygems.org/api/v1/api_key.yaml，输入账号密码，下载 api_key.yaml 文件，将文件改名为 credentials，放置 ~/.gem 目录下。修改文件权限
+chmod 0600 ~/.gem/credentials 现在你可以发布你的 gem 到 RubyGems.org，来分享你的 gem 了
+gem push gleksayhi-0.0.1.gem 最后，可以查询下远程你的 gem
+gem list -r gleksay 大功告成。
+One more thing 解决依赖 另外，随着功能的复杂性提高，多文件肯定是必不可少的，需要处理文件的依赖关系，也就是依赖方 require 被依赖方。此时，gemspec 里的 file 配置就需要做些改动，包含所有文件。
+当然，也有一些解决方案，解决众多文件配置 gemspec 问题。
+https://github.com/seattlerb/hoe https://github.">
+<meta name="author" content="">
+<link rel="canonical" href="http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e7c49816de449f6ad0aa23a3856dd9781a6a193741fbf188d2d84487562ebc50.css" integrity="sha256-58SYFt5En2rQqiOjhW3ZeBpqGTdB&#43;/GI0thEh1YuvFA=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://gekang.tech/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://gekang.tech/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://gekang.tech/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://gekang.tech/apple-touch-icon.png">
+<link rel="mask-icon" href="http://gekang.tech/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Gem，写一个吧" />
+<meta property="og:description" content="前言 最好的教程当然还是官方文档。
+手把手 以新建一个名为 gleksayhi 的 gem 🙋🌰
+新建 gleksayhi.rb 文件，功能仅为一行打印
+新建 gleksayhi.gemspec
+由 gemspec 新建一个 gem
+gem build gleksayhi.gemspec 安装本地 gem
+gem install ./gleksayhi-0.0.1.gem 查看是否安装上，并验证 gem 功能
+接下来先注册一个 https://rubygems.org/ 的账号，然后浏览器访问 https://rubygems.org/api/v1/api_key.yaml，输入账号密码，下载 api_key.yaml 文件，将文件改名为 credentials，放置 ~/.gem 目录下。修改文件权限
+chmod 0600 ~/.gem/credentials 现在你可以发布你的 gem 到 RubyGems.org，来分享你的 gem 了
+gem push gleksayhi-0.0.1.gem 最后，可以查询下远程你的 gem
+gem list -r gleksay 大功告成。
+One more thing 解决依赖 另外，随着功能的复杂性提高，多文件肯定是必不可少的，需要处理文件的依赖关系，也就是依赖方 require 被依赖方。此时，gemspec 里的 file 配置就需要做些改动，包含所有文件。
+当然，也有一些解决方案，解决众多文件配置 gemspec 问题。
+https://github.com/seattlerb/hoe https://github." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-16T20:40:00+00:00" />
+<meta property="article:modified_time" content="2022-04-16T20:40:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gem，写一个吧"/>
+<meta name="twitter:description" content="前言 最好的教程当然还是官方文档。
+手把手 以新建一个名为 gleksayhi 的 gem 🙋🌰
+新建 gleksayhi.rb 文件，功能仅为一行打印
+新建 gleksayhi.gemspec
+由 gemspec 新建一个 gem
+gem build gleksayhi.gemspec 安装本地 gem
+gem install ./gleksayhi-0.0.1.gem 查看是否安装上，并验证 gem 功能
+接下来先注册一个 https://rubygems.org/ 的账号，然后浏览器访问 https://rubygems.org/api/v1/api_key.yaml，输入账号密码，下载 api_key.yaml 文件，将文件改名为 credentials，放置 ~/.gem 目录下。修改文件权限
+chmod 0600 ~/.gem/credentials 现在你可以发布你的 gem 到 RubyGems.org，来分享你的 gem 了
+gem push gleksayhi-0.0.1.gem 最后，可以查询下远程你的 gem
+gem list -r gleksay 大功告成。
+One more thing 解决依赖 另外，随着功能的复杂性提高，多文件肯定是必不可少的，需要处理文件的依赖关系，也就是依赖方 require 被依赖方。此时，gemspec 里的 file 配置就需要做些改动，包含所有文件。
+当然，也有一些解决方案，解决众多文件配置 gemspec 问题。
+https://github.com/seattlerb/hoe https://github."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://gekang.tech/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Gem，写一个吧",
+      "item": "http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Gem，写一个吧",
+  "name": "Gem，写一个吧",
+  "description": "前言 最好的教程当然还是官方文档。\n手把手 以新建一个名为 gleksayhi 的 gem 🙋🌰\n新建 gleksayhi.rb 文件，功能仅为一行打印\n新建 gleksayhi.gemspec\n由 gemspec 新建一个 gem\ngem build gleksayhi.gemspec 安装本地 gem\ngem install ./gleksayhi-0.0.1.gem 查看是否安装上，并验证 gem 功能\n接下来先注册一个 https://rubygems.org/ 的账号，然后浏览器访问 https://rubygems.org/api/v1/api_key.yaml，输入账号密码，下载 api_key.yaml 文件，将文件改名为 credentials，放置 ~/.gem 目录下。修改文件权限\nchmod 0600 ~/.gem/credentials 现在你可以发布你的 gem 到 RubyGems.org，来分享你的 gem 了\ngem push gleksayhi-0.0.1.gem 最后，可以查询下远程你的 gem\ngem list -r gleksay 大功告成。\nOne more thing 解决依赖 另外，随着功能的复杂性提高，多文件肯定是必不可少的，需要处理文件的依赖关系，也就是依赖方 require 被依赖方。此时，gemspec 里的 file 配置就需要做些改动，包含所有文件。\n当然，也有一些解决方案，解决众多文件配置 gemspec 问题。\nhttps://github.com/seattlerb/hoe https://github.",
+  "keywords": [
+    "gem"
+  ],
+  "articleBody": "前言 最好的教程当然还是官方文档。\n手把手 以新建一个名为 gleksayhi 的 gem 🙋🌰\n新建 gleksayhi.rb 文件，功能仅为一行打印\n新建 gleksayhi.gemspec\n由 gemspec 新建一个 gem\ngem build gleksayhi.gemspec 安装本地 gem\ngem install ./gleksayhi-0.0.1.gem 查看是否安装上，并验证 gem 功能\n接下来先注册一个 https://rubygems.org/ 的账号，然后浏览器访问 https://rubygems.org/api/v1/api_key.yaml，输入账号密码，下载 api_key.yaml 文件，将文件改名为 credentials，放置 ~/.gem 目录下。修改文件权限\nchmod 0600 ~/.gem/credentials 现在你可以发布你的 gem 到 RubyGems.org，来分享你的 gem 了\ngem push gleksayhi-0.0.1.gem 最后，可以查询下远程你的 gem\ngem list -r gleksay 大功告成。\nOne more thing 解决依赖 另外，随着功能的复杂性提高，多文件肯定是必不可少的，需要处理文件的依赖关系，也就是依赖方 require 被依赖方。此时，gemspec 里的 file 配置就需要做些改动，包含所有文件。\n当然，也有一些解决方案，解决众多文件配置 gemspec 问题。\nhttps://github.com/seattlerb/hoe https://github.com/technicalpickles/jeweler https://github.com/ruby/rake https://bundler.io/docs.html https://github.com/wycats/newgem-template/blob/master/newgem.gemspec 添加可执行文件 添加 bin 目录，新建 gleksayhi 文件\nmkdir bin touch bin/gleksayhi chmod a+x bin/gleksayhi 测试 为 gem 加上测试尤为重要，可以帮助你和他人知道你的代码是可工作的。\nMinitest is Ruby’s built-in test framework. 当然你也可以选择 RSpec。\n新建 Rakefile\n新建 test 目录和测试用例 test_gleksayhi.rb\n执行用例\n文档 最后，为你的 gem 生成 doc 吧，大多数的 gem 默认使用 RDoc 生成文档。\n",
+  "wordCount" : "116",
+  "inLanguage": "en",
+  "datePublished": "2022-04-16T20:40:00Z",
+  "dateModified": "2022-04-16T20:40:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "likon",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://gekang.tech/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://gekang.tech/" accesskey="h" title="likon (Alt + H)">likon</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://gekang.tech/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/likontech" title="Github">
+                    <span>Github</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Gem，写一个吧
+    </h1>
+    <div class="post-meta"><span title='2022-04-16 20:40:00 +0000 UTC'>April 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;116 words
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h2>
+<p>最好的教程当然还是<a href="https://guides.rubygems.org/make-your-own-gem/">官方文档</a>。</p>
+<h2 id="手把手">手把手<a hidden class="anchor" aria-hidden="true" href="#手把手">#</a></h2>
+<p>以新建一个名为 gleksayhi 的 gem 🙋🌰</p>
+<p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/e2e437250d4446ff.png" alt="图片"  />
+</p>
+<p>新建 gleksayhi.rb 文件，功能仅为一行打印</p>
+<p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/19cfe14feaa5b4b7.png" alt="图片"  />
+</p>
+<p>新建 gleksayhi.gemspec</p>
+<p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/04ed29c1f5b10050.png" alt="图片"  />
+</p>
+<p>由 gemspec 新建一个 gem</p>
+<pre tabindex="0"><code>gem build gleksayhi.gemspec
+</code></pre><p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/005ae3b5126422bc.png" alt="图片"  />
+</p>
+<p>安装本地 gem</p>
+<pre tabindex="0"><code>gem install ./gleksayhi-0.0.1.gem
+</code></pre><p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/a7c73cadac301d80.png" alt="图片"  />
+</p>
+<p>查看是否安装上，并验证 gem 功能</p>
+<p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/ccd05ba9fc2b4ed7.png" alt="图片"  />
+</p>
+<p>接下来先注册一个 <a href="https://rubygems.org/">https://rubygems.org/</a> 的账号，然后浏览器访问 <a href="https://rubygems.org/api/v1/api_key.yaml">https://rubygems.org/api/v1/api_key.yaml</a>，输入账号密码，下载 api_key.yaml 文件，将文件改名为 credentials，放置 ~/.gem 目录下。修改文件权限</p>
+<pre tabindex="0"><code>chmod 0600 ~/.gem/credentials
+</code></pre><p>现在你可以发布你的 gem 到 RubyGems.org，来分享你的 gem 了</p>
+<pre tabindex="0"><code>gem push gleksayhi-0.0.1.gem
+</code></pre><p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/fd11f8a53665fe74.png" alt="图片"  />
+</p>
+<p>最后，可以查询下远程你的 gem</p>
+<pre tabindex="0"><code>gem list -r gleksay
+</code></pre><p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/df97323ccd0ecece.png" alt="图片"  />
+</p>
+<p>大功告成。</p>
+<h2 id="one-more-thing">One more thing<a hidden class="anchor" aria-hidden="true" href="#one-more-thing">#</a></h2>
+<h3 id="解决依赖">解决依赖<a hidden class="anchor" aria-hidden="true" href="#解决依赖">#</a></h3>
+<p>另外，随着功能的复杂性提高，多文件肯定是必不可少的，需要处理文件的依赖关系，也就是依赖方 require 被依赖方。此时，gemspec 里的 file 配置就需要做些改动，包含所有文件。</p>
+<p>当然，也有一些解决方案，解决众多文件配置 gemspec 问题。</p>
+<ul>
+<li><a href="https://github.com/seattlerb/hoe">https://github.com/seattlerb/hoe</a></li>
+<li><a href="https://github.com/technicalpickles/jeweler">https://github.com/technicalpickles/jeweler</a></li>
+<li><a href="https://github.com/ruby/rake">https://github.com/ruby/rake</a></li>
+<li><a href="https://bundler.io/docs.html">https://bundler.io/docs.html</a></li>
+<li><a href="https://github.com/wycats/newgem-template/blob/master/newgem.gemspec">https://github.com/wycats/newgem-template/blob/master/newgem.gemspec</a></li>
+</ul>
+<h3 id="添加可执行文件">添加可执行文件<a hidden class="anchor" aria-hidden="true" href="#添加可执行文件">#</a></h3>
+<p>添加 bin 目录，新建 gleksayhi 文件</p>
+<pre tabindex="0"><code>mkdir bin
+touch bin/gleksayhi
+chmod a+x bin/gleksayhi
+</code></pre><p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/3ff3a067de5051c6.png" alt="图片"  />
+</p>
+<h3 id="测试">测试<a hidden class="anchor" aria-hidden="true" href="#测试">#</a></h3>
+<p>为 gem 加上测试尤为重要，可以帮助你和他人知道你的代码是可工作的。</p>
+<p><strong>Minitest</strong> is Ruby’s built-in test framework. 当然你也可以选择 RSpec。</p>
+<p>新建 Rakefile</p>
+<p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/1290d3706694a623.png" alt="图片"  />
+</p>
+<p>新建 test 目录和测试用例 test_gleksayhi.rb</p>
+<p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/303a5c8ce8b32e70.png" alt="图片"  />
+</p>
+<p>执行用例</p>
+<p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/4e4c00b5003bb32e.png" alt="图片"  />
+</p>
+<h3 id="文档">文档<a hidden class="anchor" aria-hidden="true" href="#文档">#</a></h3>
+<p>最后，为你的 gem 生成 doc 吧，大多数的 gem 默认使用 RDoc 生成文档。</p>
+<p><img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/1fd43cd97adec704.png" alt="图片"  />
+</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://gekang.tech/tags/gem/">gem</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://gekang.tech/posts/%E5%8E%8B%E5%8A%9B%E4%B9%8B%E4%B8%8B%E6%8B%A9%E8%A6%81%E4%BA%8B%E4%B8%BA%E4%B9%8B/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>压力之下，择要事为之</span>
+  </a>
+  <a class="next" href="http://gekang.tech/posts/ios-slow-animation/">
+    <span class="title">Next »</span>
+    <br>
+    <span>iOS 真机中设置 Slow Animations</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://gekang.tech/">likon</a></span>
+    <span>
+        Powered by ❤️
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

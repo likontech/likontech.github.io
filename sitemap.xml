@@ -2,20 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://gekang.tech/tags/ios/</loc>
+    <lastmod>2022-05-06T23:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://gekang.tech/</loc>
+    <lastmod>2022-05-06T23:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://gekang.tech/posts/</loc>
+    <lastmod>2022-05-06T23:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://gekang.tech/tags/</loc>
+    <lastmod>2022-05-06T23:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://gekang.tech/posts/%E9%87%8D%E8%B0%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2022-05-06T23:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://gekang.tech/tags/gem/</loc>
     <lastmod>2022-04-18T13:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://gekang.tech/</loc>
-    <lastmod>2022-04-18T13:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://gekang.tech/posts/</loc>
-    <lastmod>2022-04-18T13:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://gekang.tech/tags/</loc>
+    <loc>http://gekang.tech/tags/rails/</loc>
     <lastmod>2022-04-18T13:00:00+00:00</lastmod>
   </url><url>
     <loc>http://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/</loc>
     <lastmod>2022-04-18T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2022-04-18T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://gekang.tech/tags/read/</loc>
+    <lastmod>2022-04-16T21:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://gekang.tech/posts/%E5%8E%8B%E5%8A%9B%E4%B9%8B%E4%B8%8B%E6%8B%A9%E8%A6%81%E4%BA%8B%E4%B8%BA%E4%B9%8B/</loc>
+    <lastmod>2022-04-16T21:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/</loc>
+    <lastmod>2022-04-16T20:40:00+00:00</lastmod>
+  </url><url>
+    <loc>http://gekang.tech/posts/ios-slow-animation/</loc>
+    <lastmod>2022-04-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</loc>
+    <lastmod>2022-04-10T02:25:00+00:00</lastmod>
   </url><url>
     <loc>http://gekang.tech/categories/</loc>
   </url>
