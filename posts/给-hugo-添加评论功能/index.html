@@ -5,16 +5,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>iOS 真机中设置 Slow Animations | likon</title>
-<meta name="keywords" content="ios">
-<meta name="description" content="分享个 XCode LLDB 调试小技巧
-前言 在 iOS 开发中，动画也是一个很重要的组成部分。你会不会因为动画需要有灵性，苦于一点点调试参数，但又看不清楚细节？会不会遇到 App 中某些色块一闪而过？会不会突然闪屏不知道为什么？
-当然，不可避免。
-可能会用到的调试技巧 或许有些人，早已知道，模拟器中，苹果提供了 Slow Animations 选项。也或许有些人还不知道，或者未尝试使用过。
-模拟器开启 Slow Animations 打开模拟器，菜单栏 &gt; Debug &gt; Show Animations
-真机开启 Slow Animations 可以使用 LLDB 实现 Slow Animations 点击 Debug 区域的 Pause program execution 点击 Debug 区域的 LLDB 中输入命令 p [(CALayer *)[[[[UIApplication sharedApplication] windows] objectAtIndex:0] layer] setSpeed:.1f] 另外，Swift 使用 p UIApplication.sharedApplication().windows.first?.layer.speed = 0.1 即可。 点击 Debug 区域的 Continue program execution 可以代码形式实现 Slow Animations didFinishLaunchingWithOptions 中设置 self.">
+<title>给 hugo 添加评论功能 | likon</title>
+<meta name="keywords" content="hugo">
+<meta name="description" content="前言 添加个评论功能耍耍~
+资料 我的主题是 PaperMod，自然去主题文档里搜一搜，找到这个
+再次传送到 hugo 官网
+默认 Disqus，但我想要的是 GitHub comments，传送到 utterances
+贴个描述，小而美
+A lightweight comments widget built on GitHub issues. Use GitHub issues for blog comments, wiki pages and more! Open source. 🙌 No tracking, no ads, always free. 📡🚫 No lock-in. All data stored in GitHub issues. 🔓 Styled with Primer, the css toolkit that powers GitHub. 💅 Dark theme. 🌘 Lightweight. Vanilla TypeScript. No font downloads, JavaScript frameworks or polyfills for evergreen browsers.">
 <meta name="author" content="">
-<link rel="canonical" href="http://gekang.tech/posts/ios-slow-animation/">
+<link rel="canonical" href="http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e7c49816de449f6ad0aa23a3856dd9781a6a193741fbf188d2d84487562ebc50.css" integrity="sha256-58SYFt5En2rQqiOjhW3ZeBpqGTdB&#43;/GI0thEh1YuvFA=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -61,26 +61,26 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="iOS 真机中设置 Slow Animations" />
-<meta property="og:description" content="分享个 XCode LLDB 调试小技巧
-前言 在 iOS 开发中，动画也是一个很重要的组成部分。你会不会因为动画需要有灵性，苦于一点点调试参数，但又看不清楚细节？会不会遇到 App 中某些色块一闪而过？会不会突然闪屏不知道为什么？
-当然，不可避免。
-可能会用到的调试技巧 或许有些人，早已知道，模拟器中，苹果提供了 Slow Animations 选项。也或许有些人还不知道，或者未尝试使用过。
-模拟器开启 Slow Animations 打开模拟器，菜单栏 &gt; Debug &gt; Show Animations
-真机开启 Slow Animations 可以使用 LLDB 实现 Slow Animations 点击 Debug 区域的 Pause program execution 点击 Debug 区域的 LLDB 中输入命令 p [(CALayer *)[[[[UIApplication sharedApplication] windows] objectAtIndex:0] layer] setSpeed:.1f] 另外，Swift 使用 p UIApplication.sharedApplication().windows.first?.layer.speed = 0.1 即可。 点击 Debug 区域的 Continue program execution 可以代码形式实现 Slow Animations didFinishLaunchingWithOptions 中设置 self." />
+</noscript><meta property="og:title" content="给 hugo 添加评论功能" />
+<meta property="og:description" content="前言 添加个评论功能耍耍~
+资料 我的主题是 PaperMod，自然去主题文档里搜一搜，找到这个
+再次传送到 hugo 官网
+默认 Disqus，但我想要的是 GitHub comments，传送到 utterances
+贴个描述，小而美
+A lightweight comments widget built on GitHub issues. Use GitHub issues for blog comments, wiki pages and more! Open source. 🙌 No tracking, no ads, always free. 📡🚫 No lock-in. All data stored in GitHub issues. 🔓 Styled with Primer, the css toolkit that powers GitHub. 💅 Dark theme. 🌘 Lightweight. Vanilla TypeScript. No font downloads, JavaScript frameworks or polyfills for evergreen browsers." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://gekang.tech/posts/ios-slow-animation/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-04-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-15T00:00:00+00:00" />
+<meta property="og:url" content="http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-18T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="iOS 真机中设置 Slow Animations"/>
-<meta name="twitter:description" content="分享个 XCode LLDB 调试小技巧
-前言 在 iOS 开发中，动画也是一个很重要的组成部分。你会不会因为动画需要有灵性，苦于一点点调试参数，但又看不清楚细节？会不会遇到 App 中某些色块一闪而过？会不会突然闪屏不知道为什么？
-当然，不可避免。
-可能会用到的调试技巧 或许有些人，早已知道，模拟器中，苹果提供了 Slow Animations 选项。也或许有些人还不知道，或者未尝试使用过。
-模拟器开启 Slow Animations 打开模拟器，菜单栏 &gt; Debug &gt; Show Animations
-真机开启 Slow Animations 可以使用 LLDB 实现 Slow Animations 点击 Debug 区域的 Pause program execution 点击 Debug 区域的 LLDB 中输入命令 p [(CALayer *)[[[[UIApplication sharedApplication] windows] objectAtIndex:0] layer] setSpeed:.1f] 另外，Swift 使用 p UIApplication.sharedApplication().windows.first?.layer.speed = 0.1 即可。 点击 Debug 区域的 Continue program execution 可以代码形式实现 Slow Animations didFinishLaunchingWithOptions 中设置 self."/>
+<meta name="twitter:title" content="给 hugo 添加评论功能"/>
+<meta name="twitter:description" content="前言 添加个评论功能耍耍~
+资料 我的主题是 PaperMod，自然去主题文档里搜一搜，找到这个
+再次传送到 hugo 官网
+默认 Disqus，但我想要的是 GitHub comments，传送到 utterances
+贴个描述，小而美
+A lightweight comments widget built on GitHub issues. Use GitHub issues for blog comments, wiki pages and more! Open source. 🙌 No tracking, no ads, always free. 📡🚫 No lock-in. All data stored in GitHub issues. 🔓 Styled with Primer, the css toolkit that powers GitHub. 💅 Dark theme. 🌘 Lightweight. Vanilla TypeScript. No font downloads, JavaScript frameworks or polyfills for evergreen browsers."/>
 
 
 <script type="application/ld+json">
@@ -97,8 +97,8 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "iOS 真机中设置 Slow Animations",
-      "item": "http://gekang.tech/posts/ios-slow-animation/"
+      "name": "给 hugo 添加评论功能",
+      "item": "http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/"
     }
   ]
 }
@@ -107,20 +107,20 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "iOS 真机中设置 Slow Animations",
-  "name": "iOS 真机中设置 Slow Animations",
-  "description": "分享个 XCode LLDB 调试小技巧\n前言 在 iOS 开发中，动画也是一个很重要的组成部分。你会不会因为动画需要有灵性，苦于一点点调试参数，但又看不清楚细节？会不会遇到 App 中某些色块一闪而过？会不会突然闪屏不知道为什么？\n当然，不可避免。\n可能会用到的调试技巧 或许有些人，早已知道，模拟器中，苹果提供了 Slow Animations 选项。也或许有些人还不知道，或者未尝试使用过。\n模拟器开启 Slow Animations 打开模拟器，菜单栏 \u0026gt; Debug \u0026gt; Show Animations\n真机开启 Slow Animations 可以使用 LLDB 实现 Slow Animations 点击 Debug 区域的 Pause program execution 点击 Debug 区域的 LLDB 中输入命令 p [(CALayer *)[[[[UIApplication sharedApplication] windows] objectAtIndex:0] layer] setSpeed:.1f] 另外，Swift 使用 p UIApplication.sharedApplication().windows.first?.layer.speed = 0.1 即可。 点击 Debug 区域的 Continue program execution 可以代码形式实现 Slow Animations didFinishLaunchingWithOptions 中设置 self.",
+  "headline": "给 hugo 添加评论功能",
+  "name": "给 hugo 添加评论功能",
+  "description": "前言 添加个评论功能耍耍~\n资料 我的主题是 PaperMod，自然去主题文档里搜一搜，找到这个\n再次传送到 hugo 官网\n默认 Disqus，但我想要的是 GitHub comments，传送到 utterances\n贴个描述，小而美\nA lightweight comments widget built on GitHub issues. Use GitHub issues for blog comments, wiki pages and more! Open source. 🙌 No tracking, no ads, always free. 📡🚫 No lock-in. All data stored in GitHub issues. 🔓 Styled with Primer, the css toolkit that powers GitHub. 💅 Dark theme. 🌘 Lightweight. Vanilla TypeScript. No font downloads, JavaScript frameworks or polyfills for evergreen browsers.",
   "keywords": [
-    "ios"
+    "hugo"
   ],
-  "articleBody": " 分享个 XCode LLDB 调试小技巧\n前言 在 iOS 开发中，动画也是一个很重要的组成部分。你会不会因为动画需要有灵性，苦于一点点调试参数，但又看不清楚细节？会不会遇到 App 中某些色块一闪而过？会不会突然闪屏不知道为什么？\n当然，不可避免。\n可能会用到的调试技巧 或许有些人，早已知道，模拟器中，苹果提供了 Slow Animations 选项。也或许有些人还不知道，或者未尝试使用过。\n模拟器开启 Slow Animations 打开模拟器，菜单栏 \u003e Debug \u003e Show Animations\n真机开启 Slow Animations 可以使用 LLDB 实现 Slow Animations 点击 Debug 区域的 Pause program execution 点击 Debug 区域的 LLDB 中输入命令 p [(CALayer *)[[[[UIApplication sharedApplication] windows] objectAtIndex:0] layer] setSpeed:.1f] 另外，Swift 使用 p UIApplication.sharedApplication().windows.first?.layer.speed = 0.1 即可。 点击 Debug 区域的 Continue program execution 可以代码形式实现 Slow Animations didFinishLaunchingWithOptions 中设置 self.window.layer.speed = .1f; ",
-  "wordCount" : "73",
+  "articleBody": "前言 添加个评论功能耍耍~\n资料 我的主题是 PaperMod，自然去主题文档里搜一搜，找到这个\n再次传送到 hugo 官网\n默认 Disqus，但我想要的是 GitHub comments，传送到 utterances\n贴个描述，小而美\nA lightweight comments widget built on GitHub issues. Use GitHub issues for blog comments, wiki pages and more! Open source. 🙌 No tracking, no ads, always free. 📡🚫 No lock-in. All data stored in GitHub issues. 🔓 Styled with Primer, the css toolkit that powers GitHub. 💅 Dark theme. 🌘 Lightweight. Vanilla TypeScript. No font downloads, JavaScript frameworks or polyfills for evergreen browsers. 🐦🌲 开整 添加 utterances app 确保评论仓库为 Public，我用的就是 点击链接 添加 utterances app，并选择授权的仓库 按步骤创建 script 按文档，生成一个如下的 script\n添加到博客合适位置 参考文档，将 script 添加到 comments.html 位置\n修改 config.yml\ncomments: enabled: true provider: utterances utterances: repo: likontech/likontech.github.io issueTerm: pathname label: 碎碎念 如若有用或者遇到问题，可以在文章下评论试试，一起交流学习。\n",
+  "wordCount" : "123",
   "inLanguage": "en",
-  "datePublished": "2022-04-15T00:00:00Z",
-  "dateModified": "2022-04-15T00:00:00Z",
+  "datePublished": "2023-07-18T00:00:00Z",
+  "dateModified": "2023-07-18T00:00:00Z",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://gekang.tech/posts/ios-slow-animation/"
+    "@id": "http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/"
   },
   "publisher": {
     "@type": "Organization",
@@ -199,54 +199,66 @@
   <header class="post-header">
     
     <h1 class="post-title">
-      iOS 真机中设置 Slow Animations
+      给 hugo 添加评论功能
     </h1>
-    <div class="post-meta"><span title='2022-04-15 00:00:00 +0000 UTC'>April 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;73 words
+    <div class="post-meta"><span title='2023-07-18 00:00:00 +0000 UTC'>July 18, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;123 words
 
 </div>
   </header> 
-  <div class="post-content"><blockquote>
-<p>分享个 XCode LLDB 调试小技巧</p>
-</blockquote>
-<h2 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h2>
-<p>在 iOS 开发中，动画也是一个很重要的组成部分。你会不会因为动画需要有灵性，苦于一点点调试参数，但又看不清楚细节？会不会遇到 App 中某些色块一闪而过？会不会突然闪屏不知道为什么？</p>
-<p>当然，不可避免。</p>
-<h2 id="可能会用到的调试技巧">可能会用到的调试技巧<a hidden class="anchor" aria-hidden="true" href="#可能会用到的调试技巧">#</a></h2>
-<p>或许有些人，早已知道，模拟器中，苹果提供了 <code>Slow Animations</code> 选项。也或许有些人还不知道，或者未尝试使用过。</p>
-<h3 id="模拟器开启-slow-animations">模拟器开启 <code>Slow Animations</code><a hidden class="anchor" aria-hidden="true" href="#模拟器开启-slow-animations">#</a></h3>
-<p>打开模拟器，<code>菜单栏</code> &gt; <code>Debug</code> &gt; <code>Show Animations</code></p>
-<h3 id="真机开启-slow-animations">真机开启 <code>Slow Animations</code><a hidden class="anchor" aria-hidden="true" href="#真机开启-slow-animations">#</a></h3>
-<ul>
-<li>可以使用 LLDB 实现 <code>Slow Animations</code></li>
-</ul>
+  <div class="post-content"><h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
+<p>添加个评论功能耍耍~</p>
+<h1 id="资料">资料<a hidden class="anchor" aria-hidden="true" href="#资料">#</a></h1>
+<p>我的主题是 PaperMod，自然去主题文档里搜一搜，找到<a href="https://github.com/adityatelange/hugo-PaperMod/wiki/Features#comments">这个</a></p>
+<p>再次传送到 <a href="https://gohugo.io/content-management/comments/">hugo 官网</a></p>
+<p>默认 Disqus，但我想要的是 GitHub comments，传送到 <a href="https://utteranc.es/">utterances</a></p>
+<p>贴个描述，小而美</p>
+<pre tabindex="0"><code>A lightweight comments widget built on GitHub issues. Use GitHub issues for blog comments, wiki pages and more!
+
+Open source. 🙌
+No tracking, no ads, always free. 📡🚫
+No lock-in. All data stored in GitHub issues. 🔓
+Styled with Primer, the css toolkit that powers GitHub. 💅
+Dark theme. 🌘
+Lightweight. Vanilla TypeScript. No font downloads, JavaScript frameworks or polyfills for evergreen browsers. 🐦🌲
+</code></pre><h1 id="开整">开整<a hidden class="anchor" aria-hidden="true" href="#开整">#</a></h1>
+<h2 id="添加-utterances-app">添加 utterances app<a hidden class="anchor" aria-hidden="true" href="#添加-utterances-app">#</a></h2>
 <ol>
-<li>点击 <code>Debug</code> 区域的 <code>Pause program execution</code></li>
-<li>点击 <code>Debug</code> 区域的 LLDB 中输入命令 <code>p [(CALayer *)[[[[UIApplication sharedApplication] windows] objectAtIndex:0] layer] setSpeed:.1f]</code>
-另外，Swift 使用 <code>p UIApplication.sharedApplication().windows.first?.layer.speed = 0.1</code> 即可。</li>
-<li>点击 <code>Debug</code> 区域的 <code>Continue program execution</code></li>
+<li>确保评论仓库为 Public，我用的就是</li>
+<li>点击<a href="https://github.com/apps/utterances">链接</a> 添加 utterances app，并选择授权的仓库</li>
 </ol>
-<ul>
-<li>可以代码形式实现 <code>Slow Animations</code>
-<code>didFinishLaunchingWithOptions</code> 中设置 <code>self.window.layer.speed = .1f;</code></li>
-</ul>
+<h2 id="按步骤创建-script">按步骤创建 script<a hidden class="anchor" aria-hidden="true" href="#按步骤创建-script">#</a></h2>
+<p>按<a href="https://utteranc.es/?installation_id=39774018&amp;setup_action=install">文档</a>，生成一个如下的 script</p>
+<pre tabindex="0"><code>&lt;script src=&#34;https://utteranc.es/client.js&#34;
+        repo=&#34;[ENTER REPO HERE]&#34;
+        issue-term=&#34;pathname&#34;
+        theme=&#34;github-light&#34;
+        crossorigin=&#34;anonymous&#34;
+        async&gt;
+&lt;/script&gt;
+</code></pre><h2 id="添加到博客合适位置">添加到博客合适位置<a hidden class="anchor" aria-hidden="true" href="#添加到博客合适位置">#</a></h2>
+<p>参考<a href="https://gohugo.io/content-management/comments/">文档</a>，将 script 添加到 comments.html 位置</p>
+<p>修改 config.yml</p>
+<pre tabindex="0"><code>  comments: 
+    enabled: true
+    provider: utterances
+  utterances:
+    repo: likontech/likontech.github.io
+    issueTerm: pathname
+    label: 碎碎念
+</code></pre><p>如若有用或者遇到问题，可以在文章下评论试试，一起交流学习。</p>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://gekang.tech/tags/ios/">ios</a></li>
+      <li><a href="http://gekang.tech/tags/hugo/">hugo</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>Gem，写一个吧</span>
-  </a>
-  <a class="next" href="http://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/">
+  <a class="next" href="http://gekang.tech/posts/%E9%87%8D%E8%B0%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
     <span class="title">Next »</span>
     <br>
-    <span>RubyGems三两事</span>
+    <span>重谈单例模式</span>
   </a>
 </nav>
 
