@@ -6,7 +6,27 @@
     <description>Recent content in Posts on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 18 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>给 hugo 添加搜索引擎优化</title>
+      <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</guid>
+      <description>介绍如何给 Hugo 添加搜索引擎优化。</description>
+    </item>
+    
+    <item>
+      <title>静态网站托管服务平台</title>
+      <link>http://gekang.tech/posts/static-site-hosting-service/</link>
+      <pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/posts/static-site-hosting-service/</guid>
+      <description>简要罗列静态网站托管平台。
+前言 最近使用Hugo和GitHub Pages搭建个人静态主页，发现一些问题，遂做一个横向方案比较，了解一下具体的异同。有很多平台没有亲自实践，所以说明仅供记录参考，细节有待挖掘和更新。同时，如果您有其他推荐的方案，欢迎评论分享，持续更新：)
+GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目主页。 提供静态网站托管服务 不支持服务端代码，比如 PHP、Ruby 或 Python GitHub Pages 提供的域名可以支持 HTTPS 访问 可以配置自定义的域名，但是无法给自定义的域名配置 SSL ，HTTPS is not supported for GitHub Pages using custom domains. 查阅 Github Help，所有 GitHub Pages 网站（包括使用自定义域正确配置的网站）已经都支持 HTTPS 和 HTTPS 强制实施。 响应速度还是有点慢 网站仓库小于1GB，带宽限制 100GB/每月，构建限制10次/每小时 Netlify 不支持后台逻辑运算能力的网页 如果要部署 Hexo 大体思路是，通过 CLI (命令行界面)将 md 渲染为静态网站，然后通过 git 部署到 Git 平台，然后使用 Netlify 的 webhook 自动抓取部署 具有全球CDN、持续部署、一键HTTPS等优势 能通过客户端 JS 与可重用 API 可以带来动态功能，炫酷。 可以使用 Hugo 静态网站生成器和 Hetlify 网站自动化系统配合，以解决 Github Pages 的不支持 HTTPS 和 响应慢的问题 Coding Pages 由国内 Coding 提供 访问速度友好 可以做 GitHub Pages 和 Coding Pages 同时部署 Hexo，然后通过域名 DNS 解析，国外访问 GitHub Pages ，国内 访问 Coding Pages， 以优化访问速度 可以免费绑定多个自定义域名 自定义域名可以享有免费 SSL 证书，全站支持 HTTPS 协议 更新代码库就可以自动部署。服务器稳定，香港服务器国外支持也友好 新增动态页面部署 有一个小问题是，网站首页如果不放置官方『Hosted by Coding Pages』的链接，会系统添加中间『Hosted by Coding Pages』页面。 GitLab Pages 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。 可以使用任何静态网站生成器，如 Jekyll、Middleman、Hexo、Hugo、Pelican等 可以配置自定义域名 HTTPS，需要的是上传证书 Now 不仅支持静态网站托管，也支持 JavaScript(Node.</description>
+    </item>
+    
     <item>
       <title>给 hugo 添加评论功能</title>
       <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
