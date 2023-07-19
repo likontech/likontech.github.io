@@ -61,7 +61,8 @@
 
     </style>
 </noscript><meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
-<meta property="og:title" content="记一次 Ruby on Rails 部署记录" />
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta name="referrer" content="no-referrer-when-downgrade"><meta property="og:title" content="记一次 Ruby on Rails 部署记录" />
 <meta property="og:description" content="写在前面 学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。
 云服务器 采用的是腾讯云，系统Ubuntu Server 16.04.1 LTS 64位
 项目示例 采用 blog demo，来自 Rails 官网文档中 Getting Started with Rails。
@@ -173,6 +174,11 @@
         </div>
         <ul id="menu">
             <li>
+                <a href="http://gekang.tech/categories/" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
                 <a href="http://gekang.tech/tags/" title="标签">
                     <span>标签</span>
                 </a>
@@ -201,7 +207,8 @@
     </h1>
     <div class="post-meta"><span title='2022-04-19 13:00:00 +0000 UTC'>April 19, 2022</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1863 words
 
-</div>
+
+&nbsp;<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span></div>
   </header> 
   <div class="post-content"><h2 id="写在前面">写在前面<a hidden class="anchor" aria-hidden="true" href="#写在前面">#</a></h2>
 <p>学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。</p>
@@ -784,7 +791,13 @@ cap production deploy
     <span>
         Powered by ❤️
     </span>
-</footer>
+    
+    <span id="busuanzi_container_site_pv">
+            pv <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span id="busuanzi_container_site_uv">
+            uv <span id="busuanzi_value_site_uv"></span>
+        </span></footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />

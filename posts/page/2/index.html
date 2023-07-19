@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>hugo | likon</title>
+<title>Posts | likon</title>
 <meta name="keywords" content="">
-<meta name="description" content="likon 的个人技术博客网站，主要专注大前端，记录技术、所思所想">
+<meta name="description" content="Posts - likon">
 <meta name="author" content="">
-<link rel="canonical" href="http://gekang.tech/tags/hugo/">
+<link rel="canonical" href="http://gekang.tech/posts/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e7c49816de449f6ad0aa23a3856dd9781a6a193741fbf188d2d84487562ebc50.css" integrity="sha256-58SYFt5En2rQqiOjhW3ZeBpqGTdB&#43;/GI0thEh1YuvFA=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://gekang.tech/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://gekang.tech/favicon-16x16.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="http://gekang.tech/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://gekang.tech/tags/hugo/index.xml">
+<link rel="alternate" type="application/rss+xml" href="http://gekang.tech/posts/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -57,15 +57,30 @@
     </style>
 </noscript><meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <meta name="referrer" content="no-referrer-when-downgrade"><meta property="og:title" content="hugo" />
+    <meta name="referrer" content="no-referrer-when-downgrade"><meta property="og:title" content="Posts" />
 <meta property="og:description" content="likon 的个人技术博客网站，主要专注大前端，记录技术、所思所想" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://gekang.tech/tags/hugo/" /><meta property="og:site_name" content="likon" />
+<meta property="og:url" content="http://gekang.tech/posts/" /><meta property="og:site_name" content="likon" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="hugo"/>
+<meta name="twitter:title" content="Posts"/>
 <meta name="twitter:description" content="likon 的个人技术博客网站，主要专注大前端，记录技术、所思所想"/>
 
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://gekang.tech/posts/"
+    }
+  ]
+}
+</script>
 </head>
 
 <body class="list" id="top">
@@ -135,56 +150,37 @@
 <main class="main"> 
 <header class="page-header">
   <h1>
-    hugo
+    Posts
   </h1>
 </header>
 
-<article class="post-entry tag-entry"> 
+<article class="post-entry"> 
   <header class="entry-header">
-    <h2>给 hugo 添加搜索引擎优化
+    <h2>RubyGems三两事
     </h2>
   </header>
   <div class="entry-content">
-    <p>前言 为了让 Hugo 网站更好的被搜索引擎收录，需要进行搜索引擎优化。
-资料 搜索引擎 Google Bing Baidu 开整 给站点和文章添加详细说明 站点配置文件添加 description，例如
-description: &#34;likon 的个人技术博客网站，主要专注大前端，记录技术、所思所想&#34; 文章模板添加更多
-title: 给 hugo 添加搜索引擎优化 date: 2023-07-19 tags: [&#34;hugo&#34;] keywords: - hugo - 搜索引擎优化 - seo description : &#34;介绍如何给 Hugo 添加搜索引擎优化。&#34; Google 搜索优化 打开 Google 网站站长，点击 SEARCH CONSOLE 进入
-下载 html 文件，放到根目录 static 子目录下 生成 meta 标签，添加到站点 &lt;head&gt;&lt;/head&gt; 标签内（我的选择） # 我是加到 theme 的 extend_head.html 内，可以全局搜索 &lt;head&gt; &lt;meta name=&#34;baidu-site-verification&#34; content=&#34;xxx&#34; /&gt; 百度搜索优化 基本和 Google 一致 打开 百度搜索资源平台 ，点击链接提交，然后点添加站点。...</p>
+    <p>前言 RubyGems 是 Ruby 的一个包管理器。类似于 Ubuntu 的 apt-get，CentOS 的 yum，Python 的 pip，iOS 的 Cocoapods。方便 Rubyists 管理软件包（gem），分享可复用的功能，为应用、库的开发提供坚实的巨人肩膀。
+Gem Gem 一般都有 version、name 和 platform。
+gem help platform Gems 内部组成一般分为以下三部分：
+Code (including tests and supporting utilities) Documentation gemspec 示例 Gem cocoapods-search-1.0.0 代码组织结构
+lib 包含 gem 的源码。
+test 或者 spec 包含开发者测试的代码或者测试框架。
+Rakefile 通常为 rake 程序自动化测试、生成代码、执行任务。
+bin 包含可执行文件，在 gem 安装时加载到 PATH 中。
+文档通常包含 README 和代码内联说明，在 gem 安装时自动生成，一般 为 RDoc 文档和 YARD 文档。
+gemspec 包含 gem 的信息。...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-07-19 00:00:00 +0000 UTC'>July 19, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;90 words</footer>
-  <a class="entry-link" aria-label="post link to 给 hugo 添加搜索引擎优化" href="http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/"></a>
+  <footer class="entry-footer"><span title='2022-04-10 02:25:00 +0000 UTC'>April 10, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;285 words</footer>
+  <a class="entry-link" aria-label="post link to RubyGems三两事" href="http://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>静态网站托管服务平台
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>简要罗列静态网站托管平台。
-前言 最近使用Hugo和GitHub Pages搭建个人静态主页，发现一些问题，遂做一个横向方案比较，了解一下具体的异同。有很多平台没有亲自实践，所以说明仅供记录参考，细节有待挖掘和更新。同时，如果您有其他推荐的方案，欢迎评论分享，持续更新：)
-GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目主页。 提供静态网站托管服务 不支持服务端代码，比如 PHP、Ruby 或 Python GitHub Pages 提供的域名可以支持 HTTPS 访问 可以配置自定义的域名，但是无法给自定义的域名配置 SSL ，HTTPS is not supported for GitHub Pages using custom domains. 查阅 Github Help，所有 GitHub Pages 网站（包括使用自定义域正确配置的网站）已经都支持 HTTPS 和 HTTPS 强制实施。 响应速度还是有点慢 网站仓库小于1GB，带宽限制 100GB/每月，构建限制10次/每小时 Netlify 不支持后台逻辑运算能力的网页 如果要部署 Hexo 大体思路是，通过 CLI (命令行界面)将 md 渲染为静态网站，然后通过 git 部署到 Git 平台，然后使用 Netlify 的 webhook 自动抓取部署 具有全球CDN、持续部署、一键HTTPS等优势 能通过客户端 JS 与可重用 API 可以带来动态功能，炫酷。 可以使用 Hugo 静态网站生成器和 Hetlify 网站自动化系统配合，以解决 Github Pages 的不支持 HTTPS 和 响应慢的问题 Coding Pages 由国内 Coding 提供 访问速度友好 可以做 GitHub Pages 和 Coding Pages 同时部署 Hexo，然后通过域名 DNS 解析，国外访问 GitHub Pages ，国内 访问 Coding Pages， 以优化访问速度 可以免费绑定多个自定义域名 自定义域名可以享有免费 SSL 证书，全站支持 HTTPS 协议 更新代码库就可以自动部署。服务器稳定，香港服务器国外支持也友好 新增动态页面部署 有一个小问题是，网站首页如果不放置官方『Hosted by Coding Pages』的链接，会系统添加中间『Hosted by Coding Pages』页面。 GitLab Pages 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。 可以使用任何静态网站生成器，如 Jekyll、Middleman、Hexo、Hugo、Pelican等 可以配置自定义域名 HTTPS，需要的是上传证书 Now 不仅支持静态网站托管，也支持 JavaScript(Node....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-07-19 00:00:00 +0000 UTC'>July 19, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;177 words</footer>
-  <a class="entry-link" aria-label="post link to 静态网站托管服务平台" href="http://gekang.tech/posts/static-site-hosting-service/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>给 hugo 添加评论功能
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 添加个评论功能耍耍~
-资料 我的主题是 PaperMod，自然去主题文档里搜一搜，找到这个
-再次传送到 hugo 官网
-默认 Disqus，但我想要的是 GitHub comments，传送到 utterances
-贴个描述，小而美
-A lightweight comments widget built on GitHub issues. Use GitHub issues for blog comments, wiki pages and more! Open source. 🙌 No tracking, no ads, always free. 📡🚫 No lock-in. All data stored in GitHub issues. 🔓 Styled with Primer, the css toolkit that powers GitHub. 💅 Dark theme. 🌘 Lightweight. Vanilla TypeScript. No font downloads, JavaScript frameworks or polyfills for evergreen browsers....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-07-18 00:00:00 +0000 UTC'>July 18, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;123 words</footer>
-  <a class="entry-link" aria-label="post link to 给 hugo 添加评论功能" href="http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="http://gekang.tech/posts/">
+      «&nbsp;Prev&nbsp;
+    </a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

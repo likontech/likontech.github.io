@@ -61,7 +61,8 @@
 
     </style>
 </noscript><meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
-<meta property="og:title" content="重谈单例模式" />
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta name="referrer" content="no-referrer-when-downgrade"><meta property="og:title" content="重谈单例模式" />
 <meta property="og:description" content="前言 一提到 iOS 单例模式，一般都会想到如下常用方式。
 &#43; (instancetype)sharedInstance { static TestClass *_sharedInstance = nil; static dispatch_once_t onceToken; dispatch_once(&amp;onceToken, ^{ _sharedInstance = [[self alloc] init]; }); return _sharedInstance; } 大家按约定使用 sharedInstance 获取单例，似乎没有什么问题，大家也都是这么做的。
 其实，单例模式其实不只是仅仅一个 sharedInstance 方法就够了
@@ -173,6 +174,11 @@
         </div>
         <ul id="menu">
             <li>
+                <a href="http://gekang.tech/categories/" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
                 <a href="http://gekang.tech/tags/" title="标签">
                     <span>标签</span>
                 </a>
@@ -201,8 +207,46 @@
     </h1>
     <div class="post-meta"><span title='2022-05-06 23:00:00 +0000 UTC'>May 6, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;354 words
 
+
+&nbsp;<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> 阅读</span></div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a></li>
+                <li>
+                    <a href="#%e5%ae%8c%e6%95%b4%e5%86%99%e6%b3%95" aria-label="完整写法">完整写法</a><ul>
+                        
+                <li>
+                    <a href="#%e5%86%99%e6%b3%95%e4%b8%80" aria-label="写法一">写法一</a></li>
+                <li>
+                    <a href="#%e5%86%99%e6%b3%95%e4%ba%8c" aria-label="写法二">写法二</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%87%8d%e8%b0%88%e5%8d%95%e4%be%8b" aria-label="重谈单例">重谈单例</a><ul>
+                        
+                <li>
+                    <a href="#%e9%a5%bf%e6%b1%89%e5%bc%8f" aria-label="饿汉式">饿汉式</a></li>
+                <li>
+                    <a href="#%e6%87%92%e6%b1%89%e5%bc%8f" aria-label="懒汉式">懒汉式</a></li>
+                <li>
+                    <a href="#%e5%8f%8c%e9%87%8d%e6%a3%80%e6%9f%a5" aria-label="双重检查">双重检查</a></li>
+                <li>
+                    <a href="#%e9%9d%99%e6%80%81%e5%86%85%e9%83%a8%e7%b1%bb" aria-label="静态内部类">静态内部类</a></li>
+                <li>
+                    <a href="#%e6%9e%9a%e4%b8%be" aria-label="枚举">枚举</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
 </div>
-  </header> 
+
   <div class="post-content"><h2 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h2>
 <p>一提到 iOS 单例模式，一般都会想到如下常用方式。</p>
 <pre tabindex="0"><code>+ (instancetype)sharedInstance {
@@ -395,7 +439,13 @@
     <span>
         Powered by ❤️
     </span>
-</footer>
+    
+    <span id="busuanzi_container_site_pv">
+            pv <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span id="busuanzi_container_site_uv">
+            uv <span id="busuanzi_value_site_uv"></span>
+        </span></footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
