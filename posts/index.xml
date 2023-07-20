@@ -5,17 +5,8 @@
     <link>http://gekang.tech/posts/</link>
     <description>Recent content in Posts on likon</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>zh</language>
     <lastBuildDate>Wed, 19 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>My 1st post</title>
-      <link>http://gekang.tech/posts/1st-draft/</link>
-      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
-      
-      <guid>http://gekang.tech/posts/1st-draft/</guid>
-      <description>介绍如何给 Hugo 添加搜索引擎优化。</description>
-    </item>
-    
     <item>
       <title>给 hugo 添加搜索引擎优化</title>
       <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</link>

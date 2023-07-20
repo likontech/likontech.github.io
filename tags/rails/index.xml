@@ -5,7 +5,7 @@
     <link>http://gekang.tech/tags/rails/</link>
     <description>Recent content in rails on likon</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>zh</language>
     <lastBuildDate>Tue, 19 Apr 2022 13:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/tags/rails/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>记一次 Ruby on Rails 部署记录</title>

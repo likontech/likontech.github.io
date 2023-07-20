@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://gekang.tech/posts/1st-draft/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
-  </url><url>
     <loc>http://gekang.tech/tags/hugo/</loc>
     <lastmod>2023-07-19T00:00:00+00:00</lastmod>
   </url><url>
@@ -59,16 +56,8 @@
     <loc>http://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</loc>
     <lastmod>2022-04-10T02:25:00+00:00</lastmod>
   </url><url>
-    <loc>http://gekang.tech/categories/123/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
-  </url><url>
-    <loc>http://gekang.tech/categories/456/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
-  </url><url>
     <loc>http://gekang.tech/categories/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
   </url><url>
-    <loc>http://gekang.tech/tags/first/</loc>
-    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+    <loc>http://gekang.tech/search/</loc>
   </url>
 </urlset>
