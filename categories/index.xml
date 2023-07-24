@@ -5,6 +5,16 @@
     <link>http://gekang.tech/categories/</link>
     <description>Recent content in Categories on likon</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language><atom:link href="http://gekang.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh</language>
+    <lastBuildDate>Thu, 20 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>博客</title>
+      <link>http://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

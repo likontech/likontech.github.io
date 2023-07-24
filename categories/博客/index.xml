@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>博客 on likon</title>
+    <link>http://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/</link>
+    <description>Recent content in 博客 on likon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 20 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>给 hugo 添加访问量</title>
+      <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</link>
+      <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</guid>
+      <description>Hugo添加不蒜子Busuanzi站点访问量与阅读量统计</description>
+    </item>
+    
+    <item>
+      <title>给 hugo 添加搜索引擎优化</title>
+      <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</guid>
+      <description>介绍如何给 Hugo 添加搜索引擎优化。</description>
+    </item>
+    
+    <item>
+      <title>给 hugo 添加评论功能</title>
+      <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
+      <description>前言 添加个评论功能耍耍~
+资料 我的主题是 PaperMod，自然去主题文档里搜一搜，找到这个
+再次传送到 hugo 官网
+默认 Disqus，但我想要的是 GitHub comments，传送到 utterances
+贴个描述，小而美
+A lightweight comments widget built on GitHub issues. Use GitHub issues for blog comments, wiki pages and more! Open source. 🙌 No tracking, no ads, always free. 📡🚫 No lock-in. All data stored in GitHub issues. 🔓 Styled with Primer, the css toolkit that powers GitHub. 💅 Dark theme. 🌘 Lightweight. Vanilla TypeScript. No font downloads, JavaScript frameworks or polyfills for evergreen browsers.</description>
+    </item>
+    
+  </channel>
+</rss>
