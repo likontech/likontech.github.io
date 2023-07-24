@@ -161,6 +161,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>React Hooks 草稿
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前言 React v16.8 版本引入了全新的 React Hook API，颠覆了以前的用法。看了很多文章，都认为是 React 的未来，简单介绍介绍。
+类组件 看个简单类组件例子
+import React, { Component } from &#39;react&#39;; class ClassComponent extends Component { constructor(props) { super(props); this.state = { count: 0, }; } incrementCount = () =&gt; { this.setState((prevState) =&gt; ({ count: prevState.count &#43; 1, })); }; decrementCount = () =&gt; { this.setState((prevState) =&gt; ({ count: prevState.count - 1, })); }; render() { const { count } = this.state; return ( &lt;div&gt; &lt;h1&gt;Class Component Example&lt;/h1&gt; &lt;p&gt;Count: {count}&lt;/p&gt; &lt;button onClick={this....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-07-24 00:00:00 +0000 UTC'>July 24, 2023</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;933 words</footer>
+  <a class="entry-link" aria-label="post link to React Hooks 草稿" href="http://gekang.tech/posts/react-hook-%E8%8D%89%E7%A8%BF/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>给 hugo 添加访问量
     </h2>
   </header>
@@ -322,23 +336,6 @@ https://github.com/seattlerb/hoe https://github....</p>
   </div>
   <footer class="entry-footer"><span title='2022-04-16 20:40:00 +0000 UTC'>April 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;116 words</footer>
   <a class="entry-link" aria-label="post link to Gem，写一个吧" href="http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>iOS 真机中设置 Slow Animations
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>分享个 XCode LLDB 调试小技巧
-前言 在 iOS 开发中，动画也是一个很重要的组成部分。你会不会因为动画需要有灵性，苦于一点点调试参数，但又看不清楚细节？会不会遇到 App 中某些色块一闪而过？会不会突然闪屏不知道为什么？
-当然，不可避免。
-可能会用到的调试技巧 或许有些人，早已知道，模拟器中，苹果提供了 Slow Animations 选项。也或许有些人还不知道，或者未尝试使用过。
-模拟器开启 Slow Animations 打开模拟器，菜单栏 &gt; Debug &gt; Show Animations
-真机开启 Slow Animations 可以使用 LLDB 实现 Slow Animations 点击 Debug 区域的 Pause program execution 点击 Debug 区域的 LLDB 中输入命令 p [(CALayer *)[[[[UIApplication sharedApplication] windows] objectAtIndex:0] layer] setSpeed:.1f] 另外，Swift 使用 p UIApplication.sharedApplication().windows.first?.layer.speed = 0.1 即可。 点击 Debug 区域的 Continue program execution 可以代码形式实现 Slow Animations didFinishLaunchingWithOptions 中设置 self....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-04-15 00:00:00 +0000 UTC'>April 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;73 words</footer>
-  <a class="entry-link" aria-label="post link to iOS 真机中设置 Slow Animations" href="http://gekang.tech/posts/ios-slow-animation/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
