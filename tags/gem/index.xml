@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>gem on likon</title>
-    <link>http://gekang.tech/tags/gem/</link>
+    <link>https://gekang.tech/tags/gem/</link>
     <description>Recent content in gem on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 18 Apr 2022 13:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/tags/gem/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Apr 2022 13:00:00 +0000</lastBuildDate><atom:link href="https://gekang.tech/tags/gem/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>搭建私有 RubyGem</title>
-      <link>http://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/</link>
+      <link>https://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/</link>
       <pubDate>Mon, 18 Apr 2022 13:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/</guid>
+      <guid>https://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/</guid>
       <description>写在前面 在 iOS 开发过程中，不可避免会接触到 CocoaPods。CocoaPods 是 Swift 和 Objective-C Cocoa 项目的依赖管理器，帮你优雅的管理扩展项目。想到自己搭建私有 spec repo，来托管私有 pod 的 podspec。
 Gem in a box gem 开发管理过程中，自然也少不了自建私有托管平台的需求。
 Google 查到有一个开源项目 Gem in a box，而且我们公司也是用的这个开源项目搭建的托管 gem 平台，当然需要研究学习一番。
@@ -26,10 +26,10 @@ gem install geminabox gem inabox gleksayhi-0.</description>
     
     <item>
       <title>Gem，写一个吧</title>
-      <link>http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/</link>
+      <link>https://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/</link>
       <pubDate>Sat, 16 Apr 2022 20:40:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/</guid>
+      <guid>https://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/</guid>
       <description>前言 最好的教程当然还是官方文档。
 手把手 以新建一个名为 gleksayhi 的 gem 🙋🌰
 新建 gleksayhi.rb 文件，功能仅为一行打印
@@ -48,10 +48,10 @@ https://github.com/seattlerb/hoe https://github.</description>
     
     <item>
       <title>RubyGems三两事</title>
-      <link>http://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</link>
+      <link>https://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</link>
       <pubDate>Sun, 10 Apr 2022 02:25:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</guid>
+      <guid>https://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</guid>
       <description>前言 RubyGems 是 Ruby 的一个包管理器。类似于 Ubuntu 的 apt-get，CentOS 的 yum，Python 的 pip，iOS 的 Cocoapods。方便 Rubyists 管理软件包（gem），分享可复用的功能，为应用、库的开发提供坚实的巨人肩膀。
 Gem Gem 一般都有 version、name 和 platform。
 gem help platform Gems 内部组成一般分为以下三部分：

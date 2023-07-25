@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>博客 on likon</title>
-    <link>http://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/</link>
+    <link>https://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/</link>
     <description>Recent content in 博客 on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 20 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>给 hugo 添加访问量</title>
-      <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</link>
+      <link>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</link>
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</guid>
-      <description>Hugo添加不蒜子Busuanzi站点访问量与阅读量统计</description>
+      <guid>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</guid>
+      <description>前言 添加个访问量功能耍耍~
+开整 借助不蒜子，两行代码，搞定计数。
+打开官网 不蒜子，关键代码如下，打开浏览器检查功能，可以看到 span 标签及其 id
+# 引入 &amp;lt;script async src=&amp;#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;#34;&amp;gt;&amp;lt;script&amp;gt; # 站点 PV &amp;lt;span id=&amp;#34;busuanzi_container_site_pv&amp;#34;&amp;gt; 本站总访问量&amp;lt;span id=&amp;#34;busuanzi_value_site_pv&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;次 &amp;lt;/span&amp;gt; # 站点 UV &amp;lt;span id=&amp;#34;busuanzi_container_site_uv&amp;#34;&amp;gt; 本站总访客数&amp;lt;span id=&amp;#34;busuanzi_value_site_uv&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;人 &amp;lt;/span&amp;gt; # 页面或文章 PV &amp;lt;span id=&amp;#34;busuanzi_container_page_pv&amp;#34;&amp;gt; 本文总阅读量&amp;lt;span id=&amp;#34;busuanzi_value_page_pv&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;次 &amp;lt;/span&amp;gt; 加入到 Hugo 主题中合适位置 以 PaperMod 为例子
+head themes/PaperMod/partials/extend_head.html
+&amp;lt;!-- busuanzi --&amp;gt; {{- if .Site.Params.busuanzi.enable -}} &amp;lt;script async src=&amp;#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;meta name=&amp;#34;referrer&amp;#34; content=&amp;#34;no-referrer-when-downgrade&amp;#34;&amp;gt; {{- end -}} footer themes/PaperMod/partials/footer.html
+&amp;lt;!-- busuanzi --&amp;gt; {{ if .Site.Params.busuanzi.enable -}} &amp;lt;span id=&amp;#34;busuanzi_container_site_uv&amp;#34;&amp;gt; &amp;lt;span id=&amp;#34;busuanzi_value_site_uv&amp;#34;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;span&amp;gt;/&amp;lt;/span&amp;gt; &amp;lt;span id=&amp;#34;busuanzi_container_site_pv&amp;#34;&amp;gt; &amp;lt;span id=&amp;#34;busuanzi_value_site_pv&amp;#34;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/span&amp;gt; {{- end -}} 页面或文章 themes/PaperMod/_default/single.</description>
     </item>
     
     <item>
       <title>给 hugo 添加搜索引擎优化</title>
-      <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</link>
+      <link>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</link>
       <pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</guid>
-      <description>介绍如何给 Hugo 添加搜索引擎优化。</description>
+      <guid>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</guid>
+      <description>前言 为了让 Hugo 网站更好的被搜索引擎收录，需要进行搜索引擎优化。
+资料 搜索引擎 Google Bing Baidu 开整 给站点和文章添加详细说明 站点配置文件添加 description，例如
+description: &amp;#34;likon 的个人技术博客网站，主要专注大前端，记录技术、所思所想&amp;#34; 文章模板添加更多
+title: 给 hugo 添加搜索引擎优化 date: 2023-07-19 tags: [&amp;#34;hugo&amp;#34;] keywords: - hugo - 搜索引擎优化 - seo description : &amp;#34;介绍如何给 Hugo 添加搜索引擎优化。&amp;#34; Google 搜索优化 打开 Google 网站站长，点击 SEARCH CONSOLE 进入
+下载 html 文件，放到根目录 static 子目录下 生成 meta 标签，添加到站点 &amp;lt;head&amp;gt;&amp;lt;/head&amp;gt; 标签内（我的选择） # 我是加到 theme 的 extend_head.html 内，可以全局搜索 &amp;lt;head&amp;gt; &amp;lt;meta name=&amp;#34;baidu-site-verification&amp;#34; content=&amp;#34;xxx&amp;#34; /&amp;gt; 百度搜索优化 基本和 Google 一致 打开 百度搜索资源平台 ，点击链接提交，然后点添加站点。</description>
     </item>
     
     <item>
       <title>给 hugo 添加评论功能</title>
-      <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
+      <link>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
       <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
+      <guid>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
       <description>前言 添加个评论功能耍耍~
 资料 我的主题是 PaperMod，自然去主题文档里搜一搜，找到这个
 再次传送到 hugo 官网

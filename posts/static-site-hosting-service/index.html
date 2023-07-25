@@ -1,250 +1,104 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>静态网站托管服务平台 | likon</title>
-<meta name="keywords" content="hugo">
-<meta name="description" content="简要罗列静态网站托管平台。
-前言 最近使用Hugo和GitHub Pages搭建个人静态主页，发现一些问题，遂做一个横向方案比较，了解一下具体的异同。有很多平台没有亲自实践，所以说明仅供记录参考，细节有待挖掘和更新。同时，如果您有其他推荐的方案，欢迎评论分享，持续更新：)
-GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目主页。 提供静态网站托管服务 不支持服务端代码，比如 PHP、Ruby 或 Python GitHub Pages 提供的域名可以支持 HTTPS 访问 可以配置自定义的域名，但是无法给自定义的域名配置 SSL ，HTTPS is not supported for GitHub Pages using custom domains. 查阅 Github Help，所有 GitHub Pages 网站（包括使用自定义域正确配置的网站）已经都支持 HTTPS 和 HTTPS 强制实施。 响应速度还是有点慢 网站仓库小于1GB，带宽限制 100GB/每月，构建限制10次/每小时 Netlify 不支持后台逻辑运算能力的网页 如果要部署 Hexo 大体思路是，通过 CLI (命令行界面)将 md 渲染为静态网站，然后通过 git 部署到 Git 平台，然后使用 Netlify 的 webhook 自动抓取部署 具有全球CDN、持续部署、一键HTTPS等优势 能通过客户端 JS 与可重用 API 可以带来动态功能，炫酷。 可以使用 Hugo 静态网站生成器和 Hetlify 网站自动化系统配合，以解决 Github Pages 的不支持 HTTPS 和 响应慢的问题 Coding Pages 由国内 Coding 提供 访问速度友好 可以做 GitHub Pages 和 Coding Pages 同时部署 Hexo，然后通过域名 DNS 解析，国外访问 GitHub Pages ，国内 访问 Coding Pages， 以优化访问速度 可以免费绑定多个自定义域名 自定义域名可以享有免费 SSL 证书，全站支持 HTTPS 协议 更新代码库就可以自动部署。服务器稳定，香港服务器国外支持也友好 新增动态页面部署 有一个小问题是，网站首页如果不放置官方『Hosted by Coding Pages』的链接，会系统添加中间『Hosted by Coding Pages』页面。 GitLab Pages 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。 可以使用任何静态网站生成器，如 Jekyll、Middleman、Hexo、Hugo、Pelican等 可以配置自定义域名 HTTPS，需要的是上传证书 Now 不仅支持静态网站托管，也支持 JavaScript(Node.">
-<meta name="author" content="">
-<link rel="canonical" href="http://gekang.tech/posts/static-site-hosting-service/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e7c49816de449f6ad0aa23a3856dd9781a6a193741fbf188d2d84487562ebc50.css" integrity="sha256-58SYFt5En2rQqiOjhW3ZeBpqGTdB&#43;/GI0thEh1YuvFA=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://gekang.tech/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://gekang.tech/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://gekang.tech/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://gekang.tech/apple-touch-icon.png">
-<link rel="mask-icon" href="http://gekang.tech/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <meta name="referrer" content="no-referrer-when-downgrade"><meta property="og:title" content="静态网站托管服务平台" />
-<meta property="og:description" content="简要罗列静态网站托管平台。
+<html lang="zh" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="" />
+	
+	
+	
+	<title>静态网站托管服务平台 ｜ likon</title>
+	
+    
+    
+    <meta name="description" content="简要罗列静态网站托管平台。
 前言 最近使用Hugo和GitHub Pages搭建个人静态主页，发现一些问题，遂做一个横向方案比较，了解一下具体的异同。有很多平台没有亲自实践，所以说明仅供记录参考，细节有待挖掘和更新。同时，如果您有其他推荐的方案，欢迎评论分享，持续更新：)
 GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目主页。 提供静态网站托管服务 不支持服务端代码，比如 PHP、Ruby 或 Python GitHub Pages 提供的域名可以支持 HTTPS 访问 可以配置自定义的域名，但是无法给自定义的域名配置 SSL ，HTTPS is not supported for GitHub Pages using custom domains. 查阅 Github Help，所有 GitHub Pages 网站（包括使用自定义域正确配置的网站）已经都支持 HTTPS 和 HTTPS 强制实施。 响应速度还是有点慢 网站仓库小于1GB，带宽限制 100GB/每月，构建限制10次/每小时 Netlify 不支持后台逻辑运算能力的网页 如果要部署 Hexo 大体思路是，通过 CLI (命令行界面)将 md 渲染为静态网站，然后通过 git 部署到 Git 平台，然后使用 Netlify 的 webhook 自动抓取部署 具有全球CDN、持续部署、一键HTTPS等优势 能通过客户端 JS 与可重用 API 可以带来动态功能，炫酷。 可以使用 Hugo 静态网站生成器和 Hetlify 网站自动化系统配合，以解决 Github Pages 的不支持 HTTPS 和 响应慢的问题 Coding Pages 由国内 Coding 提供 访问速度友好 可以做 GitHub Pages 和 Coding Pages 同时部署 Hexo，然后通过域名 DNS 解析，国外访问 GitHub Pages ，国内 访问 Coding Pages， 以优化访问速度 可以免费绑定多个自定义域名 自定义域名可以享有免费 SSL 证书，全站支持 HTTPS 协议 更新代码库就可以自动部署。服务器稳定，香港服务器国外支持也友好 新增动态页面部署 有一个小问题是，网站首页如果不放置官方『Hosted by Coding Pages』的链接，会系统添加中间『Hosted by Coding Pages』页面。 GitLab Pages 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。 可以使用任何静态网站生成器，如 Jekyll、Middleman、Hexo、Hugo、Pelican等 可以配置自定义域名 HTTPS，需要的是上传证书 Now 不仅支持静态网站托管，也支持 JavaScript(Node." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://gekang.tech/posts/static-site-hosting-service/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-07-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-07-19T00:00:00+00:00" /><meta property="og:site_name" content="likon" />
+    
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="静态网站托管服务平台"/>
-<meta name="twitter:description" content="简要罗列静态网站托管平台。
-前言 最近使用Hugo和GitHub Pages搭建个人静态主页，发现一些问题，遂做一个横向方案比较，了解一下具体的异同。有很多平台没有亲自实践，所以说明仅供记录参考，细节有待挖掘和更新。同时，如果您有其他推荐的方案，欢迎评论分享，持续更新：)
-GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目主页。 提供静态网站托管服务 不支持服务端代码，比如 PHP、Ruby 或 Python GitHub Pages 提供的域名可以支持 HTTPS 访问 可以配置自定义的域名，但是无法给自定义的域名配置 SSL ，HTTPS is not supported for GitHub Pages using custom domains. 查阅 Github Help，所有 GitHub Pages 网站（包括使用自定义域正确配置的网站）已经都支持 HTTPS 和 HTTPS 强制实施。 响应速度还是有点慢 网站仓库小于1GB，带宽限制 100GB/每月，构建限制10次/每小时 Netlify 不支持后台逻辑运算能力的网页 如果要部署 Hexo 大体思路是，通过 CLI (命令行界面)将 md 渲染为静态网站，然后通过 git 部署到 Git 平台，然后使用 Netlify 的 webhook 自动抓取部署 具有全球CDN、持续部署、一键HTTPS等优势 能通过客户端 JS 与可重用 API 可以带来动态功能，炫酷。 可以使用 Hugo 静态网站生成器和 Hetlify 网站自动化系统配合，以解决 Github Pages 的不支持 HTTPS 和 响应慢的问题 Coding Pages 由国内 Coding 提供 访问速度友好 可以做 GitHub Pages 和 Coding Pages 同时部署 Hexo，然后通过域名 DNS 解析，国外访问 GitHub Pages ，国内 访问 Coding Pages， 以优化访问速度 可以免费绑定多个自定义域名 自定义域名可以享有免费 SSL 证书，全站支持 HTTPS 协议 更新代码库就可以自动部署。服务器稳定，香港服务器国外支持也友好 新增动态页面部署 有一个小问题是，网站首页如果不放置官方『Hosted by Coding Pages』的链接，会系统添加中间『Hosted by Coding Pages』页面。 GitLab Pages 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。 可以使用任何静态网站生成器，如 Jekyll、Middleman、Hexo、Hugo、Pelican等 可以配置自定义域名 HTTPS，需要的是上传证书 Now 不仅支持静态网站托管，也支持 JavaScript(Node."/>
+    
+    
+    <meta name="keywords" content="likon, 碎碎念, 记录" />
+    
 
+	
+    
+    <link rel="shortcut icon" href="https://gekang.tech/images/favicon.ico" />
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "http://gekang.tech/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "静态网站托管服务平台",
-      "item": "http://gekang.tech/posts/static-site-hosting-service/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "静态网站托管服务平台",
-  "name": "静态网站托管服务平台",
-  "description": "简要罗列静态网站托管平台。\n前言 最近使用Hugo和GitHub Pages搭建个人静态主页，发现一些问题，遂做一个横向方案比较，了解一下具体的异同。有很多平台没有亲自实践，所以说明仅供记录参考，细节有待挖掘和更新。同时，如果您有其他推荐的方案，欢迎评论分享，持续更新：)\nGitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目主页。 提供静态网站托管服务 不支持服务端代码，比如 PHP、Ruby 或 Python GitHub Pages 提供的域名可以支持 HTTPS 访问 可以配置自定义的域名，但是无法给自定义的域名配置 SSL ，HTTPS is not supported for GitHub Pages using custom domains. 查阅 Github Help，所有 GitHub Pages 网站（包括使用自定义域正确配置的网站）已经都支持 HTTPS 和 HTTPS 强制实施。 响应速度还是有点慢 网站仓库小于1GB，带宽限制 100GB/每月，构建限制10次/每小时 Netlify 不支持后台逻辑运算能力的网页 如果要部署 Hexo 大体思路是，通过 CLI (命令行界面)将 md 渲染为静态网站，然后通过 git 部署到 Git 平台，然后使用 Netlify 的 webhook 自动抓取部署 具有全球CDN、持续部署、一键HTTPS等优势 能通过客户端 JS 与可重用 API 可以带来动态功能，炫酷。 可以使用 Hugo 静态网站生成器和 Hetlify 网站自动化系统配合，以解决 Github Pages 的不支持 HTTPS 和 响应慢的问题 Coding Pages 由国内 Coding 提供 访问速度友好 可以做 GitHub Pages 和 Coding Pages 同时部署 Hexo，然后通过域名 DNS 解析，国外访问 GitHub Pages ，国内 访问 Coding Pages， 以优化访问速度 可以免费绑定多个自定义域名 自定义域名可以享有免费 SSL 证书，全站支持 HTTPS 协议 更新代码库就可以自动部署。服务器稳定，香港服务器国外支持也友好 新增动态页面部署 有一个小问题是，网站首页如果不放置官方『Hosted by Coding Pages』的链接，会系统添加中间『Hosted by Coding Pages』页面。 GitLab Pages 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。 可以使用任何静态网站生成器，如 Jekyll、Middleman、Hexo、Hugo、Pelican等 可以配置自定义域名 HTTPS，需要的是上传证书 Now 不仅支持静态网站托管，也支持 JavaScript(Node.",
-  "keywords": [
-    "hugo"
-  ],
-  "articleBody": "简要罗列静态网站托管平台。\n前言 最近使用Hugo和GitHub Pages搭建个人静态主页，发现一些问题，遂做一个横向方案比较，了解一下具体的异同。有很多平台没有亲自实践，所以说明仅供记录参考，细节有待挖掘和更新。同时，如果您有其他推荐的方案，欢迎评论分享，持续更新：)\nGitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目主页。 提供静态网站托管服务 不支持服务端代码，比如 PHP、Ruby 或 Python GitHub Pages 提供的域名可以支持 HTTPS 访问 可以配置自定义的域名，但是无法给自定义的域名配置 SSL ，HTTPS is not supported for GitHub Pages using custom domains. 查阅 Github Help，所有 GitHub Pages 网站（包括使用自定义域正确配置的网站）已经都支持 HTTPS 和 HTTPS 强制实施。 响应速度还是有点慢 网站仓库小于1GB，带宽限制 100GB/每月，构建限制10次/每小时 Netlify 不支持后台逻辑运算能力的网页 如果要部署 Hexo 大体思路是，通过 CLI (命令行界面)将 md 渲染为静态网站，然后通过 git 部署到 Git 平台，然后使用 Netlify 的 webhook 自动抓取部署 具有全球CDN、持续部署、一键HTTPS等优势 能通过客户端 JS 与可重用 API 可以带来动态功能，炫酷。 可以使用 Hugo 静态网站生成器和 Hetlify 网站自动化系统配合，以解决 Github Pages 的不支持 HTTPS 和 响应慢的问题 Coding Pages 由国内 Coding 提供 访问速度友好 可以做 GitHub Pages 和 Coding Pages 同时部署 Hexo，然后通过域名 DNS 解析，国外访问 GitHub Pages ，国内 访问 Coding Pages， 以优化访问速度 可以免费绑定多个自定义域名 自定义域名可以享有免费 SSL 证书，全站支持 HTTPS 协议 更新代码库就可以自动部署。服务器稳定，香港服务器国外支持也友好 新增动态页面部署 有一个小问题是，网站首页如果不放置官方『Hosted by Coding Pages』的链接，会系统添加中间『Hosted by Coding Pages』页面。 GitLab Pages 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。 可以使用任何静态网站生成器，如 Jekyll、Middleman、Hexo、Hugo、Pelican等 可以配置自定义域名 HTTPS，需要的是上传证书 Now 不仅支持静态网站托管，也支持 JavaScript(Node.js) 或者 Docker 驱动的网站， 可以使用 CLI 或者链接 Git 仓库 支持自定义域名，开启 HTTPS 传输基于 HTTP/2 不需要安装 Git 等源代码控制工具，不需要设置 keys 或者 tokens 实时部署。 Firebase Hosting 只能 CLI 支持自定义域名并支持开启 HTTPS 支持重定向和重写。 Bitbucket Cloud 必须要通过 HTTPS 访问 不能自定义域名 所有项目的静态网站代码都只能放在专门的站点仓库里。 页面缓存 15 分钟，意味着改变不会立即可见。 aerobatic 可以支持 CLI 上传代码 自定义域名需要收费。 surge 只支持 CLI 支持自定义域名，开启 SSL 是需要收费，同时需要自己上传证书 持续更新…\n",
-  "wordCount" : "177",
-  "inLanguage": "en",
-  "datePublished": "2023-07-19T00:00:00Z",
-  "dateModified": "2023-07-19T00:00:00Z",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://gekang.tech/posts/static-site-hosting-service/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "likon",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://gekang.tech/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
+    <link rel="stylesheet" type="text/css" media="screen" href="https://gekang.tech/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://gekang.tech/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://gekang.tech/css/highlight.css" />
 
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
+    
+    <meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
 
-</script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta name="referrer" content="no-referrer-when-downgrade"></head>
 
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://gekang.tech/" accesskey="h" title="likon (Alt + H)">likon</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://gekang.tech/">
+                    
+                    <img class="likon" style="margin-top: -20px; margin-left: -10px;" src="https://gekang.tech/images/icon_likon.png" width="150px">
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">岁岁年，碎碎念</p>
+            <div class="my_socials">
+                
+                <a href="https://gekang.tech/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
             </div>
         </div>
-        <ul id="menu">
-            <li>
-                <a href="http://gekang.tech/search/" title="搜索 (Alt &#43; /)" accesskey=/>
-                    <span>搜索</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://gekang.tech/categories/" title="分类">
-                    <span>分类</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://gekang.tech/tags/" title="标签">
-                    <span>标签</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/likontech" title="Github">
-                    <span>Github</span>&nbsp;
-                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                        <path d="M15 3h6v6"></path>
-                        <path d="M10 14L21 3"></path>
-                    </svg>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    
-    <h1 class="post-title">
-      静态网站托管服务平台
-    </h1>
-    <div class="post-meta"><span title='2023-07-19 00:00:00 +0000 UTC'>July 19, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;177 words
-
-
-&nbsp;·&nbsp;阅读&nbsp;<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span></div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a></li>
-                <li>
-                    <a href="#github-pageshttpspagesgithubcom-%e8%a2%ab%e8%ae%be%e8%ae%a1%e4%b8%ba%e7%9b%b4%e6%8e%a5%e6%9d%a5%e6%ba%90%e4%ba%8egithub%e4%bb%93%e5%ba%93%e7%9a%84%e4%b8%aa%e4%ba%ba%e7%bb%84%e7%bb%87%e6%88%96%e9%a1%b9%e7%9b%ae%e4%b8%bb%e9%a1%b5" aria-label="GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目主页。"><a href="https://pages.github.com/">GitHub Pages</a> 被设计为直接来源于<code>GitHub</code>仓库的个人、组织或项目主页。</a></li>
-                <li>
-                    <a href="#netlifyhttpswwwnetlifycom" aria-label="Netlify"><a href="https://www.netlify.com/">Netlify</a></a></li>
-                <li>
-                    <a href="#coding-pageshttpscodingnetpages-%e7%94%b1%e5%9b%bd%e5%86%85-coding-%e6%8f%90%e4%be%9b" aria-label="Coding Pages 由国内 Coding 提供"><a href="https://coding.net/pages/">Coding Pages</a> 由国内 Coding 提供</a></li>
-                <li>
-                    <a href="#gitlab-pageshttpsaboutgitlabcomfeaturespages-%e6%98%af%e7%94%b1-gitlab-%e6%8f%90%e4%be%9b%e6%97%a8%e5%9c%a8%e4%b8%ba-gitlab-%e5%b7%a5%e7%a8%8b%e4%b8%aa%e4%ba%bagroups-%e5%88%9b%e5%bb%ba%e7%bd%91%e7%ab%99" aria-label="GitLab Pages 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。"><a href="https://about.gitlab.com/features/pages/">GitLab Pages</a> 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。</a></li>
-                <li>
-                    <a href="#nowhttpszeitconow" aria-label="Now"><a href="https://zeit.co/now">Now</a></a></li>
-                <li>
-                    <a href="#firebase-hostinghttpswwwfirebasecomdocshosting" aria-label="Firebase Hosting"><a href="https://www.firebase.com/docs/hosting/">Firebase Hosting</a></a></li>
-                <li>
-                    <a href="#bitbucket-cloudhttpsconfluenceatlassiancombitbucketpublishing-a-website-on-bitbucket-cloud-221449776html" aria-label="Bitbucket Cloud"><a href="https://confluence.atlassian.com/bitbucket/publishing-a-website-on-bitbucket-cloud-221449776.html">Bitbucket Cloud</a></a></li>
-                <li>
-                    <a href="#aerobatichttpswwwaerobaticcom" aria-label="aerobatic"><a href="https://www.aerobatic.com/">aerobatic</a></a></li>
-                <li>
-                    <a href="#surgehttpssurgesh" aria-label="surge"><a href="https://surge.sh/">surge</a></a>
-                </li>
-            </ul>
-        </div>
-    </details>
+    </div>
 </div>
-
-  <div class="post-content"><p>简要罗列静态网站托管平台。</p>
-<h2 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h2>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/static-site-hosting-service/'>静态网站托管服务平台</a></h2>
+                        <span class="date">2023.07.19</span>
+                        
+                        <span class="date" id="busuanzi_container_page_pv">·&nbsp;<span class="date" id="busuanzi_value_page_pv"></span></span>
+                    </div>
+                    <div class="post_content markdown"><p>简要罗列静态网站托管平台。</p>
+<h2 id="前言">前言</h2>
 <p>最近使用<code>Hugo</code>和<code>GitHub Pages</code>搭建个人静态主页，发现一些问题，遂做一个横向方案比较，了解一下具体的异同。有很多平台没有亲自实践，所以说明仅供记录参考，细节有待挖掘和更新。同时，如果您有其他推荐的方案，欢迎评论分享，持续更新：)</p>
-<h2 id="github-pageshttpspagesgithubcom-被设计为直接来源于github仓库的个人组织或项目主页"><a href="https://pages.github.com/">GitHub Pages</a> 被设计为直接来源于<code>GitHub</code>仓库的个人、组织或项目主页。<a hidden class="anchor" aria-hidden="true" href="#github-pageshttpspagesgithubcom-被设计为直接来源于github仓库的个人组织或项目主页">#</a></h2>
+<h2 id="github-pageshttpspagesgithubcom-被设计为直接来源于github仓库的个人组织或项目主页"><a href="https://pages.github.com/">GitHub Pages</a> 被设计为直接来源于<code>GitHub</code>仓库的个人、组织或项目主页。</h2>
 <ul>
 <li>提供静态网站托管服务</li>
 <li>不支持服务端代码，比如 PHP、Ruby 或 Python</li>
@@ -253,7 +107,7 @@ GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目�
 <li>响应速度还是有点慢</li>
 <li>网站仓库小于<code>1GB</code>，带宽限制 <code>100GB/每月</code>，构建限制<code>10次/每小时</code></li>
 </ul>
-<h2 id="netlifyhttpswwwnetlifycom"><a href="https://www.netlify.com/">Netlify</a><a hidden class="anchor" aria-hidden="true" href="#netlifyhttpswwwnetlifycom">#</a></h2>
+<h2 id="netlifyhttpswwwnetlifycom"><a href="https://www.netlify.com/">Netlify</a></h2>
 <ul>
 <li>不支持后台逻辑运算能力的网页</li>
 <li>如果要部署 Hexo 大体思路是，通过 CLI (命令行界面)将 md 渲染为静态网站，然后通过 git 部署到 Git 平台，然后使用 Netlify 的 webhook 自动抓取部署</li>
@@ -261,7 +115,7 @@ GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目�
 <li>能通过客户端 JS 与可重用 API 可以带来动态功能，炫酷。</li>
 <li>可以使用 Hugo 静态网站生成器和 Hetlify 网站自动化系统配合，以解决 Github Pages 的不支持 HTTPS 和 响应慢的问题</li>
 </ul>
-<h2 id="coding-pageshttpscodingnetpages-由国内-coding-提供"><a href="https://coding.net/pages/">Coding Pages</a> 由国内 Coding 提供<a hidden class="anchor" aria-hidden="true" href="#coding-pageshttpscodingnetpages-由国内-coding-提供">#</a></h2>
+<h2 id="coding-pageshttpscodingnetpages-由国内-coding-提供"><a href="https://coding.net/pages/">Coding Pages</a> 由国内 Coding 提供</h2>
 <ul>
 <li>访问速度友好</li>
 <li>可以做 GitHub Pages 和 Coding Pages 同时部署 Hexo，然后通过域名 DNS 解析，国外访问 GitHub Pages ，国内 访问 Coding Pages， 以优化访问速度</li>
@@ -271,12 +125,12 @@ GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目�
 <li>新增动态页面部署</li>
 <li>有一个小问题是，网站首页如果不放置官方『Hosted by Coding Pages』的链接，会系统添加中间『Hosted by Coding Pages』页面。</li>
 </ul>
-<h2 id="gitlab-pageshttpsaboutgitlabcomfeaturespages-是由-gitlab-提供旨在为-gitlab-工程个人groups-创建网站"><a href="https://about.gitlab.com/features/pages/">GitLab Pages</a> 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。<a hidden class="anchor" aria-hidden="true" href="#gitlab-pageshttpsaboutgitlabcomfeaturespages-是由-gitlab-提供旨在为-gitlab-工程个人groups-创建网站">#</a></h2>
+<h2 id="gitlab-pageshttpsaboutgitlabcomfeaturespages-是由-gitlab-提供旨在为-gitlab-工程个人groups-创建网站"><a href="https://about.gitlab.com/features/pages/">GitLab Pages</a> 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。</h2>
 <ul>
 <li>可以使用任何静态网站生成器，如 Jekyll、Middleman、Hexo、Hugo、Pelican等</li>
 <li>可以配置自定义域名 HTTPS，需要的是上传证书</li>
 </ul>
-<h2 id="nowhttpszeitconow"><a href="https://zeit.co/now">Now</a><a hidden class="anchor" aria-hidden="true" href="#nowhttpszeitconow">#</a></h2>
+<h2 id="nowhttpszeitconow"><a href="https://zeit.co/now">Now</a></h2>
 <ul>
 <li>不仅支持静态网站托管，也支持 JavaScript(Node.js) 或者 Docker 驱动的网站，</li>
 <li>可以使用 CLI 或者链接 Git 仓库</li>
@@ -285,25 +139,25 @@ GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目�
 <li>不需要安装 Git 等源代码控制工具，不需要设置 keys 或者 tokens</li>
 <li>实时部署。</li>
 </ul>
-<h2 id="firebase-hostinghttpswwwfirebasecomdocshosting"><a href="https://www.firebase.com/docs/hosting/">Firebase Hosting</a><a hidden class="anchor" aria-hidden="true" href="#firebase-hostinghttpswwwfirebasecomdocshosting">#</a></h2>
+<h2 id="firebase-hostinghttpswwwfirebasecomdocshosting"><a href="https://www.firebase.com/docs/hosting/">Firebase Hosting</a></h2>
 <ul>
 <li>只能 CLI</li>
 <li>支持自定义域名并支持开启 HTTPS</li>
 <li>支持重定向和重写。</li>
 </ul>
-<h2 id="bitbucket-cloudhttpsconfluenceatlassiancombitbucketpublishing-a-website-on-bitbucket-cloud-221449776html"><a href="https://confluence.atlassian.com/bitbucket/publishing-a-website-on-bitbucket-cloud-221449776.html">Bitbucket Cloud</a><a hidden class="anchor" aria-hidden="true" href="#bitbucket-cloudhttpsconfluenceatlassiancombitbucketpublishing-a-website-on-bitbucket-cloud-221449776html">#</a></h2>
+<h2 id="bitbucket-cloudhttpsconfluenceatlassiancombitbucketpublishing-a-website-on-bitbucket-cloud-221449776html"><a href="https://confluence.atlassian.com/bitbucket/publishing-a-website-on-bitbucket-cloud-221449776.html">Bitbucket Cloud</a></h2>
 <ul>
 <li>必须要通过 HTTPS 访问</li>
 <li>不能自定义域名</li>
 <li>所有项目的静态网站代码都只能放在专门的站点仓库里。</li>
 <li>页面缓存 15 分钟，意味着改变不会立即可见。</li>
 </ul>
-<h2 id="aerobatichttpswwwaerobaticcom"><a href="https://www.aerobatic.com/">aerobatic</a><a hidden class="anchor" aria-hidden="true" href="#aerobatichttpswwwaerobaticcom">#</a></h2>
+<h2 id="aerobatichttpswwwaerobaticcom"><a href="https://www.aerobatic.com/">aerobatic</a></h2>
 <ul>
 <li>可以支持 CLI 上传代码</li>
 <li>自定义域名需要收费。</li>
 </ul>
-<h2 id="surgehttpssurgesh"><a href="https://surge.sh/">surge</a><a hidden class="anchor" aria-hidden="true" href="#surgehttpssurgesh">#</a></h2>
+<h2 id="surgehttpssurgesh"><a href="https://surge.sh/">surge</a></h2>
 <ul>
 <li>只支持 CLI</li>
 <li>支持自定义域名，开启 SSL 是需要收费，同时需要自己上传证书</li>
@@ -311,158 +165,98 @@ GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目�
 <blockquote>
 <p>持续更新&hellip;</p>
 </blockquote>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://gekang.tech/tags/hugo/">hugo</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
 
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="http://gekang.tech/tags/hugo/">hugo</a></li>
-    </ul>
-<nav class="paginav">
-  <a class="prev" href="http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>给 hugo 添加搜索引擎优化</span>
-  </a>
-  <a class="next" href="http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/">
-    <span class="title">Next »</span>
-    <br>
-    <span>给 hugo 添加评论功能</span>
-  </a>
-</nav>
-
-  </footer><script src="https://utteranc.es/client.js"
+    <script src="https://utteranc.es/client.js"
         repo="likontech/likontech.github.io"
         issue-term="title"
         label="碎碎念"
         theme="preferred-color-scheme"
         crossorigin="anonymous"
         async>
-</script>
-</article>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2023 <a href="http://gekang.tech/">likon</a></span>
-    <span>
-        Powered by ❤️
-    </span>
-    
-    <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>
-        </span>
-        <span>/</span>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>
-        </span></footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
+    </script>    
 
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <span>Powered by ❤️ </span>
+        <span id="busuanzi_container_site_uv">
+                <span id="busuanzi_value_site_uv"></span>
+            </span>
+            <span>/</span>
+            <span id="busuanzi_container_site_pv">
+                <span id="busuanzi_value_site_pv"></span>
+            </span></div>
+    
+
+    <div class="footer_slogan">
+        <span>学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？</span>
+    </div>
+</footer>
+    <script src="https://gekang.tech/js/jquery-3.5.1.min.js"></script>
+<link href="https://gekang.tech/css/fancybox.min.css" rel="stylesheet">
+<script src="https://gekang.tech/js/fancybox.min.js"></script>
+<script src="https://gekang.tech/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
     }
+</style>
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
 
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
 
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
 </body>
 
 </html>

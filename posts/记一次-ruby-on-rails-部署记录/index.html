@@ -1,227 +1,109 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>记一次 Ruby on Rails 部署记录 | likon</title>
-<meta name="keywords" content="rails">
-<meta name="description" content="写在前面 学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。
-云服务器 采用的是腾讯云，系统Ubuntu Server 16.04.1 LTS 64位
-项目示例 采用 blog demo，来自 Rails 官网文档中 Getting Started with Rails。
-安装服器软件 采用 Ubuntu 内建的套件管理工具 apt-get
-更新软件列表 sudo apt-get update 安装 Ruby on Rails 需要的软件 sudo apt-get install -y build-essential git-core bison openssl libreadline6-dev curl zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 autoconf libc6-dev libpcre3-dev libcurl4-nss-dev libxml2-dev libxslt-dev imagemagick nodejs libffi-dev 安装 Ruby，使用 Brighbox 已经编译好的 Ruby sudo apt-get install software-properties-common sudo apt-add-repository ppa:brightbox/ruby-ng sudo apt-get update sudo apt-get install ruby2.">
-<meta name="author" content="">
-<link rel="canonical" href="http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e7c49816de449f6ad0aa23a3856dd9781a6a193741fbf188d2d84487562ebc50.css" integrity="sha256-58SYFt5En2rQqiOjhW3ZeBpqGTdB&#43;/GI0thEh1YuvFA=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://gekang.tech/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://gekang.tech/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://gekang.tech/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://gekang.tech/apple-touch-icon.png">
-<link rel="mask-icon" href="http://gekang.tech/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <meta name="referrer" content="no-referrer-when-downgrade"><meta property="og:title" content="记一次 Ruby on Rails 部署记录" />
-<meta property="og:description" content="写在前面 学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。
+<html lang="zh" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="" />
+	
+	
+	
+	<title>记一次 Ruby on Rails 部署记录 ｜ likon</title>
+	
+    
+    
+    <meta name="description" content="写在前面 学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。
 云服务器 采用的是腾讯云，系统Ubuntu Server 16.04.1 LTS 64位
 项目示例 采用 blog demo，来自 Rails 官网文档中 Getting Started with Rails。
 安装服器软件 采用 Ubuntu 内建的套件管理工具 apt-get
 更新软件列表 sudo apt-get update 安装 Ruby on Rails 需要的软件 sudo apt-get install -y build-essential git-core bison openssl libreadline6-dev curl zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 autoconf libc6-dev libpcre3-dev libcurl4-nss-dev libxml2-dev libxslt-dev imagemagick nodejs libffi-dev 安装 Ruby，使用 Brighbox 已经编译好的 Ruby sudo apt-get install software-properties-common sudo apt-add-repository ppa:brightbox/ruby-ng sudo apt-get update sudo apt-get install ruby2." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-04-19T13:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-19T13:00:00+00:00" /><meta property="og:site_name" content="likon" />
+    
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="记一次 Ruby on Rails 部署记录"/>
-<meta name="twitter:description" content="写在前面 学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。
-云服务器 采用的是腾讯云，系统Ubuntu Server 16.04.1 LTS 64位
-项目示例 采用 blog demo，来自 Rails 官网文档中 Getting Started with Rails。
-安装服器软件 采用 Ubuntu 内建的套件管理工具 apt-get
-更新软件列表 sudo apt-get update 安装 Ruby on Rails 需要的软件 sudo apt-get install -y build-essential git-core bison openssl libreadline6-dev curl zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 autoconf libc6-dev libpcre3-dev libcurl4-nss-dev libxml2-dev libxslt-dev imagemagick nodejs libffi-dev 安装 Ruby，使用 Brighbox 已经编译好的 Ruby sudo apt-get install software-properties-common sudo apt-add-repository ppa:brightbox/ruby-ng sudo apt-get update sudo apt-get install ruby2."/>
+    
+    
+    <meta name="keywords" content="likon, 碎碎念, 记录" />
+    
 
+	
+    
+    <link rel="shortcut icon" href="https://gekang.tech/images/favicon.ico" />
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "http://gekang.tech/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "记一次 Ruby on Rails 部署记录",
-      "item": "http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "记一次 Ruby on Rails 部署记录",
-  "name": "记一次 Ruby on Rails 部署记录",
-  "description": "写在前面 学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。\n云服务器 采用的是腾讯云，系统Ubuntu Server 16.04.1 LTS 64位\n项目示例 采用 blog demo，来自 Rails 官网文档中 Getting Started with Rails。\n安装服器软件 采用 Ubuntu 内建的套件管理工具 apt-get\n更新软件列表 sudo apt-get update 安装 Ruby on Rails 需要的软件 sudo apt-get install -y build-essential git-core bison openssl libreadline6-dev curl zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 autoconf libc6-dev libpcre3-dev libcurl4-nss-dev libxml2-dev libxslt-dev imagemagick nodejs libffi-dev 安装 Ruby，使用 Brighbox 已经编译好的 Ruby sudo apt-get install software-properties-common sudo apt-add-repository ppa:brightbox/ruby-ng sudo apt-get update sudo apt-get install ruby2.",
-  "keywords": [
-    "rails"
-  ],
-  "articleBody": "写在前面 学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。\n云服务器 采用的是腾讯云，系统Ubuntu Server 16.04.1 LTS 64位\n项目示例 采用 blog demo，来自 Rails 官网文档中 Getting Started with Rails。\n安装服器软件 采用 Ubuntu 内建的套件管理工具 apt-get\n更新软件列表 sudo apt-get update 安装 Ruby on Rails 需要的软件 sudo apt-get install -y build-essential git-core bison openssl libreadline6-dev curl zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 autoconf libc6-dev libpcre3-dev libcurl4-nss-dev libxml2-dev libxslt-dev imagemagick nodejs libffi-dev 安装 Ruby，使用 Brighbox 已经编译好的 Ruby sudo apt-get install software-properties-common sudo apt-add-repository ppa:brightbox/ruby-ng sudo apt-get update sudo apt-get install ruby2.6 ruby2.6-dev 替换 gem source，安装 Bundler gem gem source gem source -r https://rubygems.org/ gem source -a https://gems.ruby-china.com sudo gem install bundler 安装 Rails gem install rails -v 5.1.7 安装数据库，采用PostgreSQL，当然也可以选择 MySQL sudo apt-get install postgresql libpq-dev postgresql-contrib # 修改账号 postgres 的密码 sudo -u postgres psql postgres=#\\password # 记住密码，后续 database.yml 中需要 # 创建数据库 blog sudo -u postgres createdb blog 安装 Nginx + Passenger Web 服务器 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7 sudo apt-get install -y apt-transport-https ca-certificates sudo sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger xenial main \u003e /etc/apt/sources.list.d/passenger.list' sudo apt-get update sudo apt-get install -y nginx-extras passenger 直接访问 IP 确认是否为 Nginx 静态页面，Welcome to nginx on Ubuntu! 新建部署用户 新增 deploy 用户\nsudo adduser --disabled-password deploy sudo su deploy mkdir ~/.ssh touch ~/.ssh/authorized_keys # 本地电脑执行，复制公钥到剪贴板 cat ~/.ssh/id_rsa.pub # 服务器执行，粘贴公钥 vi ~/.ssh/authorized_keys chmod 700 ~/.ssh chmod 644 ~/.ssh/authorized_keys # 退出后，本地电脑可以 ssh deploy@\u003c主机IP位置\u003e 免密登录 自动化部署 安装 Capistrano 部署工具 需要用到 blog 项目\n修改 blog 项目 Gemfile，关注处标记 #!!!，修改后 bundle install\nsource 'https://gems.ruby-china.com/' git_source(:github) do |repo_name| repo_name = \"#{repo_name}/#{repo_name}\" unless repo_name.include?(\"/\") \"https://github.com/#{repo_name}.git\" end # Bundle edge Rails instead: gem 'rails', github: 'rails/rails' gem 'rails', '~\u003e 5.1.7' # Use sqlite3 as the database for Active Record # Use Puma as the app server gem 'puma', '~\u003e 3.7' # Use SCSS for stylesheets gem 'sass-rails', '~\u003e 5.0' # Use Uglifier as compressor for JavaScript assets gem 'uglifier', '\u003e= 1.3.0' # See https://github.com/rails/execjs#readme for more supported runtimes # gem 'therubyracer', platforms: :ruby # Use CoffeeScript for .coffee assets and views gem 'coffee-rails', '~\u003e 4.2' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks gem 'turbolinks', '~\u003e 5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder gem 'jbuilder', '~\u003e 2.5' # Use Redis adapter to run Action Cable in production # gem 'redis', '~\u003e 4.0' # Use ActiveModel has_secure_password # gem 'bcrypt', '~\u003e 3.1.7' # Use Capistrano for deployment # gem 'capistrano-rails', group: :development #!!! group :production do gem 'pg' end #!!! group :development, :test do gem 'sqlite3' # Call 'byebug' anywhere in the code to stop execution and get a debugger console gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] # Adds support for Capybara system testing and selenium driver gem 'capybara', '\u003e= 2.15' gem 'selenium-webdriver' gem 'rspec-rails' #!!! gem 'capistrano-rails' gem 'capistrano-passenger' end group :development do # Access an IRB console on exception pages or by using \u003c%= console %\u003e anywhere in the code. gem 'web-console', '\u003e= 3.3.0' gem 'listen', '\u003e= 3.0.5', '\u003c 3.2' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring gem 'spring' gem 'spring-watcher-listen', '~\u003e 2.0.0' end # Windows does not include zoneinfo files, so bundle the tzinfo-data gem gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] 本地配置 capistrano，项目目录下执行 cap install 编辑 Capfile 文件，关注处标记 #!!!\n# Load DSL and set up stages require \"capistrano/setup\" # Include default deployment tasks require \"capistrano/deploy\" # Load the SCM plugin appropriate to your project: # # require \"capistrano/scm/hg\" # install_plugin Capistrano::SCM::Hg # or # require \"capistrano/scm/svn\" # install_plugin Capistrano::SCM::Svn # or require \"capistrano/scm/git\" install_plugin Capistrano::SCM::Git #!!! require 'capistrano/rails' require 'capistrano/passenger' # Include tasks from other gems included in your Gemfile # # For documentation on these, see for example: # # https://github.com/capistrano/rvm # https://github.com/capistrano/rbenv # https://github.com/capistrano/chruby # https://github.com/capistrano/bundler # https://github.com/capistrano/rails # https://github.com/capistrano/passenger # # require \"capistrano/rvm\" # require \"capistrano/rbenv\" # require \"capistrano/chruby\" # require \"capistrano/bundler\" # require \"capistrano/rails/assets\" # require \"capistrano/rails/migrations\" # require \"capistrano/passenger\" # Load custom tasks from `lib/capistrano/tasks` if you have any defined Dir.glob(\"lib/capistrano/tasks/*.rake\").each { |r| import r } 修改 config/deploy.rb，关注处标记 #!!! # config valid for current version and patch releases of Capistrano #!!! sh \"ssh-add\" lock \"~\u003e 3.16.0\" #!!! set :application, \"blog\" #!!! 将你的项目提到远程 github 仓库，包含你的之前和后续的一些修改 set :repo_url, \"git@github.com:xxx/blog.git\" # Default branch is :master # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp # Default deploy_to directory is /var/www/my_app_name # set :deploy_to, \"/var/www/my_app_name\" #!!! set :deploy_to, \"/home/deploy/blog\" # Default value for :format is :airbrussh. # set :format, :airbrussh # You can configure the Airbrussh format using :format_options. # These are the defaults. # set :format_options, command_output: true, log_file: \"log/capistrano.log\", color: :auto, truncate: :auto # Default value for :pty is false # set :pty, true # Default value for :linked_files is [] # append :linked_files, \"config/database.yml\" #!!! append :linked_files, \"config/database.yml\", \"config/secrets.yml\" # Default value for linked_dirs is [] # append :linked_dirs, \"log\", \"tmp/pids\", \"tmp/cache\", \"tmp/sockets\", \"public/system\" #!!! append :linked_dirs, \"log\", \"tmp/pids\", \"tmp/cache\", \"tmp/sockets\", \"public/system\" #!!! set :passenger_restart_with_touch, true # Default value for default_env is {} # set :default_env, { path: \"/opt/ruby/bin:$PATH\" } # Default value for local_user is ENV['USER'] # set :local_user, -\u003e { `git config user.name`.chomp } # Default value for keep_releases is 5 # set :keep_releases, 5 #!!! set :keep_releases, 5 # Uncomment the following to require manually verifying the host key before first deploy. # set :ssh_options, verify_host_key: :secure 修改 config/deploy/production.rb，关注处标记 #!!! #!!! set :branch, \"master\" # server-based syntax # ====================== # Defines a single server with a list of roles and multiple properties. # You can define all roles on a single server, or split them: # server \"example.com\", user: \"deploy\", roles: %w{app db web}, my_property: :my_value # server \"example.com\", user: \"deploy\", roles: %w{app web}, other_property: :other_value # server \"db.example.com\", user: \"deploy\", roles: %w{db} #!!! 你的服务 IP 地址 server \"15x.13x.12x.18\", user: \"deploy\", roles: %w{app db web}, my_property: :my_value # role-based syntax # ================== # Defines a role with one or multiple servers. The primary server in each # group is considered to be the first unless any hosts have the primary # property set. Specify the username and a domain or IP for the server. # Don't use `:all`, it's a meta role. # role :app, %w{deploy@example.com}, my_property: :my_value # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value # role :db, %w{deploy@example.com} # Configuration # ============= # You can set any configuration variable like in config/deploy.rb # These variables are then only loaded and set in this stage. # For available Capistrano configuration variables see the documentation page. # http://capistranorb.com/documentation/getting-started/configuration/ # Feel free to add new variables to customise your setup. # Custom SSH Options # ================== # You may pass any option but keep in mind that net/ssh understands a # limited set of options, consult the Net::SSH documentation. # http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start # # Global options # -------------- # set :ssh_options, { # keys: %w(/home/user_name/.ssh/id_rsa), # forward_agent: false, # auth_methods: %w(password) # } # # The server-based syntax can be used to override options: # ------------------------------------ # server \"example.com\", # user: \"user_name\", # roles: %w{web app}, # ssh_options: { # user: \"user_name\", # overrides user setting above # keys: %w(/home/user_name/.ssh/id_rsa), # forward_agent: false, # auth_methods: %w(publickey password) # # password: \"please use keys\" # } 本地项目目录下执行 cap production deploy:check，这会自动在自动登录远程服务器，并建立一些 Capistrano 目录和文件 cap production deploy:check # 会有缺少 database.yml 等文件 Error，继续看下一步 服务器设置 database.yml 和 secrets.yml # 登录或切换到 deploy 用户，添加 /home/deploy/blog/shared/config/database.yml production: adapter: postgresql pool: 25 database: blog host: localhost username: postgres password: xxxxxx # 本地项目下执行 rake secret，生成随机数备用 efab0aae7352a424fae818574934baf1107f96785dbdf6ee5f8e7054399a4bbbb561dfc1183e1f20f2c247d9cd437fa0908d2fcb7517b0d7c34e61b459d5969d # 登录或切换到 deploy 用户，添加 /home/deploy/blog/shared/config/secrets.yml production: secret_key_base: 把刚刚的随机数粘贴过来，这地方有个空格，不然报 parse 错 # 再次本地执行 cap production deploy:check # 应该没有第 14 步的 error 了 本机 blog 目录下执行 cap production deploy 进行部署 执行登录远程服务器，从 GitHub 仓库拉取代码，安装 Gem，迁移数据库，编译 asset 等等 ssh-add Identity added: /Users/gekang/.ssh/id_rsa (/Users/gekang/.ssh/id_rsa) 00:00 git:wrapper 01 mkdir -p /tmp ✔ 01 deploy@15x.x3x.xxx.13 0.351s Uploading /tmp/git-ssh-0633e09da1de2a9e42f4.sh 100.0% 02 chmod 700 /tmp/git-ssh-0633e09da1de2a9e42f4.sh ✔ 02 deploy@15x.x3x.xxx.13 0.077s 00:00 git:check 01 git ls-remote git@github.com:grackanil/blog.git HEAD 01 ac469184b28aec29e409430ab7bdc0eb6af76e5b HEAD ✔ 01 deploy@15x.x3x.xxx.13 6.136s 00:06 deploy:check:directories 01 mkdir -p /home/deploy/blog/shared /home/deploy/blog/releases ✔ 01 deploy@15x.x3x.xxx.13 0.035s 00:06 deploy:check:linked_dirs 01 mkdir -p /home/deploy/blog/shared/log /home/deploy/blog/shared/tmp/pids /home/… ✔ 01 deploy@15x.x3x.xxx.13 0.464s 00:07 deploy:check:make_linked_dirs 01 mkdir -p /home/deploy/blog/shared/config ✔ 01 deploy@15x.x3x.xxx.13 0.031s 00:08 git:clone The repository mirror is at /home/deploy/blog/repo 00:08 git:update 01 git remote set-url origin git@github.com:grackanil/blog.git ✔ 01 deploy@15x.x3x.xxx.13 0.077s 02 git remote update --prune 02 Fetching origin ✔ 02 deploy@15x.x3x.xxx.13 5.568s 00:14 git:create_release 01 mkdir -p /home/deploy/blog/releases/20210622112320 ✔ 01 deploy@15x.x3x.xxx.13 0.075s 02 git archive master | /usr/bin/env tar -x -f - -C /home/deploy/blog/releases/20… ✔ 02 deploy@15x.x3x.xxx.13 0.092s 00:14 deploy:set_current_revision 01 echo \"ac469184b28aec29e409430ab7bdc0eb6af76e5b\" \u003e REVISION ✔ 01 deploy@15x.x3x.xxx.13 0.079s 00:14 deploy:symlink:linked_files 01 mkdir -p /home/deploy/blog/releases/20210622112320/config ✔ 01 deploy@15x.x3x.xxx.13 0.070s 02 rm /home/deploy/blog/releases/20210622112320/config/database.yml ✔ 02 deploy@15x.x3x.xxx.13 0.074s 03 ln -s /home/deploy/blog/shared/config/database.yml /home/deploy/blog/releases/… ✔ 03 deploy@15x.x3x.xxx.13 0.071s 04 rm /home/deploy/blog/releases/20210622112320/config/secrets.yml ✔ 04 deploy@15x.x3x.xxx.13 0.071s 05 ln -s /home/deploy/blog/shared/config/secrets.yml /home/deploy/blog/releases/2… ✔ 05 deploy@15x.x3x.xxx.13 0.071s 00:15 deploy:symlink:linked_dirs 01 mkdir -p /home/deploy/blog/releases/20210622112320 /home/deploy/blog/releases/… ✔ 01 deploy@15x.x3x.xxx.13 0.070s 02 rm -rf /home/deploy/blog/releases/20210622112320/log ✔ 02 deploy@15x.x3x.xxx.13 0.070s 03 ln -s /home/deploy/blog/shared/log /home/deploy/blog/releases/20210622112320/l… ✔ 03 deploy@15x.x3x.xxx.13 0.073s 04 ln -s /home/deploy/blog/shared/tmp/pids /home/deploy/blog/releases/20210622112… ✔ 04 deploy@15x.x3x.xxx.13 0.071s 05 ln -s /home/deploy/blog/shared/tmp/cache /home/deploy/blog/releases/2021062211… ✔ 05 deploy@15x.x3x.xxx.13 0.078s 06 ln -s /home/deploy/blog/shared/tmp/sockets /home/deploy/blog/releases/20210622… ✔ 06 deploy@15x.x3x.xxx.13 0.077s 07 ln -s /home/deploy/blog/shared/public/system /home/deploy/blog/releases/202106… ✔ 07 deploy@15x.x3x.xxx.13 0.069s 08 rm -rf /home/deploy/blog/releases/20210622112320/public/assets ✔ 08 deploy@15x.x3x.xxx.13 0.078s 09 ln -s /home/deploy/blog/shared/public/assets /home/deploy/blog/releases/202106… ✔ 09 deploy@15x.x3x.xxx.13 0.072s 00:16 bundler:config 01 bundle config --local deployment true 01 You are replacing the current local value of deployment, which is currently nil ✔ 01 deploy@15x.x3x.xxx.13 0.241s 02 bundle config --local path /home/deploy/blog/shared/bundle 02 You are replacing the current local value of path, which is currently nil ✔ 02 deploy@15x.x3x.xxx.13 0.317s 03 bundle config --local without development:test 03 You are replacing the current local value of without, which is currently nil ✔ 03 deploy@15x.x3x.xxx.13 0.308s 00:18 bundler:install The Gemfile's dependencies are satisfied, skipping installation 00:18 deploy:assets:precompile 01 bundle exec rake assets:precompile 01 Yarn executable was not detected in the system. 01 Download Yarn at https://yarnpkg.com/en/docs/install ✔ 01 deploy@15x.x3x.xxx.13 1.870s 00:20 deploy:assets:backup_manifest 01 mkdir -p /home/deploy/blog/releases/20210622112320/assets_manifest_backup ✔ 01 deploy@15x.x3x.xxx.13 0.073s 02 cp /home/deploy/blog/releases/20210622112320/public/assets/.sprockets-manifest… ✔ 02 deploy@15x.x3x.xxx.13 0.071s 00:20 deploy:migrate [deploy:migrate] Run `rake db:migrate` 00:20 deploy:migrating 01 bundle exec rake db:migrate ✔ 01 deploy@15x.x3x.xxx.13 1.584s 00:21 deploy:symlink:release 01 ln -s /home/deploy/blog/releases/20210622112320 /home/deploy/blog/releases/cur… ✔ 01 deploy@15x.x3x.xxx.13 0.075s 02 mv /home/deploy/blog/releases/current /home/deploy/blog ✔ 02 deploy@15x.x3x.xxx.13 0.072s 00:22 passenger:restart 01 mkdir -p /home/deploy/blog/releases/20210622112320/tmp ✔ 01 deploy@15x.x3x.xxx.13 0.072s 02 touch /home/deploy/blog/releases/20210622112320/tmp/restart.txt ✔ 02 deploy@15x.x3x.xxx.13 0.072s 00:22 deploy:cleanup Keeping 5 of 6 deployed releases on 15x.x3x.xxx.13 01 rm -rf /home/deploy/blog/releases/20210622073535 ✔ 01 deploy@15x.x3x.xxx.13 0.080s 00:22 deploy:log_revision 01 echo \"Branch master (at ac469184b28aec29e409430ab7bdc0eb6af76e5b) deployed as … ✔ 01 deploy@15x.x3x.xxx.13 0.073s 后续只需要修改代码，执行部署就可以了\ngit commit cap production deploy 注意此处会生成 current 目录，后续会需要\n设置 Nginx 使用root 权限，设置 /etc/nginx/nginx.conf，使用 #!!! #!!! env PATH; user www-data; worker_processes auto; pid /run/nginx.pid; events { worker_connections 768; # multi_accept on; } http { #!!! passenger_show_version_in_header off; #!!! server_tokens off; #!!! client_max_body_size 100m; gzip on; gzip_disable \"msie6\"; #!!! gzip_comp_level 5; gzip_min_length 256; gzip_proxied any; gzip_vary on; gzip_types application/atom+xml application/javascript application/x-javascript application/json application/rss+xml application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/svg+xml image/x-icon text/css text/xml text/plain text/javascript text/x-component; #!!! include /etc/nginx/passenger.conf; # 下略 远程使用 root 权限，设置 /etc/nginx/sites-enabled/blog.conf，blog 命名随意 server { listen 80; server_name 15x.x3x.xxx.13; # 用你自己的服务器 IP 地址 root /home/deploy/blog/current/public; # 第 16 步骤最后说的 current 目录 passenger_enabled on; passenger_min_instances 1; location ~ ^/assets/ { expires 1y; add_header Cache-Control public; add_header ETag \"\"; break; } } 重启 Nginx sudo service nginx restart 打开 IP 地址，大功告成，开心 参考文档 Ruby China Getting Started with Rails Brighbox Capistrano Ruby on Rails Rails 实战圣经 Installing Passenger + Nginx ",
-  "wordCount" : "1863",
-  "inLanguage": "en",
-  "datePublished": "2022-04-19T13:00:00Z",
-  "dateModified": "2022-04-19T13:00:00Z",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "likon",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://gekang.tech/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
+    <link rel="stylesheet" type="text/css" media="screen" href="https://gekang.tech/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://gekang.tech/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://gekang.tech/css/highlight.css" />
 
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
+    
+    <meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
 
-</script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta name="referrer" content="no-referrer-when-downgrade"></head>
 
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://gekang.tech/" accesskey="h" title="likon (Alt + H)">likon</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://gekang.tech/">
+                    
+                    <img class="likon" style="margin-top: -20px; margin-left: -10px;" src="https://gekang.tech/images/icon_likon.png" width="150px">
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">岁岁年，碎碎念</p>
+            <div class="my_socials">
+                
+                <a href="https://gekang.tech/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
             </div>
         </div>
-        <ul id="menu">
-            <li>
-                <a href="http://gekang.tech/search/" title="搜索 (Alt &#43; /)" accesskey=/>
-                    <span>搜索</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://gekang.tech/categories/" title="分类">
-                    <span>分类</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://gekang.tech/tags/" title="标签">
-                    <span>标签</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/likontech" title="Github">
-                    <span>Github</span>&nbsp;
-                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                        <path d="M15 3h6v6"></path>
-                        <path d="M10 14L21 3"></path>
-                    </svg>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    
-    <h1 class="post-title">
-      记一次 Ruby on Rails 部署记录
-    </h1>
-    <div class="post-meta"><span title='2022-04-19 13:00:00 +0000 UTC'>April 19, 2022</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1863 words
-
-
-&nbsp;·&nbsp;阅读&nbsp;<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span></div>
-  </header> 
-  <div class="post-content"><h2 id="写在前面">写在前面<a hidden class="anchor" aria-hidden="true" href="#写在前面">#</a></h2>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/'>记一次 Ruby on Rails 部署记录</a></h2>
+                        <span class="date">2022.04.19</span>
+                        
+                        <span class="date" id="busuanzi_container_page_pv">·&nbsp;<span class="date" id="busuanzi_value_page_pv"></span></span>
+                    </div>
+                    <div class="post_content markdown"><h2 id="写在前面">写在前面</h2>
 <p>学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。</p>
-<h3 id="云服务器">云服务器<a hidden class="anchor" aria-hidden="true" href="#云服务器">#</a></h3>
+<h3 id="云服务器">云服务器</h3>
 <p>采用的是腾讯云，系统Ubuntu Server 16.04.1 LTS 64位</p>
-<h3 id="项目示例">项目示例<a hidden class="anchor" aria-hidden="true" href="#项目示例">#</a></h3>
+<h3 id="项目示例">项目示例</h3>
 <p>采用 blog demo，来自 Rails 官网文档中 Getting Started with Rails。</p>
-<h3 id="安装服器软件">安装服器软件<a hidden class="anchor" aria-hidden="true" href="#安装服器软件">#</a></h3>
+<h3 id="安装服器软件">安装服器软件</h3>
 <p>采用 Ubuntu 内建的套件管理工具 apt-get</p>
 <ol>
 <li>更新软件列表</li>
@@ -271,7 +153,7 @@ sudo apt-get install -y nginx-extras passenger
 <li>直接访问 IP</li>
 </ol>
 <pre tabindex="0"><code>确认是否为 Nginx 静态页面，Welcome to nginx on Ubuntu!
-</code></pre><h3 id="新建部署用户">新建部署用户<a hidden class="anchor" aria-hidden="true" href="#新建部署用户">#</a></h3>
+</code></pre><h3 id="新建部署用户">新建部署用户</h3>
 <p>新增 deploy 用户</p>
 <pre tabindex="0"><code>sudo adduser --disabled-password deploy
 sudo su deploy 
@@ -284,7 +166,7 @@ vi ~/.ssh/authorized_keys
 chmod 700 ~/.ssh
 chmod 644 ~/.ssh/authorized_keys
 # 退出后，本地电脑可以 ssh deploy@&lt;主机IP位置&gt; 免密登录
-</code></pre><h3 id="自动化部署">自动化部署<a hidden class="anchor" aria-hidden="true" href="#自动化部署">#</a></h3>
+</code></pre><h3 id="自动化部署">自动化部署</h3>
 <ol>
 <li>安装 Capistrano 部署工具</li>
 </ol>
@@ -681,7 +563,7 @@ Identity added: /Users/gekang/.ssh/id_rsa (/Users/gekang/.ssh/id_rsa)
 <pre tabindex="0"><code>git commit
 cap production deploy
 </code></pre><p>注意此处会生成 current 目录，后续会需要</p>
-<h3 id="设置-nginx">设置 Nginx<a hidden class="anchor" aria-hidden="true" href="#设置-nginx">#</a></h3>
+<h3 id="设置-nginx">设置 Nginx</h3>
 <ol>
 <li>使用root 权限，设置 /etc/nginx/nginx.conf，使用 #!!!</li>
 </ol>
@@ -746,10 +628,9 @@ cap production deploy
 <pre tabindex="0"><code>sudo service nginx restart
 </code></pre><ol start="4">
 <li>打开 IP 地址，大功告成，开心
-<img loading="lazy" src="https://s3.bmp.ovh/imgs/2022/04/16/b0460acda295c227.png" alt="图片"  />
-</li>
+<img src="https://s3.bmp.ovh/imgs/2022/04/16/b0460acda295c227.png" alt="图片"></li>
 </ol>
-<h2 id="参考文档">参考文档<a hidden class="anchor" aria-hidden="true" href="#参考文档">#</a></h2>
+<h2 id="参考文档">参考文档</h2>
 <ul>
 <li><a href="https://ruby-china.org/wiki">Ruby China</a></li>
 <li><a href="https://guides.rubyonrails.org/getting_started.html">Getting Started with Rails</a></li>
@@ -759,158 +640,98 @@ cap production deploy
 <li><a href="https://ihower.tw/rails/fullstack-deployment.html">Rails 实战圣经</a></li>
 <li><a href="https://www.phusionpassenger.com/library/install/nginx/install/oss/">Installing Passenger + Nginx</a></li>
 </ul>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://gekang.tech/tags/rails/">rails</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
 
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="http://gekang.tech/tags/rails/">rails</a></li>
-    </ul>
-<nav class="paginav">
-  <a class="prev" href="http://gekang.tech/posts/%E5%8E%8B%E5%8A%9B%E4%B9%8B%E4%B8%8B%E6%8B%A9%E8%A6%81%E4%BA%8B%E4%B8%BA%E4%B9%8B/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>压力之下，择要事为之</span>
-  </a>
-  <a class="next" href="http://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/">
-    <span class="title">Next »</span>
-    <br>
-    <span>搭建私有 RubyGem</span>
-  </a>
-</nav>
-
-  </footer><script src="https://utteranc.es/client.js"
+    <script src="https://utteranc.es/client.js"
         repo="likontech/likontech.github.io"
         issue-term="title"
         label="碎碎念"
         theme="preferred-color-scheme"
         crossorigin="anonymous"
         async>
-</script>
-</article>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2023 <a href="http://gekang.tech/">likon</a></span>
-    <span>
-        Powered by ❤️
-    </span>
-    
-    <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>
-        </span>
-        <span>/</span>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>
-        </span></footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
+    </script>    
 
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <span>Powered by ❤️ </span>
+        <span id="busuanzi_container_site_uv">
+                <span id="busuanzi_value_site_uv"></span>
+            </span>
+            <span>/</span>
+            <span id="busuanzi_container_site_pv">
+                <span id="busuanzi_value_site_pv"></span>
+            </span></div>
+    
+
+    <div class="footer_slogan">
+        <span>学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？</span>
+    </div>
+</footer>
+    <script src="https://gekang.tech/js/jquery-3.5.1.min.js"></script>
+<link href="https://gekang.tech/css/fancybox.min.css" rel="stylesheet">
+<script src="https://gekang.tech/js/fancybox.min.js"></script>
+<script src="https://gekang.tech/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
     }
+</style>
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
 
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
 
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
-
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
 </body>
 
 </html>

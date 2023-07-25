@@ -1,45 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on likon</title>
-    <link>http://gekang.tech/posts/</link>
+    <link>https://gekang.tech/posts/</link>
     <description>Recent content in Posts on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gekang.tech/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React Hooks 草稿</title>
-      <link>http://gekang.tech/posts/react-hook-%E8%8D%89%E7%A8%BF/</link>
+      <link>https://gekang.tech/posts/react-hook-%E8%8D%89%E7%A8%BF/</link>
       <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/react-hook-%E8%8D%89%E7%A8%BF/</guid>
-      <description>理一理 React Hooks 的几个常见</description>
+      <guid>https://gekang.tech/posts/react-hook-%E8%8D%89%E7%A8%BF/</guid>
+      <description>前言 React v16.8 版本引入了全新的 React Hook API，颠覆了以前的用法。看了很多文章，都认为是 React 的未来，简单介绍介绍。
+类组件 看个简单类组件例子
+import React, { Component } from &amp;#39;react&amp;#39;; class ClassComponent extends Component { constructor(props) { super(props); this.state = { count: 0, }; } incrementCount = () =&amp;gt; { this.setState((prevState) =&amp;gt; ({ count: prevState.count + 1, })); }; decrementCount = () =&amp;gt; { this.setState((prevState) =&amp;gt; ({ count: prevState.count - 1, })); }; render() { const { count } = this.state; return ( &amp;lt;div&amp;gt; &amp;lt;h1&amp;gt;Class Component Example&amp;lt;/h1&amp;gt; &amp;lt;p&amp;gt;Count: {count}&amp;lt;/p&amp;gt; &amp;lt;button onClick={this.</description>
     </item>
     
     <item>
       <title>给 hugo 添加访问量</title>
-      <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</link>
+      <link>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</link>
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</guid>
-      <description>Hugo添加不蒜子Busuanzi站点访问量与阅读量统计</description>
+      <guid>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</guid>
+      <description>前言 添加个访问量功能耍耍~
+开整 借助不蒜子，两行代码，搞定计数。
+打开官网 不蒜子，关键代码如下，打开浏览器检查功能，可以看到 span 标签及其 id
+# 引入 &amp;lt;script async src=&amp;#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;#34;&amp;gt;&amp;lt;script&amp;gt; # 站点 PV &amp;lt;span id=&amp;#34;busuanzi_container_site_pv&amp;#34;&amp;gt; 本站总访问量&amp;lt;span id=&amp;#34;busuanzi_value_site_pv&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;次 &amp;lt;/span&amp;gt; # 站点 UV &amp;lt;span id=&amp;#34;busuanzi_container_site_uv&amp;#34;&amp;gt; 本站总访客数&amp;lt;span id=&amp;#34;busuanzi_value_site_uv&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;人 &amp;lt;/span&amp;gt; # 页面或文章 PV &amp;lt;span id=&amp;#34;busuanzi_container_page_pv&amp;#34;&amp;gt; 本文总阅读量&amp;lt;span id=&amp;#34;busuanzi_value_page_pv&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;次 &amp;lt;/span&amp;gt; 加入到 Hugo 主题中合适位置 以 PaperMod 为例子
+head themes/PaperMod/partials/extend_head.html
+&amp;lt;!-- busuanzi --&amp;gt; {{- if .Site.Params.busuanzi.enable -}} &amp;lt;script async src=&amp;#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;meta name=&amp;#34;referrer&amp;#34; content=&amp;#34;no-referrer-when-downgrade&amp;#34;&amp;gt; {{- end -}} footer themes/PaperMod/partials/footer.html
+&amp;lt;!-- busuanzi --&amp;gt; {{ if .Site.Params.busuanzi.enable -}} &amp;lt;span id=&amp;#34;busuanzi_container_site_uv&amp;#34;&amp;gt; &amp;lt;span id=&amp;#34;busuanzi_value_site_uv&amp;#34;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;span&amp;gt;/&amp;lt;/span&amp;gt; &amp;lt;span id=&amp;#34;busuanzi_container_site_pv&amp;#34;&amp;gt; &amp;lt;span id=&amp;#34;busuanzi_value_site_pv&amp;#34;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/span&amp;gt; {{- end -}} 页面或文章 themes/PaperMod/_default/single.</description>
     </item>
     
     <item>
       <title>给 hugo 添加搜索引擎优化</title>
-      <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</link>
+      <link>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</link>
       <pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</guid>
-      <description>介绍如何给 Hugo 添加搜索引擎优化。</description>
+      <guid>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</guid>
+      <description>前言 为了让 Hugo 网站更好的被搜索引擎收录，需要进行搜索引擎优化。
+资料 搜索引擎 Google Bing Baidu 开整 给站点和文章添加详细说明 站点配置文件添加 description，例如
+description: &amp;#34;likon 的个人技术博客网站，主要专注大前端，记录技术、所思所想&amp;#34; 文章模板添加更多
+title: 给 hugo 添加搜索引擎优化 date: 2023-07-19 tags: [&amp;#34;hugo&amp;#34;] keywords: - hugo - 搜索引擎优化 - seo description : &amp;#34;介绍如何给 Hugo 添加搜索引擎优化。&amp;#34; Google 搜索优化 打开 Google 网站站长，点击 SEARCH CONSOLE 进入
+下载 html 文件，放到根目录 static 子目录下 生成 meta 标签，添加到站点 &amp;lt;head&amp;gt;&amp;lt;/head&amp;gt; 标签内（我的选择） # 我是加到 theme 的 extend_head.html 内，可以全局搜索 &amp;lt;head&amp;gt; &amp;lt;meta name=&amp;#34;baidu-site-verification&amp;#34; content=&amp;#34;xxx&amp;#34; /&amp;gt; 百度搜索优化 基本和 Google 一致 打开 百度搜索资源平台 ，点击链接提交，然后点添加站点。</description>
     </item>
     
     <item>
       <title>静态网站托管服务平台</title>
-      <link>http://gekang.tech/posts/static-site-hosting-service/</link>
+      <link>https://gekang.tech/posts/static-site-hosting-service/</link>
       <pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/static-site-hosting-service/</guid>
+      <guid>https://gekang.tech/posts/static-site-hosting-service/</guid>
       <description>简要罗列静态网站托管平台。
 前言 最近使用Hugo和GitHub Pages搭建个人静态主页，发现一些问题，遂做一个横向方案比较，了解一下具体的异同。有很多平台没有亲自实践，所以说明仅供记录参考，细节有待挖掘和更新。同时，如果您有其他推荐的方案，欢迎评论分享，持续更新：)
 GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目主页。 提供静态网站托管服务 不支持服务端代码，比如 PHP、Ruby 或 Python GitHub Pages 提供的域名可以支持 HTTPS 访问 可以配置自定义的域名，但是无法给自定义的域名配置 SSL ，HTTPS is not supported for GitHub Pages using custom domains. 查阅 Github Help，所有 GitHub Pages 网站（包括使用自定义域正确配置的网站）已经都支持 HTTPS 和 HTTPS 强制实施。 响应速度还是有点慢 网站仓库小于1GB，带宽限制 100GB/每月，构建限制10次/每小时 Netlify 不支持后台逻辑运算能力的网页 如果要部署 Hexo 大体思路是，通过 CLI (命令行界面)将 md 渲染为静态网站，然后通过 git 部署到 Git 平台，然后使用 Netlify 的 webhook 自动抓取部署 具有全球CDN、持续部署、一键HTTPS等优势 能通过客户端 JS 与可重用 API 可以带来动态功能，炫酷。 可以使用 Hugo 静态网站生成器和 Hetlify 网站自动化系统配合，以解决 Github Pages 的不支持 HTTPS 和 响应慢的问题 Coding Pages 由国内 Coding 提供 访问速度友好 可以做 GitHub Pages 和 Coding Pages 同时部署 Hexo，然后通过域名 DNS 解析，国外访问 GitHub Pages ，国内 访问 Coding Pages， 以优化访问速度 可以免费绑定多个自定义域名 自定义域名可以享有免费 SSL 证书，全站支持 HTTPS 协议 更新代码库就可以自动部署。服务器稳定，香港服务器国外支持也友好 新增动态页面部署 有一个小问题是，网站首页如果不放置官方『Hosted by Coding Pages』的链接，会系统添加中间『Hosted by Coding Pages』页面。 GitLab Pages 是由 GitLab 提供，旨在为 GitLab 工程、个人、groups 创建网站。 可以使用任何静态网站生成器，如 Jekyll、Middleman、Hexo、Hugo、Pelican等 可以配置自定义域名 HTTPS，需要的是上传证书 Now 不仅支持静态网站托管，也支持 JavaScript(Node.</description>
@@ -47,10 +59,10 @@ GitHub Pages 被设计为直接来源于GitHub仓库的个人、组织或项目�
     
     <item>
       <title>给 hugo 添加评论功能</title>
-      <link>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
+      <link>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
       <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
+      <guid>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
       <description>前言 添加个评论功能耍耍~
 资料 我的主题是 PaperMod，自然去主题文档里搜一搜，找到这个
 再次传送到 hugo 官网
@@ -61,10 +73,10 @@ A lightweight comments widget built on GitHub issues. Use GitHub issues for blog
     
     <item>
       <title>重谈单例模式</title>
-      <link>http://gekang.tech/posts/%E9%87%8D%E8%B0%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://gekang.tech/posts/%E9%87%8D%E8%B0%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Fri, 06 May 2022 23:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E9%87%8D%E8%B0%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://gekang.tech/posts/%E9%87%8D%E8%B0%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
       <description>前言 一提到 iOS 单例模式，一般都会想到如下常用方式。
 + (instancetype)sharedInstance { static TestClass *_sharedInstance = nil; static dispatch_once_t onceToken; dispatch_once(&amp;amp;onceToken, ^{ _sharedInstance = [[self alloc] init]; }); return _sharedInstance; } 大家按约定使用 sharedInstance 获取单例，似乎没有什么问题，大家也都是这么做的。
 其实，单例模式其实不只是仅仅一个 sharedInstance 方法就够了
@@ -74,10 +86,10 @@ A lightweight comments widget built on GitHub issues. Use GitHub issues for blog
     
     <item>
       <title>压力之下，择要事为之</title>
-      <link>http://gekang.tech/posts/%E5%8E%8B%E5%8A%9B%E4%B9%8B%E4%B8%8B%E6%8B%A9%E8%A6%81%E4%BA%8B%E4%B8%BA%E4%B9%8B/</link>
+      <link>https://gekang.tech/posts/%E5%8E%8B%E5%8A%9B%E4%B9%8B%E4%B8%8B%E6%8B%A9%E8%A6%81%E4%BA%8B%E4%B8%BA%E4%B9%8B/</link>
       <pubDate>Tue, 26 Apr 2022 21:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E5%8E%8B%E5%8A%9B%E4%B9%8B%E4%B8%8B%E6%8B%A9%E8%A6%81%E4%BA%8B%E4%B8%BA%E4%B9%8B/</guid>
+      <guid>https://gekang.tech/posts/%E5%8E%8B%E5%8A%9B%E4%B9%8B%E4%B8%8B%E6%8B%A9%E8%A6%81%E4%BA%8B%E4%B8%BA%E4%B9%8B/</guid>
       <description>写在前面 偶然间，看到一本世界卫生组织关于应对逆境时的压力管理指南。颇为有感想，遂起记录下来的心思。一来希望能读薄这本指南，往后备用翻阅，二来希望能够分享给更多的人，望助很好地应对压力。
 “压力”是指感觉到生活受到困扰或威胁。
 「你正在承受压力，但你不是孤独的，每个人都会经受压力。此时此刻，在你身边，在世界各地，很多人像你一样，也在与压力斗争。」
@@ -94,10 +106,10 @@ A lightweight comments widget built on GitHub issues. Use GitHub issues for blog
     
     <item>
       <title>记一次 Ruby on Rails 部署记录</title>
-      <link>http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</link>
+      <link>https://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Tue, 19 Apr 2022 13:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</guid>
       <description>写在前面 学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。
 云服务器 采用的是腾讯云，系统Ubuntu Server 16.04.1 LTS 64位
 项目示例 采用 blog demo，来自 Rails 官网文档中 Getting Started with Rails。
@@ -107,10 +119,10 @@ A lightweight comments widget built on GitHub issues. Use GitHub issues for blog
     
     <item>
       <title>搭建私有 RubyGem</title>
-      <link>http://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/</link>
+      <link>https://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/</link>
       <pubDate>Mon, 18 Apr 2022 13:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/</guid>
+      <guid>https://gekang.tech/posts/%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-rubygem/</guid>
       <description>写在前面 在 iOS 开发过程中，不可避免会接触到 CocoaPods。CocoaPods 是 Swift 和 Objective-C Cocoa 项目的依赖管理器，帮你优雅的管理扩展项目。想到自己搭建私有 spec repo，来托管私有 pod 的 podspec。
 Gem in a box gem 开发管理过程中，自然也少不了自建私有托管平台的需求。
 Google 查到有一个开源项目 Gem in a box，而且我们公司也是用的这个开源项目搭建的托管 gem 平台，当然需要研究学习一番。
@@ -124,10 +136,10 @@ gem install geminabox gem inabox gleksayhi-0.</description>
     
     <item>
       <title>Gem，写一个吧</title>
-      <link>http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/</link>
+      <link>https://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/</link>
       <pubDate>Sat, 16 Apr 2022 20:40:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/</guid>
+      <guid>https://gekang.tech/posts/%E5%86%99%E4%B8%80%E4%B8%AAgem/</guid>
       <description>前言 最好的教程当然还是官方文档。
 手把手 以新建一个名为 gleksayhi 的 gem 🙋🌰
 新建 gleksayhi.rb 文件，功能仅为一行打印
@@ -146,10 +158,10 @@ https://github.com/seattlerb/hoe https://github.</description>
     
     <item>
       <title>iOS 真机中设置 Slow Animations</title>
-      <link>http://gekang.tech/posts/ios-slow-animation/</link>
+      <link>https://gekang.tech/posts/ios-slow-animation/</link>
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/ios-slow-animation/</guid>
+      <guid>https://gekang.tech/posts/ios-slow-animation/</guid>
       <description>分享个 XCode LLDB 调试小技巧
 前言 在 iOS 开发中，动画也是一个很重要的组成部分。你会不会因为动画需要有灵性，苦于一点点调试参数，但又看不清楚细节？会不会遇到 App 中某些色块一闪而过？会不会突然闪屏不知道为什么？
 当然，不可避免。
@@ -160,10 +172,10 @@ https://github.com/seattlerb/hoe https://github.</description>
     
     <item>
       <title>RubyGems三两事</title>
-      <link>http://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</link>
+      <link>https://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</link>
       <pubDate>Sun, 10 Apr 2022 02:25:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</guid>
+      <guid>https://gekang.tech/posts/rubygems%E4%B8%89%E4%B8%A4%E4%BA%8B/</guid>
       <description>前言 RubyGems 是 Ruby 的一个包管理器。类似于 Ubuntu 的 apt-get，CentOS 的 yum，Python 的 pip，iOS 的 Cocoapods。方便 Rubyists 管理软件包（gem），分享可复用的功能，为应用、库的开发提供坚实的巨人肩膀。
 Gem Gem 一般都有 version、name 和 platform。
 gem help platform Gems 内部组成一般分为以下三部分：

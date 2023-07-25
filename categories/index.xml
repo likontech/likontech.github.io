@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on likon</title>
-    <link>http://gekang.tech/categories/</link>
+    <link>https://gekang.tech/categories/</link>
     <description>Recent content in Categories on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gekang.tech/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前端</title>
-      <link>http://gekang.tech/categories/%E5%89%8D%E7%AB%AF/</link>
+      <link>https://gekang.tech/categories/%E5%89%8D%E7%AB%AF/</link>
       <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/categories/%E5%89%8D%E7%AB%AF/</guid>
+      <guid>https://gekang.tech/categories/%E5%89%8D%E7%AB%AF/</guid>
       <description></description>
     </item>
     
     <item>
       <title>博客</title>
-      <link>http://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/</guid>
       <description></description>
     </item>
     

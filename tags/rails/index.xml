@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>rails on likon</title>
-    <link>http://gekang.tech/tags/rails/</link>
+    <link>https://gekang.tech/tags/rails/</link>
     <description>Recent content in rails on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 19 Apr 2022 13:00:00 +0000</lastBuildDate><atom:link href="http://gekang.tech/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Apr 2022 13:00:00 +0000</lastBuildDate><atom:link href="https://gekang.tech/tags/rails/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>记一次 Ruby on Rails 部署记录</title>
-      <link>http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</link>
+      <link>https://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Tue, 19 Apr 2022 13:00:00 +0000</pubDate>
       
-      <guid>http://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://gekang.tech/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</guid>
       <description>写在前面 学习 Rails 时，一直都是部署到 Heroku上，方便的确很方便，但总缺点意思。一直想部署到云服务上，所以实操一下，记录一下简单 Rails 项目部署过程，重在部署。
 云服务器 采用的是腾讯云，系统Ubuntu Server 16.04.1 LTS 64位
 项目示例 采用 blog demo，来自 Rails 官网文档中 Getting Started with Rails。

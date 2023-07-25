@@ -8,16 +8,16 @@
 	
 	
 	
-	<title>给 hugo 添加访问量 ｜ likon</title>
+	<title> ｜ likon</title>
 	
     
     
-    <meta name="description" content="Hugo添加不蒜子Busuanzi站点访问量与阅读量统计" />
+    <meta name="description" content="about likon" />
     
 
     
     
-    <meta name="keywords" content="hugo, 访问量, 不蒜子, Busuanzi" />
+    <meta name="keywords" content="likon, 碎碎念, 记录" />
     
 
 	
@@ -88,81 +88,14 @@
             <div class="post_page">
                 <div class="post animate__animated animate__fadeInDown">
                     <div class="post_title post_detail_title">
-                        <h2><a href='/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/'>给 hugo 添加访问量</a></h2>
-                        <span class="date">2023.07.20</span>
+                        <h2><a href='/about/'></a></h2>
+                        <span class="date">0001.01.01</span>
                         
                         <span class="date" id="busuanzi_container_page_pv">·&nbsp;<span class="date" id="busuanzi_value_page_pv"></span></span>
                     </div>
-                    <div class="post_content markdown"><h1 id="前言">前言</h1>
-<p>添加个访问量功能耍耍~</p>
-<h1 id="开整">开整</h1>
-<p>借助<a href="http://busuanzi.ibruce.info/">不蒜子</a>，两行代码，搞定计数。</p>
-<h2 id="打开官网">打开官网</h2>
-<p><a href="http://busuanzi.ibruce.info/">不蒜子</a>，关键代码如下，打开浏览器检查功能，可以看到 span 标签及其 id</p>
-<pre tabindex="0"><code># 引入
-&lt;script async src=&#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&#34;&gt;&lt;script&gt;
-
-# 站点 PV
-&lt;span id=&#34;busuanzi_container_site_pv&#34;&gt;
-    本站总访问量&lt;span id=&#34;busuanzi_value_site_pv&#34;&gt;&lt;/span&gt;次
-&lt;/span&gt;
-# 站点 UV
-&lt;span id=&#34;busuanzi_container_site_uv&#34;&gt;
-    本站总访客数&lt;span id=&#34;busuanzi_value_site_uv&#34;&gt;&lt;/span&gt;人
-&lt;/span&gt;
-# 页面或文章 PV
-&lt;span id=&#34;busuanzi_container_page_pv&#34;&gt;
-    本文总阅读量&lt;span id=&#34;busuanzi_value_page_pv&#34;&gt;&lt;/span&gt;次
-&lt;/span&gt;
-</code></pre><h2 id="加入到-hugo-主题中合适位置">加入到 Hugo 主题中合适位置</h2>
-<p>以 PaperMod 为例子</p>
-<h3 id="head">head</h3>
-<p>themes/PaperMod/partials/extend_head.html</p>
-<pre tabindex="0"><code>&lt;!-- busuanzi --&gt;
-{{- if .Site.Params.busuanzi.enable -}}
-  &lt;script async src=&#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&#34;&gt;&lt;/script&gt;
-  &lt;meta name=&#34;referrer&#34; content=&#34;no-referrer-when-downgrade&#34;&gt;
-{{- end -}}
-</code></pre><h3 id="footer">footer</h3>
-<p>themes/PaperMod/partials/footer.html</p>
-<pre tabindex="0"><code>&lt;!-- busuanzi --&gt;
-{{ if .Site.Params.busuanzi.enable -}}
-    &lt;span id=&#34;busuanzi_container_site_uv&#34;&gt;
-        &lt;span id=&#34;busuanzi_value_site_uv&#34;&gt;&lt;/span&gt;
-    &lt;/span&gt;
-    &lt;span&gt;/&lt;/span&gt;
-    &lt;span id=&#34;busuanzi_container_site_pv&#34;&gt;
-        &lt;span id=&#34;busuanzi_value_site_pv&#34;&gt;&lt;/span&gt;
-    &lt;/span&gt;
-{{- end -}}
-</code></pre><h3 id="页面或文章">页面或文章</h3>
-<p>themes/PaperMod/_default/single.html</p>
-<pre tabindex="0"><code>&lt;!-- busuanzi --&gt;
-{{ if .Site.Params.busuanzi.enable -}}
-  &lt;span id=&#34;busuanzi_container_page_pv&#34;&gt;本文阅读量&lt;span id=&#34;busuanzi_value_page_pv&#34;&gt;&lt;/span&gt;次&lt;/span&gt;
-{{- end }}
-</code></pre><h2 id="打开配置开关">打开配置开关</h2>
-<p>themes/PaperMod/config.yml</p>
-<pre tabindex="0"><code>params:
-  busuanzi:
-      enable: true
-</code></pre><h2 id="发布">发布</h2>
-<p>提交主题修改和发布博客即可。</p>
-<h1 id="资料">资料</h1>
-<p><a href="https://blog.kanikig.xyz/hugo-busuanzi/">https://blog.kanikig.xyz/hugo-busuanzi/</a></p>
+                    <div class="post_content markdown"><p>about likon</p>
 </div>
                     <div class="post_footer">
-                        
-                        <div class="meta">
-                            <div class="info">
-                                <span class="field tags">
-                                    <i class="ri-stack-line"></i>
-                                    
-                                    <a href="https://gekang.tech/tags/hugo/">hugo</a>
-                                    
-                                </span>
-                            </div>
-                        </div>
                         
                     </div>
                 </div>
