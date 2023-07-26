@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>react on likon</title>
-    <link>https://gekang.tech/tags/react/</link>
+    <link>https://likontech.github.io/tags/react/</link>
     <description>Recent content in react on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gekang.tech/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React Hooks 草稿</title>
-      <link>https://gekang.tech/posts/react-hook-%E8%8D%89%E7%A8%BF/</link>
+      <link>https://likontech.github.io/posts/react-hook-%E8%8D%89%E7%A8%BF/</link>
       <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://gekang.tech/posts/react-hook-%E8%8D%89%E7%A8%BF/</guid>
+      <guid>https://likontech.github.io/posts/react-hook-%E8%8D%89%E7%A8%BF/</guid>
       <description>前言 React v16.8 版本引入了全新的 React Hook API，颠覆了以前的用法。看了很多文章，都认为是 React 的未来，简单介绍介绍。
 类组件 看个简单类组件例子
 import React, { Component } from &amp;#39;react&amp;#39;; class ClassComponent extends Component { constructor(props) { super(props); this.state = { count: 0, }; } incrementCount = () =&amp;gt; { this.setState((prevState) =&amp;gt; ({ count: prevState.count + 1, })); }; decrementCount = () =&amp;gt; { this.setState((prevState) =&amp;gt; ({ count: prevState.count - 1, })); }; render() { const { count } = this.state; return ( &amp;lt;div&amp;gt; &amp;lt;h1&amp;gt;Class Component Example&amp;lt;/h1&amp;gt; &amp;lt;p&amp;gt;Count: {count}&amp;lt;/p&amp;gt; &amp;lt;button onClick={this.</description>

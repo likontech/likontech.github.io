@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>博客 on likon</title>
-    <link>https://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/</link>
+    <link>https://likontech.github.io/categories/%E5%8D%9A%E5%AE%A2/</link>
     <description>Recent content in 博客 on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 20 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://gekang.tech/categories/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/categories/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>给 hugo 添加访问量</title>
-      <link>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</link>
+      <link>https://likontech.github.io/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</link>
       <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</guid>
+      <guid>https://likontech.github.io/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</guid>
       <description>前言 添加个访问量功能耍耍~
 开整 借助不蒜子，两行代码，搞定计数。
 打开官网 不蒜子，关键代码如下，打开浏览器检查功能，可以看到 span 标签及其 id
@@ -24,10 +24,10 @@ head themes/PaperMod/partials/extend_head.html
     
     <item>
       <title>给 hugo 添加搜索引擎优化</title>
-      <link>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</link>
+      <link>https://likontech.github.io/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</link>
       <pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</guid>
+      <guid>https://likontech.github.io/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</guid>
       <description>前言 为了让 Hugo 网站更好的被搜索引擎收录，需要进行搜索引擎优化。
 资料 搜索引擎 Google Bing Baidu 开整 给站点和文章添加详细说明 站点配置文件添加 description，例如
 description: &amp;#34;likon 的个人技术博客网站，主要专注大前端，记录技术、所思所想&amp;#34; 文章模板添加更多
@@ -37,10 +37,10 @@ title: 给 hugo 添加搜索引擎优化 date: 2023-07-19 tags: [&amp;#34;hugo&a
     
     <item>
       <title>给 hugo 添加评论功能</title>
-      <link>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
+      <link>https://likontech.github.io/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
       <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://gekang.tech/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
+      <guid>https://likontech.github.io/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
       <description>前言 添加个评论功能耍耍~
 资料 我的主题是 PaperMod，自然去主题文档里搜一搜，找到这个
 再次传送到 hugo 官网
