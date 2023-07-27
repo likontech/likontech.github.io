@@ -6,7 +6,36 @@
     <description>Recent content in Posts on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ruby 30 min 热身</title>
+      <link>https://likontech.github.io/posts/ruby-30-min-%E7%83%AD%E8%BA%AB/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/ruby-30-min-%E7%83%AD%E8%BA%AB/</guid>
+      <description>ruby-lang
+times 3.times do print &amp;#39;Welcome &amp;#39; end # Welcome Welcome Welcome 2 + 6 2 + 6 4 * 10 5 - 12 30 / 4 &amp;#34;Jimmy&amp;#34; # 7.5 puts puts 4 * 10 puts 5 - 12 puts 30 / 4 string &amp;#34;Jimmy&amp;#34;.reverse # ymmiJ &amp;#34;Jimmy&amp;#34;.length # 5 &amp;#34;Jimmy&amp;#34; * 5 # JimmyJimmyJimmyJimmyJimmy 40.to_s.reverse # 04 poem.gsub(&amp;#34;toast&amp;#34;, &amp;#34;honeydew&amp;#34;) poem.reverse poem.lines.reverse puts poem.lines.reverse.join array [12, 47, 35] [12, 47, 35].</description>
+    </item>
+    
+    <item>
+      <title>如何从零开始学会 Ruby on Rails?</title>
+      <link>https://likontech.github.io/posts/%E5%A6%82%E4%BD%95%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%BC%9A-ruby-on-rails/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/%E5%A6%82%E4%BD%95%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%BC%9A-ruby-on-rails/</guid>
+      <description>摘自 huacnlee 的文章, 文章现在访问不了了，摘抄一份给需要学习的朋友们
+这个话题曾经给身边的很多朋友说过同样的话题，这里整理一下。
+如果你是一个门外汉，你会 .NET 或是 Java 或是 PHP … 你对 Ruby on Rails 感兴趣，想学习，开怎么开始？
+如果你有以上语言两年以上的工作经验，按照我指的路子，最慢 1 个月就能学会 Ruby on Rails，这个方案曾经经过好几个人证实。
+以下步骤请一步一步来，切勿心急跳过，最好连我上面的链接都不要提前点击！
+安装 Linux 或 Mac， 开发工具使用 Windows &amp;amp; Linux -&amp;gt; Sublime Text 2, Mac -&amp;gt; TextMate 2 当然你也可以用 Vim 或 Sublime text 2;
+安装 Ruby 和 Rails 开发环境可以按照这个流程：《如何快速正确的安装 Ruby, Rails》;
+看完 http://guides.rubyonrails.org 这里有简体版本；
+通过学习 Rails Guides 实现一个博客系统，包涵完整的功能(包括 UI)，预计两周；
+从头到尾一字不漏的看完《应用 Rails 进行敏捷 Web 开发》；
+回头审视之前的博客设计和《应用 Rails 进行敏捷 Web 开发》的区别，可以再重新搞个博客;</description>
+    </item>
+    
     <item>
       <title>React Hooks 草稿</title>
       <link>https://likontech.github.io/posts/react-hook-%E8%8D%89%E7%A8%BF/</link>

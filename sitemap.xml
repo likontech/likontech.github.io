@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://likontech.github.io/categories/</loc>
-    <lastmod>2023-07-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://likontech.github.io/</loc>
-    <lastmod>2023-07-24T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/posts/</loc>
+    <lastmod>2023-07-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/tags/rails/</loc>
+    <lastmod>2023-07-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/tags/ruby/</loc>
+    <lastmod>2023-07-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/posts/ruby-30-min-%E7%83%AD%E8%BA%AB/</loc>
+    <lastmod>2023-07-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/tags/</loc>
+    <lastmod>2023-07-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/posts/%E5%A6%82%E4%BD%95%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%BC%9A-ruby-on-rails/</loc>
+    <lastmod>2023-07-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/categories/</loc>
     <lastmod>2023-07-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/tags/react/</loc>
     <lastmod>2023-07-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/posts/react-hook-%E8%8D%89%E7%A8%BF/</loc>
-    <lastmod>2023-07-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://likontech.github.io/tags/</loc>
     <lastmod>2023-07-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
@@ -53,9 +65,6 @@
     <loc>https://likontech.github.io/posts/%E5%8E%8B%E5%8A%9B%E4%B9%8B%E4%B8%8B%E6%8B%A9%E8%A6%81%E4%BA%8B%E4%B8%BA%E4%B9%8B/</loc>
     <lastmod>2022-04-26T21:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://likontech.github.io/tags/rails/</loc>
-    <lastmod>2022-04-19T13:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://likontech.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2022-04-19T13:00:00+00:00</lastmod>
   </url><url>
@@ -75,6 +84,7 @@
     <lastmod>2022-04-10T02:25:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/about/</loc>
+    <lastmod>1992-05-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/search/</loc>
   </url>

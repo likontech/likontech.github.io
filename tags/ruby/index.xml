@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ruby on likon</title>
+    <link>https://likontech.github.io/tags/ruby/</link>
+    <description>Recent content in ruby on likon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 27 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ruby 30 min 热身</title>
+      <link>https://likontech.github.io/posts/ruby-30-min-%E7%83%AD%E8%BA%AB/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/ruby-30-min-%E7%83%AD%E8%BA%AB/</guid>
+      <description>ruby-lang
+times 3.times do print &amp;#39;Welcome &amp;#39; end # Welcome Welcome Welcome 2 + 6 2 + 6 4 * 10 5 - 12 30 / 4 &amp;#34;Jimmy&amp;#34; # 7.5 puts puts 4 * 10 puts 5 - 12 puts 30 / 4 string &amp;#34;Jimmy&amp;#34;.reverse # ymmiJ &amp;#34;Jimmy&amp;#34;.length # 5 &amp;#34;Jimmy&amp;#34; * 5 # JimmyJimmyJimmyJimmyJimmy 40.to_s.reverse # 04 poem.gsub(&amp;#34;toast&amp;#34;, &amp;#34;honeydew&amp;#34;) poem.reverse poem.lines.reverse puts poem.lines.reverse.join array [12, 47, 35] [12, 47, 35].</description>
+    </item>
+    
+  </channel>
+</rss>

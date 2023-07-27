@@ -6,7 +6,26 @@
     <description>Recent content in rails on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 19 Apr 2022 13:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何从零开始学会 Ruby on Rails?</title>
+      <link>https://likontech.github.io/posts/%E5%A6%82%E4%BD%95%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%BC%9A-ruby-on-rails/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/%E5%A6%82%E4%BD%95%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%BC%9A-ruby-on-rails/</guid>
+      <description>摘自 huacnlee 的文章, 文章现在访问不了了，摘抄一份给需要学习的朋友们
+这个话题曾经给身边的很多朋友说过同样的话题，这里整理一下。
+如果你是一个门外汉，你会 .NET 或是 Java 或是 PHP … 你对 Ruby on Rails 感兴趣，想学习，开怎么开始？
+如果你有以上语言两年以上的工作经验，按照我指的路子，最慢 1 个月就能学会 Ruby on Rails，这个方案曾经经过好几个人证实。
+以下步骤请一步一步来，切勿心急跳过，最好连我上面的链接都不要提前点击！
+安装 Linux 或 Mac， 开发工具使用 Windows &amp;amp; Linux -&amp;gt; Sublime Text 2, Mac -&amp;gt; TextMate 2 当然你也可以用 Vim 或 Sublime text 2;
+安装 Ruby 和 Rails 开发环境可以按照这个流程：《如何快速正确的安装 Ruby, Rails》;
+看完 http://guides.rubyonrails.org 这里有简体版本；
+通过学习 Rails Guides 实现一个博客系统，包涵完整的功能(包括 UI)，预计两周；
+从头到尾一字不漏的看完《应用 Rails 进行敏捷 Web 开发》；
+回头审视之前的博客设计和《应用 Rails 进行敏捷 Web 开发》的区别，可以再重新搞个博客;</description>
+    </item>
+    
     <item>
       <title>记一次 Ruby on Rails 部署记录</title>
       <link>https://likontech.github.io/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1-ruby-on-rails-%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</link>
