@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>funny on likon</title>
+    <link>https://likontech.github.io/tags/funny/</link>
+    <description>Recent content in funny on likon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 28 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/funny/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>有意思的网站</title>
+      <link>https://likontech.github.io/posts/%E6%8E%A8%E8%8D%90%E5%87%A0%E4%B8%AA%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Fri, 28 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/%E6%8E%A8%E8%8D%90%E5%87%A0%E4%B8%AA%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E7%BD%91%E7%AB%99/</guid>
+      <description>贪吃蛇 https://slither.io/
+动画绘制 https://flipanim.com/
+接龙 https://lab.bangbang93.com/wsyw
+诺基亚短信图片生成器 https://zzkia.noddl.me/
+railymood https://rainymood.com/
+cantunsee https://cantunsee.space/
+Emoji 合成 https://emoji.supply/kitchen/
+Git 命令 https://gitexplorer.com/
+打字练习 https://codeflow.biaoyansu.com/</description>
+    </item>
+    
+  </channel>
+</rss>

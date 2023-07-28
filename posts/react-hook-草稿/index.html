@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/normalize.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/zozo.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/highlight.css" />
 
     
@@ -78,6 +78,10 @@
         <div class="description">
             <p class="sub_title">岁岁年，碎碎念</p>
             <div class="my_socials">
+                
+                <a href="https://github.com/likontech" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                <a href="https://twitter.com/likontech" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
                 
                 <a href="https://likontech.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
                         class="ri-rss-fill"></i></a>
@@ -248,252 +252,252 @@ export default FunctionalComponent;
 <ol>
 <li>
 <p><strong>useState</strong>: <code>useState</code> 是最常用的 Hook 之一，用于在函数组件中添加状态。它返回一个状态值和一个更新该状态值的函数。使用方式如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Counter</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">increment</span> <span style="color:#f92672">=</span> () =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Count</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">count</span>}&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">increment</span>}&gt;<span style="color:#a6e22e">Increment</span>&lt;/<span style="color:#f92672">button</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<pre tabindex="0"><code>import React, { useState } from &#39;react&#39;;
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () =&gt; {
+    setCount(count + 1);
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={increment}&gt;Increment&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre></li>
 <li>
 <p><strong>useEffect</strong>: <code>useEffect</code> 用于处理副作用，如数据获取、订阅和取消订阅等。它在每次组件渲染完成后执行。可以通过返回一个清除函数来清理副作用。使用方式如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">DataFetcher</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">setData</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>([]);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fetchData</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> () =&gt; {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;https://api.example.com/data&#39;</span>);
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>();
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setData</span>(<span style="color:#a6e22e">data</span>);
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fetchData</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> () =&gt; {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// Clean up any subscriptions or timers here
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    };
-</span></span><span style="display:flex;"><span>  }, []);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">ul</span>&gt;
-</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">item</span> =&gt; (
-</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">id</span>}&gt;{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">li</span>&gt;
-</span></span><span style="display:flex;"><span>        ))}
-</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">ul</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<pre tabindex="0"><code>import React, { useState, useEffect } from &#39;react&#39;;
+
+function DataFetcher() {
+  const [data, setData] = useState([]);
+
+  useEffect(() =&gt; {
+    const fetchData = async () =&gt; {
+      const response = await fetch(&#39;https://api.example.com/data&#39;);
+      const data = await response.json();
+      setData(data);
+    };
+
+    fetchData();
+
+    return () =&gt; {
+      // Clean up any subscriptions or timers here
+    };
+  }, []);
+
+  return (
+    &lt;div&gt;
+      &lt;ul&gt;
+        {data.map(item =&gt; (
+          &lt;li key={item.id}&gt;{item.name}&lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre></li>
 <li>
 <p><strong>useContext</strong>: <code>useContext</code> 用于访问 React 的上下文（Context），让你能够在组件中跨层级共享数据，而不需要通过组件树逐层传递 props。使用方式如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useContext</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">UserContext</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createContext</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">UserProfile</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useContext</span>(<span style="color:#a6e22e">UserContext</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">User</span> <span style="color:#a6e22e">Profile</span>&lt;/<span style="color:#f92672">h2</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Email</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">email</span>}&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;John Doe&#39;</span>, <span style="color:#a6e22e">email</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;john@example.com&#39;</span> };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">UserContext.Provider</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">user</span>}&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">UserProfile</span> /&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">UserContext.Provider</span>&gt;
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<pre tabindex="0"><code>import React, { useContext } from &#39;react&#39;;
+
+const UserContext = React.createContext();
+
+function UserProfile() {
+  const user = useContext(UserContext);
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;User Profile&lt;/h2&gt;
+      &lt;p&gt;Name: {user.name}&lt;/p&gt;
+      &lt;p&gt;Email: {user.email}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+function App() {
+  const user = { name: &#39;John Doe&#39;, email: &#39;john@example.com&#39; };
+
+  return (
+    &lt;UserContext.Provider value={user}&gt;
+      &lt;UserProfile /&gt;
+    &lt;/UserContext.Provider&gt;
+  );
+}
+</code></pre></li>
 <li>
 <p><strong>useReducer</strong>: <code>useReducer</code> 是另一种状态管理 Hook，类似于 Redux 中的 reducer。<code>useReducer</code> 可以用于更复杂的状态管理，尤其是当状态之间存在关联性时。使用方式如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useReducer</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">initialState</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span> };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">reducer</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">action</span>) =&gt; {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;INCREMENT&#39;</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> };
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;DECREMENT&#39;</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> };
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Counter</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">dispatch</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useReducer</span>(<span style="color:#a6e22e">reducer</span>, <span style="color:#a6e22e">initialState</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">increment</span> <span style="color:#f92672">=</span> () =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dispatch</span>({ <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;INCREMENT&#39;</span> });
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decrement</span> <span style="color:#f92672">=</span> () =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dispatch</span>({ <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;DECREMENT&#39;</span> });
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Count</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">count</span>}&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">increment</span>}&gt;<span style="color:#a6e22e">Increment</span>&lt;/<span style="color:#f92672">button</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">decrement</span>}&gt;<span style="color:#a6e22e">Decrement</span>&lt;/<span style="color:#f92672">button</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<pre tabindex="0"><code>import React, { useReducer } from &#39;react&#39;;
+
+const initialState = { count: 0 };
+
+const reducer = (state, action) =&gt; {
+  switch (action.type) {
+    case &#39;INCREMENT&#39;:
+      return { count: state.count + 1 };
+    case &#39;DECREMENT&#39;:
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+};
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const increment = () =&gt; {
+    dispatch({ type: &#39;INCREMENT&#39; });
+  };
+
+  const decrement = () =&gt; {
+    dispatch({ type: &#39;DECREMENT&#39; });
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {state.count}&lt;/p&gt;
+      &lt;button onClick={increment}&gt;Increment&lt;/button&gt;
+      &lt;button onClick={decrement}&gt;Decrement&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre></li>
 <li>
 <p><strong>useCallback</strong>: <code>useCallback</code> 用于在组件渲染过程中缓存一个回调函数，以避免在每次渲染时创建新的回调函数。这在遇到需要传递给子组件的回调函数时非常有用，因为这样可以确保子组件不会因为父组件重新渲染而触发不必要的重新渲染。使用方式如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useCallback</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ParentComponent</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 使用 useCallback 来缓存 increment 函数
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">increment</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useCallback</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">prevCount</span> =&gt; <span style="color:#a6e22e">prevCount</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
-</span></span><span style="display:flex;"><span>  }, []);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Count</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">count</span>}&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">ChildComponent</span> <span style="color:#a6e22e">onIncrement</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">increment</span>} /&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ChildComponent</span>({ <span style="color:#a6e22e">onIncrement</span> }) {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">onIncrement</span>}&gt;<span style="color:#a6e22e">Increment</span>&lt;/<span style="color:#f92672">button</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>在这个例子中，我们使用 <code>useCallback</code> 来缓存 <code>increment</code> 函数，确保 <code>increment</code> 不会在父组件重新渲染时重新创建，从而避免不必要的子组件重新渲染。</p>
+<pre tabindex="0"><code>import React, { useState, useCallback } from &#39;react&#39;;
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
+  // 使用 useCallback 来缓存 increment 函数
+  const increment = useCallback(() =&gt; {
+    setCount(prevCount =&gt; prevCount + 1);
+  }, []);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;ChildComponent onIncrement={increment} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+function ChildComponent({ onIncrement }) {
+  return (
+    &lt;div&gt;
+      &lt;button onClick={onIncrement}&gt;Increment&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre><p>在这个例子中，我们使用 <code>useCallback</code> 来缓存 <code>increment</code> 函数，确保 <code>increment</code> 不会在父组件重新渲染时重新创建，从而避免不必要的子组件重新渲染。</p>
 </li>
 <li>
 <p><strong>useMemo</strong>: <code>useMemo</code> 用于在组件渲染过程中缓存计算结果，以避免在每次渲染时重复计算相同的值。这在处理复杂的计算或昂贵的操作时很有用，可以优化性能。使用方式如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useMemo</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ComplexCalculationComponent</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">num1</span>, <span style="color:#a6e22e">setNum1</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">num2</span>, <span style="color:#a6e22e">setNum2</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 使用 useMemo 来缓存计算结果
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useMemo</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Calculating...&#39;</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num2</span>;
-</span></span><span style="display:flex;"><span>  }, [<span style="color:#a6e22e">num1</span>, <span style="color:#a6e22e">num2</span>]);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;number&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">num1</span>}
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">e</span> =&gt; <span style="color:#a6e22e">setNum1</span>(Number(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>))}
-</span></span><span style="display:flex;"><span>      /&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;number&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">num2</span>}
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">e</span> =&gt; <span style="color:#a6e22e">setNum2</span>(Number(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>))}
-</span></span><span style="display:flex;"><span>      /&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Result</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">result</span>}&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>在这个例子中，我们使用 <code>useMemo</code> 来缓存 <code>result</code> 变量的计算结果，只有当 <code>num1</code> 或 <code>num2</code> 发生变化时，才会重新计算 <code>result</code>。</p>
+<pre tabindex="0"><code>import React, { useState, useMemo } from &#39;react&#39;;
+
+function ComplexCalculationComponent() {
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
+
+  // 使用 useMemo 来缓存计算结果
+  const result = useMemo(() =&gt; {
+    console.log(&#39;Calculating...&#39;);
+    return num1 + num2;
+  }, [num1, num2]);
+
+  return (
+    &lt;div&gt;
+      &lt;input
+        type=&#34;number&#34;
+        value={num1}
+        onChange={e =&gt; setNum1(Number(e.target.value))}
+      /&gt;
+      &lt;input
+        type=&#34;number&#34;
+        value={num2}
+        onChange={e =&gt; setNum2(Number(e.target.value))}
+      /&gt;
+      &lt;p&gt;Result: {result}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre><p>在这个例子中，我们使用 <code>useMemo</code> 来缓存 <code>result</code> 变量的计算结果，只有当 <code>num1</code> 或 <code>num2</code> 发生变化时，才会重新计算 <code>result</code>。</p>
 </li>
 <li>
 <p><strong>useRef</strong>: <code>useRef</code> 返回一个可变的 ref 对象，用于在组件渲染之间存储持久值，而不会触发重新渲染。<code>useRef</code> 创建的引用在组件的整个生命周期内保持不变。使用方式如下：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useRef</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">FocusableInput</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">inputRef</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useRef</span>(<span style="color:#66d9ef">null</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleButtonClick</span> <span style="color:#f92672">=</span> () =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 在按钮点击时，聚焦到输入框
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">inputRef</span>.<span style="color:#a6e22e">current</span>.<span style="color:#a6e22e">focus</span>();
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">inputRef</span>} <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> /&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">handleButtonClick</span>}&gt;<span style="color:#a6e22e">Focus</span> <span style="color:#a6e22e">Input</span>&lt;/<span style="color:#f92672">button</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>在这个例子中，我们使用 <code>useRef</code> 来创建 <code>inputRef</code>，并将其赋值给 <code>&lt;input&gt;</code> 元素的 <code>ref</code> 属性。这样，我们可以在按钮点击时，通过 <code>inputRef.current</code> 访问到 <code>&lt;input&gt;</code> 元素，并聚焦到它，而不会触发组件的重新渲染。</p>
+<pre tabindex="0"><code>import React, { useRef } from &#39;react&#39;;
+
+function FocusableInput() {
+  const inputRef = useRef(null);
+
+  const handleButtonClick = () =&gt; {
+    // 在按钮点击时，聚焦到输入框
+    inputRef.current.focus();
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;input ref={inputRef} type=&#34;text&#34; /&gt;
+      &lt;button onClick={handleButtonClick}&gt;Focus Input&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre><p>在这个例子中，我们使用 <code>useRef</code> 来创建 <code>inputRef</code>，并将其赋值给 <code>&lt;input&gt;</code> 元素的 <code>ref</code> 属性。这样，我们可以在按钮点击时，通过 <code>inputRef.current</code> 访问到 <code>&lt;input&gt;</code> 元素，并聚焦到它，而不会触发组件的重新渲染。</p>
 </li>
 </ol>
 <p>其中 <code>useCallback</code>、<code>useMemo</code> 和 <code>useRef</code> 这些 Hook 是用于性能优化和缓存的利器。使用它们可以减少不必要的计算、避免不必要的组件重新渲染，从而提高 React 应用的性能和用户体验。</p>
 <h1 id="自定义-hooks">自定义 Hooks</h1>
 <p>自定义 Hooks 应该以 <code>use</code> 开头，并使用其他 React Hooks。</p>
 <p>创建一个自定义的 Hook，用于处理窗口大小的变化：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 自定义 Hook，用于获取窗口大小
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">useWindowSize</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">windowSize</span>, <span style="color:#a6e22e">setWindowSize</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>({
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> window.<span style="color:#a6e22e">innerWidth</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> window.<span style="color:#a6e22e">innerHeight</span>,
-</span></span><span style="display:flex;"><span>  });
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 创建一个事件处理函数，用于更新窗口大小
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleResize</span> <span style="color:#f92672">=</span> () =&gt; {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setWindowSize</span>({
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> window.<span style="color:#a6e22e">innerWidth</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> window.<span style="color:#a6e22e">innerHeight</span>,
-</span></span><span style="display:flex;"><span>      });
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 添加窗口大小变化的事件监听
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;resize&#39;</span>, <span style="color:#a6e22e">handleResize</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 在组件卸载时清除事件监听
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> () =&gt; {
-</span></span><span style="display:flex;"><span>      window.<span style="color:#a6e22e">removeEventListener</span>(<span style="color:#e6db74">&#39;resize&#39;</span>, <span style="color:#a6e22e">handleResize</span>);
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>  }, []); <span style="color:#75715e">// 空数组表示只在组件挂载和卸载时运行 useEffect
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">windowSize</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">WindowSizeComponent</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 使用自定义的 useWindowSize Hook 获取窗口大小
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">windowSize</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useWindowSize</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">Window</span> <span style="color:#a6e22e">Size</span>&lt;/<span style="color:#f92672">h2</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Width</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">windowSize</span>.<span style="color:#a6e22e">width</span>}<span style="color:#a6e22e">px</span>&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Height</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">windowSize</span>.<span style="color:#a6e22e">height</span>}<span style="color:#a6e22e">px</span>&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">WindowSizeComponent</span>;
-</span></span></code></pre></div><p>在上面的示例中，我们创建了一个名为 <code>useWindowSize</code> 的自定义 Hook。它利用了 <code>useState</code> 和 <code>useEffect</code> 这两个 React Hooks。<code>useWindowSize</code> Hook 返回一个包含当前窗口宽度和高度的对象。</p>
+<pre tabindex="0"><code>import React, { useState, useEffect } from &#39;react&#39;;
+
+// 自定义 Hook，用于获取窗口大小
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() =&gt; {
+    // 创建一个事件处理函数，用于更新窗口大小
+    const handleResize = () =&gt; {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // 添加窗口大小变化的事件监听
+    window.addEventListener(&#39;resize&#39;, handleResize);
+
+    // 在组件卸载时清除事件监听
+    return () =&gt; {
+      window.removeEventListener(&#39;resize&#39;, handleResize);
+    };
+  }, []); // 空数组表示只在组件挂载和卸载时运行 useEffect
+
+  return windowSize;
+}
+
+function WindowSizeComponent() {
+  // 使用自定义的 useWindowSize Hook 获取窗口大小
+  const windowSize = useWindowSize();
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Window Size&lt;/h2&gt;
+      &lt;p&gt;Width: {windowSize.width}px&lt;/p&gt;
+      &lt;p&gt;Height: {windowSize.height}px&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default WindowSizeComponent;
+</code></pre><p>在上面的示例中，我们创建了一个名为 <code>useWindowSize</code> 的自定义 Hook。它利用了 <code>useState</code> 和 <code>useEffect</code> 这两个 React Hooks。<code>useWindowSize</code> Hook 返回一个包含当前窗口宽度和高度的对象。</p>
 <p>在 <code>WindowSizeComponent</code> 组件中，我们使用了自定义的 <code>useWindowSize</code> Hook 来获取窗口大小，并将它展示在组件中。每当窗口大小变化时，<code>useWindowSize</code> Hook 将会更新窗口的宽度和高度，从而使组件能够动态显示窗口大小。</p>
 <p>这样，通过创建自定义的 React Hooks，你可以将逻辑抽象成可重用的函数，并在应用程序中多次使用它们，提高代码的复用性和可维护性。</p>
 <h1 id="资料">资料</h1>
@@ -516,6 +520,8 @@ export default FunctionalComponent;
                         
                     </div>
                 </div>
+                <img class="likon" style="margin-top: 20px; margin-left: -30px;" src="https://likontech.github.io/images/icon_wechat.png" width="200px">
+                
                 
 
     <script src="https://utteranc.es/client.js"
