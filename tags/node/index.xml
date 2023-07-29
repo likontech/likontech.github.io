@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>node on likon</title>
+    <link>https://likontech.github.io/tags/node/</link>
+    <description>Recent content in node on likon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 29 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/node/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解锁你的 Node.js 开发潜力：30&#43; 热门框架让你构建出色的应用程序！</title>
+      <link>https://likontech.github.io/posts/%E8%A7%A3%E9%94%81%E4%BD%A0%E7%9A%84-node.js-%E5%BC%80%E5%8F%91%E6%BD%9C%E5%8A%9B30&#43;-%E7%83%AD%E9%97%A8%E6%A1%86%E6%9E%B6%E8%AE%A9%E4%BD%A0%E6%9E%84%E5%BB%BA%E5%87%BA%E8%89%B2%E7%9A%84%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Sat, 29 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/%E8%A7%A3%E9%94%81%E4%BD%A0%E7%9A%84-node.js-%E5%BC%80%E5%8F%91%E6%BD%9C%E5%8A%9B30&#43;-%E7%83%AD%E9%97%A8%E6%A1%86%E6%9E%B6%E8%AE%A9%E4%BD%A0%E6%9E%84%E5%BB%BA%E5%87%BA%E8%89%B2%E7%9A%84%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</guid>
+      <description>罗列下 nodejs 框架，只抛转不引玉。
+Express.js：快速且灵活的 Web 应用程序框架。
+Koa.js：现代化且轻量级的Web框架，由 Express.js 的创造者打造。
+Hapi.js：用于构建可扩展的应用程序和服务的框架。
+Nest.js：基于 TypeScript 的渐进式 Node.js 框架，适用于构建可扩展的企业级应用程序。
+Meteor：全栈 JavaScript 框架，用于构建现代化的Web和移动应用程序。
+Sails.js：类似于 Ruby on Rails 的 MVC 框架，用于构建实时应用程序和 API。
+LoopBack：强大的 API 和微服务框架，具有自动生成 API 和数据层的能力。
+Adonis.js：基于 MVC 模式的框架，提供了一组强大的工具和功能，用于构建可扩展和高性能的应用程序。
+Fastify：快速和低开销的 Web 框架，专注于提供高性能的 API 和服务。
+Feathers.js：现代化、轻量级的框架，用于构建实时应用程序和 RESTful API。
+Strapi：开源的 Headless CMS，提供易用的界面和灵活的 API，用于创建和管理内容。
+Total.js：全栈框架，提供从服务器端渲染到数据库集成的一系列功能。
+Keystone.js：CMS 和 Web 应用程序框架，结合了 Express.js 和 MongoDB，并提供强大的管理界面。
+Socket.io：用于构建实时应用程序的库，提供 WebSocket 和轮询传输等通信方式。
+Next.js：用于构建 React 应用程序的框架，提供服务器端渲染、静态生成和动态路由等功能。
+Nuxt.js：基于 Vue.js 的应用框架，支持服务器端渲染和静态站点生成。
+Restify：专注于构建 RESTful API 的框架，提供易用的路由、请求处理和错误处理等功能。
+Kuzzle：后端框架，提供实时通信、数据存储和身份验证等功能，适用于构建实时应用程序和物联网解决方案。
+SvelteKit：用于构建高性能 Web 应用程序的框架，结合了 Svelte 的组件化开发和服务器端渲染的功能。</description>
+    </item>
+    
+  </channel>
+</rss>

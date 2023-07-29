@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="" />
+	
+	
+	
+	<title>简单背后的力量：揭秘 37signals 的工作哲学 ｜ likon</title>
+	
+    
+    
+    <meta name="description" content="37signals 的工作哲学" />
+    
+
+    
+    
+    <meta name="keywords" content="37signals, 工作哲学" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://likontech.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/highlight.css" />
+
+    
+    <meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta name="referrer" content="no-referrer-when-downgrade"></head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://likontech.github.io/">
+                    <img class="likon" style="margin-top: -20px; margin-left: -10px;" src="https://likontech.github.io/images/icon_likon.png" width="150px">
+                    
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">岁岁年，碎碎念</p>
+            <div class="my_socials">
+                
+                <a href="https://github.com/likontech" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                <a href="https://twitter.com/likontech" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                <a href="https://likontech.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/%E7%AE%80%E5%8D%95%E8%83%8C%E5%90%8E%E7%9A%84%E5%8A%9B%E9%87%8F%E6%8F%AD%E7%A7%98-37signals-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%93%B2%E5%AD%A6/'>简单背后的力量：揭秘 37signals 的工作哲学</a></h2>
+                        <span class="date"><i class="ri-calendar-fill"> </i>2023.07.29</span>
+                        <span>&nbsp;</span>
+                        
+                        
+                            <span class="date" id="busuanzi_container_page_pv">
+                                <i class="ri-eye-fill"> </i><span class="date" id="busuanzi_value_page_pv"></span>
+                            </span>
+                    </div>
+                    <div class="post_content markdown"><p><img src="/lk_rails.png" alt=""></p>
+<p>由于个人偏爱 Ruby 和 Ruby on Rails（简称Rails）， Rails 是一种开源的 Web 应用程序开发框架，最初由 David Heinemeier Hansson 在 37signals 开发 Basecamp （n. 意为登山大本营，基地营（同 base camp））时创建并开源。从 Rails 了解到这家公司 37signals，现在被称为 Basecamp，是一家软件开发公司，成立于 1999 年，由 Jason Fried、Carlos Segura 和 Ernest Kim 创立。</p>
+<p><img src="/lk_rework.png" alt=""></p>
+<p>最近在看一本富有启发性和实用性的书 《Rework》，提供了一种非传统的商业思维方式，挑战了传统的工作和管理观念。</p>
+<p>所以想更多了解下这个公司和这群人，那么今天就来简单盘一盘这家公司的发展、经营理念和相关产品。</p>
+<p>回归正题，先看看公司产品、发展变化。</p>
+<p>1999 年：37signals 由 Jason Fried、Carlos Segura 和 Ernest Kim 在美国芝加哥成立，最初是一家网页设计公司。</p>
+<p>2004 年：公司发布了 Basecamp，这是一个基于网络的项目管理和协作工具，受到广泛欢迎。Basecamp 的简洁和易用性为公司带来了许多用户和客户。</p>
+<p>2006 年：37signals 推出了另一款知名产品，名为 Highrise，这是一款在线联系人和客户关系管理（CRM）工具，用于跟踪客户和商务联系。</p>
+<p>2010 年：公司进一步扩展了产品线，推出了 Campfire，这是一个团队协作和实时聊天工具，旨在提高团队之间的沟通效率。</p>
+<p>2013 年：37signals 公司宣布将重点转向 Basecamp，并将公司名称改为Basecamp。这标志着他们更专注于进一步发展和改进 Basecamp 产品。</p>
+<p>2019 年：Basecamp 发布了全新的 Basecamp 3 版本，带来了一系列新功能和改进，以满足用户需求。</p>
+<p>就这？</p>
+<p>当然不是，除了产品方面的发展，37signals/Basecamp 公司还以其独特的工作文化和业界观点而闻名。他们倡导简单、专注和高效的工作方式，并在书籍和演讲中分享他们的经验和见解。</p>
+<p>独特的公司文化和业界观点而闻名，那独特在哪呢？</p>
+<p>远程工作和弹性工作时间：Basecamp 坚信远程工作和弹性工作时间的价值。他们鼓励员工在自己最高效的时间和地点工作，以提高工作满意度和生产力。</p>
+<p>简化和专注：公司倡导简化复杂性，专注于核心任务。他们相信通过减少不必要的会议、邮件和冗余工作，可以提高工作效率和创造力。</p>
+<p>产品设计理念：Basecamp 注重产品的简洁性和易用性。他们追求简单而优雅的设计，致力于提供直观、无需繁琐培训的用户体验。</p>
+<p>创业和工作哲学：公司创始人之一的 Jason Fried 在他的书籍和演讲中分享了关于创业和工作的哲学观点。他强调长时间工作并不等于高效工作，倡导工作与个人生活的平衡，并提倡注重个人的兴趣和激情。（有兴趣可以去 TED 或者 Youtube 找找 Jason Fried 的演讲）</p>
+<p>反对过度工作文化：Basecamp 主张反对过度加班和疲劳文化。他们鼓励员工保持良好的工作生活平衡，并提倡提前规划和合理分配工作，以避免过度压力和疲劳对工作质量和员工健康的负面影响。</p>
+<p>他们的实践和观点呼吁注重工作效率、员工福利和产品用户体验。这不禁引起我们对工作方式和企业文化的思考。
+那他们有哪些为人称道的产品？</p>
+<p><img src="/lk_37signals.png" alt=""></p>
+<p>37signals：主站。</p>
+<p>Basecamp：管理项目及与你的团队、客户的合作。</p>
+<p>Highrise：跟踪管理你的联系人、线索、交易。</p>
+<p>Backpack：组织和分享你的商务信息。</p>
+<p>Campfire：与远程团队的实时聊天、档案和代码共享工具。</p>
+<p>Ta-da list：Ta-da List  能简单的创建和共享你的待办事项。</p>
+<p>Writeboard：协作书写工具 。</p>
+<p>Getting Real：37signals  所著的书，帮助你发现更聪明、更快捷、更简单的方法创建一个成功的基于浏览器的应用。</p>
+<p>Rework：一种非传统的商业思维方式，挑战了传统的工作和管理观念。</p>
+<p>Ruby on Rails：一款开源的 web 编程框架。想了解更多，可以去他们网站逛逛。</p>
+<p>37signals newsletters：新产品、折扣等等的简报（大概一个月发送 2 次）</p>
+<p>可以关注回复「37」获取更多产品和相关链接。</p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://likontech.github.io/tags/read/">read</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <img class="likon" style="margin-top: 20px; margin-left: -30px;" src="https://likontech.github.io/images/icon_wechat.png" width="200px">
+                
+                
+
+    <script src="https://utteranc.es/client.js"
+        repo="likontech/likontech.github.io"
+        issue-term="title"
+        label="碎碎念"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+    </script>    
+
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        
+            
+            <span id="busuanzi_container_site_pv">
+                <i class="ri-eye-fill"></i> <span id="busuanzi_value_site_pv"></span>
+            </span></div>
+    
+
+    <div class="footer_slogan">
+        <span></span>
+        <img src="https://likontech.github.io/images/funny.png" height="30px" alt="首先要有意思">
+    </div>
+</footer>
+    <script src="https://likontech.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="https://likontech.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://likontech.github.io/js/fancybox.min.js"></script>
+<script src="https://likontech.github.io/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>
