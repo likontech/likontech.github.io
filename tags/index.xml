@@ -5,8 +5,26 @@
     <link>https://likontech.github.io/tags/</link>
     <description>Recent content in Tags on likon</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Sat, 29 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 31 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vue</title>
+      <link>https://likontech.github.io/tags/vue/</link>
+      <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/tags/vue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>方法论</title>
+      <link>https://likontech.github.io/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/</link>
+      <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>node</title>
       <link>https://likontech.github.io/tags/node/</link>

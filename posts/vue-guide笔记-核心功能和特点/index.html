@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="" />
+	
+	
+	
+	<title>《Vue Guide》笔记 —— 核心功能和特点 ｜ likon</title>
+	
+    
+    
+    <meta name="description" content="需要开发 Vue 项目，官方文档随手记" />
+    
+
+    
+    
+    <meta name="keywords" content="likon, 碎碎念, 记录" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://likontech.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/highlight.css" />
+
+    
+    <meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta name="referrer" content="no-referrer-when-downgrade"></head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://likontech.github.io/">
+                    <img class="likon" style="margin-top: -20px; margin-left: -10px;" src="https://likontech.github.io/images/icon_likon.png" width="150px">
+                    
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">岁岁年，碎碎念</p>
+            <div class="my_socials">
+                
+                <a href="https://github.com/likontech" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                <a href="https://twitter.com/likontech" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                <a href="https://likontech.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/vue-guide%E7%AC%94%E8%AE%B0-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E5%92%8C%E7%89%B9%E7%82%B9/'>《Vue Guide》笔记 —— 核心功能和特点</a></h2>
+                        <span class="date"><i class="ri-calendar-fill"> </i>2023.07.31</span>
+                        <span>&nbsp;</span>
+                        
+                        
+                            <span class="date" id="busuanzi_container_page_pv">
+                                <i class="ri-eye-fill"> </i><span class="date" id="busuanzi_value_page_pv"></span>
+                            </span>
+                    </div>
+                    <div class="post_content markdown"><h2 id="背景">背景</h2>
+<p>最近需要使用 Vue + Composition API 开发项目需求，所以再过下相关文档，做一下记录。</p>
+<h2 id="开始">开始</h2>
+<p><a href="https://cn.vuejs.org/guide/introduction.html">Vue</a>：Vue (发音为 /vjuː/，类似 view) 是一款用于构建用户界面的 JavaScript 框架。</p>
+<p>Vue 的两个核心功能</p>
+<ol>
+<li>声明式渲染：Vue 基于标准 HTML 拓展了一套模板语法，使得我们可以声明式地描述最终输出的 HTML 和 JavaScript 状态之间的关系。
+<blockquote>
+<p>早年间流行的 jQuery 就是典型的命令式框架。命令式框架的一大特点就是关注过程。例如，我们把下面这段话翻译成对应的代码：</p>
+<pre tabindex="0"><code>01 - 获取 id 为 app 的 div 标签
+02 - 它的文本内容为 hello world
+03 - 为其绑定点击事件
+04 - 当点击时弹出提示：ok
+</code></pre><p>对应的代码为：</p>
+<pre tabindex="0"><code>01 $(&#39;#app&#39;) // 获取 div
+02   .text(&#39;hello world&#39;) // 设置文本内容
+03   .on(&#39;click&#39;, () =&gt; { alert(&#39;ok&#39;) }) // 绑定点击事件
+</code></pre><p>可以看到，自然语言描述能够与代码产生一一对应的关系，代码本身描述的是“做事的过程”，这符合我们的逻辑直觉。</p>
+<p>与命令式框架更加关注过程不同，声明式框架更加关注结果。结合 Vue.js，我们来看看如何实现上面自然语言描述的功&gt; 能：</p>
+<pre tabindex="0"><code>01 &lt;div @click=&#34;() =&gt; alert(&#39;ok&#39;)&#34;&gt;hello world&lt;/div&gt;
+</code></pre><p>这段类 HTML 的模板就是 Vue.js 实现如上功能的方式。可以看到，我们提供的是一个“结果”，至于如何实现这个“结果”，我们并不关心，这就像我们在告诉 Vue.js：“嘿，Vue.js，看到没，我要的就是一个 div，文本内容是 hello world，它有个事件绑定，你帮我搞定吧。”至于实现该“结果”的过程，则是由 Vue.js 帮我们完成的。换句话说，Vue.js 帮我们封装了过程。因此，我们能够猜到 Vue.js 的内部实现一定是命令式的，而暴露给用户的却更加声明式。</p>
+</blockquote>
+</li>
+<li>响应性：Vue 会自动跟踪 JavaScript 状态并在其发生变化时响应式地更新 DOM。</li>
+</ol>
+<p>特点和特性：</p>
+<ol>
+<li>
+<p><strong>响应式数据绑定</strong>：Vue.js的核心特性之一是其响应式数据绑定系统。它建立了 JavaScript 代码和 HTML 模板之间的连接，因此当数据发生变化时，UI 会自动更新以反映这些变化。这简化和优化了更新 DOM 的过程。</p>
+</li>
+<li>
+<p><strong>组件化架构</strong>：Vue.js 遵循组件化架构，其中用户界面被拆分为可重用和自包含的组件。每个组件封装了自己的模板、JavaScript 逻辑和样式，使得管理和维护大型应用程序变得更容易。</p>
+</li>
+<li>
+<p><strong>虚拟DOM</strong>：Vue.js使用虚拟DOM来优化渲染性能。虚拟DOM是实际DOM的抽象副本，当数据发生变化时，Vue会计算虚拟DOM与真实DOM之间的差异（diff），然后只更新必要的更改，从而实现更快的渲染。</p>
+</li>
+<li>
+<p><strong>指令</strong>：Vue 提供了内置指令，如<code>v-if</code>、<code>v-for</code>、<code>v-bind</code>、<code>v-on</code>等。这些指令用于向 DOM 元素添加功能。它们允许您以声明式的方式条件性地渲染元素、绑定数据和处理事件。</p>
+</li>
+<li>
+<p><strong>模板</strong>：Vue.js 使用基于 HTML 的模板语法，允许开发人员以声明式的方式描述 UI。模板语法简单易懂，有助于快速开发。</p>
+</li>
+<li>
+<p><strong>Vue Router</strong>：Vue Router 是 Vue.js 应用程序的官方路由库。它提供了强大灵活的路由系统，允许开发人员创建具有多个视图和导航的单页面应用程序。</p>
+</li>
+<li>
+<p><strong>Vuex</strong>：Vuex 是 Vue.js 的官方状态管理库。它提供了一个集中式存储来管理应用程序状态，使得更容易管理在多个组件之间共享的数据。</p>
+</li>
+<li>
+<p><strong>轻量级</strong>：Vue.js 相对较轻量，并且学习曲线较小，使其成为初学者和经验丰富的开发人员的优秀选择。</p>
+</li>
+<li>
+<p><strong>灵活性</strong>：Vue.js 被设计为可增量采用的。您可以根据需要使用尽可能多或尽可能少的框架，将其整合到现有项目中或从头开始构建完整的 SPA。</p>
+</li>
+<li>
+<p><strong>活跃的社区</strong>：Vue.js 拥有充满活力和活跃的社区，不断为框架的发展做出贡献，提供支持，并创建各种第三方库和插件。</p>
+</li>
+</ol>
+<p>API 风格分为组合式（Composition API）和选项式（Options API）两种。</p>
+<p>Vue API 之所以分为组合式和选项式，是为了满足不同开发场景下的需求，并提供更好的开发体验和代码组织方式。</p>
+<ol>
+<li>
+<p><strong>选项式（Options API）</strong>：</p>
+<ul>
+<li>选项式是 Vue 早期版本使用的 API 风格，也是许多开发者熟悉和使用的方式。</li>
+<li>在选项式中，组件的逻辑被组织在一个包含各种选项的对象中（如<code>data</code>、<code>methods</code>、<code>computed</code>、<code>watch</code>等），每个选项都代表不同的功能。</li>
+<li>这种风格在简单的组件中表现良好，但随着组件复杂度的增加，逻辑可能会难以维护，组件选项可能会过于庞大，降低代码的可读性和维护性。</li>
+</ul>
+</li>
+<li>
+<p><strong>组合式（Composition API）</strong>：</p>
+<ul>
+<li>组合式是 Vue 3.0 引入的新特性，提供了一种基于函数的 API 风格，使得组件的逻辑可以更灵活地组织和重用。</li>
+<li>在组合式中，逻辑被封装在函数内部，每个函数负责处理一个特定的功能，而不再需要将所有逻辑都放在单个选项中。</li>
+<li>组合式可以更好地解决逻辑复用的问题，使得代码更加模块化，可读性和可维护性得到提升。</li>
+<li>另外，组合式还使得在逻辑之间进行更好的代码组织和抽象，有助于更好地拆分和管理大型组件。</li>
+</ul>
+</li>
+</ol>
+<p>选择哪种 API 风格取决于开发者的偏好和项目的需求。选项式适合较简单的组件和小型项目，因为其在这些场景下使用起来简单直观。而组合式则更适合大型和复杂的项目，可以更好地管理和重用组件逻辑，提高代码的可维护性和可扩展性。</p>
+<p>需要注意的是，虽然 Vue 3.0 引入了组合式 API，但并未废弃选项式 API，开发者可以根据项目需求选择使用不同的 API 风格，或者在同一个项目中同时使用两种风格。</p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://likontech.github.io/tags/vue/">vue</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <img class="likon" style="margin-top: 20px; margin-left: -30px;" src="https://likontech.github.io/images/icon_wechat.png" width="200px">
+                
+                
+
+    <script src="https://utteranc.es/client.js"
+        repo="likontech/likontech.github.io"
+        issue-term="title"
+        label="碎碎念"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+    </script>    
+
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        
+            
+            <span id="busuanzi_container_site_pv">
+                <i class="ri-eye-fill"></i> <span id="busuanzi_value_site_pv"></span>
+            </span></div>
+    
+
+    <div class="footer_slogan">
+        <span></span>
+        <img src="https://likontech.github.io/images/funny.png" height="30px" alt="首先要有意思">
+    </div>
+</footer>
+    <script src="https://likontech.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="https://likontech.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://likontech.github.io/js/fancybox.min.js"></script>
+<script src="https://likontech.github.io/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>

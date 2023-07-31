@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vue on likon</title>
+    <link>https://likontech.github.io/tags/vue/</link>
+    <description>Recent content in vue on likon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 31 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《Vue Guide》笔记 —— 核心功能和特点</title>
+      <link>https://likontech.github.io/posts/vue-guide%E7%AC%94%E8%AE%B0-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E5%92%8C%E7%89%B9%E7%82%B9/</link>
+      <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/vue-guide%E7%AC%94%E8%AE%B0-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E5%92%8C%E7%89%B9%E7%82%B9/</guid>
+      <description>背景 最近需要使用 Vue + Composition API 开发项目需求，所以再过下相关文档，做一下记录。
+开始 Vue：Vue (发音为 /vjuː/，类似 view) 是一款用于构建用户界面的 JavaScript 框架。
+Vue 的两个核心功能
+声明式渲染：Vue 基于标准 HTML 拓展了一套模板语法，使得我们可以声明式地描述最终输出的 HTML 和 JavaScript 状态之间的关系。 早年间流行的 jQuery 就是典型的命令式框架。命令式框架的一大特点就是关注过程。例如，我们把下面这段话翻译成对应的代码：
+01 - 获取 id 为 app 的 div 标签 02 - 它的文本内容为 hello world 03 - 为其绑定点击事件 04 - 当点击时弹出提示：ok 对应的代码为：
+01 $(&amp;#39;#app&amp;#39;) // 获取 div 02 .text(&amp;#39;hello world&amp;#39;) // 设置文本内容 03 .on(&amp;#39;click&amp;#39;, () =&amp;gt; { alert(&amp;#39;ok&amp;#39;) }) // 绑定点击事件 可以看到，自然语言描述能够与代码产生一一对应的关系，代码本身描述的是“做事的过程”，这符合我们的逻辑直觉。
+与命令式框架更加关注过程不同，声明式框架更加关注结果。结合 Vue.</description>
+    </item>
+    
+  </channel>
+</rss>
