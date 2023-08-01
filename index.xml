@@ -6,13 +6,24 @@
     <description>Recent content on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 31 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>《Vue Guide》笔记 —— 核心功能和特点</title>
-      <link>https://likontech.github.io/posts/vue-guide%E7%AC%94%E8%AE%B0-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E5%92%8C%E7%89%B9%E7%82%B9/</link>
+      <title>《Vue Guide》随手记 —— 前两节</title>
+      <link>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%89%8D%E5%9B%9B%E8%8A%82/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%89%8D%E5%9B%9B%E8%8A%82/</guid>
+      <description>台风“杜苏芮”，北京连续多雨。
+前两节 演练场 创建本地工程 npm init vue@latest 创建一个 Vue 应用​ 模板语法 创建一个 Vue 应用 import { createApp } from &amp;#39;vue&amp;#39; const app = createApp({ /* 根组件选项 */ }) 这段代码是一个使用 Vue 3 Composition API 创建新的 Vue.js 应用程序的示例。
+模板语法 文本插值 原始 HTML Attribute 绑定 &amp;lt;script setup&amp;gt; import { ref } from &amp;#39;vue&amp;#39; const msg = ref(&amp;#39;Hello World!&amp;#39;) const rawHtml = ref(&amp;#39;&amp;lt;span style=&amp;#34;color: red&amp;#34;&amp;gt;This should be red.&amp;lt;/span&amp;gt;&amp;#39;); &amp;lt;/script&amp;gt; &amp;lt;template&amp;gt; &amp;lt;h1&amp;gt;{{ msg }}&amp;lt;/h1&amp;gt; &amp;lt;input v-model=&amp;#34;msg&amp;#34;&amp;gt; &amp;lt;!</description>
+    </item>
+    
+    <item>
+      <title>《Vue Guide》随手记 —— 核心功能和特点</title>
+      <link>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E5%92%8C%E7%89%B9%E7%82%B9/</link>
       <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://likontech.github.io/posts/vue-guide%E7%AC%94%E8%AE%B0-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E5%92%8C%E7%89%B9%E7%82%B9/</guid>
+      <guid>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E5%92%8C%E7%89%B9%E7%82%B9/</guid>
       <description>背景 最近需要使用 Vue + Composition API 开发项目需求，所以再过下相关文档，做一下记录。
 开始 Vue：Vue (发音为 /vjuː/，类似 view) 是一款用于构建用户界面的 JavaScript 框架。
 Vue 的两个核心功能

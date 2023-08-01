@@ -2,19 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://likontech.github.io/posts/vue-guide%E7%AC%94%E8%AE%B0-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E5%92%8C%E7%89%B9%E7%82%B9/</loc>
-    <lastmod>2023-07-31T00:00:00+00:00</lastmod>
+    <loc>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%89%8D%E5%9B%9B%E8%8A%82/</loc>
+    <lastmod>2023-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/</loc>
-    <lastmod>2023-07-31T00:00:00+00:00</lastmod>
+    <lastmod>2023-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/posts/</loc>
-    <lastmod>2023-07-31T00:00:00+00:00</lastmod>
+    <lastmod>2023-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/tags/</loc>
-    <lastmod>2023-07-31T00:00:00+00:00</lastmod>
+    <lastmod>2023-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/tags/vue/</loc>
+    <lastmod>2023-08-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E5%92%8C%E7%89%B9%E7%82%B9/</loc>
     <lastmod>2023-07-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/</loc>
