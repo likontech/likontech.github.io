@@ -6,13 +6,24 @@
     <description>Recent content in Posts on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 01 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《Vue Guide》随手记 ——三-五节</title>
+      <link>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E4%B8%89-%E4%BA%94%E8%8A%82/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E4%B8%89-%E4%BA%94%E8%8A%82/</guid>
+      <description>室温超导体新闻这两天热火朝天。
+室温超导体是指在常规的室温条件下（通常是接近或等于常温，即约 20 摄氏度）能够表现出超导现象的材料。超导现象是指在某些材料中，在特定的低温条件下，电阻突然变为零，并且磁场被完全排斥的现象。传统的超导材料需要极低的温度（接近绝对零度，约 -273.15 摄氏度）才能表现出超导行为，这对于应用和实际应用来说非常不便。
+三-五节 演练场 创建本地工程 npm init vue@latest 响应式基础 计算属性 Class 与 Style 绑定 响应式基础 ref import { ref } from &amp;#39;vue&amp;#39; export default { setup() { const count = ref(0) function increment() { // 在 JavaScript 中需要 .value count.value++ } // 不要忘记同时暴露 increment 函数 return { count, increment } } } &amp;lt;button @click=&amp;#34;increment&amp;#34;&amp;gt; {{ count }} &amp;lt;/button&amp;gt; 在 setup() 函数中手动暴露大量的状态和方法非常繁琐。可以通过使用单文件组件 (SFC) 来避免这种情况。可以使用 &amp;lt;script setup&amp;gt; 简化代码。</description>
+    </item>
+    
     <item>
       <title>《Vue Guide》随手记 —— 前两节</title>
-      <link>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%89%8D%E5%9B%9B%E8%8A%82/</link>
+      <link>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%89%8D%E4%B8%A4%E8%8A%82-copy/</link>
       <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%89%8D%E5%9B%9B%E8%8A%82/</guid>
+      <guid>https://likontech.github.io/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%89%8D%E4%B8%A4%E8%8A%82-copy/</guid>
       <description>台风“杜苏芮”，北京连续多雨。
 前两节 演练场 创建本地工程 npm init vue@latest 创建一个 Vue 应用​ 模板语法 创建一个 Vue 应用 import { createApp } from &amp;#39;vue&amp;#39; const app = createApp({ /* 根组件选项 */ }) 这段代码是一个使用 Vue 3 Composition API 创建新的 Vue.js 应用程序的示例。
 模板语法 文本插值 原始 HTML Attribute 绑定 &amp;lt;script setup&amp;gt; import { ref } from &amp;#39;vue&amp;#39; const msg = ref(&amp;#39;Hello World!&amp;#39;) const rawHtml = ref(&amp;#39;&amp;lt;span style=&amp;#34;color: red&amp;#34;&amp;gt;This should be red.&amp;lt;/span&amp;gt;&amp;#39;); &amp;lt;/script&amp;gt; &amp;lt;template&amp;gt; &amp;lt;h1&amp;gt;{{ msg }}&amp;lt;/h1&amp;gt; &amp;lt;input v-model=&amp;#34;msg&amp;#34;&amp;gt; &amp;lt;!</description>

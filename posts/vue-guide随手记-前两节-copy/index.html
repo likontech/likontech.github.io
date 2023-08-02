@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="" />
+	
+	
+	
+	<title>《Vue Guide》随手记 —— 前两节 ｜ likon</title>
+	
+    
+    
+    <meta name="description" content="官方文档随手记" />
+    
+
+    
+    
+    <meta name="keywords" content="likon, 碎碎念, 记录" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://likontech.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/highlight.css" />
+
+    
+    <meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta name="referrer" content="no-referrer-when-downgrade"></head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://likontech.github.io/">
+                    <img class="likon" style="margin-top: -20px; margin-left: -10px;" src="https://likontech.github.io/images/icon_likon.png" width="150px">
+                    
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">岁岁年，碎碎念</p>
+            <div class="my_socials">
+                
+                <a href="https://github.com/likontech" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                <a href="https://twitter.com/likontech" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                <a href="https://likontech.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/vue-guide%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%89%8D%E4%B8%A4%E8%8A%82-copy/'>《Vue Guide》随手记 —— 前两节</a></h2>
+                        <span class="date"><i class="ri-calendar-fill"> </i>2023.08.01</span>
+                        <span>&nbsp;</span>
+                        
+                        
+                            <span class="date" id="busuanzi_container_page_pv">
+                                <i class="ri-eye-fill"> </i><span class="date" id="busuanzi_value_page_pv"></span>
+                            </span>
+                    </div>
+                    <div class="post_content markdown"><blockquote>
+<p>台风“杜苏芮”，北京连续多雨。</p>
+</blockquote>
+<h2 id="前两节">前两节</h2>
+<ul>
+<li><a href="https://play.vuejs.org/">演练场</a></li>
+<li>创建本地工程 <code>npm init vue@latest</code></li>
+</ul>
+<ol>
+<li>创建一个 Vue 应用​</li>
+<li>模板语法</li>
+</ol>
+<h2 id="创建一个-vue-应用">创建一个 Vue 应用</h2>
+<pre tabindex="0"><code>import { createApp } from &#39;vue&#39;
+
+const app = createApp({
+  /* 根组件选项 */
+})
+</code></pre><p>这段代码是一个使用 Vue 3 Composition API 创建新的 Vue.js 应用程序的示例。</p>
+<h2 id="模板语法">模板语法</h2>
+<ul>
+<li>文本插值</li>
+<li>原始 HTML</li>
+<li>Attribute 绑定</li>
+</ul>
+<pre tabindex="0"><code>&lt;script setup&gt;
+import { ref } from &#39;vue&#39;
+
+const msg = ref(&#39;Hello World!&#39;)
+const rawHtml = ref(&#39;&lt;span style=&#34;color: red&#34;&gt;This should be red.&lt;/span&gt;&#39;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;h1&gt;{{ msg }}&lt;/h1&gt;
+  &lt;input v-model=&#34;msg&#34;&gt;
+  &lt;!-- v-html 指令，在网站上动态渲染任意 HTML 是非常危险的，因为这非常容易造成 XSS 漏洞。请仅在内容安全可信时再使用 v-html，并且永远不要使用用户提供的 HTML 内容。 --&gt;
+  &lt;p&gt;Using text interpolation: {{ rawHtml }}&lt;/p&gt;
+  &lt;p&gt;Using v-html directive: &lt;span v-html=&#34;rawHtml&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/template&gt;
+</code></pre><p>Attribute 绑定，如果绑定的值是 null 或者 undefined，那么该 attribute 将会从渲染的元素上移除。</p>
+<pre tabindex="0"><code>&lt;div v-bind:id=&#34;dynamicId&#34;&gt;&lt;/div&gt;
+简写
+&lt;div :id=&#34;dynamicId&#34;&gt;&lt;/div&gt;
+</code></pre><p>动态绑定多个值</p>
+<pre tabindex="0"><code>const objectOfAttrs = {
+  id: &#39;container&#39;,
+  class: &#39;wrapper&#39;
+}
+&lt;div v-bind=&#34;objectOfAttrs&#34;&gt;&lt;/div&gt;
+</code></pre><p>模板中可以绑定什么？</p>
+<blockquote>
+<p>绑定仅支持单一表达式，也就是一段能够被求值的 JavaScript 代码。一个简单的判断方法是是否可以合法地写在 return 后面。</p>
+</blockquote>
+<p>在 Vue 模板中，你可以使用指令和表达式来绑定各种属性和事件，以实现动态数据绑定和交互功能。以下是在 Vue 模板中可以绑定的内容：</p>
+<ol>
+<li><strong>文本插值（Text Interpolation）</strong>：使用双大括号语法 <code>{{ }}</code> 可以在模板中插入 Vue 实例的数据，实现文本内容的动态展示。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;p&gt;{{ message }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><ol start="2">
+<li><strong>属性绑定（Attribute Binding）</strong>：通过 <code>v-bind</code> 指令可以绑定 HTML 元素的属性，并将其值设置为 Vue 实例的数据。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;img v-bind:src=&#34;imageUrl&#34; alt=&#34;Vue Logo&#34;&gt;
+&lt;/div&gt;
+
+&lt;a v-bind:href=&#34;url&#34;&gt; ... &lt;/a&gt;
+&lt;a :href=&#34;url&#34;&gt; ... &lt;/a&gt;
+</code></pre><ol start="3">
+<li><strong>条件渲染（Conditional Rendering）</strong>：使用 <code>v-if</code> 和 <code>v-else</code> 指令可以根据 Vue 实例的条件表达式来控制元素是否渲染到 DOM 中。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;p v-if=&#34;showMessage&#34;&gt;This message will be shown if showMessage is true.&lt;/p&gt;
+  &lt;p v-else&gt;This message will be shown if showMessage is false.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><ol start="4">
+<li><strong>循环渲染（List Rendering）</strong>：使用 <code>v-for</code> 指令可以遍历 Vue 实例的数组或对象，并渲染多个元素。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&#34;item in items&#34; :key=&#34;item.id&#34;&gt;{{ item.name }}&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre><ol start="5">
+<li><strong>事件绑定（Event Handling）</strong>：使用 <code>v-on</code> 或简写符号 <code>@</code> 可以绑定 DOM 事件到 Vue 实例的方法。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;button v-on:click=&#34;incrementCounter&#34;&gt;Click Me&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;a v-on:click=&#34;doSomething&#34;&gt; ... &lt;/a&gt;
+&lt;a @click=&#34;doSomething&#34;&gt; ... &lt;/a&gt;
+</code></pre><p>调用函数，绑定在表达式中的方法在组件每次更新时都会被重新调用，因此不应该产生任何副作用，比如改变数据或触发异步操作。</p>
+<pre tabindex="0"><code>&lt;time :title=&#34;toTitleDate(date)&#34; :datetime=&#34;date&#34;&gt;
+  {{ formatDate(date) }}
+&lt;/time&gt;
+</code></pre><ol start="6">
+<li><strong>样式绑定（Style Binding）</strong>：通过 <code>v-bind:style</code> 可以绑定元素的内联样式，并将样式属性的值设置为 Vue 实例的数据。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div v-bind:style=&#34;{ color: textColor, fontSize: fontSize + &#39;px&#39; }&#34;&gt;
+  This text has a custom color and font size.
+&lt;/div&gt;
+</code></pre><ol start="7">
+<li><strong>类名绑定（Class Binding）</strong>：使用 <code>v-bind:class</code> 可以绑定元素的类名，并将类名设置为 Vue 实例的数据。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div v-bind:class=&#34;{ &#39;active&#39;: isActive, &#39;error&#39;: hasError }&#34;&gt;
+  This element may have the &#39;active&#39; and &#39;error&#39; classes based on Vue data.
+&lt;/div&gt;
+</code></pre><ol start="8">
+<li><strong>表单输入绑定（Form Input Binding）</strong>：使用 <code>v-model</code> 指令可以实现表单元素与 Vue 实例数据的双向绑定。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;input v-model=&#34;username&#34; type=&#34;text&#34; placeholder=&#34;Enter your username&#34;&gt;
+  &lt;p&gt;Your username is: {{ username }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><ol start="9">
+<li><strong>计算属性（Computed Properties）</strong>：使用 <code>computed</code> 属性可以定义计算属性，这些属性的值会根据 Vue 实例的其他数据属性计算得出。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;p&gt;Total: {{ totalPrice }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    price: 10,
+    quantity: 2,
+  },
+  computed: {
+    totalPrice() {
+      return this.price * this.quantity;
+    },
+  },
+});
+</code></pre><ol start="10">
+<li><strong>监听器（Watchers）</strong>：使用 <code>watch</code> 属性可以监听 Vue 实例数据的变化，并在数据发生变化时执行相应的操作。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;p&gt;Message: {{ message }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    message: &#39;&#39;,
+  },
+  watch: {
+    message(newValue, oldValue) {
+      console.log(&#39;Message changed:&#39;, oldValue, &#39;=&gt;&#39;, newValue);
+    },
+  },
+});
+</code></pre><ol start="11">
+<li><strong>过滤器（Filters）</strong>：使用 <code>filters</code> 属性可以定义过滤器，用于格式化模板中的数据。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;p&gt;{{ date | formatDate }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    date: &#39;2023-08-01&#39;,
+  },
+  filters: {
+    formatDate(value) {
+      return new Date(value).toLocaleDateString();
+    },
+  },
+});
+</code></pre><ol start="12">
+<li><strong>动态组件（Dynamic Components）</strong>：使用 <code>&lt;component&gt;</code> 元素结合 <code>v-bind:is</code> 可以实现动态渲染不同的组件。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;component v-bind:is=&#34;currentComponent&#34;&gt;&lt;/component&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    currentComponent: &#39;componentA&#39;,
+  },
+});
+</code></pre><h3 id="动态参数">动态参数</h3>
+<h4 id="概念">概念</h4>
+<p>在 Vue.js 中，你还可以使用动态参数（Dynamic Arguments）来动态地绑定指令和事件。动态参数允许你在模板中使用 JavaScript 表达式作为指令参数的一部分，从而根据实际情况动态地生成指令或事件的名称。</p>
+<p>在指令或事件中使用动态参数时，你需要使用方括号 <code>[]</code> 来包裹表达式，并使用 <code>:</code> 表示这是一个动态参数。在 Vue.js 2.x 中，你也可以省略 <code>:</code> 直接使用表达式。</p>
+<p>以下是一些示例说明使用动态参数的情况：</p>
+<ol>
+<li><strong>v-bind 指令的动态参数</strong>：</li>
+</ol>
+<p>v-bind 指令用于绑定 Vue 实例的数据到 HTML 元素的属性上。使用动态参数时，你可以根据表达式的值动态绑定不同的属性。</p>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;img :[attributeName]=&#34;imagePath&#34; alt=&#34;Image&#34;&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    attributeName: &#39;src&#39;,
+    imagePath: &#39;path/to/image.jpg&#39;,
+  },
+});
+</code></pre><p>在这个例子中，<code>[attributeName]</code> 是动态参数，其值根据 <code>attributeName</code> 变量的值来确定。如果 <code>attributeName</code> 的值为 <code>'src'</code>，则等效于 <code>v-bind:src</code> 指令；如果 <code>attributeName</code> 的值为 <code>'data-src'</code>，则等效于 <code>v-bind:data-src</code> 指令。</p>
+<ol start="2">
+<li><strong>v-on 指令的动态参数</strong>：</li>
+</ol>
+<p>v-on 指令用于将 DOM 事件绑定到 Vue 实例的方法上。使用动态参数时，你可以根据表达式的值动态绑定不同的事件。</p>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;button @[eventName]=&#34;eventMethod&#34;&gt;{{ buttonText }}&lt;/button&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    eventName: &#39;click&#39;,
+    buttonText: &#39;Click Me&#39;,
+  },
+  methods: {
+    eventMethod() {
+      // 事件处理逻辑
+    },
+  },
+});
+</code></pre><p>在这个例子中，<code>@[eventName]</code> 是动态参数，其值根据 <code>eventName</code> 变量的值来确定。如果 <code>eventName</code> 的值为 <code>'click'</code>，则等效于 <code>v-on:click</code> 指令；如果 <code>eventName</code> 的值为 <code>'mouseover'</code>，则等效于 <code>v-on:mouseover</code> 指令。</p>
+<p>动态参数是 Vue.js 提供的一个非常强大的特性，它允许你根据实际情况动态生成指令或事件的名称，从而实现更加灵活和动态的绑定。在处理复杂的交互逻辑时，动态参数可以派上用场。</p>
+<h4 id="动态参数解决什么问题">动态参数解决什么问题</h4>
+<p>动态参数在 Vue.js 中解决了一些在静态参数下可能遇到的限制和问题，特别是在处理复杂的交互逻辑和动态数据绑定时。</p>
+<p>以下是动态参数可以解决的一些常见问题：</p>
+<ol>
+<li>
+<p><strong>动态绑定属性和事件</strong>：动态参数允许你在模板中根据表达式的值动态地绑定属性和事件。这使得你可以根据不同的条件或状态来绑定不同的属性和事件，而无需写重复的模板代码。</p>
+</li>
+<li>
+<p><strong>根据条件选择不同的指令或事件</strong>：使用动态参数，你可以根据不同的条件来选择要绑定的指令或事件。这在处理条件渲染或动态组件时特别有用，可以根据条件动态地绑定不同的行为。</p>
+</li>
+<li>
+<p><strong>更灵活的数据绑定</strong>：动态参数允许你根据表达式的值动态绑定数据。这使得你可以在模板中动态地选择要绑定的数据和属性，从而实现更灵活的数据绑定。</p>
+</li>
+<li>
+<p><strong>减少重复的代码</strong>：使用动态参数，你可以根据表达式的值来生成不同的指令或事件名称，从而避免编写重复的模板代码。这样可以使模板更加简洁和可维护。</p>
+</li>
+<li>
+<p><strong>处理复杂交互逻辑</strong>：在复杂的交互场景中，你可能需要根据用户的操作或应用程序的状态来动态地绑定不同的属性和事件。动态参数可以帮助你在这些情况下更好地组织代码。</p>
+</li>
+</ol>
+<p>总的来说，动态参数为 Vue.js 应用程序提供了更大的灵活性和动态性。它使得你可以根据实际需求来动态地选择要绑定的属性和事件，从而更好地满足复杂的交互需求，减少代码冗余，并使代码更加清晰和易于维护。</p>
+<h3 id="修饰符-modifiers">修饰符 Modifiers</h3>
+<p>修饰符是以点开头的特殊后缀，表明指令需要以一些特殊的方式被绑定。例如 .prevent 修饰符会告知 v-on 指令对触发的事件调用 event.preventDefault()：</p>
+<pre tabindex="0"><code>&lt;form @submit.prevent=&#34;onSubmit&#34;&gt;...&lt;/form&gt;
+</code></pre><p><img src="/lk_modifiers.png" alt=""></p>
+<h4 id="modifiers-还有哪些">Modifiers 还有哪些</h4>
+<p>在 Vue.js 中，事件修饰符（Event Modifiers）是用于在绑定事件时提供特殊控制的一种方式。它们可以在绑定事件时使用点号 <code>.</code> 后跟特定的修饰符，来修改事件的行为。以下是一些常用的事件修饰符：</p>
+<ol>
+<li><strong><code>.stop</code></strong>：阻止事件冒泡。使用 <code>.stop</code> 修饰符可以阻止事件在当前元素上触发后冒泡到父元素。</li>
+</ol>
+<pre tabindex="0"><code>&lt;button @click.stop=&#34;handleButtonClick&#34;&gt;Click Me&lt;/button&gt;
+</code></pre><ol start="2">
+<li><strong><code>.prevent</code></strong>：阻止事件的默认行为。使用 <code>.prevent</code> 修饰符可以阻止事件的默认行为，比如阻止表单提交和超链接跳转。</li>
+</ol>
+<pre tabindex="0"><code>&lt;form @submit.prevent=&#34;handleSubmit&#34;&gt;
+  &lt;button type=&#34;submit&#34;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;a href=&#34;https://www.example.com&#34; @click.prevent&gt;Go to Example&lt;/a&gt;
+</code></pre><ol start="3">
+<li><strong><code>.capture</code></strong>：使用事件捕获模式。通常事件是在冒泡阶段触发的，使用 <code>.capture</code> 修饰符可以将事件绑定在捕获阶段触发。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div @click.capture=&#34;handleDivClick&#34;&gt;Click Me&lt;/div&gt;
+</code></pre><ol start="4">
+<li><strong><code>.self</code></strong>：只在事件目标是当前元素自身时触发事件。使用 <code>.self</code> 修饰符可以限制事件只在当前元素自身触发，而不会在其子元素触发时触发。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div @click.self=&#34;handleDivClick&#34;&gt;
+  &lt;button&gt;Click Me&lt;/button&gt;
+&lt;/div&gt;
+</code></pre><ol start="5">
+<li><strong><code>.once</code></strong>：只触发一次事件。使用 <code>.once</code> 修饰符可以让事件只触发一次，即使事件绑定在多个地方，也只会执行一次事件处理函数。</li>
+</ol>
+<pre tabindex="0"><code>&lt;button @click.once=&#34;handleButtonClick&#34;&gt;Click Me&lt;/button&gt;
+</code></pre><ol start="6">
+<li><strong><code>.passive</code></strong>：告知浏览器事件处理函数不会调用 <code>event.preventDefault()</code>。使用 <code>.passive</code> 修饰符可以优化滚动性能，提供更流畅的滚动体验。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div @scroll.passive=&#34;handleScroll&#34;&gt;Scroll Me&lt;/div&gt;
+</code></pre><p>这些事件修饰符可以组合使用，例如同时使用 <code>.stop</code> 和 <code>.prevent</code> 来阻止事件冒泡和默认行为：</p>
+<pre tabindex="0"><code>&lt;button @click.stop.prevent=&#34;handleButtonClick&#34;&gt;Click Me&lt;/button&gt;
+</code></pre><p>这样，在点击按钮时不仅会阻止冒泡，还会阻止按钮的默认提交行为。事件修饰符为事件处理提供了更多的控制选项，使你能够更方便地处理复杂的事件交互和逻辑。</p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://likontech.github.io/tags/vue/">vue</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <img class="likon" style="margin-top: 20px; margin-left: -30px;" src="https://likontech.github.io/images/icon_wechat.png" width="200px">
+                
+                
+
+    <script src="https://utteranc.es/client.js"
+        repo="likontech/likontech.github.io"
+        issue-term="title"
+        label="碎碎念"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+    </script>    
+
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        
+            
+            <span id="busuanzi_container_site_pv">
+                <i class="ri-eye-fill"></i> <span id="busuanzi_value_site_pv"></span>
+            </span></div>
+    
+
+    <div class="footer_slogan">
+        <span></span>
+        <img src="https://likontech.github.io/images/funny.png" height="30px" alt="首先要有意思">
+    </div>
+</footer>
+    <script src="https://likontech.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="https://likontech.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://likontech.github.io/js/fancybox.min.js"></script>
+<script src="https://likontech.github.io/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>
