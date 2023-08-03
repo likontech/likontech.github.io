@@ -9,7 +9,7 @@
 	
 	
 	
-	<title>Vue Doc 随手记 ——六-九节 ｜ likon</title>
+	<title>《Vue Guide》随手记 —— 前两节 ｜ likon</title>
 	
     
     
@@ -93,7 +93,7 @@
             <div class="post_page">
                 <div class="post animate__animated animate__fadeInDown">
                     <div class="post_title post_detail_title">
-                        <h2><a href='/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%89%8D%E4%B8%A4%E8%8A%82/'>Vue Doc 随手记 ——六-九节</a></h2>
+                        <h2><a href='/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%89%8D%E4%B8%A4%E8%8A%82/'>《Vue Guide》随手记 —— 前两节</a></h2>
                         <span class="date"><i class="ri-calendar-fill"> </i>2023.08.01</span>
                         <span>&nbsp;</span>
                         
@@ -106,384 +106,282 @@
 
 
 
-                    <div class="post_content markdown"><h2 id="前两节">前两节</h2>
+                    <div class="post_content markdown"><blockquote>
+<p>台风“杜苏芮”，北京连续多雨。</p>
+</blockquote>
+<h1 id="前两节">前两节</h1>
 <ul>
 <li><a href="https://play.vuejs.org/">演练场</a></li>
 <li>创建本地工程 <code>npm init vue@latest</code></li>
 </ul>
 <ol>
-<li>条件渲染</li>
-<li>列表渲染</li>
-<li>事件处理</li>
-<li>表单输入绑定</li>
+<li>创建一个 Vue 应用​</li>
+<li>模板语法</li>
 </ol>
-<h2 id="条件渲染">条件渲染</h2>
-<h3 id="v-if"><code>v-if</code></h3>
-<p>表达式返回真值时被渲染</p>
-<pre tabindex="0"><code>&lt;div v-if=&#34;type === &#39;A&#39;&#34;&gt;
-  A
-&lt;/div&gt;
-&lt;div v-else-if=&#34;type === &#39;B&#39;&#34;&gt;
-  B
-&lt;/div&gt;
-&lt;div v-else-if=&#34;type === &#39;C&#39;&#34;&gt;
-  C
-&lt;/div&gt;
-&lt;div v-else&gt;
-  Not A/B/C
-&lt;/div&gt;
+<h2 id="创建一个-vue-应用">创建一个 Vue 应用</h2>
+<pre tabindex="0"><code>import { createApp } from &#39;vue&#39;
 
-# 不止一个元素可以依附于 &lt;template&gt;
-&lt;template v-if=&#34;ok&#34;&gt;
-  &lt;h1&gt;Title&lt;/h1&gt;
-  &lt;p&gt;Paragraph 1&lt;/p&gt;
-  &lt;p&gt;Paragraph 2&lt;/p&gt;
-&lt;/template&gt;
-</code></pre><h3 id="v-show"><code>v-show</code></h3>
-<p>按条件显示一个元素</p>
-<pre tabindex="0"><code>&lt;h1 v-show=&#34;ok&#34;&gt;Hello!&lt;/h1&gt;
-</code></pre><p>v-if 和 v-show 区别</p>
-<table>
-<thead>
-<tr>
-<th>特性</th>
-<th><code>v-if</code></th>
-<th><code>v-show</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>渲染方式</td>
-<td>根据条件动态添加或移除元素</td>
-<td>通过 CSS 控制元素的显示与隐藏</td>
-</tr>
-<tr>
-<td>初始化开销</td>
-<td>需要初始化开销，条件为 <code>true</code> 时创建元素并插入 DOM</td>
-<td>无初始化开销，元素一直在 DOM 中，通过 CSS 控制显示隐藏</td>
-</tr>
-<tr>
-<td>性能考虑</td>
-<td>适合条件变化较少或有大块内容需要动态渲染</td>
-<td>适合条件频繁变化或内容变化较少，仅需切换显示隐藏</td>
-</tr>
-<tr>
-<td>适用场景</td>
-<td>动态内容频繁变化时较为高效</td>
-<td>静态内容或频繁切换显示隐藏的情况下较为高效</td>
-</tr>
-</tbody>
-</table>
-<h2 id="列表渲染">列表渲染</h2>
-<p><code>v-for</code> 基于一个数组来渲染一个列表</p>
-<pre tabindex="0"><code>const items = ref([{ message: &#39;Foo&#39; }, { message: &#39;Bar&#39; }])
-
-&lt;li v-for=&#34;item in items&#34;&gt;
-  {{ item.message }}
-&lt;/li&gt;
-
-# 索引
-&lt;li v-for=&#34;(item, index) in items&#34;&gt;
-  {{ parentMessage }} - {{ index }} - {{ item.message }}
-&lt;/li&gt;
-
-# 解构
-&lt;li v-for=&#34;{ message } in items&#34;&gt;
-  {{ message }}
-&lt;/li&gt;
-
-&lt;!-- 有 index 索引时 --&gt;
-&lt;li v-for=&#34;({ message }, index) in items&#34;&gt;
-  {{ message }} {{ index }}
-&lt;/li&gt;
-
-# 多层嵌套，内部可以访问外层
-&lt;li v-for=&#34;item in items&#34;&gt;
-  &lt;span v-for=&#34;childItem in item.children&#34;&gt;
-    {{ item.message }} {{ childItem }}
-  &lt;/span&gt;
-&lt;/li&gt;
-
-# 可以用 of
-&lt;div v-for=&#34;item of items&#34;&gt;&lt;/div&gt;
-</code></pre><h3 id="v-for-和对象">v-for 和对象</h3>
-<p>遍历的顺序会基于对该对象调用 Object.keys() 的返回值来决定。</p>
-<pre tabindex="0"><code>const myObject = reactive({
-  title: &#39;How to do lists in Vue&#39;,
-  author: &#39;Jane Doe&#39;,
-  publishedAt: &#39;2016-04-10&#39;
+const app = createApp({
+  /* 根组件选项 */
 })
+</code></pre><p>这段代码是一个使用 Vue 3 Composition API 创建新的 Vue.js 应用程序的示例。</p>
+<h2 id="模板语法">模板语法</h2>
+<ul>
+<li>文本插值</li>
+<li>原始 HTML</li>
+<li>Attribute 绑定</li>
+</ul>
+<pre tabindex="0"><code>&lt;script setup&gt;
+import { ref } from &#39;vue&#39;
 
-# value
-&lt;ul&gt;
-  &lt;li v-for=&#34;value in myObject&#34;&gt;
-    {{ value }}
-  &lt;/li&gt;
-&lt;/ul&gt;
+const msg = ref(&#39;Hello World!&#39;)
+const rawHtml = ref(&#39;&lt;span style=&#34;color: red&#34;&gt;This should be red.&lt;/span&gt;&#39;);
+&lt;/script&gt;
 
-# value\key
-&lt;li v-for=&#34;(value, key) in myObject&#34;&gt;
-  {{ key }}: {{ value }}
-&lt;/li&gt;
-
-# value\key\index
-&lt;li v-for=&#34;(value, key, index) in myObject&#34;&gt;
-  {{ index }}. {{ key }}: {{ value }}
-&lt;/li&gt;
-
-# template
-&lt;ul&gt;
-  &lt;template v-for=&#34;item in items&#34;&gt;
-    &lt;li&gt;{{ item.msg }}&lt;/li&gt;
-    &lt;li class=&#34;divider&#34; role=&#34;presentation&#34;&gt;&lt;/li&gt;
-  &lt;/template&gt;
-&lt;/ul&gt;
-</code></pre><h3 id="v-for-里使用范围值">v-for 里使用范围值</h3>
-<pre tabindex="0"><code># 从 1 到 10
-&lt;span v-for=&#34;n in 10&#34;&gt;{{ n }}&lt;/span&gt;
-</code></pre><h3 id="通过-key-管理状态">通过 key 管理状态</h3>
-<p>添加 key 的主要原因是帮助 Vue 更高效地管理 DOM，并提升列表渲染的性能。</p>
+&lt;template&gt;
+  &lt;h1&gt;{{ msg }}&lt;/h1&gt;
+  &lt;input v-model=&#34;msg&#34;&gt;
+  &lt;!-- v-html 指令，在网站上动态渲染任意 HTML 是非常危险的，因为这非常容易造成 XSS 漏洞。请仅在内容安全可信时再使用 v-html，并且永远不要使用用户提供的 HTML 内容。 --&gt;
+  &lt;p&gt;Using text interpolation: {{ rawHtml }}&lt;/p&gt;
+  &lt;p&gt;Using v-html directive: &lt;span v-html=&#34;rawHtml&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/template&gt;
+</code></pre><p>Attribute 绑定，如果绑定的值是 null 或者 undefined，那么该 attribute 将会从渲染的元素上移除。</p>
+<pre tabindex="0"><code>&lt;div v-bind:id=&#34;dynamicId&#34;&gt;&lt;/div&gt;
+简写
+&lt;div :id=&#34;dynamicId&#34;&gt;&lt;/div&gt;
+</code></pre><p>动态绑定多个值</p>
+<pre tabindex="0"><code>const objectOfAttrs = {
+  id: &#39;container&#39;,
+  class: &#39;wrapper&#39;
+}
+&lt;div v-bind=&#34;objectOfAttrs&#34;&gt;&lt;/div&gt;
+</code></pre><p>模板中可以绑定什么？</p>
+<blockquote>
+<p>绑定仅支持单一表达式，也就是一段能够被求值的 JavaScript 代码。一个简单的判断方法是是否可以合法地写在 return 后面。</p>
+</blockquote>
+<p>在 Vue 模板中，你可以使用指令和表达式来绑定各种属性和事件，以实现动态数据绑定和交互功能。以下是在 Vue 模板中可以绑定的内容：</p>
 <ol>
-<li>识别元素： 通过 key，Vue 可以追踪每个列表中元素的身份。当数据发生变化时，Vue 使用 key 来确定哪些元素是新创建的、被修改的或被移除的，从而减少不必要的 DOM 操作。</li>
-<li>复用元素： key 允许 Vue 在重新渲染列表时尽可能地复用已有的 DOM 元素。这样可以避免重新创建和销毁 DOM，从而提升性能和优化用户体验。</li>
+<li><strong>文本插值（Text Interpolation）</strong>：使用双大括号语法 <code>{{ }}</code> 可以在模板中插入 Vue 实例的数据，实现文本内容的动态展示。</li>
 </ol>
-<pre tabindex="0"><code>&lt;div v-for=&#34;item in items&#34; :key=&#34;item.id&#34;&gt;
-  &lt;!-- 内容 --&gt;
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;p&gt;{{ message }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><ol start="2">
+<li><strong>属性绑定（Attribute Binding）</strong>：通过 <code>v-bind</code> 指令可以绑定 HTML 元素的属性，并将其值设置为 Vue 实例的数据。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;img v-bind:src=&#34;imageUrl&#34; alt=&#34;Vue Logo&#34;&gt;
 &lt;/div&gt;
 
-&lt;template v-for=&#34;todo in todos&#34; :key=&#34;todo.name&#34;&gt;
-  &lt;li&gt;{{ todo.name }}&lt;/li&gt;
-&lt;/template&gt;
-
-&lt;MyComponent
-  v-for=&#34;(item, index) in items&#34;
-  :item=&#34;item&#34;
-  :index=&#34;index&#34;
-  :key=&#34;item.id&#34;
-/&gt;
-</code></pre><p>期望</p>
-<ol>
-<li>为 v-for 提供一个 key attribute</li>
-<li>key 为字符串或 number 基础类型，不要用对象</li>
+&lt;a v-bind:href=&#34;url&#34;&gt; ... &lt;/a&gt;
+&lt;a :href=&#34;url&#34;&gt; ... &lt;/a&gt;
+</code></pre><ol start="3">
+<li><strong>条件渲染（Conditional Rendering）</strong>：使用 <code>v-if</code> 和 <code>v-else</code> 指令可以根据 Vue 实例的条件表达式来控制元素是否渲染到 DOM 中。</li>
 </ol>
-<h2 id="事件处理">事件处理</h2>
-<p>监听事件</p>
-<p>使用 v-on 指令 (简写为 @) 来监听 DOM 事件，并在事件触发时执行对应的 JavaScript。用法：v-on:click=&ldquo;handler&rdquo; 或 @click=&ldquo;handler&rdquo;。</p>
-<p>事件处理器 (handler) 的值可以是：</p>
-<ol>
-<li>内联事件处理器：事件被触发时执行的内联 JavaScript 语句 (与 onclick 类似)。</li>
-<li>方法事件处理器：一个指向组件上定义的方法的属性名或是路径。</li>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;p v-if=&#34;showMessage&#34;&gt;This message will be shown if showMessage is true.&lt;/p&gt;
+  &lt;p v-else&gt;This message will be shown if showMessage is false.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><ol start="4">
+<li><strong>循环渲染（List Rendering）</strong>：使用 <code>v-for</code> 指令可以遍历 Vue 实例的数组或对象，并渲染多个元素。</li>
 </ol>
-<h3 id="内联事件处理器">内联事件处理器</h3>
-<p>通常用于简单场景</p>
-<pre tabindex="0"><code>const count = ref(0)
-&lt;button @click=&#34;count++&#34;&gt;Add 1&lt;/button&gt;
-&lt;p&gt;Count is: {{ count }}&lt;/p&gt;
-</code></pre><h3 id="方法事件处理器">方法事件处理器</h3>
-<pre tabindex="0"><code>const name = ref(&#39;Vue.js&#39;)
-
-function greet(event) {
-  alert(`Hello ${name.value}!`)
-  // `event` 是 DOM 原生事件
-  if (event) {
-    alert(event.target.tagName)
-  }
-}
-
-&lt;!-- `greet` 是上面定义过的方法名 --&gt;
-&lt;button @click=&#34;greet&#34;&gt;Greet&lt;/button&gt;
-</code></pre><blockquote>
-<p>方法与内联事件判断：模板编译器会通过检查 v-on 的值是否是合法的 JavaScript 标识符或属性访问路径来断定是何种形式的事件处理器。举例来说，foo、foo.bar 和 foo[&lsquo;bar&rsquo;] 会被视为方法事件处理器，而 foo() 和 count++ 会被视为内联事件处理器。</p>
-</blockquote>
-<pre tabindex="0"><code># 在内联处理器中调用方法
-function say(message) {
-  alert(message)
-}
-
-&lt;button @click=&#34;say(&#39;hello&#39;)&#34;&gt;Say hello&lt;/button&gt;
-&lt;button @click=&#34;say(&#39;bye&#39;)&#34;&gt;Say bye&lt;/button&gt;
-
-
-# 在内联事件处理器中访问事件参数
-&lt;!-- 使用特殊的 $event 变量 --&gt;
-&lt;button @click=&#34;warn(&#39;Form cannot be submitted yet.&#39;, $event)&#34;&gt;
-  Submit
-&lt;/button&gt;
-
-&lt;!-- 使用内联箭头函数 --&gt;
-&lt;button @click=&#34;(event) =&gt; warn(&#39;Form cannot be submitted yet.&#39;, event)&#34;&gt;
-  Submit
-&lt;/button&gt;
-
-function warn(message, event) {
-  // 这里可以访问原生事件
-  if (event) {
-    event.preventDefault()
-  }
-  alert(message)
-}
-</code></pre><h3 id="修饰符">修饰符</h3>
-<ol>
-<li>事件修饰符
-<pre tabindex="0"><code>&lt;!-- 单击事件将停止传递 --&gt;
-&lt;a @click.stop=&#34;doThis&#34;&gt;&lt;/a&gt;
-
-&lt;!-- 提交事件将不再重新加载页面 --&gt;
-&lt;form @submit.prevent=&#34;onSubmit&#34;&gt;&lt;/form&gt;
-
-&lt;!-- 修饰语可以使用链式书写 --&gt;
-&lt;a @click.stop.prevent=&#34;doThat&#34;&gt;&lt;/a&gt;
-
-&lt;!-- 也可以只有修饰符 --&gt;
-&lt;form @submit.prevent&gt;&lt;/form&gt;
-
-&lt;!-- 仅当 event.target 是元素本身时才会触发事件处理器 --&gt;
-&lt;!-- 例如：事件处理器不来自子元素 --&gt;
-&lt;div @click.self=&#34;doThat&#34;&gt;...&lt;/div&gt;
-
-&lt;!-- 添加事件监听器时，使用 `capture` 捕获模式 --&gt;
-&lt;!-- 例如：指向内部元素的事件，在被内部元素处理前，先被外部处理 --&gt;
-&lt;div @click.capture=&#34;doThis&#34;&gt;...&lt;/div&gt;
-
-&lt;!-- 点击事件最多被触发一次 --&gt;
-&lt;a @click.once=&#34;doThis&#34;&gt;&lt;/a&gt;
-
-&lt;!-- 滚动事件的默认行为 (scrolling) 将立即发生而非等待 `onScroll` 完成 --&gt;
-&lt;!-- 以防其中包含 `event.preventDefault()` --&gt;
-&lt;div @scroll.passive=&#34;onScroll&#34;&gt;...&lt;/div&gt;
-</code></pre></li>
-<li>按键修饰符
-<pre tabindex="0"><code>&lt;!-- 仅在 `key` 为 `Enter` 时调用 `submit` --&gt;
-&lt;input @keyup.enter=&#34;submit&#34; /&gt;
-
-&lt;!-- 仅会在 $event.key 为 &#39;PageDown&#39; 时调用事件处理 --&gt;
-&lt;input @keyup.page-down=&#34;onPageDown&#34; /&gt;
-
-Vue 为一些常用的按键提供了别名：
-.enter
-.tab
-.delete (捕获“Delete”和“Backspace”两个按键)
-.esc
-.space
-.up
-.down
-.left
-.right
-
-# 系统按键修饰符
-.ctrl
-.alt
-.shift
-.meta # 在 Mac 键盘上，meta 是 Command 键 (⌘)。在 Windows 键盘上，meta 键是 Windows 键 (⊞)。
-
-&lt;!-- Alt + Enter --&gt;
-&lt;input @keyup.alt.enter=&#34;clear&#34; /&gt;
-
-&lt;!-- Ctrl + 点击 --&gt;
-&lt;div @click.ctrl=&#34;doSomething&#34;&gt;Do something&lt;/div&gt;
-
-# 修饰符允许控制触发一个事件所需的确定组合的系统按键修饰符
-&lt;!-- 当按下 Ctrl 时，即使同时按下 Alt 或 Shift 也会触发 --&gt;
-&lt;button @click.ctrl=&#34;onClick&#34;&gt;A&lt;/button&gt;
-
-&lt;!-- 仅当按下 Ctrl 且未按任何其他键时才会触发 --&gt;
-&lt;button @click.ctrl.exact=&#34;onCtrlClick&#34;&gt;A&lt;/button&gt;
-
-&lt;!-- 仅当没有按下任何系统按键时触发 --&gt;
-&lt;button @click.exact=&#34;onClick&#34;&gt;A&lt;/button&gt;
-</code></pre></li>
-<li>鼠标按键修饰符
-<pre tabindex="0"><code>.left
-.right
-.middle
-</code></pre></li>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&#34;item in items&#34; :key=&#34;item.id&#34;&gt;{{ item.name }}&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre><ol start="5">
+<li><strong>事件绑定（Event Handling）</strong>：使用 <code>v-on</code> 或简写符号 <code>@</code> 可以绑定 DOM 事件到 Vue 实例的方法。</li>
 </ol>
-<h2 id="表单输入绑定">表单输入绑定​</h2>
-<pre tabindex="0"><code>&lt;input
-  :value=&#34;text&#34;
-  @input=&#34;event =&gt; text = event.target.value&#34;&gt;
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;button v-on:click=&#34;incrementCounter&#34;&gt;Click Me&lt;/button&gt;
+&lt;/div&gt;
 
-# 简化为
-&lt;input v-model=&#34;text&#34;&gt;
+&lt;a v-on:click=&#34;doSomething&#34;&gt; ... &lt;/a&gt;
+&lt;a @click=&#34;doSomething&#34;&gt; ... &lt;/a&gt;
+</code></pre><p>调用函数，绑定在表达式中的方法在组件每次更新时都会被重新调用，因此不应该产生任何副作用，比如改变数据或触发异步操作。</p>
+<pre tabindex="0"><code>&lt;time :title=&#34;toTitleDate(date)&#34; :datetime=&#34;date&#34;&gt;
+  {{ formatDate(date) }}
+&lt;/time&gt;
+</code></pre><ol start="6">
+<li><strong>样式绑定（Style Binding）</strong>：通过 <code>v-bind:style</code> 可以绑定元素的内联样式，并将样式属性的值设置为 Vue 实例的数据。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div v-bind:style=&#34;{ color: textColor, fontSize: fontSize + &#39;px&#39; }&#34;&gt;
+  This text has a custom color and font size.
+&lt;/div&gt;
+</code></pre><ol start="7">
+<li><strong>类名绑定（Class Binding）</strong>：使用 <code>v-bind:class</code> 可以绑定元素的类名，并将类名设置为 Vue 实例的数据。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div v-bind:class=&#34;{ &#39;active&#39;: isActive, &#39;error&#39;: hasError }&#34;&gt;
+  This element may have the &#39;active&#39; and &#39;error&#39; classes based on Vue data.
+&lt;/div&gt;
+</code></pre><ol start="8">
+<li><strong>表单输入绑定（Form Input Binding）</strong>：使用 <code>v-model</code> 指令可以实现表单元素与 Vue 实例数据的双向绑定。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;input v-model=&#34;username&#34; type=&#34;text&#34; placeholder=&#34;Enter your username&#34;&gt;
+  &lt;p&gt;Your username is: {{ username }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><ol start="9">
+<li><strong>计算属性（Computed Properties）</strong>：使用 <code>computed</code> 属性可以定义计算属性，这些属性的值会根据 Vue 实例的其他数据属性计算得出。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;p&gt;Total: {{ totalPrice }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    price: 10,
+    quantity: 2,
+  },
+  computed: {
+    totalPrice() {
+      return this.price * this.quantity;
+    },
+  },
+});
+</code></pre><ol start="10">
+<li><strong>监听器（Watchers）</strong>：使用 <code>watch</code> 属性可以监听 Vue 实例数据的变化，并在数据发生变化时执行相应的操作。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;p&gt;Message: {{ message }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    message: &#39;&#39;,
+  },
+  watch: {
+    message(newValue, oldValue) {
+      console.log(&#39;Message changed:&#39;, oldValue, &#39;=&gt;&#39;, newValue);
+    },
+  },
+});
+</code></pre><ol start="11">
+<li><strong>过滤器（Filters）</strong>：使用 <code>filters</code> 属性可以定义过滤器，用于格式化模板中的数据。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;p&gt;{{ date | formatDate }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    date: &#39;2023-08-01&#39;,
+  },
+  filters: {
+    formatDate(value) {
+      return new Date(value).toLocaleDateString();
+    },
+  },
+});
+</code></pre><ol start="12">
+<li><strong>动态组件（Dynamic Components）</strong>：使用 <code>&lt;component&gt;</code> 元素结合 <code>v-bind:is</code> 可以实现动态渲染不同的组件。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;component v-bind:is=&#34;currentComponent&#34;&gt;&lt;/component&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    currentComponent: &#39;componentA&#39;,
+  },
+});
+</code></pre><h3 id="动态参数">动态参数</h3>
+<h4 id="概念">概念</h4>
+<p>在 Vue.js 中，你还可以使用动态参数（Dynamic Arguments）来动态地绑定指令和事件。动态参数允许你在模板中使用 JavaScript 表达式作为指令参数的一部分，从而根据实际情况动态地生成指令或事件的名称。</p>
+<p>在指令或事件中使用动态参数时，你需要使用方括号 <code>[]</code> 来包裹表达式，并使用 <code>:</code> 表示这是一个动态参数。在 Vue.js 2.x 中，你也可以省略 <code>:</code> 直接使用表达式。</p>
+<p>以下是一些示例说明使用动态参数的情况：</p>
+<ol>
+<li><strong>v-bind 指令的动态参数</strong>：</li>
+</ol>
+<p>v-bind 指令用于绑定 Vue 实例的数据到 HTML 元素的属性上。使用动态参数时，你可以根据表达式的值动态绑定不同的属性。</p>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;img :[attributeName]=&#34;imagePath&#34; alt=&#34;Image&#34;&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    attributeName: &#39;src&#39;,
+    imagePath: &#39;path/to/image.jpg&#39;,
+  },
+});
+</code></pre><p>在这个例子中，<code>[attributeName]</code> 是动态参数，其值根据 <code>attributeName</code> 变量的值来确定。如果 <code>attributeName</code> 的值为 <code>'src'</code>，则等效于 <code>v-bind:src</code> 指令；如果 <code>attributeName</code> 的值为 <code>'data-src'</code>，则等效于 <code>v-bind:data-src</code> 指令。</p>
+<ol start="2">
+<li><strong>v-on 指令的动态参数</strong>：</li>
+</ol>
+<p>v-on 指令用于将 DOM 事件绑定到 Vue 实例的方法上。使用动态参数时，你可以根据表达式的值动态绑定不同的事件。</p>
+<pre tabindex="0"><code>&lt;div&gt;
+  &lt;button @[eventName]=&#34;eventMethod&#34;&gt;{{ buttonText }}&lt;/button&gt;
+&lt;/div&gt;
+</code></pre><pre tabindex="0"><code>new Vue({
+  data: {
+    eventName: &#39;click&#39;,
+    buttonText: &#39;Click Me&#39;,
+  },
+  methods: {
+    eventMethod() {
+      // 事件处理逻辑
+    },
+  },
+});
+</code></pre><p>在这个例子中，<code>@[eventName]</code> 是动态参数，其值根据 <code>eventName</code> 变量的值来确定。如果 <code>eventName</code> 的值为 <code>'click'</code>，则等效于 <code>v-on:click</code> 指令；如果 <code>eventName</code> 的值为 <code>'mouseover'</code>，则等效于 <code>v-on:mouseover</code> 指令。</p>
+<p>动态参数是 Vue.js 提供的一个非常强大的特性，它允许你根据实际情况动态生成指令或事件的名称，从而实现更加灵活和动态的绑定。在处理复杂的交互逻辑时，动态参数可以派上用场。</p>
+<h4 id="动态参数解决什么问题">动态参数解决什么问题</h4>
+<p>动态参数在 Vue.js 中解决了一些在静态参数下可能遇到的限制和问题，特别是在处理复杂的交互逻辑和动态数据绑定时。</p>
+<p>以下是动态参数可以解决的一些常见问题：</p>
+<ol>
+<li>
+<p><strong>动态绑定属性和事件</strong>：动态参数允许你在模板中根据表达式的值动态地绑定属性和事件。这使得你可以根据不同的条件或状态来绑定不同的属性和事件，而无需写重复的模板代码。</p>
+</li>
+<li>
+<p><strong>根据条件选择不同的指令或事件</strong>：使用动态参数，你可以根据不同的条件来选择要绑定的指令或事件。这在处理条件渲染或动态组件时特别有用，可以根据条件动态地绑定不同的行为。</p>
+</li>
+<li>
+<p><strong>更灵活的数据绑定</strong>：动态参数允许你根据表达式的值动态绑定数据。这使得你可以在模板中动态地选择要绑定的数据和属性，从而实现更灵活的数据绑定。</p>
+</li>
+<li>
+<p><strong>减少重复的代码</strong>：使用动态参数，你可以根据表达式的值来生成不同的指令或事件名称，从而避免编写重复的模板代码。这样可以使模板更加简洁和可维护。</p>
+</li>
+<li>
+<p><strong>处理复杂交互逻辑</strong>：在复杂的交互场景中，你可能需要根据用户的操作或应用程序的状态来动态地绑定不同的属性和事件。动态参数可以帮助你在这些情况下更好地组织代码。</p>
+</li>
+</ol>
+<p>总的来说，动态参数为 Vue.js 应用程序提供了更大的灵活性和动态性。它使得你可以根据实际需求来动态地选择要绑定的属性和事件，从而更好地满足复杂的交互需求，减少代码冗余，并使代码更加清晰和易于维护。</p>
+<h3 id="修饰符-modifiers">修饰符 Modifiers</h3>
+<p>修饰符是以点开头的特殊后缀，表明指令需要以一些特殊的方式被绑定。例如 .prevent 修饰符会告知 v-on 指令对触发的事件调用 event.preventDefault()：</p>
+<pre tabindex="0"><code>&lt;form @submit.prevent=&#34;onSubmit&#34;&gt;...&lt;/form&gt;
+</code></pre><p><img src="/lk_modifiers.png" alt=""></p>
+<h4 id="modifiers-还有哪些">Modifiers 还有哪些</h4>
+<p>在 Vue.js 中，事件修饰符（Event Modifiers）是用于在绑定事件时提供特殊控制的一种方式。它们可以在绑定事件时使用点号 <code>.</code> 后跟特定的修饰符，来修改事件的行为。以下是一些常用的事件修饰符：</p>
+<ol>
+<li><strong><code>.stop</code></strong>：阻止事件冒泡。使用 <code>.stop</code> 修饰符可以阻止事件在当前元素上触发后冒泡到父元素。</li>
+</ol>
+<pre tabindex="0"><code>&lt;button @click.stop=&#34;handleButtonClick&#34;&gt;Click Me&lt;/button&gt;
+</code></pre><ol start="2">
+<li><strong><code>.prevent</code></strong>：阻止事件的默认行为。使用 <code>.prevent</code> 修饰符可以阻止事件的默认行为，比如阻止表单提交和超链接跳转。</li>
+</ol>
+<pre tabindex="0"><code>&lt;form @submit.prevent=&#34;handleSubmit&#34;&gt;
+  &lt;button type=&#34;submit&#34;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
 
-# 基本用法
-&lt;p&gt;Message is: {{ message }}&lt;/p&gt;
-&lt;input v-model=&#34;message&#34; placeholder=&#34;edit me&#34; /&gt;
-
-# 多行文本
-&lt;span&gt;Multiline message is:&lt;/span&gt;
-&lt;p style=&#34;white-space: pre-line;&#34;&gt;{{ message }}&lt;/p&gt;
-&lt;textarea v-model=&#34;message&#34; placeholder=&#34;add multiple lines&#34;&gt;&lt;/textarea&gt;
-
-# 复选框
-&lt;input type=&#34;checkbox&#34; id=&#34;checkbox&#34; v-model=&#34;checked&#34; /&gt;
-&lt;label for=&#34;checkbox&#34;&gt;{{ checked }}&lt;/label&gt;
-
-&lt;!-- 值绑定 --&gt;
-&lt;input
-  type=&#34;checkbox&#34;
-  v-model=&#34;toggle&#34;
-  true-value=&#34;yes&#34;
-  false-value=&#34;no&#34; /&gt;
-&lt;input
-  type=&#34;checkbox&#34;
-  v-model=&#34;toggle&#34;
-  :true-value=&#34;dynamicTrueValue&#34;
-  :false-value=&#34;dynamicFalseValue&#34; /&gt;
-
-# 多个复选框
-const checkedNames = ref([])
-
-&lt;div&gt;Checked names: {{ checkedNames }}&lt;/div&gt;
-&lt;input type=&#34;checkbox&#34; id=&#34;jack&#34; value=&#34;Jack&#34; v-model=&#34;checkedNames&#34;&gt;
-&lt;label for=&#34;jack&#34;&gt;Jack&lt;/label&gt;
-&lt;input type=&#34;checkbox&#34; id=&#34;john&#34; value=&#34;John&#34; v-model=&#34;checkedNames&#34;&gt;
-&lt;label for=&#34;john&#34;&gt;John&lt;/label&gt;
-&lt;input type=&#34;checkbox&#34; id=&#34;mike&#34; value=&#34;Mike&#34; v-model=&#34;checkedNames&#34;&gt;
-&lt;label for=&#34;mike&#34;&gt;Mike&lt;/label&gt;
-
-# 单选按钮
-&lt;div&gt;Picked: {{ picked }}&lt;/div&gt;
-
-&lt;input type=&#34;radio&#34; id=&#34;one&#34; value=&#34;One&#34; v-model=&#34;picked&#34; /&gt;
-&lt;label for=&#34;one&#34;&gt;One&lt;/label&gt;
-
-&lt;input type=&#34;radio&#34; id=&#34;two&#34; value=&#34;Two&#34; v-model=&#34;picked&#34; /&gt;
-&lt;label for=&#34;two&#34;&gt;Two&lt;/label&gt;
-
-# 选择器
-&lt;div&gt;Selected: {{ selected }}&lt;/div&gt;
-
-&lt;select v-model=&#34;selected&#34;&gt;
-  &lt;option disabled value=&#34;&#34;&gt;Please select one&lt;/option&gt;
-  &lt;option&gt;A&lt;/option&gt;
-  &lt;option&gt;B&lt;/option&gt;
-  &lt;option&gt;C&lt;/option&gt;
-&lt;/select&gt;
-
-# 多选，值绑定到一个数组
-&lt;div&gt;Selected: {{ selected }}&lt;/div&gt;
-
-&lt;select v-model=&#34;selected&#34; multiple&gt;
-  &lt;option&gt;A&lt;/option&gt;
-  &lt;option&gt;B&lt;/option&gt;
-  &lt;option&gt;C&lt;/option&gt;
-&lt;/select&gt;
-
-&lt;select v-model=&#34;selected&#34;&gt;
-  &lt;!-- 内联对象字面量 --&gt;
-  &lt;option :value=&#34;{ number: 123 }&#34;&gt;123&lt;/option&gt;
-&lt;/select&gt;
-</code></pre><h3 id="修饰符-1">修饰符</h3>
-<pre tabindex="0"><code>&lt;!-- 在 &#34;change&#34; 事件后同步更新而不是 &#34;input&#34; --&gt;
-&lt;input v-model.lazy=&#34;msg&#34; /&gt;
-
-&lt;!-- 让用户输入自动转换为数字 --&gt;
-&lt;input v-model.number=&#34;age&#34; /&gt;
-
-&lt;!-- 默认自动去除用户输入内容中两端的空格 --&gt;
-&lt;input v-model.trim=&#34;msg&#34; /&gt;
-</code></pre></div>
+&lt;a href=&#34;https://www.example.com&#34; @click.prevent&gt;Go to Example&lt;/a&gt;
+</code></pre><ol start="3">
+<li><strong><code>.capture</code></strong>：使用事件捕获模式。通常事件是在冒泡阶段触发的，使用 <code>.capture</code> 修饰符可以将事件绑定在捕获阶段触发。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div @click.capture=&#34;handleDivClick&#34;&gt;Click Me&lt;/div&gt;
+</code></pre><ol start="4">
+<li><strong><code>.self</code></strong>：只在事件目标是当前元素自身时触发事件。使用 <code>.self</code> 修饰符可以限制事件只在当前元素自身触发，而不会在其子元素触发时触发。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div @click.self=&#34;handleDivClick&#34;&gt;
+  &lt;button&gt;Click Me&lt;/button&gt;
+&lt;/div&gt;
+</code></pre><ol start="5">
+<li><strong><code>.once</code></strong>：只触发一次事件。使用 <code>.once</code> 修饰符可以让事件只触发一次，即使事件绑定在多个地方，也只会执行一次事件处理函数。</li>
+</ol>
+<pre tabindex="0"><code>&lt;button @click.once=&#34;handleButtonClick&#34;&gt;Click Me&lt;/button&gt;
+</code></pre><ol start="6">
+<li><strong><code>.passive</code></strong>：告知浏览器事件处理函数不会调用 <code>event.preventDefault()</code>。使用 <code>.passive</code> 修饰符可以优化滚动性能，提供更流畅的滚动体验。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div @scroll.passive=&#34;handleScroll&#34;&gt;Scroll Me&lt;/div&gt;
+</code></pre><p>这些事件修饰符可以组合使用，例如同时使用 <code>.stop</code> 和 <code>.prevent</code> 来阻止事件冒泡和默认行为：</p>
+<pre tabindex="0"><code>&lt;button @click.stop.prevent=&#34;handleButtonClick&#34;&gt;Click Me&lt;/button&gt;
+</code></pre><p>这样，在点击按钮时不仅会阻止冒泡，还会阻止按钮的默认提交行为。事件修饰符为事件处理提供了更多的控制选项，使你能够更方便地处理复杂的事件交互和逻辑。</p>
+</div>
                     <div class="post_footer">
                         
                         <div class="meta">

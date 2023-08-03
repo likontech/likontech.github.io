@@ -9,7 +9,7 @@
 	
 	
 	
-	<title>Vue Doc 随手记 ——三-五节 ｜ likon</title>
+	<title>Vue Doc 随手记 ——六-九节 ｜ likon</title>
 	
     
     
@@ -93,8 +93,8 @@
             <div class="post_page">
                 <div class="post animate__animated animate__fadeInDown">
                     <div class="post_title post_detail_title">
-                        <h2><a href='/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%85%AD-%E4%B9%9D%E8%8A%82/'>Vue Doc 随手记 ——三-五节</a></h2>
-                        <span class="date"><i class="ri-calendar-fill"> </i>2023.08.02</span>
+                        <h2><a href='/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%85%AD-%E4%B9%9D%E8%8A%82/'>Vue Doc 随手记 ——六-九节</a></h2>
+                        <span class="date"><i class="ri-calendar-fill"> </i>2023.08.03</span>
                         <span>&nbsp;</span>
                         
                         
@@ -102,416 +102,384 @@
                                 <i class="ri-eye-fill"> </i><span class="date" id="busuanzi_value_page_pv"></span>
                             </span>
                     </div>
-<aside>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#三-五节">三-五节</a></li>
-    <li><a href="#响应式基础">响应式基础</a>
-      <ul>
-        <li><a href="#ref">ref</a></li>
-        <li><a href="#reactive">reactive</a></li>
-      </ul>
-    </li>
-    <li><a href="#计算属性">计算属性</a>
-      <ul>
-        <li><a href="#可写计算属性writable-computed-properties">可写计算属性（Writable Computed Properties）</a></li>
-        <li><a href="#计算属性最佳实践">计算属性最佳实践​</a></li>
-      </ul>
-    </li>
-    <li><a href="#class-与-style-绑定">Class 与 Style 绑定</a>
-      <ul>
-        <li><a href="#绑定-html-class">绑定 HTML class</a></li>
-        <li><a href="#绑定内联样式">绑定内联样式</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-</aside>
 
 
 
 
-
-                    <div class="post_content markdown"><blockquote>
-<p>室温超导体新闻这两天热火朝天。</p>
-<p>室温超导体是指在常规的室温条件下（通常是接近或等于常温，即约 20 摄氏度）能够表现出超导现象的材料。超导现象是指在某些材料中，在特定的低温条件下，电阻突然变为零，并且磁场被完全排斥的现象。传统的超导材料需要极低的温度（接近绝对零度，约 -273.15 摄氏度）才能表现出超导行为，这对于应用和实际应用来说非常不便。</p>
-</blockquote>
-<h2 id="三-五节">三-五节</h2>
-<ul>
-<li><a href="https://play.vuejs.org/">演练场</a></li>
-<li>创建本地工程 <code>npm init vue@latest</code></li>
-</ul>
+                    <div class="post_content markdown"><h1 id="六-九节">六-九节</h1>
 <ol>
-<li>响应式基础</li>
-<li>计算属性</li>
-<li>Class 与 Style 绑定</li>
+<li>条件渲染</li>
+<li>列表渲染</li>
+<li>事件处理</li>
+<li>表单输入绑定</li>
 </ol>
-<h2 id="响应式基础">响应式基础</h2>
-<h3 id="ref">ref</h3>
-<pre tabindex="0"><code>import { ref } from &#39;vue&#39;
+<h2 id="条件渲染">条件渲染</h2>
+<h3 id="v-if"><code>v-if</code></h3>
+<p>表达式返回真值时被渲染</p>
+<pre tabindex="0"><code>&lt;div v-if=&#34;type === &#39;A&#39;&#34;&gt;
+  A
+&lt;/div&gt;
+&lt;div v-else-if=&#34;type === &#39;B&#39;&#34;&gt;
+  B
+&lt;/div&gt;
+&lt;div v-else-if=&#34;type === &#39;C&#39;&#34;&gt;
+  C
+&lt;/div&gt;
+&lt;div v-else&gt;
+  Not A/B/C
+&lt;/div&gt;
 
-export default {
-  setup() {
-    const count = ref(0)
-
-    function increment() {
-      // 在 JavaScript 中需要 .value
-      count.value++
-    }
-
-    // 不要忘记同时暴露 increment 函数
-    return {
-      count,
-      increment
-    }
-  }
-}
-
-&lt;button @click=&#34;increment&#34;&gt;
-  {{ count }}
-&lt;/button&gt;
-</code></pre><p>在 setup() 函数中手动暴露大量的状态和方法非常繁琐。可以通过使用单文件组件 (SFC) 来避免这种情况。可以使用 &lt;script setup&gt; 简化代码。</p>
-<pre tabindex="0"><code>&lt;script setup&gt;
-import { ref } from &#39;vue&#39;
-
-const count = ref(0)
-
-function increment() {
-  count.value++
-}
-&lt;/script&gt;
-
-&lt;template&gt;
-  &lt;button @click=&#34;increment&#34;&gt;
-    {{ count }}
-  &lt;/button&gt;
+# 不止一个元素可以依附于 &lt;template&gt;
+&lt;template v-if=&#34;ok&#34;&gt;
+  &lt;h1&gt;Title&lt;/h1&gt;
+  &lt;p&gt;Paragraph 1&lt;/p&gt;
+  &lt;p&gt;Paragraph 2&lt;/p&gt;
 &lt;/template&gt;
-</code></pre><p>为什么需要 ref？</p>
-<p>使用 ref 可以将普通的 JavaScript 数据转换为 Vue.js 中的响应式数据，从而保证数据的更新能够正确地触发视图的更新，并方便地在组件中访问和修改数据。</p>
-<pre tabindex="0"><code>// 伪代码，不是真正的实现，类似 iOS 的 KVO 的实现
-const myRef = {
-  _value: 0,
-  get value() {
-    track()
-    return this._value
-  },
-  set value(newValue) {
-    this._value = newValue
-    trigger()
+</code></pre><h3 id="v-show"><code>v-show</code></h3>
+<p>按条件显示一个元素</p>
+<pre tabindex="0"><code>&lt;h1 v-show=&#34;ok&#34;&gt;Hello!&lt;/h1&gt;
+</code></pre><p>v-if 和 v-show 区别</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th><code>v-if</code></th>
+<th><code>v-show</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>渲染方式</td>
+<td>根据条件动态添加或移除元素</td>
+<td>通过 CSS 控制元素的显示与隐藏</td>
+</tr>
+<tr>
+<td>初始化开销</td>
+<td>需要初始化开销，条件为 <code>true</code> 时创建元素并插入 DOM</td>
+<td>无初始化开销，元素一直在 DOM 中，通过 CSS 控制显示隐藏</td>
+</tr>
+<tr>
+<td>性能考虑</td>
+<td>适合条件变化较少或有大块内容需要动态渲染</td>
+<td>适合条件频繁变化或内容变化较少，仅需切换显示隐藏</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>动态内容频繁变化时较为高效</td>
+<td>静态内容或频繁切换显示隐藏的情况下较为高效</td>
+</tr>
+</tbody>
+</table>
+<h2 id="列表渲染">列表渲染</h2>
+<p><code>v-for</code> 基于一个数组来渲染一个列表</p>
+<pre tabindex="0"><code>const items = ref([{ message: &#39;Foo&#39; }, { message: &#39;Bar&#39; }])
+
+&lt;li v-for=&#34;item in items&#34;&gt;
+  {{ item.message }}
+&lt;/li&gt;
+
+# 索引
+&lt;li v-for=&#34;(item, index) in items&#34;&gt;
+  {{ parentMessage }} - {{ index }} - {{ item.message }}
+&lt;/li&gt;
+
+# 解构
+&lt;li v-for=&#34;{ message } in items&#34;&gt;
+  {{ message }}
+&lt;/li&gt;
+
+&lt;!-- 有 index 索引时 --&gt;
+&lt;li v-for=&#34;({ message }, index) in items&#34;&gt;
+  {{ message }} {{ index }}
+&lt;/li&gt;
+
+# 多层嵌套，内部可以访问外层
+&lt;li v-for=&#34;item in items&#34;&gt;
+  &lt;span v-for=&#34;childItem in item.children&#34;&gt;
+    {{ item.message }} {{ childItem }}
+  &lt;/span&gt;
+&lt;/li&gt;
+
+# 可以用 of
+&lt;div v-for=&#34;item of items&#34;&gt;&lt;/div&gt;
+</code></pre><h3 id="v-for-和对象">v-for 和对象</h3>
+<p>遍历的顺序会基于对该对象调用 Object.keys() 的返回值来决定。</p>
+<pre tabindex="0"><code>const myObject = reactive({
+  title: &#39;How to do lists in Vue&#39;,
+  author: &#39;Jane Doe&#39;,
+  publishedAt: &#39;2016-04-10&#39;
+})
+
+# value
+&lt;ul&gt;
+  &lt;li v-for=&#34;value in myObject&#34;&gt;
+    {{ value }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+# value\key
+&lt;li v-for=&#34;(value, key) in myObject&#34;&gt;
+  {{ key }}: {{ value }}
+&lt;/li&gt;
+
+# value\key\index
+&lt;li v-for=&#34;(value, key, index) in myObject&#34;&gt;
+  {{ index }}. {{ key }}: {{ value }}
+&lt;/li&gt;
+
+# template
+&lt;ul&gt;
+  &lt;template v-for=&#34;item in items&#34;&gt;
+    &lt;li&gt;{{ item.msg }}&lt;/li&gt;
+    &lt;li class=&#34;divider&#34; role=&#34;presentation&#34;&gt;&lt;/li&gt;
+  &lt;/template&gt;
+&lt;/ul&gt;
+</code></pre><h3 id="v-for-里使用范围值">v-for 里使用范围值</h3>
+<pre tabindex="0"><code># 从 1 到 10
+&lt;span v-for=&#34;n in 10&#34;&gt;{{ n }}&lt;/span&gt;
+</code></pre><h3 id="通过-key-管理状态">通过 key 管理状态</h3>
+<p>添加 key 的主要原因是帮助 Vue 更高效地管理 DOM，并提升列表渲染的性能。</p>
+<ol>
+<li>识别元素： 通过 key，Vue 可以追踪每个列表中元素的身份。当数据发生变化时，Vue 使用 key 来确定哪些元素是新创建的、被修改的或被移除的，从而减少不必要的 DOM 操作。</li>
+<li>复用元素： key 允许 Vue 在重新渲染列表时尽可能地复用已有的 DOM 元素。这样可以避免重新创建和销毁 DOM，从而提升性能和优化用户体验。</li>
+</ol>
+<pre tabindex="0"><code>&lt;div v-for=&#34;item in items&#34; :key=&#34;item.id&#34;&gt;
+  &lt;!-- 内容 --&gt;
+&lt;/div&gt;
+
+&lt;template v-for=&#34;todo in todos&#34; :key=&#34;todo.name&#34;&gt;
+  &lt;li&gt;{{ todo.name }}&lt;/li&gt;
+&lt;/template&gt;
+
+&lt;MyComponent
+  v-for=&#34;(item, index) in items&#34;
+  :item=&#34;item&#34;
+  :index=&#34;index&#34;
+  :key=&#34;item.id&#34;
+/&gt;
+</code></pre><p>期望</p>
+<ol>
+<li>为 v-for 提供一个 key attribute</li>
+<li>key 为字符串或 number 基础类型，不要用对象</li>
+</ol>
+<h2 id="事件处理">事件处理</h2>
+<p>监听事件</p>
+<p>使用 v-on 指令 (简写为 @) 来监听 DOM 事件，并在事件触发时执行对应的 JavaScript。用法：v-on:click=&ldquo;handler&rdquo; 或 @click=&ldquo;handler&rdquo;。</p>
+<p>事件处理器 (handler) 的值可以是：</p>
+<ol>
+<li>内联事件处理器：事件被触发时执行的内联 JavaScript 语句 (与 onclick 类似)。</li>
+<li>方法事件处理器：一个指向组件上定义的方法的属性名或是路径。</li>
+</ol>
+<h3 id="内联事件处理器">内联事件处理器</h3>
+<p>通常用于简单场景</p>
+<pre tabindex="0"><code>const count = ref(0)
+&lt;button @click=&#34;count++&#34;&gt;Add 1&lt;/button&gt;
+&lt;p&gt;Count is: {{ count }}&lt;/p&gt;
+</code></pre><h3 id="方法事件处理器">方法事件处理器</h3>
+<pre tabindex="0"><code>const name = ref(&#39;Vue.js&#39;)
+
+function greet(event) {
+  alert(`Hello ${name.value}!`)
+  // `event` 是 DOM 原生事件
+  if (event) {
+    alert(event.target.tagName)
   }
 }
+
+&lt;!-- `greet` 是上面定义过的方法名 --&gt;
+&lt;button @click=&#34;greet&#34;&gt;Greet&lt;/button&gt;
 </code></pre><blockquote>
-<p>DOM 更新时机：当你修改了响应式状态时，DOM 会被自动更新。
-注意，DOM 更新不是同步的。Vue 会在“next tick”更新周期中缓冲所有状态的修改，以确保不管你进行了多少次状态修改，每个组件都只会被更新一次。</p>
-<p>要等待 DOM 更新完成后再执行额外的代码，可以使用 nextTick() 全局 API：</p>
-<pre tabindex="0"><code>import { nextTick } from &#39;vue&#39;
-async function increment() {
-  count.value++
-  await nextTick()
-  // 现在 DOM 已经更新了
-}
-</code></pre></blockquote>
-<h3 id="reactive">reactive</h3>
-<p>reactive() 将使对象本身具有响应性</p>
-<p>响应式对象是 JavaScript 代理，其行为就和普通对象一样。不同的是，Vue 能够拦截对响应式对象所有属性的访问和修改，以便进行依赖追踪和触发更新。</p>
-<blockquote>
-<p>JavaScript 代理（Proxy）是 ES6（ECMAScript 2015）引入的一种特性，它允许你创建一个代理对象，用于拦截对目标对象的访问和操作。代理对象可以完全自定义目标对象的行为，并提供了一种强大的机制来拦截和定制对象的操作。</p>
-<p>代理对象是由 <code>Proxy</code> 构造函数创建的，它接受两个参数：目标对象（target）和一个处理程序对象（handler）。目标对象是被代理的对象，而处理程序对象包含了一组拦截器（handler traps），这些拦截器用于拦截对目标对象的各种操作。</p>
-<p>代理对象拦截了对目标对象的各种操作，包括属性访问、属性赋值、函数调用、对象的拷贝等。你可以通过在处理程序对象中提供对应的拦截器来定制代理对象的行为。</p>
-<p>下面是一个简单的示例，展示了如何创建一个代理对象：</p>
-<pre tabindex="0"><code>// 目标对象
-const targetObject = {
-  name: &#39;John&#39;,
-  age: 30,
-};
-
-// 处理程序对象
-const handler = {
-  get: function(target, prop) {
-    console.log(`Getting property &#34;${prop}&#34;`);
-    return target[prop];
-  },
-  set: function(target, prop, value) {
-    console.log(`Setting property &#34;${prop}&#34; to &#34;${value}&#34;`);
-    target[prop] = value;
-  },
-};
-
-// 创建代理对象
-const proxyObject = new Proxy(targetObject, handler);
-
-// 使用代理对象
-proxyObject.name; // Output: Getting property &#34;name&#34;, Result: &#34;John&#34;
-proxyObject.age = 35; // Output: Setting property &#34;age&#34; to &#34;35&#34;
-</code></pre><p>在上面的示例中，我们创建了一个代理对象 <code>proxyObject</code>，它代理了目标对象 <code>targetObject</code>。在处理程序对象 &gt;<code>handler</code> 中，我们定义了 <code>get</code> 和 <code>set</code> 拦截器，用于拦截对属性的访问和赋值操作。</p>
-<p>当我们访问代理对象的属性时，拦截器中的 <code>get</code> 方法会被调用，并输出相应的日志。当我们对代理对象的属性进行赋值时，拦截器中的 <code>set</code> 方法会被调用，并输出相应的日志。</p>
-<p>代理对象的强大之处在于，你可以在拦截器中实现自定义的逻辑，从而实现更高级的功能，比如数据验证、缓存、日志记录等。代理是 JavaScript 中一种非常有用的特性，它在实际开发中常用于构建拦截器、数据绑定和数据监听等功能。</p>
+<p>方法与内联事件判断：模板编译器会通过检查 v-on 的值是否是合法的 JavaScript 标识符或属性访问路径来断定是何种形式的事件处理器。举例来说，foo、foo.bar 和 foo[&lsquo;bar&rsquo;] 会被视为方法事件处理器，而 foo() 和 count++ 会被视为内联事件处理器。</p>
 </blockquote>
-<p>ref 和 reactive 区别是什么？</p>
-<p>在 Vue.js 3.x 中，<code>ref</code> 和 <code>reactive</code> 是两种不同的方法用于声明响应式数据，它们之间有一些区别：</p>
-<ol>
-<li><strong>数据结构</strong>：</li>
-</ol>
-<ul>
-<li>
-<p><code>ref</code>：<code>ref</code> 函数用于将普通的 JavaScript 值转换为一个响应式对象。<code>ref</code> 函数将传入的值包装在一个特殊的对象中，并返回这个对象。当你在模板中使用 <code>ref</code> 声明的数据时，不需要使用 <code>.value</code>，Vue.js 会自动进行解包。</p>
-</li>
-<li>
-<p><code>reactive</code>：<code>reactive</code> 函数用于将普通的 JavaScript 对象转换为一个响应式对象。<code>reactive</code> 函数返回一个代理对象，可以拦截对目标对象的访问和操作。当你在模板中使用 <code>reactive</code> 声明的数据时，需要使用 <code>.value</code> 来解包。</p>
-</li>
-</ul>
-<ol start="2">
-<li><strong>使用方式</strong>：</li>
-</ol>
-<ul>
-<li><code>ref</code>：通常用于声明基本类型的响应式数据，例如数字、字符串等。</li>
-</ul>
-<pre tabindex="0"><code>import { ref } from &#39;vue&#39;;
-
-const count = ref(0); // 声明响应式数字
-const message = ref(&#39;Hello&#39;); // 声明响应式字符串
-</code></pre><ul>
-<li><code>reactive</code>：通常用于声明复杂类型的响应式数据，例如对象和数组。</li>
-</ul>
-<pre tabindex="0"><code>import { reactive } from &#39;vue&#39;;
-
-const user = reactive({ name: &#39;John&#39;, age: 30 }); // 声明响应式对象
-const list = reactive([1, 2, 3]); // 声明响应式数组
-</code></pre><ol start="3">
-<li><strong>访问方式</strong>：</li>
-</ol>
-<ul>
-<li><code>ref</code>：在模板中访问 <code>ref</code> 声明的数据时，不需要使用 <code>.value</code>，Vue.js 会自动进行解包。</li>
-</ul>
-<pre tabindex="0"><code>&lt;!-- 在模板中直接使用 ref 声明的数据 --&gt;
-&lt;p&gt;{{ count }}&lt;/p&gt;
-&lt;button @click=&#34;count++&#34;&gt;Increment&lt;/button&gt;
-</code></pre><ul>
-<li><code>reactive</code>：在模板中访问 <code>reactive</code> 声明的数据时，需要使用 <code>.value</code> 来解包。</li>
-</ul>
-<pre tabindex="0"><code>&lt;!-- 在模板中使用 reactive 声明的数据需要使用 .value 进行解包 --&gt;
-&lt;p&gt;{{ user.name }}&lt;/p&gt;
-&lt;button @click=&#34;user.age++&#34;&gt;Increment Age&lt;/button&gt;
-</code></pre><ol start="4">
-<li><strong>实现原理</strong>：
-ref 和 reactive 都使用了 ES6 的 Proxy 对象来实现响应式数据，区别在于 ref 包装的是基本类型的值并使用了特殊的 Ref 类型对象，而 reactive 则直接创建一个普通对象的代理。</li>
-</ol>
-<p>总结：<code>ref</code> 和 <code>reactive</code> 都用于声明响应式数据，<code>ref</code> 适用于简单类型的数据，而 <code>reactive</code> 适用于复杂类型的数据。在模板中使用 <code>ref</code> 声明的数据时，不需要使用 <code>.value</code> 进行解包，而在使用 <code>reactive</code> 声明的数据时，需要使用 <code>.value</code> 进行解包。</p>
-<p>Reactive Proxy vs. Original</p>
-<pre tabindex="0"><code>const raw = {}
-const proxy = reactive(raw)
-// 代理对象和原始对象不是全等的
-console.log(proxy === raw) // false
-
-// 在同一个对象上调用 reactive() 会返回相同的代理
-console.log(reactive(raw) === proxy) // true
-// 在一个代理上调用 reactive() 会返回它自己
-console.log(reactive(proxy) === proxy) // true
-
-const proxy = reactive({})
-const raw = {}
-proxy.nested = raw
-// 响应式对象内的嵌套对象依然是代理
-console.log(proxy.nested === raw) // false
-</code></pre><h2 id="计算属性">计算属性</h2>
-<p>计算属性（Computed Properties）主要用于两个问题：</p>
-<ol>
-<li>
-<p><strong>复杂逻辑的封装</strong>：当在模板中需要根据一些数据的状态或属性进行复杂的计算时，直接在模板中写这些计算逻辑会导致模板变得复杂难以维护。使用计算属性可以将这些复杂的计算逻辑封装在一个函数中，让模板保持简洁和易读。</p>
-</li>
-<li>
-<p><strong>缓存计算结果</strong>：计算属性会对其依赖的响应式数据进行追踪，只有当依赖的数据发生变化时，计算属性才会重新计算。这意味着计算属性的结果会被缓存，如果依赖的数据没有发生变化，计算属性不会重新执行计算，而是直接返回缓存的结果。这样可以避免不必要的计算，提高性能。</p>
-</li>
-</ol>
-<p>下面是一个示例来展示计算属性的用法和好处：</p>
-<pre tabindex="0"><code>&lt;template&gt;
-  &lt;div&gt;
-    &lt;p&gt;Total Price: {{ totalPrice }}&lt;/p&gt;
-    &lt;p&gt;Discounted Price: {{ discountedPrice }}&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-import { ref, computed } from &#39;vue&#39;;
-
-export default {
-  setup() {
-    const quantity = ref(5);
-    const price = ref(10);
-    const discount = ref(0.1);
-
-    // 计算属性 totalPrice
-    const totalPrice = computed(() =&gt; quantity.value * price.value);
-
-    // 计算属性 discountedPrice
-    const discountedPrice = computed(() =&gt; totalPrice.value * (1 - discount.value));
-
-    return {
-      quantity,
-      price,
-      discount,
-      totalPrice,
-      discountedPrice,
-    };
-  },
-};
-&lt;/script&gt;
-</code></pre><p>在上面的示例中，我们使用计算属性 <code>totalPrice</code> 和 <code>discountedPrice</code> 来计算总价和折扣后的价格。计算属性 <code>totalPrice</code> 依赖于 <code>quantity</code> 和 <code>price</code>，而 <code>discountedPrice</code> 依赖于 <code>totalPrice</code> 和 <code>discount</code>。当 <code>quantity</code>、<code>price</code> 或 <code>discount</code> 发生变化时，计算属性会重新计算并更新视图。而如果这些依赖没有变化，计算属性会返回之前缓存的计算结果，避免重复计算。</p>
-<p>通过使用计算属性，你可以将复杂的计算逻辑封装在一个地方，使模板保持简洁和可读性，并通过缓存计算结果提高性能。这使得你的代码更易于维护和优化。</p>
-<h3 id="可写计算属性writable-computed-properties">可写计算属性（Writable Computed Properties）</h3>
-<pre tabindex="0"><code>&lt;template&gt;
-  &lt;div&gt;
-    &lt;input v-model=&#34;fullName&#34; /&gt;
-    &lt;p&gt;First Name: {{ firstName }}&lt;/p&gt;
-    &lt;p&gt;Last Name: {{ lastName }}&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-import { ref, computed } from &#39;vue&#39;;
-
-export default {
-  setup() {
-    const fullName = ref(&#39;&#39;);
-    
-    // 可写计算属性
-    const firstName = computed({
-      get: () =&gt; fullName.value.split(&#39; &#39;)[0],
-      set: (value) =&gt; {
-        const lastName = fullName.value.split(&#39; &#39;)[1];
-        fullName.value = value + &#39; &#39; + lastName;
-      },
-    });
-
-    const lastName = computed(() =&gt; fullName.value.split(&#39; &#39;)[1]);
-
-    return {
-      fullName,
-      firstName,
-      lastName,
-    };
-  },
-};
-&lt;/script&gt;
-</code></pre><h3 id="计算属性最佳实践">计算属性最佳实践​</h3>
-<ol>
-<li>
-<p>Getter 不应有副作用​</p>
-<p>计算属性的 getter 应只做计算而没有任何其他的副作用，这一点非常重要，请务必牢记。举例来说，不要在 getter 中做异步请求或者更改 DOM！一个计算属性的声明中描述的是如何根据其他值派生一个值。因此 getter 的职责应该仅为计算和返回该值。在之后的指引中我们会讨论如何使用侦听器根据其他响应式状态的变更来创建副作用。</p>
-</li>
-<li>
-<p>避免直接修改计算属性值​</p>
-<p>从计算属性返回的值是派生状态。可以把它看作是一个“临时快照”，每当源状态发生变化时，就会创建一个新的快照。更改快照是没有意义的，因此计算属性的返回值应该被视为只读的，并且永远不应该被更改——应该更新它所依赖的源状态以触发新的计算。</p>
-</li>
-</ol>
-<h2 id="class-与-style-绑定">Class 与 Style 绑定</h2>
-<p>Vue 专门为 class 和 style 的 v-bind 用法提供了特殊的功能增强。除了字符串外，表达式的值也可以是对象或数组。</p>
-<h3 id="绑定-html-class">绑定 HTML class</h3>
-<p>绑定对象</p>
-<pre tabindex="0"><code>&lt;div :class=&#34;{ active: isActive }&#34;&gt;&lt;/div&gt;
-
-const isActive = ref(true)
-const hasError = ref(false)
-&lt;div
-  class=&#34;static&#34;
-  :class=&#34;{ active: isActive, &#39;text-danger&#39;: hasError }&#34;
-&gt;&lt;/div&gt;
-# 渲染结果为
-&lt;div class=&#34;static active&#34;&gt;&lt;/div&gt;
-
-# 直接绑定一个对象
-const classObject = reactive({
-  active: true,
-  &#39;text-danger&#39;: false
-})
-&lt;div :class=&#34;classObject&#34;&gt;&lt;/div&gt;
-
-# 绑定一个返回对象的计算属性
-const isActive = ref(true)
-const error = ref(null)
-
-const classObject = computed(() =&gt; ({
-  active: isActive.value &amp;&amp; !error.value,
-  &#39;text-danger&#39;: error.value &amp;&amp; error.value.type === &#39;fatal&#39;
-}))
-&lt;div :class=&#34;classObject&#34;&gt;&lt;/div&gt;
-</code></pre><p>绑定数组</p>
-<pre tabindex="0"><code>const activeClass = ref(&#39;active&#39;)
-const errorClass = ref(&#39;text-danger&#39;)
-&lt;div :class=&#34;[activeClass, errorClass]&#34;&gt;&lt;/div&gt;
-
-# 三元表达式
-&lt;div :class=&#34;[isActive ? activeClass : &#39;&#39;, errorClass]&#34;&gt;&lt;/div&gt;
-
-&lt;div :class=&#34;[{ active: isActive }, errorClass]&#34;&gt;&lt;/div&gt;
-</code></pre><p>在组件上使用</p>
-<p>对于只有一个根元素的组件，当你使用了 class attribute 时，这些 class 会被添加到根元素上并与该元素上已有的 class 合并。</p>
-<pre tabindex="0"><code>&lt;!-- 子组件模板 --&gt;
-&lt;p class=&#34;foo bar&#34;&gt;Hi!&lt;/p&gt;
-
-&lt;!-- 在使用组件时 --&gt;
-&lt;MyComponent class=&#34;baz boo&#34; /&gt;
-
-# 渲染出的 HTML 为：
-&lt;p class=&#34;foo bar baz boo&#34;&gt;Hi!&lt;/p&gt;
-</code></pre><p>Class 的绑定也是同样的：</p>
-<pre tabindex="0"><code>&lt;MyComponent :class=&#34;{ active: isActive }&#34; /&gt;
-
-&lt;p class=&#34;foo bar active&#34;&gt;Hi!&lt;/p&gt;
-</code></pre><p>如果你的组件有多个根元素，你将需要指定哪个根元素来接收这个 class。你可以通过组件的 $attrs 属性来实现指定：</p>
-<pre tabindex="0"><code>&lt;!-- MyComponent 模板使用 $attrs 时 --&gt;
-&lt;p :class=&#34;$attrs.class&#34;&gt;Hi!&lt;/p&gt;
-&lt;span&gt;This is a child component&lt;/span&gt;
-
-&lt;MyComponent class=&#34;baz&#34; /&gt;
-
-# 渲染出的 HTML 为：
-&lt;p class=&#34;baz&#34;&gt;Hi!&lt;/p&gt;
-&lt;span&gt;This is a child component&lt;/span&gt;
-</code></pre><h3 id="绑定内联样式">绑定内联样式</h3>
-<p>绑定对象</p>
-<pre tabindex="0"><code>const activeColor = ref(&#39;red&#39;)
-const fontSize = ref(30)
-# camelCase
-&lt;div :style=&#34;{ color: activeColor, fontSize: fontSize + &#39;px&#39; }&#34;&gt;&lt;/div&gt;
-
-# kebab-cased
-&lt;div :style=&#34;{ &#39;font-size&#39;: fontSize + &#39;px&#39; }&#34;&gt;&lt;/div&gt;
-
-
-const styleObject = reactive({
-  color: &#39;red&#39;,
-  fontSize: &#39;13px&#39;
-})
-&lt;div :style=&#34;styleObject&#34;&gt;&lt;/div&gt;
-</code></pre><p>绑定数组</p>
-<pre tabindex="0"><code>&lt;div :style=&#34;[baseStyles, overridingStyles]&#34;&gt;&lt;/div&gt;
-</code></pre><p>自动前缀</p>
-<p>当你在 :style 中使用了需要浏览器特殊前缀的 CSS 属性时，Vue 会自动为他们加上相应的前缀。Vue 是在运行时检查该属性是否支持在当前浏览器中使用。如果浏览器不支持某个属性，那么将尝试加上各个浏览器特殊前缀，以找到哪一个是被支持的。</p>
-<blockquote>
-<p>什么是浏览器特殊前缀</p>
-<p>浏览器特殊前缀（Browser Vendor Prefix），也称为私有前缀（Private Prefix），是一种在 CSS 属性名称前面添加特定浏览器厂商前缀的技术。这些前缀用于在浏览器支持某些实验性或尚未正式纳入 CSS 规范的 CSS 属性时进行区分，以便开发者能够在不同浏览器中实验和应用新的 CSS 特性。</p>
-<p>由于 CSS 规范在发展过程中，一些新特性可能尚未得到所有浏览器的广泛支持，或者不同浏览器对同一属性的实现方式可能存在差异。为了解决这些问题，浏览器厂商（如Chrome、Firefox、Safari、Edge等）会在实验性或尚未稳定的 CSS 属性名称前添加特定的前缀，以区分不同浏览器的实现。</p>
-<p>常见的浏览器特殊前缀包括：</p>
-<ul>
-<li><code>-webkit-</code>：用于 Safari 和 Chrome 浏览器。</li>
-<li><code>-moz-</code>：用于 Firefox 浏览器。</li>
-<li><code>-ms-</code>：用于 Microsoft Edge 浏览器。</li>
-<li><code>-o-</code>：用于 Opera 浏览器。</li>
-</ul>
-<p>例如，<code>-webkit-border-radius</code> 是 Safari 和 Chrome 中用于设置元素边框圆角的属性，而 <code>-moz-border-radius</code> 则是 Firefox 中的对应属性。在这种情况下，开发者需要使用多个前缀来支持不同浏览器，例如：</p>
-<pre tabindex="0"><code>.my-element {
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+<pre tabindex="0"><code># 在内联处理器中调用方法
+function say(message) {
+  alert(message)
 }
-</code></pre><p>然而，随着 CSS 规范的不断发展和浏览器对新特性的支持日益完善，许多实验性属性已经得到了标准化，并且浏览器厂商逐渐减少了对特殊前缀的依赖。现在在使用 CSS 属性时，通常只需要写标准的属性名即可，而无需添加浏览器特殊前缀。不过，在开发过程中，为了确保网站的兼容性，仍然建议使用 CSS 厂商前缀进行一定程度的属性设置。</p>
-</blockquote>
-<p>样式多值</p>
-<p>对一个样式属性提供多个 (不同前缀的) 值</p>
-<pre tabindex="0"><code>&lt;div :style=&#34;{ display: [&#39;-webkit-box&#39;, &#39;-ms-flexbox&#39;, &#39;flex&#39;] }&#34;&gt;&lt;/div&gt;
-</code></pre><p>数组仅会渲染浏览器支持的最后一个值。在这个示例中，在支持不需要特别前缀的浏览器中都会渲染为 display: flex。</p>
-</div>
+
+&lt;button @click=&#34;say(&#39;hello&#39;)&#34;&gt;Say hello&lt;/button&gt;
+&lt;button @click=&#34;say(&#39;bye&#39;)&#34;&gt;Say bye&lt;/button&gt;
+
+
+# 在内联事件处理器中访问事件参数
+&lt;!-- 使用特殊的 $event 变量 --&gt;
+&lt;button @click=&#34;warn(&#39;Form cannot be submitted yet.&#39;, $event)&#34;&gt;
+  Submit
+&lt;/button&gt;
+
+&lt;!-- 使用内联箭头函数 --&gt;
+&lt;button @click=&#34;(event) =&gt; warn(&#39;Form cannot be submitted yet.&#39;, event)&#34;&gt;
+  Submit
+&lt;/button&gt;
+
+function warn(message, event) {
+  // 这里可以访问原生事件
+  if (event) {
+    event.preventDefault()
+  }
+  alert(message)
+}
+</code></pre><h3 id="修饰符">修饰符</h3>
+<ol>
+<li>事件修饰符
+<pre tabindex="0"><code>&lt;!-- 单击事件将停止传递 --&gt;
+&lt;a @click.stop=&#34;doThis&#34;&gt;&lt;/a&gt;
+
+&lt;!-- 提交事件将不再重新加载页面 --&gt;
+&lt;form @submit.prevent=&#34;onSubmit&#34;&gt;&lt;/form&gt;
+
+&lt;!-- 修饰语可以使用链式书写 --&gt;
+&lt;a @click.stop.prevent=&#34;doThat&#34;&gt;&lt;/a&gt;
+
+&lt;!-- 也可以只有修饰符 --&gt;
+&lt;form @submit.prevent&gt;&lt;/form&gt;
+
+&lt;!-- 仅当 event.target 是元素本身时才会触发事件处理器 --&gt;
+&lt;!-- 例如：事件处理器不来自子元素 --&gt;
+&lt;div @click.self=&#34;doThat&#34;&gt;...&lt;/div&gt;
+
+&lt;!-- 添加事件监听器时，使用 `capture` 捕获模式 --&gt;
+&lt;!-- 例如：指向内部元素的事件，在被内部元素处理前，先被外部处理 --&gt;
+&lt;div @click.capture=&#34;doThis&#34;&gt;...&lt;/div&gt;
+
+&lt;!-- 点击事件最多被触发一次 --&gt;
+&lt;a @click.once=&#34;doThis&#34;&gt;&lt;/a&gt;
+
+&lt;!-- 滚动事件的默认行为 (scrolling) 将立即发生而非等待 `onScroll` 完成 --&gt;
+&lt;!-- 以防其中包含 `event.preventDefault()` --&gt;
+&lt;div @scroll.passive=&#34;onScroll&#34;&gt;...&lt;/div&gt;
+</code></pre></li>
+<li>按键修饰符
+<pre tabindex="0"><code>&lt;!-- 仅在 `key` 为 `Enter` 时调用 `submit` --&gt;
+&lt;input @keyup.enter=&#34;submit&#34; /&gt;
+
+&lt;!-- 仅会在 $event.key 为 &#39;PageDown&#39; 时调用事件处理 --&gt;
+&lt;input @keyup.page-down=&#34;onPageDown&#34; /&gt;
+
+Vue 为一些常用的按键提供了别名：
+.enter
+.tab
+.delete (捕获“Delete”和“Backspace”两个按键)
+.esc
+.space
+.up
+.down
+.left
+.right
+
+# 系统按键修饰符
+.ctrl
+.alt
+.shift
+.meta # 在 Mac 键盘上，meta 是 Command 键 (⌘)。在 Windows 键盘上，meta 键是 Windows 键 (⊞)。
+
+&lt;!-- Alt + Enter --&gt;
+&lt;input @keyup.alt.enter=&#34;clear&#34; /&gt;
+
+&lt;!-- Ctrl + 点击 --&gt;
+&lt;div @click.ctrl=&#34;doSomething&#34;&gt;Do something&lt;/div&gt;
+
+# 修饰符允许控制触发一个事件所需的确定组合的系统按键修饰符
+&lt;!-- 当按下 Ctrl 时，即使同时按下 Alt 或 Shift 也会触发 --&gt;
+&lt;button @click.ctrl=&#34;onClick&#34;&gt;A&lt;/button&gt;
+
+&lt;!-- 仅当按下 Ctrl 且未按任何其他键时才会触发 --&gt;
+&lt;button @click.ctrl.exact=&#34;onCtrlClick&#34;&gt;A&lt;/button&gt;
+
+&lt;!-- 仅当没有按下任何系统按键时触发 --&gt;
+&lt;button @click.exact=&#34;onClick&#34;&gt;A&lt;/button&gt;
+</code></pre></li>
+<li>鼠标按键修饰符
+<pre tabindex="0"><code>.left
+.right
+.middle
+</code></pre></li>
+</ol>
+<h2 id="表单输入绑定">表单输入绑定​</h2>
+<pre tabindex="0"><code>&lt;input
+  :value=&#34;text&#34;
+  @input=&#34;event =&gt; text = event.target.value&#34;&gt;
+
+# 简化为
+&lt;input v-model=&#34;text&#34;&gt;
+
+# 基本用法
+&lt;p&gt;Message is: {{ message }}&lt;/p&gt;
+&lt;input v-model=&#34;message&#34; placeholder=&#34;edit me&#34; /&gt;
+
+# 多行文本
+&lt;span&gt;Multiline message is:&lt;/span&gt;
+&lt;p style=&#34;white-space: pre-line;&#34;&gt;{{ message }}&lt;/p&gt;
+&lt;textarea v-model=&#34;message&#34; placeholder=&#34;add multiple lines&#34;&gt;&lt;/textarea&gt;
+
+# 复选框
+&lt;input type=&#34;checkbox&#34; id=&#34;checkbox&#34; v-model=&#34;checked&#34; /&gt;
+&lt;label for=&#34;checkbox&#34;&gt;{{ checked }}&lt;/label&gt;
+
+&lt;!-- 值绑定 --&gt;
+&lt;input
+  type=&#34;checkbox&#34;
+  v-model=&#34;toggle&#34;
+  true-value=&#34;yes&#34;
+  false-value=&#34;no&#34; /&gt;
+&lt;input
+  type=&#34;checkbox&#34;
+  v-model=&#34;toggle&#34;
+  :true-value=&#34;dynamicTrueValue&#34;
+  :false-value=&#34;dynamicFalseValue&#34; /&gt;
+
+# 多个复选框
+const checkedNames = ref([])
+
+&lt;div&gt;Checked names: {{ checkedNames }}&lt;/div&gt;
+&lt;input type=&#34;checkbox&#34; id=&#34;jack&#34; value=&#34;Jack&#34; v-model=&#34;checkedNames&#34;&gt;
+&lt;label for=&#34;jack&#34;&gt;Jack&lt;/label&gt;
+&lt;input type=&#34;checkbox&#34; id=&#34;john&#34; value=&#34;John&#34; v-model=&#34;checkedNames&#34;&gt;
+&lt;label for=&#34;john&#34;&gt;John&lt;/label&gt;
+&lt;input type=&#34;checkbox&#34; id=&#34;mike&#34; value=&#34;Mike&#34; v-model=&#34;checkedNames&#34;&gt;
+&lt;label for=&#34;mike&#34;&gt;Mike&lt;/label&gt;
+
+# 单选按钮
+&lt;div&gt;Picked: {{ picked }}&lt;/div&gt;
+
+&lt;input type=&#34;radio&#34; id=&#34;one&#34; value=&#34;One&#34; v-model=&#34;picked&#34; /&gt;
+&lt;label for=&#34;one&#34;&gt;One&lt;/label&gt;
+
+&lt;input type=&#34;radio&#34; id=&#34;two&#34; value=&#34;Two&#34; v-model=&#34;picked&#34; /&gt;
+&lt;label for=&#34;two&#34;&gt;Two&lt;/label&gt;
+
+# 选择器
+&lt;div&gt;Selected: {{ selected }}&lt;/div&gt;
+
+&lt;select v-model=&#34;selected&#34;&gt;
+  &lt;option disabled value=&#34;&#34;&gt;Please select one&lt;/option&gt;
+  &lt;option&gt;A&lt;/option&gt;
+  &lt;option&gt;B&lt;/option&gt;
+  &lt;option&gt;C&lt;/option&gt;
+&lt;/select&gt;
+
+# 多选，值绑定到一个数组
+&lt;div&gt;Selected: {{ selected }}&lt;/div&gt;
+
+&lt;select v-model=&#34;selected&#34; multiple&gt;
+  &lt;option&gt;A&lt;/option&gt;
+  &lt;option&gt;B&lt;/option&gt;
+  &lt;option&gt;C&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;select v-model=&#34;selected&#34;&gt;
+  &lt;!-- 内联对象字面量 --&gt;
+  &lt;option :value=&#34;{ number: 123 }&#34;&gt;123&lt;/option&gt;
+&lt;/select&gt;
+</code></pre><h3 id="修饰符-1">修饰符</h3>
+<pre tabindex="0"><code>&lt;!-- 在 &#34;change&#34; 事件后同步更新而不是 &#34;input&#34; --&gt;
+&lt;input v-model.lazy=&#34;msg&#34; /&gt;
+
+&lt;!-- 让用户输入自动转换为数字 --&gt;
+&lt;input v-model.number=&#34;age&#34; /&gt;
+
+&lt;!-- 默认自动去除用户输入内容中两端的空格 --&gt;
+&lt;input v-model.trim=&#34;msg&#34; /&gt;
+</code></pre></div>
                     <div class="post_footer">
                         
                         <div class="meta">
