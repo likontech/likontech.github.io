@@ -20,6 +20,23 @@
     </item>
     
     <item>
+      <title>Vue render 和 mixin 浅学</title>
+      <link>https://likontech.github.io/posts/vue-render-%E5%92%8C-mixin-%E6%B5%85%E5%AD%A6/</link>
+      <pubDate>Thu, 03 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/vue-render-%E5%92%8C-mixin-%E6%B5%85%E5%AD%A6/</guid>
+      <description>render 在 Vue.js 中，render 函数是一个核心的概念，用于手动创建虚拟 DOM，并将其渲染为真实的 DOM。通常，我们使用 Vue.js 的模板语法（即在 &amp;lt;template&amp;gt; 标签中编写模板）来声明页面的结构和数据绑定，然后由 Vue.js 自动将模板渲染为虚拟 DOM 和真实的 DOM。
+然而，有时我们需要在更底层的层面上直接控制页面的渲染过程，这时就可以使用 render 函数。render 函数接收一个名为 h 的参数，它是一个创建虚拟 DOM 元素的辅助函数（也称为 hyperscript），你可以用它来手动创建虚拟 DOM。
+h 函数是 Vue.js 中的一个重要概念，它是用于创建虚拟 DOM 元素的辅助函数（也称为 hyperscript）。在 render 函数中，我们可以使用 h 函数手动构建虚拟 DOM，然后 Vue.js 会将这些虚拟 DOM 转换成真实 DOM 并渲染到页面上。
+h 函数的名称是 &amp;ldquo;hyperscript&amp;rdquo; 的缩写，它的名字来自于 JavaScript 中的 &amp;ldquo;hypertext&amp;rdquo;（超文本）和 &amp;ldquo;script&amp;rdquo;（脚本）。这个函数具有以下语法：
+h(tag, data?, children?) tag：表示创建的元素的标签名，可以是字符串形式的标签名，也可以是组件选项对象。例如，&#39;div&#39; 或 MyComponent。
+data（可选）：是一个包含了元素的属性、样式、事件等信息的对象。
+children（可选）：表示元素的子元素，可以是文本内容或其他虚拟 DOM 元素。
+基本的 render 函数使用方法如下：
+import Vue from &amp;#39;vue&amp;#39;; new Vue({ render(h) { // 创建虚拟 DOM 元素并返回 return h(&amp;#39;div&amp;#39;, { class: &amp;#39;container&amp;#39; }, [ h(&amp;#39;h1&amp;#39;, &amp;#39;Hello, Vue!</description>
+    </item>
+    
+    <item>
       <title>Vue Doc 随手记 ——三-五节</title>
       <link>https://likontech.github.io/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E4%B8%89-%E4%BA%94%E8%8A%82/</link>
       <pubDate>Wed, 02 Aug 2023 00:00:00 +0000</pubDate>
