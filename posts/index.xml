@@ -6,7 +6,41 @@
     <description>Recent content in Posts on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue Doc 随手记 ——十-十三节</title>
+      <link>https://likontech.github.io/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%8D%81-%E5%8D%81%E4%B8%89%E8%8A%82/</link>
+      <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%8D%81-%E5%8D%81%E4%B8%89%E8%8A%82/</guid>
+      <description>如果好的老师，好的医生， 评价标准是金钱， 那么也就没必要区分任何职业了 你干嘛的，我赚钱的。 你学啥的，我学赚钱的。 —— 罗翔
+十-十三节 生命周期 侦听器 模板引用 组件基础 生命周期 钩子函数 描述 beforeCreate 实例刚在内存中创建，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。 created 实例已经完全创建，数据观测 (data observer) 和 event/watcher 事件配置之后被调用。 beforeMount 实例在挂载之前被调用。相关的 render 函数首次被调用。 mounted 实例挂载到 DOM 后调用，对应 el 被新创建的 vm.$el 替换。 beforeUpdate 数据更新时调用，但是在虚拟 DOM 重新渲染和打补丁之前。可以在这里访问更新前的状态。 updated 由于数据更改导致的虚拟 DOM 重新渲染和打补丁后调用。 beforeDestroy 实例销毁之前调用。在这一步，实例仍然完全可用。 destroyed Vue 实例销毁后调用，清理工作应在这里进行。 errorCaptured 捕获子孙组件抛出的错误，不会向上冒泡。 侦听器 watch watch 是一个用于监听 Vue 实例数据变化的选项。
+通过使用 watch，你可以在数据发生变化时执行特定的逻辑操作，比如发送网络请求、更新其他数据、触发事件等。
+watch 提供了一种响应式地监视数据变化的方式，使得你可以在数据状态改变时做出相应的反应。
+watch 选项有两种用法：
+直接在组件的选项中定义 是使用实例方法 $watch 1.</description>
+    </item>
+    
+    <item>
+      <title>Vue 插槽</title>
+      <link>https://likontech.github.io/posts/vue-%E6%8F%92%E6%A7%BD/</link>
+      <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/vue-%E6%8F%92%E6%A7%BD/</guid>
+      <description>插槽（Slots）是 Vue.js 中一种强大的组件通信机制，它允许你在组件的模板中预留一些位置，将父组件中的内容传递到子组件中。插槽允许你在父组件中定义子组件的一部分内容，使得子组件可以接收并渲染这些内容。
+当涉及到插槽（Slots）时，Vue.js 提供了三种主要类型的插槽：默认插槽、具名插槽和作用域插槽。这些插槽类型允许你在父组件中向子组件传递内容，并在子组件内部灵活地渲染和处理这些内容。下面我将为你详细解释每种插槽类型。
+1. 默认插槽（Default Slots）：
+默认插槽是最简单的插槽类型，它允许你将父组件中的内容传递给子组件，并在子组件内部渲染。
+父组件模板：
+&amp;lt;template&amp;gt; &amp;lt;child-component&amp;gt; &amp;lt;p&amp;gt;This content will be placed in the default slot.&amp;lt;/p&amp;gt; &amp;lt;/child-component&amp;gt; &amp;lt;/template&amp;gt; 子组件模板：
+&amp;lt;template&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h2&amp;gt;Child Component&amp;lt;/h2&amp;gt; &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 在子组件的模板中，使用 &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt; 标签来表示默认插槽的位置。父组件传递给子组件的内容会被插入到这个位置。
+2. 具名插槽（Named Slots）：
+具名插槽允许你在子组件的不同位置插入不同的内容，每个具名插槽都有一个名称。
+父组件模板：
+&amp;lt;template&amp;gt; &amp;lt;child-component&amp;gt; &amp;lt;template v-slot:header&amp;gt; &amp;lt;h3&amp;gt;This is the header&amp;lt;/h3&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;template v-slot:footer&amp;gt; &amp;lt;p&amp;gt;This is the footer&amp;lt;/p&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;/child-component&amp;gt; &amp;lt;/template&amp;gt; 子组件模板：
+&amp;lt;template&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h2&amp;gt;Child Component&amp;lt;/h2&amp;gt; &amp;lt;slot name=&amp;#34;header&amp;#34;&amp;gt;&amp;lt;/slot&amp;gt; &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt; &amp;lt;slot name=&amp;#34;footer&amp;#34;&amp;gt;&amp;lt;/slot&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 在父组件中，使用 v-slot 指令来为具名插槽命名，并在子组件中使用 &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt; 标签来表示插槽的位置。</description>
+    </item>
+    
     <item>
       <title>Vue Doc 随手记 ——六-九节</title>
       <link>https://likontech.github.io/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%85%AD-%E4%B9%9D%E8%8A%82/</link>

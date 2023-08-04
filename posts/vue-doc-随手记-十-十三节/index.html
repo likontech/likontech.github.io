@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="" />
+	
+	
+	
+	<title>Vue Doc 随手记 ——十-十三节 ｜ likon</title>
+	
+    
+    
+    <meta name="description" content="官方文档随手记" />
+    
+
+    
+    
+    <meta name="keywords" content="likon, 碎碎念, 记录" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://likontech.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/highlight.css" />
+
+    
+    <meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta name="referrer" content="no-referrer-when-downgrade"></head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://likontech.github.io/">
+                    <img class="likon" style="margin-top: -20px; margin-left: -10px;" src="https://likontech.github.io/images/icon_likon.png" width="150px">
+                    
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">岁岁年，碎碎念</p>
+            <div class="my_socials">
+                
+                <a href="https://github.com/likontech" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                <a href="https://twitter.com/likontech" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                <a href="https://likontech.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%8D%81-%E5%8D%81%E4%B8%89%E8%8A%82/'>Vue Doc 随手记 ——十-十三节</a></h2>
+                        <span class="date"><i class="ri-calendar-fill"> </i>2023.08.04</span>
+                        <span>&nbsp;</span>
+                        
+                        
+                            <span class="date" id="busuanzi_container_page_pv">
+                                <i class="ri-eye-fill"> </i><span class="date" id="busuanzi_value_page_pv"></span>
+                            </span>
+                        <span>&nbsp;</span>
+                        <span class="date"><i class="ri-quill-pen-fill"> </i>832</span>
+                    </div>
+
+
+
+
+                    <div class="post_content markdown"><blockquote>
+<p>如果好的老师，好的医生，
+评价标准是金钱，
+那么也就没必要区分任何职业了
+你干嘛的，我赚钱的。
+你学啥的，我学赚钱的。
+—— 罗翔</p>
+</blockquote>
+<h1 id="十-十三节">十-十三节</h1>
+<ol>
+<li>生命周期</li>
+<li>侦听器</li>
+<li>模板引用</li>
+<li>组件基础</li>
+</ol>
+<h2 id="生命周期">生命周期</h2>
+<p><img src="/lk_vue_lifestyle.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>钩子函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>beforeCreate</td>
+<td>实例刚在内存中创建，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。</td>
+</tr>
+<tr>
+<td>created</td>
+<td>实例已经完全创建，数据观测 (data observer) 和 event/watcher 事件配置之后被调用。</td>
+</tr>
+<tr>
+<td>beforeMount</td>
+<td>实例在挂载之前被调用。相关的 render 函数首次被调用。</td>
+</tr>
+<tr>
+<td>mounted</td>
+<td>实例挂载到 DOM 后调用，对应 <code>el</code> 被新创建的 <code>vm.$el</code> 替换。</td>
+</tr>
+<tr>
+<td>beforeUpdate</td>
+<td>数据更新时调用，但是在虚拟 DOM 重新渲染和打补丁之前。可以在这里访问更新前的状态。</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>由于数据更改导致的虚拟 DOM 重新渲染和打补丁后调用。</td>
+</tr>
+<tr>
+<td>beforeDestroy</td>
+<td>实例销毁之前调用。在这一步，实例仍然完全可用。</td>
+</tr>
+<tr>
+<td>destroyed</td>
+<td>Vue 实例销毁后调用，清理工作应在这里进行。</td>
+</tr>
+<tr>
+<td>errorCaptured</td>
+<td>捕获子孙组件抛出的错误，不会向上冒泡。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="侦听器-watch">侦听器 watch</h2>
+<p><code>watch</code> 是一个用于监听 Vue 实例数据变化的选项。</p>
+<p>通过使用 <code>watch</code>，你可以在数据发生变化时执行特定的逻辑操作，比如发送网络请求、更新其他数据、触发事件等。</p>
+<p><code>watch</code> 提供了一种响应式地监视数据变化的方式，使得你可以在数据状态改变时做出相应的反应。</p>
+<p><code>watch</code> 选项有两种用法：</p>
+<ol>
+<li>直接在组件的选项中定义</li>
+<li>是使用实例方法 <code>$watch</code></li>
+</ol>
+<p><strong>1. 在组件选项中使用 watch：</strong></p>
+<pre tabindex="0"><code>export default {
+  data() {
+    return {
+      message: &#39;&#39;,
+    };
+  },
+  watch: {
+    message(newValue, oldValue) {
+      // 当 this.message 改变时会执行这里的逻辑
+      console.log(&#39;Message changed from&#39;, oldValue, &#39;to&#39;, newValue);
+    },
+  },
+};
+</code></pre><p><strong>2. 使用实例方法 <code>$watch</code>：</strong></p>
+<pre tabindex="0"><code>export default {
+  data() {
+    return {
+      message: &#39;&#39;,
+    };
+  },
+  created() {
+    // 使用 $watch 方法监视 message 的变化
+    this.$watch(&#39;message&#39;, (newValue, oldValue) =&gt; {
+      console.log(&#39;Message changed from&#39;, oldValue, &#39;to&#39;, newValue);
+    });
+  },
+};
+</code></pre><p><code>watch</code> 选项可以监听一个或多个数据属性的变化，并在数据发生变化时执行特定的回调函数。这在很多场景下都很有用，例如：</p>
+<ul>
+<li>实时校验表单输入并显示错误信息。</li>
+<li>监听数据变化触发网络请求，实现自动搜索功能。</li>
+<li>响应数据的增删改操作，更新其他相关数据。</li>
+<li>监听路由参数的变化，根据参数变化更新页面内容。</li>
+</ul>
+<p>需要注意的是，尽管 <code>watch</code> 提供了一种方便的方式来监视数据变化，但在某些情况下，你可能会更倾向于使用计算属性（computed）来实现类似的功能。计算属性可以更直接地响应数据变化并进行计算，但对于一些需要异步操作或监听多个数据的情况，使用 <code>watch</code> 更为合适。</p>
+<h3 id="侦听数据源类型">侦听数据源类型</h3>
+<p>watch 的第一个参数可以是不同形式的“数据源”：它可以是一个 ref (包括计算属性)、一个响应式对象、一个 getter 函数、或多个数据源组成的数组：</p>
+<pre tabindex="0"><code>const x = ref(0)
+const y = ref(0)
+
+// 单个 ref
+watch(x, (newX) =&gt; {
+  console.log(`x is ${newX}`)
+})
+
+// getter 函数
+watch(
+  () =&gt; x.value + y.value,
+  (sum) =&gt; {
+    console.log(`sum of x + y is: ${sum}`)
+  }
+)
+
+// 多个来源组成的数组
+watch([x, () =&gt; y.value], ([newX, newY]) =&gt; {
+  console.log(`x is ${newX} and y is ${newY}`)
+})
+
+
+const obj = reactive({ count: 0 })
+
+// 错误，因为 watch() 得到的参数是一个 number
+watch(obj.count, (count) =&gt; {
+  console.log(`count is: ${count}`)
+})
+// 正确，提供一个 getter 函数
+watch(
+  () =&gt; obj.count,
+  (count) =&gt; {
+    console.log(`count is: ${count}`)
+  }
+)
+</code></pre><h3 id="深层侦听器">深层侦听器</h3>
+<p>直接给 watch() 传入一个响应式对象，会隐式地创建一个深层侦听器——该回调函数在所有嵌套的变更时都会被触发：</p>
+<pre tabindex="0"><code>const obj = reactive({ count: 0 })
+
+watch(obj, (newValue, oldValue) =&gt; {
+  // 在嵌套的属性变更时触发
+  // 注意：`newValue` 此处和 `oldValue` 是相等的
+  // 因为它们是同一个对象！
+})
+
+obj.count++
+</code></pre><p>相比之下，一个返回响应式对象的 getter 函数，只有在返回不同的对象时，才会触发回调：</p>
+<pre tabindex="0"><code>watch(
+  () =&gt; state.someObject,
+  () =&gt; {
+    // 仅当 state.someObject 被替换时触发
+  }
+)
+</code></pre><p>你也可以给上面这个例子显式地加上 deep 选项，强制转成深层侦听器：</p>
+<pre tabindex="0"><code>watch(
+  () =&gt; state.someObject,
+  (newValue, oldValue) =&gt; {
+    // 注意：`newValue` 此处和 `oldValue` 是相等的
+    // *除非* state.someObject 被整个替换了
+  },
+  { deep: true }
+)
+</code></pre><blockquote>
+<p>深度侦听需要遍历被侦听对象中的所有嵌套的属性，当用于大型数据结构时，开销很大。因此请只在必要时才使用它，并且要留意性能。</p>
+</blockquote>
+<h3 id="即时回调的侦听器">即时回调的侦听器</h3>
+<p>watch 默认是懒执行的：仅当数据源变化时，才会执行回调。但在某些场景中，我们希望在创建侦听器时，立即执行一遍回调。举例来说，我们想请求一些初始数据，然后在相关状态更改时重新请求数据。</p>
+<pre tabindex="0"><code>watch(source, (newValue, oldValue) =&gt; {
+  // 立即执行，且当 `source` 改变时再次执行
+}, { immediate: true })
+</code></pre><p>下面是一个表格形式的比较，展示了 <code>watch</code> 和 <code>watchEffect</code> 在不同方面的区别：</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th><code>watch</code></th>
+<th><code>watchEffect</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>定义方式</td>
+<td>选项对象中定义，可以指定要监听的数据源</td>
+<td>作为函数使用，内部访问响应式数据并自动追踪依赖关系</td>
+</tr>
+<tr>
+<td>数据监听</td>
+<td>需要明确指定要监听的数据源</td>
+<td>自动捕获函数内部使用的响应式数据</td>
+</tr>
+<tr>
+<td>灵活性</td>
+<td>提供更精细的控制，可以指定多个选项</td>
+<td>更简洁，适用于处理函数内的副作用</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>监听特定的数据变化，需要精细控制选项</td>
+<td>在函数内部处理响应式数据的变化和副作用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="回调的触发时机">回调的触发时机</h3>
+<p>当你更改了响应式状态，它可能会同时触发 Vue 组件更新和侦听器回调。</p>
+<p>默认情况下，用户创建的侦听器回调，都会在 Vue 组件更新之前被调用。这意味着你在侦听器回调中访问的 DOM 将是被 Vue 更新之前的状态。</p>
+<p>如果想在侦听器回调中能访问被 Vue 更新之后的 DOM，你需要指明 flush: &lsquo;post&rsquo; 选项：</p>
+<pre tabindex="0"><code>watch(source, callback, {
+  flush: &#39;post&#39;
+})
+
+watchEffect(callback, {
+  flush: &#39;post&#39;
+})
+
+watchPostEffect(() =&gt; {
+  /* 在 Vue 更新后执行 */
+})
+</code></pre><h3 id="停止侦听器">停止侦听器</h3>
+<p>用的比较少</p>
+<pre tabindex="0"><code>&lt;script setup&gt;
+import { watchEffect } from &#39;vue&#39;
+
+// 它会自动停止
+watchEffect(() =&gt; {})
+
+// ...这个则不会！
+setTimeout(() =&gt; {
+  watchEffect(() =&gt; {})
+}, 100)
+&lt;/script&gt;
+
+const unwatch = watchEffect(() =&gt; {})
+// ...当该侦听器不再需要时
+unwatch()
+
+// 需要异步请求得到的数据
+const data = ref(null)
+watchEffect(() =&gt; {
+  if (data.value) {
+    // 数据加载后执行某些操作...
+  }
+})
+</code></pre><h2 id="模板引用">模板引用</h2>
+<p>模板引用（Template Refs）是 Vue 中的一个特性，它允许你在模板中使用 <code>$refs</code> 对象来引用组件或 DOM 元素。通过模板引用，你可以在 Vue 组件中直接操作 DOM 元素或其他组件实例，而不必通过选择器或其他方式进行查找。</p>
+<p>在 Vue 中，通过在模板中使用 <code>ref</code> 特性来创建模板引用。<code>ref</code> 特性可以应用在普通 HTML 元素上，也可以应用在组件上。</p>
+<p>以下是使用模板引用的示例：</p>
+<pre tabindex="0"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;button ref=&#34;myButton&#34; @click=&#34;changeText&#34;&gt;Click me&lt;/button&gt;
+    &lt;p&gt;{{ message }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      message: &#39;Initial text&#39;,
+    };
+  },
+  methods: {
+    changeText() {
+      // 通过 this.$refs.myButton 访问 DOM 元素
+      this.$refs.myButton.innerText = &#39;Text changed&#39;;
+      // 修改组件中的数据
+      this.message = &#39;Text changed&#39;;
+    },
+  },
+};
+&lt;/script&gt;
+</code></pre><p>在上面的示例中，我们通过 <code>ref</code> 特性给 <code>&lt;button&gt;</code> 元素创建了一个模板引用 <code>myButton</code>。然后，在组件的方法中，我们可以通过 <code>this.$refs.myButton</code> 来访问这个 DOM 元素，并修改其文本内容。</p>
+<p>需要注意的是，模板引用只在组件渲染完成后才能访问。也就是说，当组件的模板渲染完毕后，<code>$refs</code> 对象中才会包含模板引用。</p>
+<p>此外，模板引用也可以应用在组件上，类似地，你可以通过模板引用来直接访问和调用组件实例的方法和属性。</p>
+<pre tabindex="0"><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;my-component ref=&#34;myComponentRef&#34;&gt;&lt;/my-component&gt;
+    &lt;button @click=&#34;callComponentMethod&#34;&gt;Call Component Method&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import MyComponent from &#39;./MyComponent.vue&#39;;
+
+export default {
+  components: {
+    MyComponent,
+  },
+  methods: {
+    callComponentMethod() {
+      // 通过 this.$refs.myComponentRef 访问子组件实例
+      this.$refs.myComponentRef.myMethod();
+    },
+  },
+};
+&lt;/script&gt;
+</code></pre><blockquote>
+<p>如果一个子组件使用的是选项式 API 或没有使用 <!-- raw HTML omitted -->，被引用的组件实例和该子组件的 this 完全一致，这意味着父组件对子组件的每一个属性和方法都有完全的访问权。这使得在父组件和子组件之间创建紧密耦合的实现细节变得很容易，当然也因此，应该只在绝对需要时才使用组件引用。大多数情况下，你应该首先使用标准的 props 和 emit 接口来实现父子组件交互。</p>
+<p>有一个例外的情况，使用了 <!-- raw HTML omitted --> 的组件是默认私有的：一个父组件无法访问到一个使用了 <!-- raw HTML omitted --> 的子组件中的任何东西，除非子组件在其中通过 defineExpose 宏显式暴露：</p>
+<pre tabindex="0"><code>&lt;script setup&gt;
+import { ref } from &#39;vue&#39;
+
+const a = 1
+const b = ref(2)
+
+// 像 defineExpose 这样的编译器宏不需要导入
+defineExpose({
+  a,
+  b
+})
+&lt;/script&gt;
+</code></pre></blockquote>
+<p>v-for 中的模板引用</p>
+<pre tabindex="0"><code>&lt;script setup&gt;
+import { ref, onMounted } from &#39;vue&#39;
+
+const list = ref([
+  /* ... */
+])
+
+// ref 数组并不保证与源数组相同的顺序
+const itemRefs = ref([])
+
+onMounted(() =&gt; console.log(itemRefs.value))
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&#34;item in list&#34; ref=&#34;itemRefs&#34;&gt;
+      {{ item }}
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;
+</code></pre><h2 id="组件基础">组件基础</h2>
+<p>示例</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">ParentComponent</span>.<span style="color:#a6e22e">vue</span> <span style="color:#f92672">--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">Parent</span> <span style="color:#a6e22e">Component</span>&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Counter</span> <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> {{ <span style="color:#a6e22e">counter</span> }}&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">button</span> <span style="color:#f92672">@click</span><span style="color:#e6db74">=&#34;incrementCounter&#34;</span>&gt;<span style="color:#a6e22e">Increment</span> <span style="color:#a6e22e">Counter</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">child-component</span> <span style="color:#f92672">:message</span><span style="color:#e6db74">=&#34;message&#34;</span> <span style="color:#f92672">@childEvent</span><span style="color:#e6db74">=&#34;handleChildEvent&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Computed</span> <span style="color:#a6e22e">Reversed</span> <span style="color:#a6e22e">Message</span><span style="color:#f92672">:</span> {{ <span style="color:#a6e22e">reversedMessage</span> }}&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span>, <span style="color:#a6e22e">computed</span>, <span style="color:#a6e22e">onMounted</span>, <span style="color:#a6e22e">onBeforeUnmount</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ChildComponent</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./ChildComponent.vue&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ChildComponent</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">setup</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">counter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ref</span>(<span style="color:#e6db74">&#39;Hello from parent&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">incrementCounter</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">counter</span>.<span style="color:#a6e22e">value</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleChildEvent</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">dataFromChild</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Received from child:&#39;</span>, <span style="color:#a6e22e">dataFromChild</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Updated from child&#39;</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">reversedMessage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>(() =&gt; <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;&#39;</span>).<span style="color:#a6e22e">reverse</span>().<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">onMounted</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Parent Component mounted&#39;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">onBeforeUnmount</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Parent Component before unmount&#39;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">counter</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">message</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">incrementCounter</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">handleChildEvent</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">reversedMessage</span>,
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--</span> <span style="color:#a6e22e">ChildComponent</span>.<span style="color:#a6e22e">vue</span> <span style="color:#f92672">--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h3</span>&gt;<span style="color:#a6e22e">Child</span> <span style="color:#a6e22e">Component</span>&lt;/<span style="color:#f92672">h3</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Received</span> <span style="color:#a6e22e">Message</span><span style="color:#f92672">:</span> {{ <span style="color:#a6e22e">message</span> }}&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">button</span> <span style="color:#f92672">@click</span><span style="color:#e6db74">=&#34;sendToParent&#34;</span>&gt;<span style="color:#a6e22e">Send</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">Parent</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ref</span>, <span style="color:#a6e22e">emit</span>, <span style="color:#a6e22e">onMounted</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;vue&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> String,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">setup</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sendToParent</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dataToSend</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Data from child&#39;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">emit</span>(<span style="color:#e6db74">&#39;childEvent&#39;</span>, <span style="color:#a6e22e">dataToSend</span>);
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">onMounted</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Child Component mounted&#39;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">sendToParent</span>,
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div></div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://likontech.github.io/tags/vue/">vue</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <img class="likon" style="margin-top: 20px; margin-left: -30px;" src="https://likontech.github.io/images/icon_wechat.png" width="200px">
+                
+                
+
+    <script src="https://utteranc.es/client.js"
+        repo="likontech/likontech.github.io"
+        issue-term="title"
+        label="碎碎念"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>    
+
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        
+            
+            <span id="busuanzi_container_site_pv">
+                <i class="ri-eye-fill"></i> <span id="busuanzi_value_site_pv"></span>
+            </span></div>
+    
+
+    <div class="footer_slogan">
+        <span></span>
+        <img src="https://likontech.github.io/images/funny.png" height="30px" alt="首先要有意思">
+    </div>
+</footer>
+    <script src="https://likontech.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="https://likontech.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://likontech.github.io/js/fancybox.min.js"></script>
+<script src="https://likontech.github.io/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>
