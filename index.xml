@@ -6,7 +6,16 @@
     <description>Recent content on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 04 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue Doc 随手记 ——逻辑复用</title>
+      <link>https://likontech.github.io/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E7%BB%84%E5%90%88%E5%BC%8F%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E7%BB%84%E5%90%88%E5%BC%8F%E5%87%BD%E6%95%B0/</guid>
+      <description>逻辑复用 </description>
+    </item>
+    
     <item>
       <title>Vue Doc 随手记 ——十-十三节</title>
       <link>https://likontech.github.io/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%8D%81-%E5%8D%81%E4%B8%89%E8%8A%82/</link>
