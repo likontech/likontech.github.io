@@ -6,7 +6,42 @@
     <description>Recent content in Posts on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue Doc 随手记 ——组合式函数</title>
+      <link>https://likontech.github.io/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E7%BB%84%E5%90%88%E5%BC%8F%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E7%BB%84%E5%90%88%E5%BC%8F%E5%87%BD%E6%95%B0/</guid>
+      <description>组合式函数 在 Vue 应用的概念中，“组合式函数”(Composables) 是一个利用 Vue 的组合式 API 来封装和复用 有状态逻辑的函数。
+复用公共逻辑
+无状态的逻辑，如 lodash 或是 date-fns 等库。 有状态的逻辑，有状态逻辑负责管理会随时间而变化的状态，如数据库连接状态、触摸手势等 示例：鼠标跟踪器
+&amp;lt;script setup&amp;gt; import { ref, onMounted, onUnmounted } from &amp;#39;vue&amp;#39; const x = ref(0) const y = ref(0) function update(event) { x.value = event.pageX y.value = event.pageY } onMounted(() =&amp;gt; window.addEventListener(&amp;#39;mousemove&amp;#39;, update)) onUnmounted(() =&amp;gt; window.removeEventListener(&amp;#39;mousemove&amp;#39;, update)) &amp;lt;/script&amp;gt; &amp;lt;template&amp;gt;Mouse position is at: {{ x }}, {{ y }}&amp;lt;/template&amp;gt; 如果要多组件复用逻辑，就需要组合式函数。
+// 实现 // mouse.js import { ref, onMounted, onUnmounted } from &amp;#39;vue&amp;#39; // 按照惯例，组合式函数名以“use”开头 export function useMouse() { // 被组合式函数封装和管理的状态 const x = ref(0) const y = ref(0) // 组合式函数可以随时更改其状态。 function update(event) { x.</description>
+    </item>
+    
+    <item>
+      <title>使用 Node.js 编写脚本</title>
+      <link>https://likontech.github.io/posts/%E4%BD%BF%E7%94%A8-node.js-%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/%E4%BD%BF%E7%94%A8-node.js-%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/</guid>
+      <description>Hello, Node.js! 按照以下步骤进行操作：
+安装 Node.js： 如果尚未安装 Node.js，你需要从官方网站（https://nodejs.org/）下载并安装适用于你操作系统的版本。
+创建项目目录： 创建一个新的文件夹用于存放你的脚本文件。
+初始化项目： 打开终端（命令行界面），进入你的项目目录，然后运行以下命令来初始化项目（这一步是可选的，但可以帮助你更好地管理依赖项）：
+npm init 按照提示输入项目的信息，或者直接按回车键使用默认值。
+创建脚本文件： 在项目目录中创建一个新的 .js 文件，例如 script.js。
+编写脚本： 使用你喜欢的文本编辑器打开新创建的 .js 文件，然后编写你的 Node.js 脚本代码。以下是一个简单的示例：
+// script.js console.log(&amp;#34;Hello, Node.js!&amp;#34;); 运行脚本： 返回终端，确保你在项目目录中，然后运行以下命令来执行你的脚本：
+node script.js 在这个示例中，终端将会显示 &amp;ldquo;Hello, Node.js!&amp;quot;。
+这只是一个简单的开始。实际上，Node.js 脚本可以涉及更多的操作，如读写文件、处理数据、发起网络请求等。你可以使用 Node.js 的内置模块，也可以使用第三方库来辅助你完成这些任务。
+如果你需要在脚本中使用第三方库，你可以通过 npm install 命令来安装这些库，例如：
+npm install axios 这会将 axios 库安装到你的项目中，并在脚本中使用它。
+Nodejs 内置模块和常见三方库 Node.js 内置模块和常见第三方库进行表格输出：
+内置模块 描述 fs 文件系统操作 http 和 https 创建服务器和发起 HTTP 请求 url 解析和处理 URL 字符串 path 处理文件路径 os 操作系统相关信息 events 创建和处理事件 stream 处理流数据 crypto 加密和解密功能 util 实用工具函数 querystring 解析和处理 URL 查询字符串 child_process 创建子进程执行外部命令 常见第三方库 描述 Express.</description>
+    </item>
+    
     <item>
       <title>如何在数字时代更好地学习</title>
       <link>https://likontech.github.io/posts/%E5%A6%82%E4%BD%95%E5%9C%A8%E6%95%B0%E5%AD%97%E6%97%B6%E4%BB%A3%E6%9B%B4%E5%A5%BD%E5%9C%B0%E5%AD%A6%E4%B9%A0/</link>

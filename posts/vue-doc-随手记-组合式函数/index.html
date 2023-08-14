@@ -9,7 +9,7 @@
 	
 	
 	
-	<title>Vue Doc 随手记 ——逻辑复用 ｜ likon</title>
+	<title>Vue Doc 随手记 ——组合式函数 ｜ likon</title>
 	
     
     
@@ -93,8 +93,8 @@
             <div class="post_page">
                 <div class="post animate__animated animate__fadeInDown">
                     <div class="post_title post_detail_title">
-                        <h2><a href='/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E7%BB%84%E5%90%88%E5%BC%8F%E5%87%BD%E6%95%B0/'>Vue Doc 随手记 ——逻辑复用</a></h2>
-                        <span class="date"><i class="ri-calendar-fill"> </i>2023.08.05</span>
+                        <h2><a href='/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E7%BB%84%E5%90%88%E5%BC%8F%E5%87%BD%E6%95%B0/'>Vue Doc 随手记 ——组合式函数</a></h2>
+                        <span class="date"><i class="ri-calendar-fill"> </i>2023.08.14</span>
                         <span>&nbsp;</span>
                         
                         
@@ -102,14 +102,204 @@
                                 <i class="ri-eye-fill"> </i><span class="date" id="busuanzi_value_page_pv"></span>
                             </span>
                         <span>&nbsp;</span>
-                        <span class="date"><i class="ri-quill-pen-fill"> </i>1</span>
+                        <span class="date"><i class="ri-quill-pen-fill"> </i>557</span>
                     </div>
 
 
 
 
-                    <div class="post_content markdown"><h1 id="逻辑复用">逻辑复用</h1>
-</div>
+                    <div class="post_content markdown"><h2 id="组合式函数">组合式函数</h2>
+<p>在 Vue 应用的概念中，“组合式函数”(Composables) 是一个利用 Vue 的组合式 API 来<em>封装和复用</em> <em>有状态逻辑</em>的<em>函数</em>。</p>
+<p>复用公共逻辑</p>
+<ol>
+<li>无状态的逻辑，如 lodash 或是 date-fns 等库。</li>
+<li>有状态的逻辑，有状态逻辑负责管理会随时间而变化的状态，如数据库连接状态、触摸手势等</li>
+</ol>
+<p>示例：鼠标跟踪器</p>
+<pre tabindex="0"><code>&lt;script setup&gt;
+import { ref, onMounted, onUnmounted } from &#39;vue&#39;
+
+const x = ref(0)
+const y = ref(0)
+
+function update(event) {
+  x.value = event.pageX
+  y.value = event.pageY
+}
+
+onMounted(() =&gt; window.addEventListener(&#39;mousemove&#39;, update))
+onUnmounted(() =&gt; window.removeEventListener(&#39;mousemove&#39;, update))
+&lt;/script&gt;
+
+&lt;template&gt;Mouse position is at: {{ x }}, {{ y }}&lt;/template&gt;
+</code></pre><p>如果要多组件复用逻辑，就需要组合式函数。</p>
+<pre tabindex="0"><code>// 实现
+// mouse.js
+import { ref, onMounted, onUnmounted } from &#39;vue&#39;
+
+// 按照惯例，组合式函数名以“use”开头
+export function useMouse() {
+  // 被组合式函数封装和管理的状态
+  const x = ref(0)
+  const y = ref(0)
+
+  // 组合式函数可以随时更改其状态。
+  function update(event) {
+    x.value = event.pageX
+    y.value = event.pageY
+  }
+
+  // 一个组合式函数也可以挂靠在所属组件的生命周期上
+  // 来启动和卸载副作用
+  onMounted(() =&gt; window.addEventListener(&#39;mousemove&#39;, update))
+  onUnmounted(() =&gt; window.removeEventListener(&#39;mousemove&#39;, update))
+
+  // 通过返回值暴露所管理的状态
+  return { x, y }
+}
+
+// 使用
+&lt;script setup&gt;
+import { useMouse } from &#39;./mouse.js&#39;
+
+const { x, y } = useMouse()
+&lt;/script&gt;
+
+&lt;template&gt;Mouse position is at: {{ x }}, {{ y }}&lt;/template&gt;
+</code></pre><p>嵌套多个组合式函数</p>
+<pre tabindex="0"><code>// event.js
+import { onMounted, onUnmounted } from &#39;vue&#39;
+
+export function useEventListener(target, event, callback) {
+  // 如果你想的话，
+  // 也可以用字符串形式的 CSS 选择器来寻找目标 DOM 元素
+  onMounted(() =&gt; target.addEventListener(event, callback))
+  onUnmounted(() =&gt; target.removeEventListener(event, callback))
+}
+
+// mouse.js
+import { ref } from &#39;vue&#39;
+import { useEventListener } from &#39;./event&#39;
+
+export function useMouse() {
+  const x = ref(0)
+  const y = ref(0)
+
+  useEventListener(window, &#39;mousemove&#39;, (event) =&gt; {
+    x.value = event.pageX
+    y.value = event.pageY
+  })
+
+  return { x, y }
+}
+
+// 使用
+&lt;script setup&gt;
+import { useMouse } from &#39;./mouse.js&#39;
+
+const { x, y } = useMouse()
+&lt;/script&gt;
+
+&lt;template&gt;Mouse position is at: {{ x }}, {{ y }}&lt;/template&gt;
+</code></pre><p>异步状态示例（接受参数的进行网络请求，并渲染页面状态）</p>
+<pre tabindex="0"><code>&lt;script setup&gt;
+import { ref } from &#39;vue&#39;
+
+const data = ref(null)
+const error = ref(null)
+
+fetch(&#39;...&#39;)
+  .then((res) =&gt; res.json())
+  .then((json) =&gt; (data.value = json))
+  .catch((err) =&gt; (error.value = err))
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div v-if=&#34;error&#34;&gt;Oops! Error encountered: {{ error.message }}&lt;/div&gt;
+  &lt;div v-else-if=&#34;data&#34;&gt;
+    Data loaded:
+    &lt;pre&gt;{{ data }}&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;div v-else&gt;Loading...&lt;/div&gt;
+&lt;/template&gt;
+</code></pre><p>封装为组合式函数</p>
+<pre tabindex="0"><code>// fetch.js
+import { ref } from &#39;vue&#39;
+
+export function useFetch(url) {
+  const data = ref(null)
+  const error = ref(null)
+
+  fetch(url)
+    .then((res) =&gt; res.json())
+    .then((json) =&gt; (data.value = json))
+    .catch((err) =&gt; (error.value = err))
+
+  return { data, error }
+}
+
+// 使用
+&lt;script setup&gt;
+import { useFetch } from &#39;./fetch.js&#39;
+
+const { data, error } = useFetch(&#39;...&#39;)
+&lt;/script&gt;
+</code></pre><p>接收响应式状态</p>
+<p>useFetch() 接收一个静态 URL 字符串作为输入——因此它只会执行一次 fetch 并且就此结束。如果我们想要在 URL 改变时重新 fetch 呢？为了实现这一点，我们需要将响应式状态传入组合式函数，并让它基于传入的状态来创建执行操作的侦听器。</p>
+<p>举例来说，useFetch() 应该能够接收一个 ref：</p>
+<pre tabindex="0"><code>const url = ref(&#39;/initial-url&#39;)
+
+const { data, error } = useFetch(url)
+
+// 这将会重新触发 fetch
+url.value = &#39;/new-url&#39;
+
+
+// 或者接收一个 getter 函数：
+// 当 props.id 改变时重新 fetch
+const { data, error } = useFetch(() =&gt; `/posts/${props.id}`)
+</code></pre><pre tabindex="0"><code>// fetch.js
+import { ref, watchEffect, toValue } from &#39;vue&#39;
+
+export function useFetch(url) {
+  const data = ref(null)
+  const error = ref(null)
+
+  watchEffect(() =&gt; {
+    // 在 fetch 之前重置状态
+    data.value = null
+    error.value = null
+    // toValue() 将可能的 ref 或 getter 解包
+    fetch(toValue(url))
+      .then((res) =&gt; res.json())
+      .then((json) =&gt; (data.value = json))
+      .catch((err) =&gt; (error.value = err))
+  })
+
+  return { data, error }
+}
+</code></pre><h3 id="最佳实践">最佳实践</h3>
+<p>命名：组合式函数约定用驼峰命名法命名，并以“use”作为开头。</p>
+<p>输入参数​：处理一下输入参数是 ref 或 getter 而非原始值的情况。可以利用 toValue() 工具函数来实现</p>
+<pre tabindex="0"><code>import { toValue } from &#39;vue&#39;
+
+function useFeature(maybeRefOrGetter) {
+  // 如果 maybeRefOrGetter 是一个 ref 或 getter，
+  // 将返回它的规范化值。
+  // 否则原样返回。
+  const value = toValue(maybeRefOrGetter)
+}
+</code></pre><p>返回值​：返回一个响应式对象会导致在对象解构过程中丢失与组合式函数内状态的响应性连接。与之相反，ref 则可以维持这一响应性连接。</p>
+<pre tabindex="0"><code>// x 和 y 是两个 ref
+const { x, y } = useMouse()
+</code></pre><p>从组合式函数返回一个响应式对象会导致在对象解构过程中丢失与组合式函数内状态的响应性连接。与之相反，ref 则可以维持这一响应性连接。</p>
+<p>如果你更希望以对象属性的形式来使用组合式函数中返回的状态，你可以将返回的对象用 reactive() 包装一次，这样其中的 ref 会被自动解包，例如</p>
+<pre tabindex="0"><code>const mouse = reactive(useMouse())
+// mouse.x 链接到了原来的 x ref
+console.log(mouse.x)
+
+Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
+</code></pre></div>
                     <div class="post_footer">
                         
                         <div class="meta">

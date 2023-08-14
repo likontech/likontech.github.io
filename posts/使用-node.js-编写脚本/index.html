@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="" />
+	
+	
+	
+	<title>使用 Node.js 编写脚本 ｜ likon</title>
+	
+    
+    
+    <meta name="description" content="使用 Node.js 编写脚本" />
+    
+
+    
+    
+    <meta name="keywords" content="likon, 碎碎念, 记录" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://likontech.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/highlight.css" />
+
+    
+    <meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta name="referrer" content="no-referrer-when-downgrade"></head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://likontech.github.io/">
+                    <img class="likon" style="margin-top: -20px; margin-left: -10px;" src="https://likontech.github.io/images/icon_likon.png" width="150px">
+                    
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">岁岁年，碎碎念</p>
+            <div class="my_socials">
+                
+                <a href="https://github.com/likontech" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                <a href="https://twitter.com/likontech" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                <a href="https://likontech.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/%E4%BD%BF%E7%94%A8-node.js-%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/'>使用 Node.js 编写脚本</a></h2>
+                        <span class="date"><i class="ri-calendar-fill"> </i>2023.08.14</span>
+                        <span>&nbsp;</span>
+                        
+                        
+                            <span class="date" id="busuanzi_container_page_pv">
+                                <i class="ri-eye-fill"> </i><span class="date" id="busuanzi_value_page_pv"></span>
+                            </span>
+                        <span>&nbsp;</span>
+                        <span class="date"><i class="ri-quill-pen-fill"> </i>123</span>
+                    </div>
+
+
+
+
+                    <div class="post_content markdown"><h2 id="hello-nodejs">Hello, Node.js!</h2>
+<p>按照以下步骤进行操作：</p>
+<ol>
+<li>
+<p><strong>安装 Node.js：</strong> 如果尚未安装 Node.js，你需要从官方网站（https://nodejs.org/）下载并安装适用于你操作系统的版本。</p>
+</li>
+<li>
+<p><strong>创建项目目录：</strong> 创建一个新的文件夹用于存放你的脚本文件。</p>
+</li>
+<li>
+<p><strong>初始化项目：</strong> 打开终端（命令行界面），进入你的项目目录，然后运行以下命令来初始化项目（这一步是可选的，但可以帮助你更好地管理依赖项）：</p>
+<pre tabindex="0"><code>npm init
+</code></pre><p>按照提示输入项目的信息，或者直接按回车键使用默认值。</p>
+</li>
+<li>
+<p><strong>创建脚本文件：</strong> 在项目目录中创建一个新的 <code>.js</code> 文件，例如 <code>script.js</code>。</p>
+</li>
+<li>
+<p><strong>编写脚本：</strong> 使用你喜欢的文本编辑器打开新创建的 <code>.js</code> 文件，然后编写你的 Node.js 脚本代码。以下是一个简单的示例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// script.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello, Node.js!&#34;</span>);
+</span></span></code></pre></div></li>
+<li>
+<p><strong>运行脚本：</strong> 返回终端，确保你在项目目录中，然后运行以下命令来执行你的脚本：</p>
+<pre tabindex="0"><code>node script.js
+</code></pre><p>在这个示例中，终端将会显示 &ldquo;Hello, Node.js!&quot;。</p>
+</li>
+</ol>
+<p>这只是一个简单的开始。实际上，Node.js 脚本可以涉及更多的操作，如读写文件、处理数据、发起网络请求等。你可以使用 Node.js 的内置模块，也可以使用第三方库来辅助你完成这些任务。</p>
+<p>如果你需要在脚本中使用第三方库，你可以通过 <code>npm install</code> 命令来安装这些库，例如：</p>
+<pre tabindex="0"><code>npm install axios
+</code></pre><p>这会将 axios 库安装到你的项目中，并在脚本中使用它。</p>
+<h2 id="nodejs-内置模块和常见三方库">Nodejs 内置模块和常见三方库</h2>
+<p>Node.js 内置模块和常见第三方库进行表格输出：</p>
+<table>
+<thead>
+<tr>
+<th>内置模块</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fs</td>
+<td>文件系统操作</td>
+</tr>
+<tr>
+<td>http 和 https</td>
+<td>创建服务器和发起 HTTP 请求</td>
+</tr>
+<tr>
+<td>url</td>
+<td>解析和处理 URL 字符串</td>
+</tr>
+<tr>
+<td>path</td>
+<td>处理文件路径</td>
+</tr>
+<tr>
+<td>os</td>
+<td>操作系统相关信息</td>
+</tr>
+<tr>
+<td>events</td>
+<td>创建和处理事件</td>
+</tr>
+<tr>
+<td>stream</td>
+<td>处理流数据</td>
+</tr>
+<tr>
+<td>crypto</td>
+<td>加密和解密功能</td>
+</tr>
+<tr>
+<td>util</td>
+<td>实用工具函数</td>
+</tr>
+<tr>
+<td>querystring</td>
+<td>解析和处理 URL 查询字符串</td>
+</tr>
+<tr>
+<td>child_process</td>
+<td>创建子进程执行外部命令</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>常见第三方库</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Express.js</td>
+<td>Web 应用程序框架</td>
+</tr>
+<tr>
+<td>axios</td>
+<td>HTTP 客户端</td>
+</tr>
+<tr>
+<td>lodash</td>
+<td>实用工具库</td>
+</tr>
+<tr>
+<td>moment.js</td>
+<td>日期和时间处理库</td>
+</tr>
+<tr>
+<td>async.js</td>
+<td>异步操作工具库</td>
+</tr>
+<tr>
+<td>socket.io</td>
+<td>实时通信库</td>
+</tr>
+<tr>
+<td>mongoose</td>
+<td>MongoDB ODM 库</td>
+</tr>
+<tr>
+<td>yargs</td>
+<td>解析命令行参数和生成命令行界面</td>
+</tr>
+<tr>
+<td>nodemailer</td>
+<td>发送电子邮件的库</td>
+</tr>
+<tr>
+<td>jsonwebtoken</td>
+<td>创建和解析 JSON Web Tokens（JWT）的库</td>
+</tr>
+<tr>
+<td>request-promise</td>
+<td>进行 HTTP 请求的 Promise 风格库</td>
+</tr>
+<tr>
+<td>chalk</td>
+<td>在终端中添加颜色和样式的库</td>
+</tr>
+</tbody>
+</table>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://likontech.github.io/tags/node/">node</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <img class="likon" style="margin-top: 20px; margin-left: -30px;" src="https://likontech.github.io/images/icon_wechat.png" width="200px">
+                
+                
+
+    <script src="https://utteranc.es/client.js"
+        repo="likontech/likontech.github.io"
+        issue-term="title"
+        label="碎碎念"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>    
+
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        
+            
+            <span id="busuanzi_container_site_pv">
+                <i class="ri-eye-fill"></i> <span id="busuanzi_value_site_pv"></span>
+            </span></div>
+    
+
+    <div class="footer_slogan">
+        <span></span>
+        <img src="https://likontech.github.io/images/funny.png" height="30px" alt="首先要有意思">
+    </div>
+</footer>
+    <script src="https://likontech.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="https://likontech.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://likontech.github.io/js/fancybox.min.js"></script>
+<script src="https://likontech.github.io/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>
