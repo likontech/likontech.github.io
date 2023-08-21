@@ -6,7 +6,17 @@
     <description>Recent content in node on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/node/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/node/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>轻松管理不同项目之间的Node.js版本</title>
+      <link>https://likontech.github.io/posts/%E8%BD%BB%E6%9D%BE%E7%AE%A1%E7%90%86%E4%B8%8D%E5%90%8C%E9%A1%B9%E7%9B%AE%E4%B9%8B%E9%97%B4%E7%9A%84node.js%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Mon, 21 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/%E8%BD%BB%E6%9D%BE%E7%AE%A1%E7%90%86%E4%B8%8D%E5%90%8C%E9%A1%B9%E7%9B%AE%E4%B9%8B%E9%97%B4%E7%9A%84node.js%E7%89%88%E6%9C%AC/</guid>
+      <description>Node.js 版本管理工具 以下是一些常用的 Node.js 版本管理工具，按照 star 数量降序排列，并列出它们的特点、优劣势：
+工具名称 GitHub 仓库链接 Stars 数量 特点 优势 劣势 NVM (Node Version Manager) nvm-sh/nvm 约 69.4k - 支持在项目和系统级别管理 Node.js 版本。- 强大的社区支持和活跃的维护。- 跨平台使用。- 能够在项目目录中指定版本。 - 受欢迎的工具，有大量文档和资源。- 可以方便地切换不同版本。- 适合多个项目和多个版本的情况。 - 需要安装 NVM，初次设置较多。- 在某些系统上可能需要额外的配置。 asdf asdf-vm/asdf 约 18.2k - 多用途的版本管理工具，支持多种编程语言和工具。- 插件系统提供广泛的支持。 - 一个工具可以管理多个编程语言的版本。- 跨平台使用。- 插件系统扩展了其功能。 - 对于仅需管理 Node.js 版本的情况可能过于庞大。- 插件系统需要一些学习成本。 nvm-windows coreybutler/nvm-windows 约 29.9k - Windows 平台上的 NVM 版本。- 支持在项目和系统级别管理 Node.js 版本。- 跨平台使用。 - 在 Windows 环境中管理 Node.</description>
+    </item>
+    
     <item>
       <title>使用 Node.js 编写脚本</title>
       <link>https://likontech.github.io/posts/%E4%BD%BF%E7%94%A8-node.js-%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC/</link>
