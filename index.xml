@@ -6,7 +6,19 @@
     <description>Recent content on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>有意思周刊（2023 W30）</title>
+      <link>https://likontech.github.io/posts/%E6%9C%89%E6%84%8F%E6%80%9D%E5%91%A8%E5%88%8A2023-w32/</link>
+      <pubDate>Mon, 21 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/%E6%9C%89%E6%84%8F%E6%80%9D%E5%91%A8%E5%88%8A2023-w32/</guid>
+      <description>科技 2023雷军年度演讲全文：成长的经历和感悟 雷军分享了过去30多年经历的几次关键成长和感悟，并宣布小米科技战略升级：深耕底层技术、长期持续投入，软硬深度融合，AI全面赋能，可以总结为一个公式：（软件×硬件）ᴬᴵ 。同时，雷军公布了小米的科技理念：选择对人类文明有长期价值的技术领域，坚持长期持续投入。未来5年，小米研发投入将超过1000亿元。
+稚晖君版“钢铁侠”来了！ 集华为天才少年、野生钢铁侠、B 站百大 UP、科技圈知名 KOL 等诸多光环于一身的 AI 工程师稚晖君，初登创业舞台，6个月造出实机，AI 大模型加持，能当保姆能拧螺丝。
+工具 无极低代码平台的AI之路 AIGC 很火，各个领域都在尝试。通过 AI 自动生成一个管理台站点，这会带来开发效率的提升吗？如果 AI 能快速开发管理台，那么 AI 生成能否完全取代低代码的可视化配置？如果 AI 不能开发整个管理台，那么在什么场景下使用 AI 效果最好？
+AI 日报 日更 AI 资讯，强无敌。</description>
+    </item>
+    
     <item>
       <title>Vue Doc 随手记 ——组合式函数</title>
       <link>https://likontech.github.io/posts/vue-doc-%E9%9A%8F%E6%89%8B%E8%AE%B0-%E7%BB%84%E5%90%88%E5%BC%8F%E5%87%BD%E6%95%B0/</link>
