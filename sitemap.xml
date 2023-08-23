@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://likontech.github.io/categories/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/tags/hugo/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://likontech.github.io/</loc>
-    <lastmod>2023-08-21T00:00:00+00:00</lastmod>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/posts/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/tags/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/categories/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://likontech.github.io/posts/%E7%BB%99-hugo-%E4%BF%AE%E6%94%B9%E5%AD%97%E4%BD%93/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/tags/node/</loc>
     <lastmod>2023-08-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://likontech.github.io/posts/</loc>
-    <lastmod>2023-08-21T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://likontech.github.io/tags/read/</loc>
-    <lastmod>2023-08-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://likontech.github.io/tags/</loc>
     <lastmod>2023-08-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/posts/%E4%BB%8A%E6%99%9A%E7%9C%8B%E9%9B%B7%E6%80%BB%E6%88%90%E9%95%BF%E7%9A%84%E7%BB%8F%E5%8E%86%E5%92%8C%E6%84%9F%E6%82%9F/</loc>
@@ -92,9 +104,6 @@
     <loc>https://likontech.github.io/posts/%E5%A6%82%E4%BD%95%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%BC%9A-ruby-on-rails/</loc>
     <lastmod>2023-07-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://likontech.github.io/categories/</loc>
-    <lastmod>2023-07-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://likontech.github.io/tags/react/</loc>
     <lastmod>2023-07-24T00:00:00+00:00</lastmod>
   </url><url>
@@ -103,12 +112,6 @@
   </url><url>
     <loc>https://likontech.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2023-07-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://likontech.github.io/tags/hugo/</loc>
-    <lastmod>2023-07-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://likontech.github.io/categories/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-07-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://likontech.github.io/posts/%E7%BB%99-hugo-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F/</loc>
     <lastmod>2023-07-20T00:00:00+00:00</lastmod>

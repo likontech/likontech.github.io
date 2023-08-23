@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="" />
+	
+	
+	
+	<title>给 hugo 修改字体 ｜ likon</title>
+	
+    
+    
+    <meta name="description" content="Hugo修改自定义字体" />
+    
+
+    
+    
+    <meta name="keywords" content="hugo, 字体, 自定义, 阿里妈妈刀隶体" />
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://likontech.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://likontech.github.io/css/highlight.css" />
+
+    
+    <meta name="baidu-site-verification" content="codeva-8R2pKP1np7" /><meta name="google-site-verification" content="ygQ8KQgcIWSof2ZwcTWHsY7J0FEV5LF6uxVybFBHEBc" />
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <meta name="referrer" content="no-referrer-when-downgrade"></head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://likontech.github.io/">
+                    <img class="likon" style="margin-top: -20px; margin-left: -10px;" src="https://likontech.github.io/images/icon_likon.png" width="150px">
+                    
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">岁岁年，碎碎念</p>
+            <div class="my_socials">
+                
+                <a href="https://github.com/likontech" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                <a href="https://twitter.com/likontech" title="twitter" target="_blank"><i class="ri-twitter-fill"></i></a>
+                
+                <a href="https://likontech.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/%E7%BB%99-hugo-%E4%BF%AE%E6%94%B9%E5%AD%97%E4%BD%93/'>给 hugo 修改字体</a></h2>
+                        <span class="date"><i class="ri-calendar-fill"> </i>2023.08.23</span>
+                        <span>&nbsp;</span>
+                        
+                        
+                            <span class="date" id="busuanzi_container_page_pv">
+                                <i class="ri-eye-fill"> </i><span class="date" id="busuanzi_value_page_pv"></span>
+                            </span>
+                        <span>&nbsp;</span>
+                        <span class="date"><i class="ri-quill-pen-fill"> </i>141</span>
+                    </div>
+
+
+
+
+                    <div class="post_content markdown"><h1 id="前言">前言</h1>
+<p>修改下文章字体，感谢[阿里妈妈刀隶体|https://www.iconfont.cn/fonts/detail?spm=a313x.fonts_index.i1.d9df05512.16883a81II8oFL&amp;cnid=1ntUmJ7Q4Jhw]~</p>
+<h1 id="开整">开整</h1>
+<h2 id="下载喜欢的字体">下载喜欢的字体</h2>
+<p>找到你喜欢的字体，如本文采用 [阿里妈妈刀隶体|https://www.iconfont.cn/fonts/detail?spm=a313x.fonts_index.i1.d9df05512.16883a81II8oFL&amp;cnid=1ntUmJ7Q4Jhw]</p>
+<p>下载字体，本文下载和使用 AlimamaDaoLiTi.woff2</p>
+<h2 id="加入到-hugo-主题中">加入到 Hugo 主题中</h2>
+<p>以 zozo 主题为例子</p>
+<h3 id="添加字体文件">添加字体文件</h3>
+<p>将字体文件引入到 themes &gt; zozo &gt; static &gt; fonts 目录下（如果没有目录自行新建）</p>
+<h3 id="新建-fontscss-文件">新建 fonts.css 文件</h3>
+<p>在 themes &gt; zozo &gt; static &gt; css 目录下新建 fonts.css 文件，并添加内容</p>
+<pre tabindex="0"><code>@font-face {
+    font-family: AlimamaDaoLiTi;
+    src: url(&#34;../fonts/AlimamaDaoLiTi.woff2&#34;) format(&#39;woff2&#39;);
+}
+</code></pre><h3 id="添加-fontscss-到文章模板中">添加 fonts.css 到文章模板中</h3>
+<p>在 themes &gt; zozo &gt; layouts &gt; partials 的 head.html 文件中添加 fonts.css</p>
+<pre tabindex="0"><code>&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css&#34; /&gt;
+&lt;!-- 新添加的位置 --&gt;
+&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;{{ &#34;css/fonts.css&#34; |absURL }}&#34; /&gt;
+&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; media=&#34;screen&#34; href=&#34;{{ &#34;css/zozo.css&#34; |absURL }}&#34; /&gt;
+</code></pre><h3 id="修改文章字体">修改文章字体</h3>
+<p>在 themes &gt; zozo &gt; static &gt; css 目录下的 zozo.css 文件中 body 中修改 font-family，添加 AlimamaDaoLiTi</p>
+<pre tabindex="0"><code>body {
+  color: #333333;
+  font-family: AlimamaDaoLiTi, &#34;Helvetica Neue&#34;, Arial, &#34;Noto Sans&#34;, sans-serif, &#34;Apple Color Emoji&#34;, &#34;Segoe UI Emoji&#34;, &#34;Segoe UI Symbol&#34;, &#34;Noto Color Emoji&#34;;
+  font-size: 18px;
+  width: 100%;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+</code></pre><h2 id="发布">发布</h2>
+<p>提交主题修改和发布博客即可。</p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://likontech.github.io/tags/hugo/">hugo</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <img class="likon" style="margin-top: 20px; margin-left: -30px;" src="https://likontech.github.io/images/icon_wechat.png" width="200px">
+                
+                
+
+    <script src="https://utteranc.es/client.js"
+        repo="likontech/likontech.github.io"
+        issue-term="title"
+        label="碎碎念"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>    
+
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        
+            
+            <span id="busuanzi_container_site_pv">
+                <i class="ri-eye-fill"></i> <span id="busuanzi_value_site_pv"></span>
+            </span></div>
+    
+
+    <div class="footer_slogan">
+        <span></span>
+        <img src="https://likontech.github.io/images/funny.png" height="30px" alt="首先要有意思">
+    </div>
+</footer>
+    <script src="https://likontech.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="https://likontech.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://likontech.github.io/js/fancybox.min.js"></script>
+<script src="https://likontech.github.io/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>

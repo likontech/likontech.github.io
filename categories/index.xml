@@ -6,22 +6,22 @@
     <description>Recent content in Categories on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>博客</title>
+      <link>https://likontech.github.io/categories/%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/categories/%E5%8D%9A%E5%AE%A2/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>前端</title>
       <link>https://likontech.github.io/categories/%E5%89%8D%E7%AB%AF/</link>
       <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
       
       <guid>https://likontech.github.io/categories/%E5%89%8D%E7%AB%AF/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>博客</title>
-      <link>https://likontech.github.io/categories/%E5%8D%9A%E5%AE%A2/</link>
-      <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://likontech.github.io/categories/%E5%8D%9A%E5%AE%A2/</guid>
       <description></description>
     </item>
     
