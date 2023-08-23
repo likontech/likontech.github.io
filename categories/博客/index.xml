@@ -13,8 +13,8 @@
       <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://likontech.github.io/posts/%E7%BB%99-hugo-%E4%BF%AE%E6%94%B9%E5%AD%97%E4%BD%93/</guid>
-      <description>前言 修改下文章字体，感谢[阿里妈妈刀隶体|https://www.iconfont.cn/fonts/detail?spm=a313x.fonts_index.i1.d9df05512.16883a81II8oFL&amp;amp;cnid=1ntUmJ7Q4Jhw]~
-开整 下载喜欢的字体 找到你喜欢的字体，如本文采用 [阿里妈妈刀隶体|https://www.iconfont.cn/fonts/detail?spm=a313x.fonts_index.i1.d9df05512.16883a81II8oFL&amp;amp;cnid=1ntUmJ7Q4Jhw]
+      <description>前言 修改下文章字体，感谢阿里妈妈刀隶体~
+开整 下载喜欢的字体 找到你喜欢的字体，如本文采用 阿里妈妈刀隶体
 下载字体，本文下载和使用 AlimamaDaoLiTi.woff2
 加入到 Hugo 主题中 以 zozo 主题为例子
 添加字体文件 将字体文件引入到 themes &amp;gt; zozo &amp;gt; static &amp;gt; fonts 目录下（如果没有目录自行新建）
