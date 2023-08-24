@@ -6,7 +6,32 @@
     <description>Recent content in Posts on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 23 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>日本核废水排放</title>
+      <link>https://likontech.github.io/posts/%E6%97%A5%E6%9C%AC%E6%A0%B8%E5%BA%9F%E6%B0%B4%E6%8E%92%E6%94%BE/</link>
+      <pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/%E6%97%A5%E6%9C%AC%E6%A0%B8%E5%BA%9F%E6%B0%B4%E6%8E%92%E6%94%BE/</guid>
+      <description> 当地时间2023年8月24日13时，日本政府正式开始排放核污染水。
+福岛核事故 2011年3月11日发生在福岛第一核电站的灾难性事件的主要经过如下：
+地震和海啸发生： 2011年3月11日，日本东北地区发生了9.0级的大地震，随后引发了高达15米的巨大海啸。
+核电站受损： 地震导致福岛第一核电站的1-3号机组自动停止。然而，随后的海啸淹没了核电站，摧毁了应急柴油发电机等设备，导致核电站陷入全厂停电状态。
+堆芯熔毁： 由于失去冷却和供电，核反应堆的堆芯开始升温。燃料组件的包壳熔化，燃料颗粒掉落到反应堆底部，形成堆芯熔毁。这导致核燃料的巨大衰变热不能得到有效冷却，可能会引发核燃料熔化。
+氢气爆炸： 堆芯熔毁释放出氢气，积聚的氢气引发了1、3、4号机组的氢气爆炸，导致厂房和设施的严重损坏。
+放射性物质泄漏： 事件导致大量放射性物质泄漏到周围环境，包括气体释放、安全壳破裂、排气泄压操作等。这导致广泛的辐射污染，影响了周边地区的人们和环境。
+避难和清理工作： 周边地区的居民被疏散并划定了警戒区域。随着时间的推移，一些地区逐渐解除了避难指示，但仍有一部分地区保持避难指示。福岛第一核电站的废炉工作也在进行中。
+放射性核素 碘-131（I-131）：
+半衰期：约8.02天 影响：主要影响甲状腺，可能导致甲状腺辐射损伤和甲状腺癌的风险增加，特别是儿童和孕妇。 锶-90（Sr-90）：
+半衰期：约28.8年 影响：积聚在骨骼中，可能对骨髓和骨骼组织产生辐射损伤，增加骨髓抑制和骨骼肿瘤的风险。 铯-137（Cs-137）：
+半衰期：约30.2年 影响：广泛分布在体内，可能对内脏器官产生辐射损伤。 钚-239（Pu-239）：
+半衰期：约24,110年 影响：钚-239是高度放射性和毒性的核素。其放射性衰变产生的α粒子可能对周围组织和细胞造成严重的损害，增加癌症和遗传变异的风险。 锕系元素（包括镎、镅等）：
+影响：锕系元素可能会在体内积累，对身体组织产生辐射损害。 氚（Tritium，H-3）：
+半衰期：约12.3年 影响：氚会以氚氧化物的形式存在，可能通过饮用水和食物进入人体，对健康产生影响。 氡（Radon，Rn-222）：
+半衰期：约3.8天 影响：长期暴露于高氡浓度环境可能增加肺癌的风险。 其他放射性核素（如钡-140、钴-60等）：
+这些核素可能也在福岛核事故中泄漏，对环境和健康产生影响。 </description>
+    </item>
+    
     <item>
       <title>给 hugo 修改字体</title>
       <link>https://likontech.github.io/posts/%E7%BB%99-hugo-%E4%BF%AE%E6%94%B9%E5%AD%97%E4%BD%93/</link>
