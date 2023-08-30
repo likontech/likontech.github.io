@@ -6,7 +6,29 @@
     <description>Recent content in Posts on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 24 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>首先要有意思</title>
+      <link>https://likontech.github.io/posts/%E9%A6%96%E5%85%88%E8%A6%81%E6%9C%89%E6%84%8F%E6%80%9D/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/%E9%A6%96%E5%85%88%E8%A6%81%E6%9C%89%E6%84%8F%E6%80%9D/</guid>
+      <description>科技 AI AI 日报
+日更 AI 资讯，强无敌。
+工具 动画绘制 手绘个头像？
+为所欲为 成语接龙，最终为「为所欲为」
+railymood 听，下雨的声音 🌧
+cantunsee 设计师闯关，练练你的像素眼
+Emoji 合成 一个是 emoji 壁纸，另一个是 emoji 相加，哈哈哈
+Git 命令 找一个 Git 命令需要几步？
+打字练习 是时候拼一拼手速了
+tinypng Smart WebP, PNG and JPEG compression
+emojixd EmojiXD is an online encyclopedia of emojis at 📚.
+paintcodeapp The Ultimate Guide To iPhone Resolutions
+CODELF Search over GitHub, Bitbucket, GitLab to find real-world usage variable names
+binaryconvert Online Binary-Decimal Converter</description>
+    </item>
+    
     <item>
       <title>日本核废水排放</title>
       <link>https://likontech.github.io/posts/%E6%97%A5%E6%9C%AC%E6%A0%B8%E5%BA%9F%E6%B0%B4%E6%8E%92%E6%94%BE/</link>
@@ -81,22 +103,6 @@
 公式：（软件×硬件）ᴬᴵ 软件硬件深度融合，是我们为用户提供独特体验的根本保证 AI是未来的生产力，必须、也必然要全面赋能，也是小米长期持续投入的底层赛道
 小米全面拥抱大模型 2023年4月，小米组建大模型团队，全面拥抱大模型。 与其他公司不同，小米大模型技术的主力突破方向为轻量化、本地部署。让用户既可以拥有数据安全，又可以拥有大模型的先进生产力。
 新品发布会 小米MIX Fold 3 Xiaomi Pad 6 Max 14 小米手环8 Pro Redmi K60 至尊版 小米CyberDog 2 最后 人因梦想而伟大，又因坚持梦想而成长。 只有坚定的梦想和脚踏实地的成长， 我们才能为这个世界展开最美好的想象， 才能描绘这个时代最壮丽的画卷。 成长，步履不停地成长！这就是我们给时代的最好答案。</description>
-    </item>
-    
-    <item>
-      <title>有意思周刊（2023 W32）</title>
-      <link>https://likontech.github.io/posts/%E6%9C%89%E6%84%8F%E6%80%9D%E5%91%A8%E5%88%8A2023-w32/</link>
-      <pubDate>Mon, 21 Aug 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://likontech.github.io/posts/%E6%9C%89%E6%84%8F%E6%80%9D%E5%91%A8%E5%88%8A2023-w32/</guid>
-      <description>科技 2023雷军年度演讲全文：成长的经历和感悟
-雷军分享了过去30多年经历的几次关键成长和感悟，并宣布小米科技战略升级：深耕底层技术、长期持续投入，软硬深度融合，AI全面赋能，可以总结为一个公式：（软件×硬件）ᴬᴵ 。同时，雷军公布了小米的科技理念：选择对人类文明有长期价值的技术领域，坚持长期持续投入。未来5年，小米研发投入将超过1000亿元。
-稚晖君版“钢铁侠”来了！
-集华为天才少年、野生钢铁侠、B 站百大 UP、科技圈知名 KOL 等诸多光环于一身的 AI 工程师稚晖君，初登创业舞台，6个月造出实机，AI 大模型加持，能当保姆能拧螺丝。
-工具 无极低代码平台的AI之路
-AIGC 很火，各个领域都在尝试。通过 AI 自动生成一个管理台站点，这会带来开发效率的提升吗？如果 AI 能快速开发管理台，那么 AI 生成能否完全取代低代码的可视化配置？如果 AI 不能开发整个管理台，那么在什么场景下使用 AI 效果最好？
-AI 日报
-日更 AI 资讯，强无敌。</description>
     </item>
     
     <item>
@@ -226,24 +232,6 @@ watch 选项有两种用法：
 父组件模板：
 &amp;lt;template&amp;gt; &amp;lt;child-component&amp;gt; &amp;lt;template v-slot:header&amp;gt; &amp;lt;h3&amp;gt;This is the header&amp;lt;/h3&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;template v-slot:footer&amp;gt; &amp;lt;p&amp;gt;This is the footer&amp;lt;/p&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;/child-component&amp;gt; &amp;lt;/template&amp;gt; 子组件模板：
 &amp;lt;template&amp;gt; &amp;lt;div&amp;gt; &amp;lt;h2&amp;gt;Child Component&amp;lt;/h2&amp;gt; &amp;lt;slot name=&amp;#34;header&amp;#34;&amp;gt;&amp;lt;/slot&amp;gt; &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt; &amp;lt;slot name=&amp;#34;footer&amp;#34;&amp;gt;&amp;lt;/slot&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; 在父组件中，使用 v-slot 指令来为具名插槽命名，并在子组件中使用 &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt; 标签来表示插槽的位置。</description>
-    </item>
-    
-    <item>
-      <title>有意思周刊（2023 W31）</title>
-      <link>https://likontech.github.io/posts/%E6%9C%89%E6%84%8F%E6%80%9D%E5%91%A8%E5%88%8A2023-w31/</link>
-      <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://likontech.github.io/posts/%E6%9C%89%E6%84%8F%E6%80%9D%E5%91%A8%E5%88%8A2023-w31/</guid>
-      <description>科技 中国气象局：世界正经历以全球变暖为显著特征的气候变化 保护环境，从我做起。
-阿里云通义千问开源 通义千问开源！阿里云开源通义千问70亿参数模型，包括通用模型Qwen-7B和对话模型Qwen-7B-Chat，两款模型均已上线ModelScope魔搭社区，开源、免费、可商用。
-工具 tinypng Smart WebP, PNG and JPEG compression
-emojixd EmojiXD is an online encyclopedia of emojis at 📚.
-paintcodeapp The Ultimate Guide To iPhone Resolutions
-CODELF Search over GitHub, Bitbucket, GitLab to find real-world usage variable names
-binaryconvert Online Binary-Decimal Converter
-GitHut 2.0 A SMALL PLACE TO DISCOVER LANGUAGES IN GITHUB
-learngitbranching &amp;ldquo;Learning Git Branching&amp;rdquo; is arguably the best tutorial so far
-sqlzoo SQL Tutorial</description>
     </item>
     
     <item>
@@ -401,23 +389,6 @@ Nuxt.js：基于 Vue.js 的应用框架，支持服务器端渲染和静态站�
 Restify：专注于构建 RESTful API 的框架，提供易用的路由、请求处理和错误处理等功能。
 Kuzzle：后端框架，提供实时通信、数据存储和身份验证等功能，适用于构建实时应用程序和物联网解决方案。
 SvelteKit：用于构建高性能 Web 应用程序的框架，结合了 Svelte 的组件化开发和服务器端渲染的功能。</description>
-    </item>
-    
-    <item>
-      <title>有意思周刊（2023 W30）</title>
-      <link>https://likontech.github.io/posts/%E6%9C%89%E6%84%8F%E6%80%9D%E5%91%A8%E5%88%8A2023-w30/</link>
-      <pubDate>Fri, 28 Jul 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://likontech.github.io/posts/%E6%9C%89%E6%84%8F%E6%80%9D%E5%91%A8%E5%88%8A2023-w30/</guid>
-      <description>科技 OpenAI 推出安卓版 ChatGPT
-今年 5 月 18 日 OpenAI 推出 iOS 版 ChatGPT 应用，这款应用是 ChatGPT 的首款官方移动应用程序，最初仅限于美国市场。 7 月 26 日安卓版 ChatGPT 已正式上线，目前美国、印度、孟加拉国和巴西四国的安卓用户已经可在谷歌 Play 商店进行下载，并计划在下周拓展到更多地区。
-工具 动画绘制 手绘个头像？
-为所欲为 成语接龙，最终为「为所欲为」
-railymood 听，下雨的声音 🌧
-cantunsee 设计师闯关，练练你的像素眼
-Emoji 合成 一个是 emoji 壁纸，另一个是 emoji 相加，哈哈哈
-Git 命令 找一个 Git 命令需要几步？
-打字练习 是时候拼一拼手速了</description>
     </item>
     
     <item>
