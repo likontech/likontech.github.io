@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>first on likon</title>
+    <link>https://likontech.github.io/tags/first/</link>
+    <description>Recent content in first on likon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 05 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/tags/first/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cron 基础知识</title>
+      <link>https://likontech.github.io/posts/cron-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/cron-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>Cron &amp;ldquo;Cron&amp;rdquo; 这个词源自希腊语中的 &amp;ldquo;χρόνος&amp;rdquo;（chronos），意为 &amp;ldquo;时间&amp;rdquo;。它允许用户按照特定的时间表（例如每天、每周、每月等）来执行任务，而不需要手动干预。
+Cron 是在 Unix 和类 Unix 操作系统中用于执行预定任务的时间管理工具。它允许用户在指定的时间间隔内自动运行命令、脚本或程序。
+基本概念 Cron表达式： Cron 任务的核心是一个 Cron 表达式，它由 5 个或 6 个字段组成，用空格或制表符分隔。这些字段代表了任务的分钟、小时、日期、月份和星期几。在某些实现中，还可以在表达式的开头添加一个用于年份的字段。
+* * * * * command_to_run │ │ │ │ │ │ │ │ │ └─── 星期几 (0 - 6) (0表示周日) │ │ │ └──────── 月份 (1 - 12) │ │ └───────────── 日期 (1 - 31) │ └────────────────── 小时 (0 - 23) └─────────────────────── 分钟 (0 - 59) 特殊字符： 在Cron表达式中，你可以使用一些特殊字符来代表特定的值： * 表示“每”，例如，* 在分钟字段上表示每分钟执行一次。 */n 表示每隔n个单位执行一次，例如，*/15 在分钟字段上表示每15分钟执行一次。 n 表示特定的数值，例如，5 在小时字段上表示在第5小时执行。 编辑Cron任务： 打开终端或 SSH 到你的服务器。</description>
+    </item>
+    
+  </channel>
+</rss>

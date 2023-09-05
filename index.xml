@@ -6,7 +6,43 @@
     <description>Recent content on likon</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://likontech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cron 基础知识</title>
+      <link>https://likontech.github.io/posts/cron-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/cron-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>Cron &amp;ldquo;Cron&amp;rdquo; 这个词源自希腊语中的 &amp;ldquo;χρόνος&amp;rdquo;（chronos），意为 &amp;ldquo;时间&amp;rdquo;。它允许用户按照特定的时间表（例如每天、每周、每月等）来执行任务，而不需要手动干预。
+Cron 是在 Unix 和类 Unix 操作系统中用于执行预定任务的时间管理工具。它允许用户在指定的时间间隔内自动运行命令、脚本或程序。
+基本概念 Cron表达式： Cron 任务的核心是一个 Cron 表达式，它由 5 个或 6 个字段组成，用空格或制表符分隔。这些字段代表了任务的分钟、小时、日期、月份和星期几。在某些实现中，还可以在表达式的开头添加一个用于年份的字段。
+* * * * * command_to_run │ │ │ │ │ │ │ │ │ └─── 星期几 (0 - 6) (0表示周日) │ │ │ └──────── 月份 (1 - 12) │ │ └───────────── 日期 (1 - 31) │ └────────────────── 小时 (0 - 23) └─────────────────────── 分钟 (0 - 59) 特殊字符： 在Cron表达式中，你可以使用一些特殊字符来代表特定的值： * 表示“每”，例如，* 在分钟字段上表示每分钟执行一次。 */n 表示每隔n个单位执行一次，例如，*/15 在分钟字段上表示每15分钟执行一次。 n 表示特定的数值，例如，5 在小时字段上表示在第5小时执行。 编辑Cron任务： 打开终端或 SSH 到你的服务器。</description>
+    </item>
+    
+    <item>
+      <title>前端模块化</title>
+      <link>https://likontech.github.io/posts/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/</link>
+      <pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://likontech.github.io/posts/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/</guid>
+      <description>前端模块化 前端模块化是一种在前端开发中组织和管理代码的方法，旨在提高代码的可维护性、可重用性和可扩展性。模块化开发有助于将前端应用程序拆分成小块（模块），每个模块负责特定的功能或任务。这些模块可以独立开发、测试和维护，并且可以在不同项目中重复使用。
+以下是一些前端模块化的关键概念和工具：
+模块：模块是前端应用程序的独立功能单元，通常包含HTML、CSS和JavaScript。模块可以是页面中的一部分，也可以是可复用的组件，如按钮、表单、导航栏等。
+CommonJS 和 AMD：CommonJS 和 AMD（Asynchronous Module Definition）是两种不同的模块化规范。CommonJS 通常用于后端Node.js开发，而AMD则更适用于前端浏览器环境。它们定义了如何声明、导入和导出模块。
+ES6 模块：ECMAScript 2015（ES6）引入了原生的模块系统，可以在现代浏览器中使用。ES6 模块使用import和export关键字来定义和导入模块。
+模块打包工具：模块打包工具如 Webpack、Parcel、Vite 和 Rollup 能够将多个模块打包成单个文件，以减小文件大小并提高性能。它们还支持代码拆分、懒加载和异步加载等功能。
+依赖管理：模块化开发需要有效地管理模块之间的依赖关系。包管理器如 npm 和 Yarn 用于安装和管理前端项目的依赖项。
+组件化：除了模块化，前端开发还可以采用组件化的方法，将页面拆分成可复用的组件。流行的前端框架如 React、Vue 和 Angular 支持组件化开发，使开发人员能够构建复杂的用户界面。
+单一职责原则：模块化开发倡导单一职责原则，每个模块或组件应该只负责一个具体的任务或功能，以保持代码的清晰性和可维护性。
+前端模块化有助于降低代码的复杂性，提高团队协作效率，并减少潜在的冲突和错误。选择适合你项目的模块化方法和工具取决于你的需求和技术栈。
+演进历程 前端模块化的演进历程可以追溯到几十年前，从最早的无模块化到现代的 ES6 模块化和前端框架的组件化，前端开发经历了一系列重大变革。以下是前端模块化的主要演进历程：
+无模块化时代（1990s - 2000s）：
+在早期的前端开发中，JavaScript 代码通常是一个大而杂的文件，没有明确的模块化结构。 代码的可维护性和可重用性非常差，全局变量容易引发命名冲突和代码混乱。 命名空间模式（2000s - 2010s）：
+开发人员开始使用命名空间来组织和保护全局变量，以减少冲突。 这种模式通过对象字面量创建命名空间，例如：var myApp = {}，然后将所有的函数和变量添加到该命名空间中。 CommonJS 和 AMD（2000s - 2010s）：
+CommonJS 是服务器端 JavaScript 模块系统，但也被部分前端社区采纳，例如使用 Node.js。 AMD（Asynchronous Module Definition）是为浏览器环境设计的模块规范，主要用于异步加载模块。 这两种规范定义了如何声明、导入和导出模块，有助于改善前端代码的结构和可维护性。 ES6 模块（2015 年后）：
+ECMAScript 2015（ES6）引入了原生的模块系统，使得前端开发更加现代化和标准化。 ES6模块使用 import 和 export 关键字，具有静态分析的优势，允许编译器和工具更好地优化和管理模块。 前端框架和组件化（2010s - 至今）：</description>
+    </item>
+    
     <item>
       <title>首先要有意思</title>
       <link>https://likontech.github.io/posts/%E9%A6%96%E5%85%88%E8%A6%81%E6%9C%89%E6%84%8F%E6%80%9D/</link>
